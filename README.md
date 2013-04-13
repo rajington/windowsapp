@@ -206,7 +206,7 @@ var moveToGridProps = function(win, gridProps) {
                               gridProps.size.width * thirdScrenWidth,
                               gridProps.size.height * halfScreenHeight);
 
-    newFrame = NSInsetRect(newFrame, 5, 5);
+    newFrame = NSInsetRect(newFrame, 5, 5); // acts as a little margin between windows, to give shadows some breathing room
     newFrame = NSIntegralRect(newFrame);
 
     [win setFrame: newFrame];
