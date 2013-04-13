@@ -4,23 +4,49 @@ Move/resize your windows with the keyboard; customize it with [JSCocoa](https://
 
 ## Usage
 
-Create a file `~/.windowsapp` and start off with this basic config:
+Create a file `~/.windowsapp` and add some JSCocoa configs to it.
+
+## Fun Configs
+
+### Make Cmd-Shift-R reload your config during testing
 
 ```javascript
-[Keys bind:"p"
- modifiers:["SHIFT", "CMD"]
-        fn: function() {
-    var win = [Windows focusedWindow];
-    var newFrame = [win frame];
-    newFrame.origin.x += 10;
-    [win setFrame: newFrame];
-  }];
-
-[Keys bind:"R"
-      modifiers:["SHIFT", "CMD"]
-        fn: function() {
+[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
     [App reloadConfig];
-  }];
+}];
+```
+
+### Make Cmd-Shift-H move window to left half of screen
+
+```javascript
+[Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
+    var win = [Windows focusedWindow];
+    var newFrame = [[win screen] correctFrameForSerious];
+    newFrame.size.width /= 2;
+    [win setFrame: newFrame];
+}];
+```
+
+### Make Cmd-Shift-L move window to right half of screen
+
+```javascript
+[Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
+    var win = [Windows focusedWindow];
+    var newFrame = [[win screen] correctFrameForSerious];
+    newFrame.origin.x += newFrame.size.width / 2;
+    newFrame.size.width /= 2;
+    [win setFrame: newFrame];
+}];
+```
+
+### Use variables for common modifiers
+
+```javascript
+var mash = ["CMD", "ALT", "CTRL"];
+[Keys bind:"H" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowLeft]; }];
+[Keys bind:"L" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowRight]; }];
+[Keys bind:"J" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowDown]; }];
+[Keys bind:"K" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowUp]; }];
 ```
 
 ## API
