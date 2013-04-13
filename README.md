@@ -7,6 +7,7 @@
 
 [Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
+* [No really, what is Windows.app?](#no-really-what-is-windows-app)
 * [Usage](#usage)
     * [Why JSCocoa?](#why-jscocoa)
 * [Basic Config](#basic-config)
@@ -19,6 +20,16 @@
 * [License](#license)
 * [Change log](#change-log)
 * [Todo](#todo)
+
+## No really, what is Windows.app?
+
+The original goal was to create a bare-bones, minimalist window manager for OS X. But it turns out to be more than that.
+
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates the config file `~/.windowsapp` (written in [JSCocoa](https://github.com/parmanoir/jscocoa/)) whenever you tell it to.
+
+In this config file, you can access Windows.app's [simple API](#api), which lets you bind global hot keys to your own functions, read window and screen sizes and positions, move and resize windows, and focus the closest window in a given direction.
+
+But technically, you can do anything you want in this file. Because it's JSCocoa, it has complete access to all of the Cocoa and Foundation frameworks and ObjC runtime.
 
 ## Usage
 
