@@ -15,7 +15,7 @@ Create your config file at `~/.windowsapp` and write some [JSCocoa](https://gith
 
 ### Why JSCocoa?
 
-* Doesn't require loading up an entire `WebView` just to evaluate JS
+* Doesn't require creating a whole `WebView` just to evaluate JS
 * Gives you the full power of Javascript, as it's a superset of Javascript
 * Gives you nearly the full power of ObjC, including native bracket and dot syntax
 * Has complete access to the ObjC runtime including all Foundation and Cocoa classes
