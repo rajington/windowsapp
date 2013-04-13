@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Download: pre-compiled [Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
+* Download: [Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip) (pre-compiled binary)
 * Current version: **1.1**
 * Requires: OS X 10.7 and up
 
