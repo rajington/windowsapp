@@ -6,7 +6,7 @@ Move/resize your windows with the keyboard; customize it with [JSCocoa](https://
 
 Create a file `~/.windowsapp` and start off with this basic config:
 
-```jscocoa
+```objc
 [Keys bind:"p"
       modifiers:["SHIFT", "CMD"]
         fn: function() {
