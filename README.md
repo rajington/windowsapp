@@ -165,7 +165,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 
 ## License
 
-[Public Domain, CC0 style](http://en.wikipedia.org/wiki/Creative_Commons_license#Public_domain)
+MIT (see [LICENSE](LICENSE) file)
 
 ## Changelog:
 
