@@ -11,6 +11,14 @@
 
 Create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then run the app.
 
+### Why JSCocoa?
+
+* Doesn't require loading up an entire `WebView` just to evaluate JS
+* Gives you the full power of Javascript, as it's a superset of Javascript
+* Gives you nearly the full power of ObjC, including native bracket and dot syntax
+* Has complete access to the ObjC runtime including all Foundation and Cocoa classes
+    * This means you can actually write an entire Cocoa app in it if you choose
+
 ## Basic Config
 
 This basic config makes Mash-HJKL move to the "sides" of the screen.
@@ -165,15 +173,6 @@ var mash = ["CMD", "ALT", "CTRL"];
   - Pops up window with explanation if anything goes wrong
 - 1.0:
   - Initial stable version (or so I think)
-
-## Advantages over alternatives
-
-* Uses [JSCocoa](https://github.com/parmanoir/jscocoa/) to get full power of ObjC while still being JavaScript
-* Source code is extremely small and simple, and easy to navigate and tweak
-* Very cleaner implementation compared to alternatives:
-    * Doesn't create an entire `WebView` just to eval JS
-    * Doesn't leak lots of memory
-    * I could go on...
 
 ## Todo:
 
