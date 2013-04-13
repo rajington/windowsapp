@@ -8,7 +8,7 @@ Create a file `~/.windowsapp` and start off with this basic config:
 
 ```objc
 [Keys bind:"p"
-      modifiers:["SHIFT", "CMD"]
+ modifiers:["SHIFT", "CMD"]
         fn: function() {
     var win = [Windows focusedWindow];
     var newFrame = [win frame];
