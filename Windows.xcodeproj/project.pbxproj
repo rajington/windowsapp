@@ -18,8 +18,8 @@
 		94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5617192096000AC0A6 /* MASShortcutView.m */; };
 		94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */; };
 		94873F60171920B4000AC0A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F5F171920B4000AC0A6 /* Carbon.framework */; };
-		94873F67171929A0000AC0A6 /* SDBindkeyOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F66171929A0000AC0A6 /* SDBindkeyOp.m */; };
-		94873F6A17193270000AC0A6 /* SDBindkeyLegacyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6917193270000AC0A6 /* SDBindkeyLegacyTranslator.m */; };
+		94873F67171929A0000AC0A6 /* SDKeyBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F66171929A0000AC0A6 /* SDKeyBinder.m */; };
+		94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */; };
 		94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6C171937BC000AC0A6 /* SDWindowProxy.m */; };
 		94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */; };
 		94873FC717194DE9000AC0A6 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
@@ -65,10 +65,10 @@
 		94873F5717192096000AC0A6 /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
 		94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
 		94873F5F171920B4000AC0A6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
-		94873F65171929A0000AC0A6 /* SDBindkeyOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBindkeyOp.h; sourceTree = "<group>"; };
-		94873F66171929A0000AC0A6 /* SDBindkeyOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBindkeyOp.m; sourceTree = "<group>"; };
-		94873F6817193270000AC0A6 /* SDBindkeyLegacyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBindkeyLegacyTranslator.h; sourceTree = "<group>"; };
-		94873F6917193270000AC0A6 /* SDBindkeyLegacyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBindkeyLegacyTranslator.m; sourceTree = "<group>"; };
+		94873F65171929A0000AC0A6 /* SDKeyBinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKeyBinder.h; sourceTree = "<group>"; };
+		94873F66171929A0000AC0A6 /* SDKeyBinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKeyBinder.m; sourceTree = "<group>"; };
+		94873F6817193270000AC0A6 /* SDKeyBindingTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDKeyBindingTranslator.h; sourceTree = "<group>"; };
+		94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKeyBindingTranslator.m; sourceTree = "<group>"; };
 		94873F6B171937BC000AC0A6 /* SDWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWindowProxy.h; sourceTree = "<group>"; };
 		94873F6C171937BC000AC0A6 /* SDWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWindowProxy.m; sourceTree = "<group>"; };
 		94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+RealFrame.h"; sourceTree = "<group>"; };
@@ -94,6 +94,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943921B41719AF5900F63073 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				94873F65171929A0000AC0A6 /* SDKeyBinder.h */,
+				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
+				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
+				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
+				94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */,
+				94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		94873F2117191F40000AC0A6 = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +153,8 @@
 				94873F631719223F000AC0A6 /* Third Party */,
 				94873F6217192236000AC0A6 /* XIBs */,
 				94873F611719222D000AC0A6 /* Controllers */,
-				94873F6417192987000AC0A6 /* Unclassified-yet */,
+				943921B41719AF5900F63073 /* API */,
+				94873F6417192987000AC0A6 /* Helpers */,
 				94873F3417191F40000AC0A6 /* Supporting Files */,
 			);
 			path = Windows;
@@ -199,21 +213,15 @@
 			name = "Third Party";
 			sourceTree = "<group>";
 		};
-		94873F6417192987000AC0A6 /* Unclassified-yet */ = {
+		94873F6417192987000AC0A6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				94873F65171929A0000AC0A6 /* SDBindkeyOp.h */,
-				94873F66171929A0000AC0A6 /* SDBindkeyOp.m */,
-				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
-				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
-				94873F6817193270000AC0A6 /* SDBindkeyLegacyTranslator.h */,
-				94873F6917193270000AC0A6 /* SDBindkeyLegacyTranslator.m */,
+				94873F6817193270000AC0A6 /* SDKeyBindingTranslator.h */,
+				94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */,
 				9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */,
 				9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */,
-				94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */,
-				94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */,
 			);
-			name = "Unclassified-yet";
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,8 +312,8 @@
 				94873F5B17192096000AC0A6 /* MASShortcut+UserDefaults.m in Sources */,
 				94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */,
 				94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */,
-				94873F67171929A0000AC0A6 /* SDBindkeyOp.m in Sources */,
-				94873F6A17193270000AC0A6 /* SDBindkeyLegacyTranslator.m in Sources */,
+				94873F67171929A0000AC0A6 /* SDKeyBinder.m in Sources */,
+				94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */,
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
 				94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */,
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,

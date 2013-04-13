@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-@interface SDBindkeyOp : NSObject
+@interface SDKeyBinder : NSObject
 
 - (void) removeKeyBindings;
 - (void) finalizeNewKeyBindings;

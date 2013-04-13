@@ -10,14 +10,14 @@
 
 #import <JSCocoa/JSCocoa.h>
 
-#import "SDBindkeyOp.h"
+#import "SDKeyBinder.h"
 
 #import "SDWindowProxy.h"
 
 @interface AppDelegate ()
 
 @property JSCocoa* jsc;
-@property SDBindkeyOp* bindkeyOp;
+@property SDKeyBinder* bindkeyOp;
 @property NSStatusItem* statusItem;
 
 @end
@@ -33,7 +33,7 @@
 
 - (void) prepareScriptingBridge {
     self.jsc = [JSCocoa new];
-    self.bindkeyOp = [[SDBindkeyOp alloc] init];
+    self.bindkeyOp = [[SDKeyBinder alloc] init];
     
     [self.jsc setObject:self withName:@"App"];
     [self.jsc setObject:[SDWindowProxy self] withName:@"Win"];
@@ -60,7 +60,7 @@
         
         [self.bindkeyOp removeKeyBindings];
         
-        [self.jsc evalJSFile:[@"~/.windowsapp" stringByStandardizingPath]];
+        [self.jsc evalJSString:config];
         
         [self.bindkeyOp finalizeNewKeyBindings];
     });

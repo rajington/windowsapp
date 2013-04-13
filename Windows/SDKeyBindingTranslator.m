@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-#import "SDBindkeyLegacyTranslator.h"
+#import "SDKeyBindingTranslator.h"
 
 // sigh
 
@@ -143,7 +143,7 @@ enum {
     kVK_JIS_Kana                  = 0x68
 };
 
-@implementation SDBindkeyLegacyTranslator
+@implementation SDKeyBindingTranslator
 
 + (NSUInteger) keyCodeForString:(NSString*)str {
     str = [str uppercaseString];
