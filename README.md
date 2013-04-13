@@ -7,15 +7,15 @@
 
 [Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
-* [Usage](#Usage)
-    * [Why JSCocoa?](#Why-JSCocoa?)
-* [Basic Config](Basic Config)
-* [Useful Config Tricks](Useful Config Tricks)
-    * [Make Cmd-Shift-R reload your config during testing](Make Cmd-Shift-R reload your config during testing)
-* [API](API)
-* [License](License)
-* [Change log](Change log)
-* [Todo](Todo)
+* [Usage](#usage)
+    * [Why JSCocoa?](#why-jscocoa)
+* [Basic Config](#basic-config)
+* [Useful Config Tricks](#useful-config-tricks)
+    * [Make Cmd-Shift-R reload your config during testing](#make-cmd-shift-r-reload-your-config-during-testing)
+* [API](#api)
+* [License](#license)
+* [Change log](#change-log)
+* [Todo](#todo)
 
 ## Usage
 
