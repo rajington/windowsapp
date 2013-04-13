@@ -6,9 +6,7 @@
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-#import <Nu/Nu.h>
-
-@interface SDBindkeyOp : NuOperator
+@interface SDBindkeyOp : NSObject
 
 - (void) removeKeyBindings;
 - (void) finalizeNewKeyBindings;

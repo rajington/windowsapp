@@ -8,14 +8,15 @@
 
 #import "AppDelegate.h"
 
-#import <Nu/Nu.h>
+#import <JSCocoa/JSCocoa.h>
 
-#import "SDTrampolineOp.h"
 #import "SDBindkeyOp.h"
 
 #import "SDWindowProxy.h"
 
 @interface AppDelegate ()
+
+@property JSCocoa* jsc;
 
 @property SDBindkeyOp* bindkeyOp;
 
@@ -32,38 +33,14 @@
     self.statusItem.highlightMode = YES;
 }
 
-- (void) addFunctionNamed:(NSString*)fnName block:(id(^)(id cdr, NSMutableDictionary* ctx))blk {
-    NuParser* parser = [Nu sharedParser];
-    
-    SDTrampolineOp* trampOp = [[SDTrampolineOp alloc] init];
-    trampOp.fn = blk;
-    [[parser context] setObject:trampOp forKey:[fnName symbolValue]];
-}
-
 - (void) prepareScriptingBridge {
-    NuParser* parser = [Nu sharedParser];
-    
-    __weak AppDelegate* weakSelf = self; // just to get rid of the warning
-    
-    [self addFunctionNamed:@"reload-config" block:^id(id cdr, NSMutableDictionary *ctx) {
-        [weakSelf reloadConfig:nil];
-        return nil;
-    }];
-    
-    [self addFunctionNamed:@"all-windows" block:^id(id cdr, NSMutableDictionary *ctx) {
-        return [SDWindowProxy allWindows];
-    }];
-    
-    [self addFunctionNamed:@"visible-windows" block:^id(id cdr, NSMutableDictionary *ctx) {
-        return [SDWindowProxy visibleWindows];
-    }];
-    
-    [self addFunctionNamed:@"focused-window" block:^id(id cdr, NSMutableDictionary *ctx) {
-        return [SDWindowProxy focusedWindow];
-    }];
+    self.jsc = [JSCocoa new];
     
     self.bindkeyOp = [[SDBindkeyOp alloc] init];
-    [[parser context] setObject:self.bindkeyOp forKey:[@"bindkey" symbolValue]];
+    
+    [self.jsc setObject:self withName:@"App"];
+    [self.jsc setObject:[SDWindowProxy self] withName:@"Windows"];
+    [self.jsc setObject:self.bindkeyOp withName:@"Keys"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -89,8 +66,7 @@
     
     [self.bindkeyOp removeKeyBindings];
     
-    NuParser* parser = [Nu sharedParser];
-    [parser eval:[parser parse:config]];
+    [self.jsc evalJSFile:[@"~/.windowsapp" stringByStandardizingPath]];
     
     [self.bindkeyOp finalizeNewKeyBindings];
 }
