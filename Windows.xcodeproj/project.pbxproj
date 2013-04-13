@@ -10,10 +10,30 @@
 		94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F2D17191F40000AC0A6 /* Cocoa.framework */; };
 		94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94873F3617191F40000AC0A6 /* InfoPlist.strings */; };
 		94873F3A17191F40000AC0A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F3917191F40000AC0A6 /* main.m */; };
-		94873F3E17191F40000AC0A6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 94873F3C17191F40000AC0A6 /* Credits.rtf */; };
 		94873F4117191F40000AC0A6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F4017191F40000AC0A6 /* AppDelegate.m */; };
 		94873F4417191F40000AC0A6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94873F4217191F40000AC0A6 /* MainMenu.xib */; };
+		94873F4B17192010000AC0A6 /* Nu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F4A17192010000AC0A6 /* Nu.framework */; };
+		94873F4D1719201A000AC0A6 /* Nu.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94873F4A17192010000AC0A6 /* Nu.framework */; };
+		94873F5917192096000AC0A6 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5017192096000AC0A6 /* MASShortcut.m */; };
+		94873F5A17192096000AC0A6 /* MASShortcut+Monitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5217192096000AC0A6 /* MASShortcut+Monitoring.m */; };
+		94873F5B17192096000AC0A6 /* MASShortcut+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5417192096000AC0A6 /* MASShortcut+UserDefaults.m */; };
+		94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5617192096000AC0A6 /* MASShortcutView.m */; };
+		94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */; };
+		94873F60171920B4000AC0A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F5F171920B4000AC0A6 /* Carbon.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94873F4C17192016000AC0A6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94873F4D1719201A000AC0A6 /* Nu.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		94873F2A17191F40000AC0A6 /* Windows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Windows.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,14 +41,25 @@
 		94873F3017191F40000AC0A6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		94873F3117191F40000AC0A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		94873F3217191F40000AC0A6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		94873F3517191F40000AC0A6 /* Windows-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Windows-Info.plist"; sourceTree = "<group>"; };
+		94873F3517191F40000AC0A6 /* Windows-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Windows-Info.plist"; path = "Windows/Windows-Info.plist"; sourceTree = "<group>"; };
 		94873F3717191F40000AC0A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94873F3917191F40000AC0A6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		94873F3B17191F40000AC0A6 /* Windows-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Windows-Prefix.pch"; sourceTree = "<group>"; };
-		94873F3D17191F40000AC0A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		94873F3F17191F40000AC0A6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94873F4017191F40000AC0A6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		94873F4317191F40000AC0A6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		94873F4A17192010000AC0A6 /* Nu.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Nu.framework; sourceTree = "<group>"; };
+		94873F4F17192096000AC0A6 /* MASShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
+		94873F5017192096000AC0A6 /* MASShortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
+		94873F5117192096000AC0A6 /* MASShortcut+Monitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+Monitoring.h"; sourceTree = "<group>"; };
+		94873F5217192096000AC0A6 /* MASShortcut+Monitoring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+Monitoring.m"; sourceTree = "<group>"; };
+		94873F5317192096000AC0A6 /* MASShortcut+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcut+UserDefaults.h"; sourceTree = "<group>"; };
+		94873F5417192096000AC0A6 /* MASShortcut+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcut+UserDefaults.m"; sourceTree = "<group>"; };
+		94873F5517192096000AC0A6 /* MASShortcutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
+		94873F5617192096000AC0A6 /* MASShortcutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
+		94873F5717192096000AC0A6 /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
+		94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
+		94873F5F171920B4000AC0A6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94873F60171920B4000AC0A6 /* Carbon.framework in Frameworks */,
 				94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */,
+				94873F4B17192010000AC0A6 /* Nu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +79,7 @@
 		94873F2117191F40000AC0A6 = {
 			isa = PBXGroup;
 			children = (
+				94873F3517191F40000AC0A6 /* Windows-Info.plist */,
 				94873F3317191F40000AC0A6 /* Windows */,
 				94873F2C17191F40000AC0A6 /* Frameworks */,
 				94873F2B17191F40000AC0A6 /* Products */,
@@ -63,6 +97,8 @@
 		94873F2C17191F40000AC0A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94873F5F171920B4000AC0A6 /* Carbon.framework */,
+				94873F4A17192010000AC0A6 /* Nu.framework */,
 				94873F2D17191F40000AC0A6 /* Cocoa.framework */,
 				94873F2F17191F40000AC0A6 /* Other Frameworks */,
 			);
@@ -82,9 +118,9 @@
 		94873F3317191F40000AC0A6 /* Windows */ = {
 			isa = PBXGroup;
 			children = (
-				94873F3F17191F40000AC0A6 /* AppDelegate.h */,
-				94873F4017191F40000AC0A6 /* AppDelegate.m */,
-				94873F4217191F40000AC0A6 /* MainMenu.xib */,
+				94873F631719223F000AC0A6 /* Third Party */,
+				94873F6217192236000AC0A6 /* XIBs */,
+				94873F611719222D000AC0A6 /* Controllers */,
 				94873F3417191F40000AC0A6 /* Supporting Files */,
 			);
 			path = Windows;
@@ -93,13 +129,53 @@
 		94873F3417191F40000AC0A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				94873F3517191F40000AC0A6 /* Windows-Info.plist */,
 				94873F3617191F40000AC0A6 /* InfoPlist.strings */,
 				94873F3917191F40000AC0A6 /* main.m */,
 				94873F3B17191F40000AC0A6 /* Windows-Prefix.pch */,
-				94873F3C17191F40000AC0A6 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94873F5E1719209B000AC0A6 /* Global Shortcuts */ = {
+			isa = PBXGroup;
+			children = (
+				94873F4F17192096000AC0A6 /* MASShortcut.h */,
+				94873F5017192096000AC0A6 /* MASShortcut.m */,
+				94873F5117192096000AC0A6 /* MASShortcut+Monitoring.h */,
+				94873F5217192096000AC0A6 /* MASShortcut+Monitoring.m */,
+				94873F5317192096000AC0A6 /* MASShortcut+UserDefaults.h */,
+				94873F5417192096000AC0A6 /* MASShortcut+UserDefaults.m */,
+				94873F5517192096000AC0A6 /* MASShortcutView.h */,
+				94873F5617192096000AC0A6 /* MASShortcutView.m */,
+				94873F5717192096000AC0A6 /* MASShortcutView+UserDefaults.h */,
+				94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */,
+			);
+			name = "Global Shortcuts";
+			sourceTree = "<group>";
+		};
+		94873F611719222D000AC0A6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				94873F3F17191F40000AC0A6 /* AppDelegate.h */,
+				94873F4017191F40000AC0A6 /* AppDelegate.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		94873F6217192236000AC0A6 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				94873F4217191F40000AC0A6 /* MainMenu.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
+		94873F631719223F000AC0A6 /* Third Party */ = {
+			isa = PBXGroup;
+			children = (
+				94873F5E1719209B000AC0A6 /* Global Shortcuts */,
+			);
+			name = "Third Party";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +188,8 @@
 				94873F2617191F40000AC0A6 /* Sources */,
 				94873F2717191F40000AC0A6 /* Frameworks */,
 				94873F2817191F40000AC0A6 /* Resources */,
+				94873F4C17192016000AC0A6 /* CopyFiles */,
+				94873F4E1719201E000AC0A6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -154,12 +232,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */,
-				94873F3E17191F40000AC0A6 /* Credits.rtf in Resources */,
 				94873F4417191F40000AC0A6 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94873F4E1719201E000AC0A6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change \"Nu.framework/Versions/A/Nu\" \"@executable_path/../Frameworks/Nu.framework/Versions/A/Nu\" ${BUILT_PRODUCTS_DIR}/${EXECUTABLE_PATH}";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		94873F2617191F40000AC0A6 /* Sources */ = {
@@ -168,6 +261,11 @@
 			files = (
 				94873F3A17191F40000AC0A6 /* main.m in Sources */,
 				94873F4117191F40000AC0A6 /* AppDelegate.m in Sources */,
+				94873F5917192096000AC0A6 /* MASShortcut.m in Sources */,
+				94873F5A17192096000AC0A6 /* MASShortcut+Monitoring.m in Sources */,
+				94873F5B17192096000AC0A6 /* MASShortcut+UserDefaults.m in Sources */,
+				94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */,
+				94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,14 +278,6 @@
 				94873F3717191F40000AC0A6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		94873F3C17191F40000AC0A6 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94873F3D17191F40000AC0A6 /* en */,
-			);
-			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
 		94873F4217191F40000AC0A6 /* MainMenu.xib */ = {
@@ -264,6 +354,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Windows/Windows-Prefix.pch";
 				INFOPLIST_FILE = "Windows/Windows-Info.plist";
@@ -276,6 +370,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Windows/Windows-Prefix.pch";
 				INFOPLIST_FILE = "Windows/Windows-Info.plist";
