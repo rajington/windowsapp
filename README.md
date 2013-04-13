@@ -35,7 +35,7 @@ But technically, you can do anything you want in this file. Because it's JSCocoa
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to [reload the app](#make-cmd-shift-r-reload-your-config-during-testing) during testing so you don't have to click the menu bar icon to do it.)
 
 ### Why JSCocoa?
 
