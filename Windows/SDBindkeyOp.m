@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-#import "BindkeyOp.h"
+#import "SDBindkeyOp.h"
 
 #import <Nu/Nu.h>
 #import "MASShortcut+Monitoring.h"
-#import "BindkeyLegacyTranslator.h"
+#import "SDBindkeyLegacyTranslator.h"
 
 @interface BindkeyPair : NSObject
 @property NSArray* modifiers;
@@ -23,14 +23,14 @@
 @end
 
 
-@interface BindkeyOp ()
+@interface SDBindkeyOp ()
 
 @property NSArray* upcomingHotKeys;
 @property NSArray* globalHandlers;
 
 @end
 
-@implementation BindkeyOp
+@implementation SDBindkeyOp
 
 - (id) callWithArguments:(NuCell*) cdr context:(NSMutableDictionary *) context {
     BindkeyPair* pair = [[BindkeyPair alloc] init];
@@ -54,8 +54,8 @@
     NSMutableArray* handlers = [NSMutableArray array];
     
     for (BindkeyPair* bindkeyPair in self.upcomingHotKeys) {
-        MASShortcut *defaultShortcut = [MASShortcut shortcutWithKeyCode:[BindkeyLegacyTranslator keyCodeForString:bindkeyPair.key]
-                                                          modifierFlags:[BindkeyLegacyTranslator modifierFlagsForStrings:bindkeyPair.modifiers]];
+        MASShortcut *defaultShortcut = [MASShortcut shortcutWithKeyCode:[SDBindkeyLegacyTranslator keyCodeForString:bindkeyPair.key]
+                                                          modifierFlags:[SDBindkeyLegacyTranslator modifierFlagsForStrings:bindkeyPair.modifiers]];
         
         id handler = [MASShortcut addGlobalHotkeyMonitorWithShortcut:defaultShortcut handler:^{
             [bindkeyPair.fn evalWithArguments:nil

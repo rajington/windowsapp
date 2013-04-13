@@ -10,11 +10,14 @@
 
 #import <Nu/Nu.h>
 
-#import "BindkeyOp.h"
+#import "SDTrampolineOp.h"
+#import "SDBindkeyOp.h"
+
+#import "SDWindowProxy.h"
 
 @interface AppDelegate ()
 
-@property BindkeyOp* bindkeyOp;
+@property SDBindkeyOp* bindkeyOp;
 
 @property NSStatusItem* statusItem;
 
@@ -29,12 +32,38 @@
     self.statusItem.highlightMode = YES;
 }
 
+- (void) addFunctionNamed:(NSString*)fnName block:(id(^)(id cdr, NSMutableDictionary* ctx))blk {
+    NuParser* parser = [Nu sharedParser];
+    
+    SDTrampolineOp* trampOp = [[SDTrampolineOp alloc] init];
+    trampOp.fn = blk;
+    [[parser context] setObject:trampOp forKey:[fnName symbolValue]];
+}
+
 - (void) prepareScriptingBridge {
     NuParser* parser = [Nu sharedParser];
     
-    self.bindkeyOp = [[BindkeyOp alloc] init];
-    [[parser context] setObject:self.bindkeyOp
-                         forKey:[@"bindkey" symbolValue]];
+    __weak AppDelegate* weakSelf = self; // just to get rid of the warning
+    
+    [self addFunctionNamed:@"reload-config" block:^id(id cdr, NSMutableDictionary *ctx) {
+        [weakSelf reloadConfig:nil];
+        return nil;
+    }];
+    
+    [self addFunctionNamed:@"all-windows" block:^id(id cdr, NSMutableDictionary *ctx) {
+        return [SDWindowProxy allWindows];
+    }];
+    
+    [self addFunctionNamed:@"visible-windows" block:^id(id cdr, NSMutableDictionary *ctx) {
+        return [SDWindowProxy visibleWindows];
+    }];
+    
+    [self addFunctionNamed:@"focused-window" block:^id(id cdr, NSMutableDictionary *ctx) {
+        return [SDWindowProxy focusedWindow];
+    }];
+    
+    self.bindkeyOp = [[SDBindkeyOp alloc] init];
+    [[parser context] setObject:self.bindkeyOp forKey:[@"bindkey" symbolValue]];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -44,7 +73,9 @@
 }
 
 - (IBAction) reloadConfig:(id)sender {
-    [self readUserConfigFile];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self readUserConfigFile];
+    });
 }
 
 - (void) readUserConfigFile {

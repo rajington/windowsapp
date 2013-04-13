@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BindkeyLegacyTranslator : NSObject
+@interface SDBindkeyLegacyTranslator : NSObject
 
 + (NSUInteger) keyCodeForString:(NSString*)str;
 + (NSUInteger) modifierFlagsForStrings:(NSArray*)strs;

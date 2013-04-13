@@ -8,7 +8,7 @@
 
 #import <Nu/Nu.h>
 
-@interface BindkeyOp : NuOperator
+@interface SDBindkeyOp : NuOperator
 
 - (void) removeKeyBindings;
 - (void) finalizeNewKeyBindings;
