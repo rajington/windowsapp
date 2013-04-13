@@ -2,6 +2,8 @@
 
 *The OS X window manager for hackers*
 
+Current version: **1.0**
+
 ## Advantages over alternatives
 
 * Doesn't have tons of memory leaks
@@ -159,7 +161,12 @@ var mash = ["CMD", "ALT", "CTRL"];
 
 [Public Domain, CC0 style](http://en.wikipedia.org/wiki/Creative_Commons_license#Public_domain)
 
-## TODO:
+## Changelog:
+
+- 1.0:
+  - Initial stable version (or so I think)
+
+## Todo:
 
 * Make a status bar icon
 * Make an app icon
