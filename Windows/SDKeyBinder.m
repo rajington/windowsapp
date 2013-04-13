@@ -33,7 +33,8 @@
 }
 
 - (void) call {
-    [[JSCocoa controllerFromContext:self.mainContext] callJSFunction:(JSObjectRef)(self.actualFn) withArguments:nil];
+    [[JSCocoa controllerFromContext:self.mainContext] callJSFunction:(JSObjectRef)(self.actualFn)
+                                                       withArguments:nil];
 }
 
 - (void) dealloc {

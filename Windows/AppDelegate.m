@@ -34,8 +34,13 @@
     self.statusItem.highlightMode = YES;
 }
 
+- (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
+    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld\n\n%@", lineNumber, error]];
+}
+
 - (void) prepareScriptingBridge {
     self.jsc = [JSCocoa new];
+    self.jsc.delegate = self;
     self.bindkeyOp = [[SDKeyBinder alloc] init];
     
     [self.jsc setObject:self withName:@"App"];
@@ -54,6 +59,8 @@
         self.problemReporter = [[SDConfigProblemReporter alloc] init];
     
     self.problemReporter.problem = problem;
+    
+    [NSApp activateIgnoringOtherApps:YES];
     
     [[self.problemReporter window] center];
     [self.problemReporter showWindow:nil];
