@@ -7,13 +7,6 @@
 
 [Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
-## Advantages over alternatives
-
-* Doesn't have tons of memory leaks
-* Easy to navigate/tweak source code
-* Uses [JSCocoa](https://github.com/parmanoir/jscocoa/) to get full power of ObjC while still being JavaScript
-* Extremely light-weight
-
 ## Usage
 
 Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the app.
@@ -172,6 +165,15 @@ var mash = ["CMD", "ALT", "CTRL"];
   - Pops up window with explanation if anything goes wrong
 - 1.0:
   - Initial stable version (or so I think)
+
+## Advantages over alternatives
+
+* Uses [JSCocoa](https://github.com/parmanoir/jscocoa/) to get full power of ObjC while still being JavaScript
+* Source code is extremely small and simple, and easy to navigate and tweak
+* Very cleaner implementation compared to alternatives:
+    * Doesn't create an entire `WebView` just to eval JS
+    * Doesn't leak lots of memory
+    * I could go on...
 
 ## Todo:
 
