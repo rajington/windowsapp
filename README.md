@@ -87,6 +87,46 @@ var mash = ["CMD", "ALT", "CTRL"];
 [Keys bind:"K" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowUp]; }];
 ```
 
+### Show an alert pop-up
+
+```javascript
+var showAlert = function(title, text) {
+    [NSApp activateIgnoringOtherApps:true];
+    var win = NSAlert.alloc.init;
+    win.messageText = title;
+    win.informativeText = text;
+    [win runModal];
+};
+
+[Keys bind:"z" modifiers:["CMD"] fn: function() {
+    showAlert("stop using undo!", "the past is the past.\n\njust accept it and move on.");
+}];
+```
+
+### Create a window
+
+This creates a window with the same frame as the focused window, makes it green, and brings it to the foreground
+
+```javascript
+var showWindow = function() {
+    var frame = Win.focusedWindow.frame;
+
+    [NSApp activateIgnoringOtherApps:true];
+
+    var w  = [[NSWindow alloc] initWithContentRect:frame
+                                     styleMask:NSTitledWindowMask | NSClosableWindowMask
+                                       backing:NSBackingStoreBuffered
+                                         defer:NO];
+    [w setBackgroundColor:[NSColor greenColor]];
+
+    [w makeKeyAndOrderFront:null];
+};
+
+[Keys bind:"p" modifiers:["CMD"] fn: function() {
+    showWindow();
+}];
+```
+
 ## API
 
 ```objc
@@ -102,7 +142,7 @@ var mash = ["CMD", "ALT", "CTRL"];
     modifiers:(NSArray*)mods
            fn:(JSValueRefAndContextRef)fn;
 
-// key: a single-character string
+// key: a single-character string (doesn't matter if it's upper-case or lower-case)
 // mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
 // fn: a javascript function that takes no args; return val is ignored
 ```
