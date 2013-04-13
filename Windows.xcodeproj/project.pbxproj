@@ -171,6 +171,7 @@
 				94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */,
 			);
 			name = "Global Shortcuts";
+			path = ../MASShortcut;
 			sourceTree = "<group>";
 		};
 		94873F611719222D000AC0A6 /* Controllers */ = {
