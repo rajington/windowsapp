@@ -101,7 +101,7 @@ This makes your screen act like a grid, and lets you move and resize windows wit
 ```javascript
 var mash = ["CMD", "ALT", "CTRL"];
 
-// Cmd-Shift-R reloads this config for testing
+// reload this config for testing
 [Keys bind:"R" modifiers:mash fn: function() {
     [App reloadConfig];
 }];
@@ -180,6 +180,42 @@ var mash = ["CMD", "ALT", "CTRL"];
     moveToGridProps(win, r);
 }];
 
+// throw to next screen
+[Keys bind:"N" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+
+    var screens = [NSScreen screens];
+    var currentScreen = [win screen];
+
+    var idx = [screens indexOfObject:currentScreen];
+
+    idx += 1;
+    if (idx == [screens count])
+        idx = 0;
+
+    var nextScreen = screens[idx];
+
+    moveToGridPropsOnScreen(win, nextScreen, gridProps(win));
+}];
+
+// throw to previous screen (come on, who ever has more than 2 screens?)
+[Keys bind:"P" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+
+    var screens = [NSScreen screens];
+    var currentScreen = [win screen];
+
+    var idx = [screens indexOfObject:currentScreen];
+
+    idx -= 1;
+    if (idx == -1)
+        idx = [screens count] - 1;
+
+    var nextScreen = screens[idx];
+
+    moveToGridPropsOnScreen(win, nextScreen, gridProps(win));
+}];
+
 // helper functions
 
 var gridProps = function(win) {
@@ -196,7 +232,11 @@ var gridProps = function(win) {
 };
 
 var moveToGridProps = function(win, gridProps) {
-    var screenRect = [[win screen] frameInWindowCoordinates];
+  moveToGridPropsOnScreen(win, [win screen], gridProps);
+}
+
+var moveToGridPropsOnScreen = function(win, screen, gridProps) {
+    var screenRect = [screen frameInWindowCoordinates];
 
     var thirdScrenWidth = screenRect.size.width / 3.0;
     var halfScreenHeight = screenRect.size.height / 2.0;
