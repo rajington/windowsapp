@@ -146,17 +146,66 @@ enum {
 @implementation BindkeyLegacyTranslator
 
 + (NSUInteger) keyCodeForString:(NSString*)str {
-    return 1;
+    if ([str isEqualToString:@"A"]) return kVK_ANSI_A;
+    if ([str isEqualToString:@"S"]) return kVK_ANSI_S;
+    if ([str isEqualToString:@"D"]) return kVK_ANSI_D;
+    if ([str isEqualToString:@"F"]) return kVK_ANSI_F;
+    if ([str isEqualToString:@"H"]) return kVK_ANSI_H;
+    if ([str isEqualToString:@"G"]) return kVK_ANSI_G;
+    if ([str isEqualToString:@"Z"]) return kVK_ANSI_Z;
+    if ([str isEqualToString:@"X"]) return kVK_ANSI_X;
+    if ([str isEqualToString:@"C"]) return kVK_ANSI_C;
+    if ([str isEqualToString:@"V"]) return kVK_ANSI_V;
+    if ([str isEqualToString:@"B"]) return kVK_ANSI_B;
+    if ([str isEqualToString:@"Q"]) return kVK_ANSI_Q;
+    if ([str isEqualToString:@"W"]) return kVK_ANSI_W;
+    if ([str isEqualToString:@"E"]) return kVK_ANSI_E;
+    if ([str isEqualToString:@"R"]) return kVK_ANSI_R;
+    if ([str isEqualToString:@"Y"]) return kVK_ANSI_Y;
+    if ([str isEqualToString:@"T"]) return kVK_ANSI_T;
+    if ([str isEqualToString:@"1"]) return kVK_ANSI_1;
+    if ([str isEqualToString:@"2"]) return kVK_ANSI_2;
+    if ([str isEqualToString:@"3"]) return kVK_ANSI_3;
+    if ([str isEqualToString:@"4"]) return kVK_ANSI_4;
+    if ([str isEqualToString:@"6"]) return kVK_ANSI_6;
+    if ([str isEqualToString:@"5"]) return kVK_ANSI_5;
+    if ([str isEqualToString:@"9"]) return kVK_ANSI_9;
+    if ([str isEqualToString:@"7"]) return kVK_ANSI_7;
+    if ([str isEqualToString:@"8"]) return kVK_ANSI_8;
+    if ([str isEqualToString:@"0"]) return kVK_ANSI_0;
+    if ([str isEqualToString:@"O"]) return kVK_ANSI_O;
+    if ([str isEqualToString:@"U"]) return kVK_ANSI_U;
+    if ([str isEqualToString:@"I"]) return kVK_ANSI_I;
+    if ([str isEqualToString:@"P"]) return kVK_ANSI_P;
+    if ([str isEqualToString:@"L"]) return kVK_ANSI_L;
+    if ([str isEqualToString:@"J"]) return kVK_ANSI_J;
+    if ([str isEqualToString:@"N"]) return kVK_ANSI_N;
+    if ([str isEqualToString:@"M"]) return kVK_ANSI_M;
+    if ([str isEqualToString:@"K"]) return kVK_ANSI_K;
+    if ([str isEqualToString:@"'"]) return kVK_ANSI_Quote;
+    if ([str isEqualToString:@";"]) return kVK_ANSI_Semicolon;
+    if ([str isEqualToString:@"\\"]) return kVK_ANSI_Backslash;
+    if ([str isEqualToString:@","]) return kVK_ANSI_Comma;
+    if ([str isEqualToString:@"/"]) return kVK_ANSI_Slash;
+    if ([str isEqualToString:@"="]) return kVK_ANSI_Equal;
+    if ([str isEqualToString:@"-"]) return kVK_ANSI_Minus;
+    if ([str isEqualToString:@"]"]) return kVK_ANSI_RightBracket;
+    if ([str isEqualToString:@"["]) return kVK_ANSI_LeftBracket;
+    
+    // TODO: add the rest :(
+    // TODO: make this do something smarter than return -1 for unknowns
+    
+    return -1;
 }
 
 + (NSUInteger) modifierFlagsForStrings:(NSArray*)strs {
     NSUInteger result = 0;
     
     if ([strs containsObject:@"SHIFT"]) result |= NSShiftKeyMask;
-    if ([strs containsObject:@"CONTROL"]) result |= NSControlKeyMask;
+    if ([strs containsObject:@"CTRL"]) result |= NSControlKeyMask;
     if ([strs containsObject:@"ALT"]) result |= NSAlternateKeyMask;
-    if ([strs containsObject:@"COMMAND"]) result |= NSCommandKeyMask;
-    if ([strs containsObject:@"FUNCTION"]) result |= NSFunctionKeyMask;
+    if ([strs containsObject:@"CMD"]) result |= NSCommandKeyMask;
+    if ([strs containsObject:@"FN"]) result |= NSFunctionKeyMask;
     
     return result;
 }
