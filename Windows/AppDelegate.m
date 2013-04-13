@@ -59,6 +59,14 @@
             return;
         }
         
+        NSString* __autoreleasing invalidReason;
+        BOOL validSyntax = [self.jsc isSyntaxValid:config error:&invalidReason];
+        
+        if (validSyntax == NO) {
+            NSLog(@"%@", invalidReason);
+            return;
+        }
+        
         [self.bindkeyOp removeKeyBindings];
         
         [self.jsc evalJSString:config];

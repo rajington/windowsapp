@@ -31,6 +31,8 @@
 		94873FC817194DEC000AC0A6 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		9495B457171959B4002C9EF5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9495B456171959B4002C9EF5 /* JavaScriptCore.framework */; };
 		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
+		94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDConfigProblemReporter.m */; };
+		94DAFB531719B99A00526003 /* ConfigProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -87,6 +89,9 @@
 		9495B456171959B4002C9EF5 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
 		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
+		94DAFB4F1719B98500526003 /* SDConfigProblemReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConfigProblemReporter.h; sourceTree = "<group>"; };
+		94DAFB501719B98500526003 /* SDConfigProblemReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConfigProblemReporter.m; sourceTree = "<group>"; };
+		94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigProblemReporter.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +221,8 @@
 			children = (
 				94873F3F17191F40000AC0A6 /* AppDelegate.h */,
 				94873F4017191F40000AC0A6 /* AppDelegate.m */,
+				94DAFB4F1719B98500526003 /* SDConfigProblemReporter.h */,
+				94DAFB501719B98500526003 /* SDConfigProblemReporter.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -224,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				94873F4217191F40000AC0A6 /* MainMenu.xib */,
+				94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -307,6 +315,7 @@
 				943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */,
 				943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */,
 				943921BF1719B66C00F63073 /* windows.icns in Resources */,
+				94DAFB531719B99A00526003 /* ConfigProblemReporter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +354,7 @@
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
 				94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */,
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
+				94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +450,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Windows/Windows-Prefix.pch";
 				INFOPLIST_FILE = "Windows/Windows-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -456,6 +467,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Windows/Windows-Prefix.pch";
 				INFOPLIST_FILE = "Windows/Windows-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
