@@ -11,6 +11,7 @@
 		943921BB1719B1EE00F63073 /* statusitem_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B71719B1EE00F63073 /* statusitem_pressed.png */; };
 		943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */; };
 		943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B91719B1EE00F63073 /* statusitem@2x.png */; };
+		943921BF1719B66C00F63073 /* windows.icns in Resources */ = {isa = PBXBuildFile; fileRef = 943921BE1719B66C00F63073 /* windows.icns */; };
 		94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F2D17191F40000AC0A6 /* Cocoa.framework */; };
 		94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94873F3617191F40000AC0A6 /* InfoPlist.strings */; };
 		94873F3A17191F40000AC0A6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F3917191F40000AC0A6 /* main.m */; };
@@ -50,6 +51,7 @@
 		943921B71719B1EE00F63073 /* statusitem_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusitem_pressed.png; sourceTree = "<group>"; };
 		943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusitem_pressed@2x.png"; sourceTree = "<group>"; };
 		943921B91719B1EE00F63073 /* statusitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusitem@2x.png"; sourceTree = "<group>"; };
+		943921BE1719B66C00F63073 /* windows.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = windows.icns; path = "app icon/windows.icns"; sourceTree = SOURCE_ROOT; };
 		94873F2A17191F40000AC0A6 /* Windows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Windows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94873F2D17191F40000AC0A6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		94873F3017191F40000AC0A6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -118,6 +120,7 @@
 		943921B51719B1E600F63073 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				943921BE1719B66C00F63073 /* windows.icns */,
 				943921B61719B1EE00F63073 /* statusitem.png */,
 				943921B71719B1EE00F63073 /* statusitem_pressed.png */,
 				943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */,
@@ -303,6 +306,7 @@
 				943921BB1719B1EE00F63073 /* statusitem_pressed.png in Resources */,
 				943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */,
 				943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */,
+				943921BF1719B66C00F63073 /* windows.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

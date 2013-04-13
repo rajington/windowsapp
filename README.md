@@ -168,7 +168,6 @@ var mash = ["CMD", "ALT", "CTRL"];
 
 ## Todo:
 
-* Make an app icon
 * Allow the rest of the keys in BindkeyLegacyTranslator.m
 * Make it semi-safe to pass wrong stuff into API functions, especially `-bind:...`
 * Make it not crash the whole app just because the config file has a tiny bug somewhere
