@@ -9,11 +9,11 @@
 
 ## Usage
 
-Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the app.
+Create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then run the app.
 
 ## Basic Config
 
-This config makes Mash-HJKL move to the "sides" of the screen.
+This basic config makes Mash-HJKL move to the "sides" of the screen.
 
 ```javascript
 // making a convenient function for our purposes
