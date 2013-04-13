@@ -193,6 +193,10 @@ enum {
     if ([str isEqualToString:@"-"]) return kVK_ANSI_Minus;
     if ([str isEqualToString:@"]"]) return kVK_ANSI_RightBracket;
     if ([str isEqualToString:@"["]) return kVK_ANSI_LeftBracket;
+    if ([str isEqualToString:@"LEFT"]) return kVK_LeftArrow;
+    if ([str isEqualToString:@"RIGHT"]) return kVK_RightArrow;
+    if ([str isEqualToString:@"UP"]) return kVK_UpArrow;
+    if ([str isEqualToString:@"DOWN"]) return kVK_DownArrow;
     
     // TODO: add the rest :(
     // TODO: make this do something smarter than return -1 for unknowns
