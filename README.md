@@ -2,9 +2,8 @@
 
 *The OS X window manager for hackers*
 
-Current version: **1.1**
-
-Requires: OS X 10.7 and up
+* Current version: **1.1**
+* Requires: OS X 10.7 and up
 
 [Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
