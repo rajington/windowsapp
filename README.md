@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* **Install:** `brew install https://raw.github.com/sdegutis/windows/master/windows.rb`
+* **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
 * Current version: **1.1.1**
 * Requires: OS X 10.7 and up
 
