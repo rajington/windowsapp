@@ -1,5 +1,7 @@
 # Windows.app
 
+*The window manager for programmers and hackers*
+
 Move/resize your windows with the keyboard; customize it with [JSCocoa](https://github.com/parmanoir/jscocoa/)
 
 ## Advantages over alternatives
