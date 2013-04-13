@@ -63,15 +63,13 @@
 
 @implementation SDBindkeyOp
 
-- (id) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn {
+- (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn {
     BindkeyPair* pair = [[BindkeyPair alloc] init];
     pair.key = key;
     pair.modifiers = mods;
     pair.fn = [[SDJSBlockWrapper alloc] initWithJavaScriptFn:fn];
     
     self.upcomingHotKeys = [[NSArray arrayWithArray:self.upcomingHotKeys] arrayByAddingObject:pair];
-    
-    return nil;
 }
 
 - (void) removeKeyBindings {

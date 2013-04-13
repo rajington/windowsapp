@@ -1,6 +1,6 @@
 # Windows.app
 
-Move/resize your windows with the keyboard; customize it with Javascript
+Move/resize your windows with the keyboard; customize it with [JSCocoa](https://github.com/parmanoir/jscocoa/)
 
 ## Usage
 
@@ -34,9 +34,9 @@ Create a file `~/.windowsapp` and start off with this basic config:
 ```objc
 @class Keys
 
-- (id) bind:(NSString*)key
-  modifiers:(NSArray*)mods
-         fn:(JSValueRefAndContextRef)fn;
+- (void) bind:(NSString*)key
+    modifiers:(NSArray*)mods
+           fn:(JSValueRefAndContextRef)fn;
 
 // key: a single-character string
 // mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
