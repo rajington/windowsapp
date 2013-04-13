@@ -39,7 +39,7 @@
     self.bindkeyOp = [[SDBindkeyOp alloc] init];
     
     [self.jsc setObject:self withName:@"App"];
-    [self.jsc setObject:[SDWindowProxy self] withName:@"Windows"];
+    [self.jsc setObject:[SDWindowProxy self] withName:@"Win"];
     [self.jsc setObject:self.bindkeyOp withName:@"Keys"];
 }
 

@@ -27,14 +27,14 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the a
 
 ```javascript
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
-    var win = [Windows focusedWindow];
+    var win = [Win focusedWindow];
     var newFrame = [[win screen] frameInWindowCoordinates];
     newFrame.size.width /= 2;
     [win setFrame: newFrame];
 }];
 
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
-    var win = [Windows focusedWindow];
+    var win = [Win focusedWindow];
     var newFrame = [[win screen] frameInWindowCoordinates];
     newFrame.origin.x += newFrame.size.width / 2;
     newFrame.size.width /= 2;
@@ -46,10 +46,10 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the a
 
 ```javascript
 var mash = ["CMD", "ALT", "CTRL"];
-[Keys bind:"H" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowLeft]; }];
-[Keys bind:"L" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowRight]; }];
-[Keys bind:"J" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowDown]; }];
-[Keys bind:"K" modifiers:mash fn:function() { [[Windows focusedWindow] focusWindowUp]; }];
+[Keys bind:"H" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowLeft]; }];
+[Keys bind:"L" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowRight]; }];
+[Keys bind:"J" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowDown]; }];
+[Keys bind:"K" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowUp]; }];
 ```
 
 ## API
@@ -73,13 +73,13 @@ var mash = ["CMD", "ALT", "CTRL"];
 ```
 
 ```objc
-@class Windows
+@class Win
 
 // getting windows
 
 + (NSArray*) allWindows;
 + (NSArray*) visibleWindows;
-+ (SDWindowProxy*) focusedWindow;
++ (Win*) focusedWindow;
 - (NSArray*) otherWindowsOnSameScreen;
 
 
