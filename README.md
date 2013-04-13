@@ -6,6 +6,9 @@
 * Current version: **1.1**
 * Requires: OS X 10.7 and up
 
+
+Table of contents:
+
 * [No really, what is Windows.app?](#no-really-what-is-windows-app)
 * [Usage](#usage)
     * [Why JSCocoa?](#why-jscocoa)
