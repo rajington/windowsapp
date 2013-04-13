@@ -46,34 +46,31 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self prepareStatusItem];
     [self prepareScriptingBridge];
-    [self readUserConfigFile];
+    [self reloadConfig];
 }
 
 - (void) reloadConfig {
-    NSLog(@"relaoding config...");
-    [self reloadConfig:nil];
-}
-
-- (IBAction) reloadConfig:(id)sender {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self readUserConfigFile];
+        NSLog(@"relaoding config...");
+        
+        NSString* path = [@"~/.windowsapp" stringByStandardizingPath];
+        NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+        
+        if (config == nil) {
+            NSLog(@"~/.windowsapp doesn't exist");
+            return;
+        }
+        
+        [self.bindkeyOp removeKeyBindings];
+        
+        [self.jsc evalJSFile:[@"~/.windowsapp" stringByStandardizingPath]];
+        
+        [self.bindkeyOp finalizeNewKeyBindings];
     });
 }
 
-- (void) readUserConfigFile {
-    NSString* path = [@"~/.windowsapp" stringByStandardizingPath];
-    NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    
-    if (config == nil) {
-        NSLog(@"~/.windowsapp doesn't exist");
-        return;
-    }
-    
-    [self.bindkeyOp removeKeyBindings];
-    
-    [self.jsc evalJSFile:[@"~/.windowsapp" stringByStandardizingPath]];
-    
-    [self.bindkeyOp finalizeNewKeyBindings];
+- (IBAction) reloadConfig:(id)sender {
+    [self reloadConfig];
 }
 
 @end
