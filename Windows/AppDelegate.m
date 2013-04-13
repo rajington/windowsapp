@@ -17,9 +17,7 @@
 @interface AppDelegate ()
 
 @property JSCocoa* jsc;
-
 @property SDBindkeyOp* bindkeyOp;
-
 @property NSStatusItem* statusItem;
 
 @end
@@ -35,7 +33,6 @@
 
 - (void) prepareScriptingBridge {
     self.jsc = [JSCocoa new];
-    
     self.bindkeyOp = [[SDBindkeyOp alloc] init];
     
     [self.jsc setObject:self withName:@"App"];
