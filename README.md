@@ -11,7 +11,7 @@
 
 ## Usage
 
-Create a file `~/.windowsapp` and add some JSCocoa configs to it.
+Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the app.
 
 ## Fun Configs
 
