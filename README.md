@@ -2,6 +2,13 @@
 
 Move/resize your windows with the keyboard; customize it with [JSCocoa](https://github.com/parmanoir/jscocoa/)
 
+## Advantages over alternatives
+
+* Doesn't have tons of memory leaks
+* Easy to navigate/tweak source code
+* Uses JSCocoa to get full power of ObjC while still being JavaScript
+* Extremely light-weight
+
 ## Usage
 
 Create a file `~/.windowsapp` and add some JSCocoa configs to it.
