@@ -49,6 +49,11 @@
     [self readUserConfigFile];
 }
 
+- (void) reloadConfig {
+    NSLog(@"relaoding...");
+    [self reloadConfig:nil];
+}
+
 - (IBAction) reloadConfig:(id)sender {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self readUserConfigFile];
