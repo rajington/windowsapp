@@ -20,6 +20,8 @@
 		94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5617192096000AC0A6 /* MASShortcutView.m */; };
 		94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */; };
 		94873F60171920B4000AC0A6 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F5F171920B4000AC0A6 /* Carbon.framework */; };
+		94873F67171929A0000AC0A6 /* BindkeyOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F66171929A0000AC0A6 /* BindkeyOp.m */; };
+		94873F6A17193270000AC0A6 /* BindkeyLegacyTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6917193270000AC0A6 /* BindkeyLegacyTranslator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,6 +62,10 @@
 		94873F5717192096000AC0A6 /* MASShortcutView+UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+UserDefaults.h"; sourceTree = "<group>"; };
 		94873F5817192096000AC0A6 /* MASShortcutView+UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+UserDefaults.m"; sourceTree = "<group>"; };
 		94873F5F171920B4000AC0A6 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		94873F65171929A0000AC0A6 /* BindkeyOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindkeyOp.h; sourceTree = "<group>"; };
+		94873F66171929A0000AC0A6 /* BindkeyOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindkeyOp.m; sourceTree = "<group>"; };
+		94873F6817193270000AC0A6 /* BindkeyLegacyTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindkeyLegacyTranslator.h; sourceTree = "<group>"; };
+		94873F6917193270000AC0A6 /* BindkeyLegacyTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindkeyLegacyTranslator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +126,7 @@
 			children = (
 				94873F631719223F000AC0A6 /* Third Party */,
 				94873F6217192236000AC0A6 /* XIBs */,
+				94873F6417192987000AC0A6 /* Unclassified-yet */,
 				94873F611719222D000AC0A6 /* Controllers */,
 				94873F3417191F40000AC0A6 /* Supporting Files */,
 			);
@@ -176,6 +183,17 @@
 				94873F5E1719209B000AC0A6 /* Global Shortcuts */,
 			);
 			name = "Third Party";
+			sourceTree = "<group>";
+		};
+		94873F6417192987000AC0A6 /* Unclassified-yet */ = {
+			isa = PBXGroup;
+			children = (
+				94873F65171929A0000AC0A6 /* BindkeyOp.h */,
+				94873F66171929A0000AC0A6 /* BindkeyOp.m */,
+				94873F6817193270000AC0A6 /* BindkeyLegacyTranslator.h */,
+				94873F6917193270000AC0A6 /* BindkeyLegacyTranslator.m */,
+			);
+			name = "Unclassified-yet";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +284,8 @@
 				94873F5B17192096000AC0A6 /* MASShortcut+UserDefaults.m in Sources */,
 				94873F5C17192096000AC0A6 /* MASShortcutView.m in Sources */,
 				94873F5D17192096000AC0A6 /* MASShortcutView+UserDefaults.m in Sources */,
+				94873F67171929A0000AC0A6 /* BindkeyOp.m in Sources */,
+				94873F6A17193270000AC0A6 /* BindkeyLegacyTranslator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
