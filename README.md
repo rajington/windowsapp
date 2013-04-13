@@ -7,6 +7,16 @@
 
 [Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
+* [Usage](#Usage)
+    * [Why JSCocoa?](#Why-JSCocoa?)
+* [Basic Config](Basic Config)
+* [Useful Config Tricks](Useful Config Tricks)
+    * [Make Cmd-Shift-R reload your config during testing](Make Cmd-Shift-R reload your config during testing)
+* [API](API)
+* [License](License)
+* [Change log](Change log)
+* [Todo](Todo)
+
 ## Usage
 
 Create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then run the app.
@@ -205,7 +215,7 @@ var showWindow = function() {
 
 MIT (see [LICENSE](LICENSE) file)
 
-## Changelog:
+## Change log
 
 - 1.1:
   - Adds status bar icon
@@ -214,7 +224,7 @@ MIT (see [LICENSE](LICENSE) file)
 - 1.0:
   - Initial stable version (or so I think)
 
-## Todo:
+## Todo
 
 * Allow the rest of the keys in BindkeyLegacyTranslator.m
 * Make it semi-safe to pass wrong stuff into API functions, especially `-bind:...`
