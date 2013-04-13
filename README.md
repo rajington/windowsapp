@@ -92,3 +92,9 @@ Create a file `~/.windowsapp` and start off with this basic config:
 - (BOOL) isWindowMinimized;
 - (BOOL) isAppHidden;
 ```
+
+```objc
+@class NSScreen
+
+- (CGRect) correctFrameForSerious; // all the good names were taken
+```
