@@ -50,7 +50,7 @@
 }
 
 - (void) reloadConfig {
-    NSLog(@"relaoding...");
+    NSLog(@"relaoding config...");
     [self reloadConfig:nil];
 }
 

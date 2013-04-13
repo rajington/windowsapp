@@ -13,6 +13,50 @@
 
 Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the app.
 
+## Basic Config
+
+```javascript
+// This config makes Mash-HJKL move to the "sides" of the screen.
+
+// wrapping repetitive boilerplate in a function
+binder = function(letter, fn) {
+  [Keys bind:letter modifiers:["CMD", "ALT", "CTRL"] fn: function() {
+      var win = [Win focusedWindow];
+      var frame = [[win screen] frameInWindowCoordinates]; // start off with the screen's full frame
+      fn(win, frame);
+  }];
+};
+
+binder('H', function(win, frame) {
+    log(win);
+    log(frame);
+    frame.size.width /= 2;
+    [win setFrame: frame];
+});
+
+binder('L', function(win, frame) {
+    frame.origin.x += frame.size.width / 2;
+    frame.size.width /= 2;
+    [win setFrame: frame];
+});
+
+binder('K', function(win, frame) {
+    frame.size.height /= 2;
+    [win setFrame: frame];
+});
+
+binder('J', function(win, frame) {
+    frame.origin.y += frame.size.height / 2;
+    frame.size.height /= 2;
+    [win setFrame: frame];
+});
+
+// Cmd-Shift-R reloads this config for testing
+[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
+    [App reloadConfig];
+}];
+```
+
 ## Fun Configs
 
 ### Make Cmd-Shift-R reload your config during testing
