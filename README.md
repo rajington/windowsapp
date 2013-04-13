@@ -25,27 +25,27 @@ Create a file `~/.windowsapp` and start off with this basic config:
 
 ## API
 
-Class `App`
-
 ```objc
+@class App
+
 - (void) reloadConfig;
 ```
 
-Class `Keys`
-
 ```objc
+@class Keys
+
 - (id) bind:(NSString*)key
   modifiers:(NSArray*)mods
          fn:(JSValueRefAndContextRef)fn;
 
-key: a single-character string
-mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
-fn: a javascript function that takes no args; return val is ignored
+// key: a single-character string
+// mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
+// fn: a javascript function that takes no args; return val is ignored
 ```
 
-Class `Windows`
-
 ```objc
+@class Windows
+
 // getting windows
 
 + (NSArray*) allWindows;
