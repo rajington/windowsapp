@@ -107,14 +107,14 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // snap this window to grid
-[Keys bind:";" modifiers:mash fn: function() {
+[Keys bind:"." modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     moveToGridProps(win, r);
 }];
 
 // snap all windows to grid
-[Keys bind:"." modifiers:mash fn: function() {
+[Keys bind:"," modifiers:mash fn: function() {
     _.each([Win visibleWindows], function(win) {
         var r = gridProps(win);
         moveToGridProps(win, r);
