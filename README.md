@@ -1,14 +1,12 @@
 # Windows.app
 
-*The window manager for programmers and hackers*
-
-Move/resize your windows with the keyboard; customize it with [JSCocoa](https://github.com/parmanoir/jscocoa/)
+*The OS X window manager for hackers*
 
 ## Advantages over alternatives
 
 * Doesn't have tons of memory leaks
 * Easy to navigate/tweak source code
-* Uses JSCocoa to get full power of ObjC while still being JavaScript
+* Uses [JSCocoa](https://github.com/parmanoir/jscocoa/) to get full power of ObjC while still being JavaScript
 * Extremely light-weight
 
 ## Usage
