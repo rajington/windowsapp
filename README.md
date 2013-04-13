@@ -6,7 +6,7 @@ Current version: **1.1**
 
 Requires: OS X 10.7 and up
 
-[Download pre-built Windows.app](Windows-1.1.zip)
+[Download Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip)
 
 ## Advantages over alternatives
 
