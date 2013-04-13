@@ -26,7 +26,8 @@
 
 - (void) prepareStatusItem {
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-    self.statusItem.title = @"Windows!";
+    self.statusItem.image = [NSImage imageNamed:@"statusitem"];
+    self.statusItem.alternateImage = [NSImage imageNamed:@"statusitem_pressed"];
     self.statusItem.menu = self.statusItemMenu;
     self.statusItem.highlightMode = YES;
 }
