@@ -99,12 +99,12 @@ binder('J', function(win, frame) {
 This makes your screen act like a grid, and lets you move and resize windows within it:
 
 ```javascript
+var mash = ["CMD", "ALT", "CTRL"];
+
 // Cmd-Shift-R reloads this config for testing
-[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
+[Keys bind:"R" modifiers:mash fn: function() {
     [App reloadConfig];
 }];
-
-var mash = ["CMD", "ALT", "CTRL"];
 
 // snap this window to grid
 [Keys bind:";" modifiers:mash fn: function() {
