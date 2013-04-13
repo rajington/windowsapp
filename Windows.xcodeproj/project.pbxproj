@@ -25,6 +25,7 @@
 		94873FC717194DE9000AC0A6 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		94873FC817194DEC000AC0A6 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		9495B457171959B4002C9EF5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9495B456171959B4002C9EF5 /* JavaScriptCore.framework */; };
+		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +75,8 @@
 		94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+RealFrame.m"; sourceTree = "<group>"; };
 		94873FC617194DE9000AC0A6 /* JSCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSCocoa.framework; sourceTree = "<group>"; };
 		9495B456171959B4002C9EF5 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
+		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,8 @@
 				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
 				94873F6817193270000AC0A6 /* SDBindkeyLegacyTranslator.h */,
 				94873F6917193270000AC0A6 /* SDBindkeyLegacyTranslator.m */,
+				9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */,
+				9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */,
 				94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */,
 				94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */,
 			);
@@ -302,6 +307,7 @@
 				94873F6A17193270000AC0A6 /* SDBindkeyLegacyTranslator.m in Sources */,
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
 				94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */,
+				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

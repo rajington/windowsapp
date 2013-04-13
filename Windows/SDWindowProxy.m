@@ -1,6 +1,6 @@
 //
 //  MyWindow.m
-//  AppGrid
+//  Windows
 //
 //  Created by Steven Degutis on 2/28/13.
 //  Copyright (c) 2013 Steven Degutis. All rights reserved.
@@ -9,6 +9,8 @@
 #import "SDWindowProxy.h"
 
 #import "NSScreen+RealFrame.h"
+
+#import "SDUniversalAccessHelper.h"
 
 @interface SDWindowProxy ()
 
@@ -19,6 +21,9 @@
 @implementation SDWindowProxy
 
 + (NSArray*) allWindows {
+    if ([SDUniversalAccessHelper complainIfNeeded])
+        return nil;
+    
     NSMutableArray* windows = [NSMutableArray array];
     
     for (NSRunningApplication* runningApp in [[NSWorkspace sharedWorkspace] runningApplications]) {
@@ -45,6 +50,9 @@
 }
 
 + (NSArray*) visibleWindows {
+    if ([SDUniversalAccessHelper complainIfNeeded])
+        return nil;
+    
     return [[self allWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
         return ![win isAppHidden]
         && ![win isWindowMinimized]
@@ -73,6 +81,9 @@
 }
 
 + (SDWindowProxy*) focusedWindow {
+    if ([SDUniversalAccessHelper complainIfNeeded])
+        return nil;
+    
     CFTypeRef app;
     AXUIElementCopyAttributeValue([self systemWideElement], kAXFocusedApplicationAttribute, &app);
     
