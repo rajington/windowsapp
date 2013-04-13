@@ -27,6 +27,10 @@ binder = function(letter, fn) {
   }];
 };
 
+binder('M', function(win, frame) {
+    [win setFrame: frame]; // we're maximizing, so just set the frame without adjusting it
+});
+
 binder('H', function(win, frame) {
     frame.size.width /= 2;
     [win setFrame: frame];
