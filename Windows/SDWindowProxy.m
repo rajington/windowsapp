@@ -90,7 +90,7 @@
 }
 
 - (void) moveToFrame:(CGRect)frame onScreen:(NSScreen*)screen {
-    CGRect screenRect = [screen correctFrameForSerious];
+    CGRect screenRect = [screen frameInWindowCoordinates];
     
     frame.origin.x += NSMinX(screenRect);
     frame.origin.y += NSMinY(screenRect);
@@ -178,7 +178,7 @@
     NSScreen* lastScreen = nil;
     
     for (NSScreen* screen in [NSScreen screens]) {
-        CGRect screenFrame = [screen correctFrameForSerious];
+        CGRect screenFrame = [screen frameInWindowCoordinates];
         CGRect intersection = CGRectIntersection(windowFrame, screenFrame);
         CGFloat volume = intersection.size.width * intersection.size.height;
         
@@ -220,7 +220,7 @@
 }
 
 - (void) maximize {
-    CGRect screenRect = [[self screen] correctFrameForSerious];
+    CGRect screenRect = [[self screen] frameInWindowCoordinates];
     [self setFrame:screenRect];
 }
 

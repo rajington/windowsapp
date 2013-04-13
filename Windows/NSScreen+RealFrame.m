@@ -10,7 +10,7 @@
 
 @implementation NSScreen (RealFrame)
 
-- (CGRect) correctFrameForSerious {
+- (CGRect) frameInWindowCoordinates {
     NSScreen* primaryScreen = [[NSScreen screens] objectAtIndex:0];
     CGRect f = [self visibleFrame];
     f.origin.y = NSHeight([primaryScreen frame]) - NSHeight(f) - f.origin.y;

@@ -28,14 +28,14 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it.
 ```javascript
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
     var win = [Windows focusedWindow];
-    var newFrame = [[win screen] correctFrameForSerious];
+    var newFrame = [[win screen] frameInWindowCoordinates];
     newFrame.size.width /= 2;
     [win setFrame: newFrame];
 }];
 
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
     var win = [Windows focusedWindow];
-    var newFrame = [[win screen] correctFrameForSerious];
+    var newFrame = [[win screen] frameInWindowCoordinates];
     newFrame.origin.x += newFrame.size.width / 2;
     newFrame.size.width /= 2;
     [win setFrame: newFrame];
@@ -125,5 +125,5 @@ var mash = ["CMD", "ALT", "CTRL"];
 ```objc
 @class NSScreen
 
-- (CGRect) correctFrameForSerious; // all the good names were taken
+- (CGRect) frameInWindowCoordinates; // all the good names were taken
 ```

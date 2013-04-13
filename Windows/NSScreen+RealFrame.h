@@ -10,6 +10,6 @@
 
 @interface NSScreen (RealFrame)
 
-- (CGRect) correctFrameForSerious;
+- (CGRect) frameInWindowCoordinates;
 
 @end
