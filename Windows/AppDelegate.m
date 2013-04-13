@@ -39,9 +39,13 @@
 }
 
 - (void) prepareScriptingBridge {
+    self.bindkeyOp = [[SDKeyBinder alloc] init];
+    
     self.jsc = [JSCocoa new];
     self.jsc.delegate = self;
-    self.bindkeyOp = [[SDKeyBinder alloc] init];
+    self.jsc.useJSLint = NO;
+    [self.jsc evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
+    self.jsc.useJSLint = YES;
     
     [self.jsc setObject:self withName:@"App"];
     [self.jsc setObject:[SDWindowProxy self] withName:@"Win"];
@@ -68,7 +72,7 @@
 
 - (void) reloadConfig {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"relaoding config...");
+        NSLog(@"reloading config...");
         
         NSString* path = [@"~/.windowsapp" stringByStandardizingPath];
         NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
@@ -90,7 +94,13 @@
         
         [self.jsc evalJSString:config];
         
-        [self.bindkeyOp finalizeNewKeyBindings];
+        NSArray* failures = [self.bindkeyOp finalizeNewKeyBindings];
+        
+        if ([failures count] > 0) {
+            NSString* keyDescriptions = [failures componentsJoinedByString:@"\n"];
+            NSString* crap = [NSString stringWithFormat:@"The following hot keys could not be bound:\n\n%@", keyDescriptions];
+            [self reportProblem:crap];
+        }
     });
 }
 

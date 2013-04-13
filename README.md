@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * Download: [Windows.app](https://github.com/sdegutis/Windows/raw/master/Windows-1.1.zip) (pre-compiled binary)
-* Current version: **1.1**
+* Current version: **1.1.1**
 * Requires: OS X 10.7 and up
 
 
@@ -13,6 +13,7 @@ Table of contents:
 * [Usage](#usage)
     * [Why JSCocoa?](#why-jscocoa)
 * [Basic Config](#basic-config)
+* [Really Cool Config](#really-cool-config)
 * [Useful Config Tricks](#useful-config-tricks)
     * [Make Cmd-Shift-R reload your config during testing](#make-cmd-shift-r-reload-your-config-during-testing)
     * [Use variables for common modifiers](#use-variables-for-common-modifiers)
@@ -36,6 +37,8 @@ But technically, you can do anything you want in this file. Because it's JSCocoa
 ## Usage
 
 Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to [reload the app](#make-cmd-shift-r-reload-your-config-during-testing) during testing so you don't have to click the menu bar icon to do it.)
+
+The config file has access to underscore.js.
 
 ### Why JSCocoa?
 
@@ -89,6 +92,125 @@ binder('J', function(win, frame) {
 [Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
     [App reloadConfig];
 }];
+```
+
+## Really Cool Config
+
+This makes your screen act like a grid, and lets you move and resize windows within it:
+
+```javascript
+// Cmd-Shift-R reloads this config for testing
+[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
+    [App reloadConfig];
+}];
+
+var mash = ["CMD", "ALT", "CTRL"];
+
+// snap this window to grid
+[Keys bind:";" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    moveToGridProps(win, r);
+}];
+
+// snap all windows to grid
+[Keys bind:"'" modifiers:mash fn: function() {
+    _.each([Win visibleWindows], function(win) {
+        var r = gridProps(win);
+        moveToGridProps(win, r);
+    });
+}];
+
+// move left
+[Keys bind:"h" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.origin.x = Math.max(r.origin.x - 1, 0);
+    moveToGridProps(win, r);
+}];
+
+// move right
+[Keys bind:"l" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width);
+    moveToGridProps(win, r);
+}];
+
+// grow to right
+[Keys bind:"o" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x);
+    moveToGridProps(win, r);
+}];
+
+// shrink from right
+[Keys bind:"i" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.size.width = Math.max(r.size.width - 1, 1);
+    moveToGridProps(win, r);
+}];
+
+// move to upper row
+[Keys bind:"k" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.origin.y = 0;
+    r.size.height = 1;
+    moveToGridProps(win, r);
+}];
+
+// move to lower row
+[Keys bind:"j" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.origin.y = 1;
+    r.size.height = 1;
+    moveToGridProps(win, r);
+}];
+
+// fill whole vertical column
+[Keys bind:"u" modifiers:mash fn: function() {
+    var win = [Win focusedWindow];
+    var r = gridProps(win);
+    r.origin.y = 0;
+    r.size.height = 2;
+    moveToGridProps(win, r);
+}];
+
+// helper functions
+
+var gridProps = function(win) {
+    var winFrame = [win frame];
+    var screenRect = [[win screen] frameInWindowCoordinates];
+
+    var thirdScrenWidth = screenRect.size.width / 3.0;
+    var halfScreenHeight = screenRect.size.height / 2.0;
+
+    return CGRectMake(Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth),
+                      Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight),
+                      Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1),
+                      Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1));
+};
+
+var moveToGridProps = function(win, gridProps) {
+    var screenRect = [[win screen] frameInWindowCoordinates];
+
+    var thirdScrenWidth = screenRect.size.width / 3.0;
+    var halfScreenHeight = screenRect.size.height / 2.0;
+
+    var newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect),
+                              (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect),
+                              gridProps.size.width * thirdScrenWidth,
+                              gridProps.size.height * halfScreenHeight);
+
+    newFrame = NSInsetRect(newFrame, 5, 5);
+    newFrame = NSIntegralRect(newFrame);
+
+    [win setFrame: newFrame];
+};
 ```
 
 ## Useful Config Tricks
@@ -233,6 +355,8 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Change log
 
+- 1.1.1:
+  - Performance improvements and bug fixes
 - 1.1:
   - Adds status bar icon
   - Adds app icon

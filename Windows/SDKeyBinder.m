@@ -53,13 +53,21 @@
 
 @implementation SDHotKey
 
-- (id) bindAndReturnHandler {
+- (MASShortcut*) shortcutObject {
     NSUInteger code = [SDKeyBindingTranslator keyCodeForString:self.key];
     NSUInteger mods = [SDKeyBindingTranslator modifierFlagsForStrings:self.modifiers];
     
-    MASShortcut *defaultShortcut = [MASShortcut shortcutWithKeyCode:code modifierFlags:mods];
-    
-    return [MASShortcut addGlobalHotkeyMonitorWithShortcut:defaultShortcut handler:^{
+    return [MASShortcut shortcutWithKeyCode:code modifierFlags:mods];
+}
+
+- (NSString*) hotKeyDescription {
+    return [NSString stringWithFormat:@"%@ %@",
+            [[self shortcutObject] modifierFlagsString],
+            [[self shortcutObject] keyCodeString]];
+}
+
+- (id) bindAndReturnHandler {
+    return [MASShortcut addGlobalHotkeyMonitorWithShortcut:[self shortcutObject] handler:^{
         [self.fn call];
     }];
 }
@@ -92,15 +100,22 @@
     }
 }
 
-- (void) finalizeNewKeyBindings {
+- (NSArray*) finalizeNewKeyBindings {
     NSMutableArray* handlers = [NSMutableArray array];
+    NSMutableArray* failures = [NSMutableArray array];
     
     for (SDHotKey* hotkey in self.upcomingHotKeys) {
-        [handlers addObject:[hotkey bindAndReturnHandler]];
+        id binding = [hotkey bindAndReturnHandler];
+        if (binding)
+            [handlers addObject:binding];
+        else
+            [failures addObject:[hotkey hotKeyDescription]];
     }
     
     self.globalHandlers = handlers;
     self.upcomingHotKeys = nil;
+    
+    return failures;
 }
 
 @end

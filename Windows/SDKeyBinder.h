@@ -9,6 +9,6 @@
 @interface SDKeyBinder : NSObject
 
 - (void) removeKeyBindings;
-- (void) finalizeNewKeyBindings;
+- (NSArray*) finalizeNewKeyBindings;
 
 @end
