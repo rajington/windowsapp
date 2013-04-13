@@ -10,4 +10,8 @@
 
 @implementation SDConfigProblemReporter
 
+- (NSString*) windowNibName {
+    return @"ConfigProblemReporter";
+}
+
 @end

@@ -11,7 +11,7 @@
 #import <JSCocoa/JSCocoa.h>
 
 #import "SDKeyBinder.h"
-
+#import "SDConfigProblemReporter.h"
 #import "SDWindowProxy.h"
 
 @interface AppDelegate ()
@@ -19,6 +19,8 @@
 @property JSCocoa* jsc;
 @property SDKeyBinder* bindkeyOp;
 @property NSStatusItem* statusItem;
+
+@property SDConfigProblemReporter* problemReporter;
 
 @end
 
@@ -47,6 +49,16 @@
     [self reloadConfig];
 }
 
+- (void) reportProblem:(NSString*)problem {
+    if (self.problemReporter == nil)
+        self.problemReporter = [[SDConfigProblemReporter alloc] init];
+    
+    self.problemReporter.problem = problem;
+    
+    [[self.problemReporter window] center];
+    [self.problemReporter showWindow:nil];
+}
+
 - (void) reloadConfig {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"relaoding config...");
@@ -55,7 +67,7 @@
         NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
         
         if (config == nil) {
-            NSLog(@"~/.windowsapp doesn't exist");
+            [self reportProblem:@"~/.windowsapp doesn't exist"];
             return;
         }
         
@@ -63,7 +75,7 @@
         BOOL validSyntax = [self.jsc isSyntaxValid:config error:&invalidReason];
         
         if (validSyntax == NO) {
-            NSLog(@"%@", invalidReason);
+            [self reportProblem:invalidReason];
             return;
         }
         

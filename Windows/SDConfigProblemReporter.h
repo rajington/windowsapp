@@ -10,4 +10,6 @@
 
 @interface SDConfigProblemReporter : NSWindowController
 
+@property NSString* problem;
+
 @end
