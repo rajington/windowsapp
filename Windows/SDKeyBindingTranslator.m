@@ -188,6 +188,7 @@ enum {
     if ([str isEqualToString:@";"]) return kVK_ANSI_Semicolon;
     if ([str isEqualToString:@"\\"]) return kVK_ANSI_Backslash;
     if ([str isEqualToString:@","]) return kVK_ANSI_Comma;
+    if ([str isEqualToString:@"."]) return kVK_ANSI_Period;
     if ([str isEqualToString:@"/"]) return kVK_ANSI_Slash;
     if ([str isEqualToString:@"="]) return kVK_ANSI_Equal;
     if ([str isEqualToString:@"-"]) return kVK_ANSI_Minus;

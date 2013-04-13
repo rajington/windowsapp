@@ -114,7 +114,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // snap all windows to grid
-[Keys bind:"'" modifiers:mash fn: function() {
+[Keys bind:"." modifiers:mash fn: function() {
     _.each([Win visibleWindows], function(win) {
         var r = gridProps(win);
         moveToGridProps(win, r);
@@ -122,7 +122,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // move left
-[Keys bind:"h" modifiers:mash fn: function() {
+[Keys bind:"H" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.origin.x = Math.max(r.origin.x - 1, 0);
@@ -130,7 +130,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // move right
-[Keys bind:"l" modifiers:mash fn: function() {
+[Keys bind:"L" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width);
@@ -138,7 +138,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // grow to right
-[Keys bind:"o" modifiers:mash fn: function() {
+[Keys bind:"O" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x);
@@ -146,7 +146,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // shrink from right
-[Keys bind:"i" modifiers:mash fn: function() {
+[Keys bind:"I" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.size.width = Math.max(r.size.width - 1, 1);
@@ -154,7 +154,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // move to upper row
-[Keys bind:"k" modifiers:mash fn: function() {
+[Keys bind:"K" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.origin.y = 0;
@@ -163,7 +163,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // move to lower row
-[Keys bind:"j" modifiers:mash fn: function() {
+[Keys bind:"J" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.origin.y = 1;
@@ -172,7 +172,7 @@ var mash = ["CMD", "ALT", "CTRL"];
 }];
 
 // fill whole vertical column
-[Keys bind:"u" modifiers:mash fn: function() {
+[Keys bind:"U" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
     var r = gridProps(win);
     r.origin.y = 0;
