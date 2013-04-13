@@ -15,10 +15,10 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it. Then run the a
 
 ## Basic Config
 
-```javascript
-// This config makes Mash-HJKL move to the "sides" of the screen.
+This config makes Mash-HJKL move to the "sides" of the screen.
 
-// wrapping repetitive boilerplate in a function
+```javascript
+// making a convenient function for our purposes
 binder = function(letter, fn) {
   [Keys bind:letter modifiers:["CMD", "ALT", "CTRL"] fn: function() {
       var win = [Win focusedWindow];
@@ -28,8 +28,6 @@ binder = function(letter, fn) {
 };
 
 binder('H', function(win, frame) {
-    log(win);
-    log(frame);
     frame.size.width /= 2;
     [win setFrame: frame];
 });
