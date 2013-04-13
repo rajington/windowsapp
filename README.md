@@ -55,32 +55,13 @@ binder('J', function(win, frame) {
 }];
 ```
 
-## Fun Configs
+## Useful Config Tricks
 
 ### Make Cmd-Shift-R reload your config during testing
 
 ```javascript
 [Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
     [App reloadConfig];
-}];
-```
-
-### Make Cmd-Shift-H and Cmd-Shift-L move window to left and right halves of screen
-
-```javascript
-[Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
-    var win = [Win focusedWindow];
-    var newFrame = [[win screen] frameInWindowCoordinates];
-    newFrame.size.width /= 2;
-    [win setFrame: newFrame];
-}];
-
-[Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
-    var win = [Win focusedWindow];
-    var newFrame = [[win screen] frameInWindowCoordinates];
-    newFrame.origin.x += newFrame.size.width / 2;
-    newFrame.size.width /= 2;
-    [win setFrame: newFrame];
 }];
 ```
 
