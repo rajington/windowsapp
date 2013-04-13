@@ -25,7 +25,7 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it.
 }];
 ```
 
-### Make Cmd-Shift-H move window to left half of screen
+### Make Cmd-Shift-H and Cmd-Shift-L move window to left and right halves of screen
 
 ```javascript
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
@@ -34,11 +34,7 @@ Create a file `~/.windowsapp` and add some JSCocoa configs to it.
     newFrame.size.width /= 2;
     [win setFrame: newFrame];
 }];
-```
 
-### Make Cmd-Shift-L move window to right half of screen
-
-```javascript
 [Keys bind:"H" modifiers:["SHIFT", "CMD"] fn: function() {
     var win = [Windows focusedWindow];
     var newFrame = [[win screen] correctFrameForSerious];
