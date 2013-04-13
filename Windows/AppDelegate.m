@@ -13,6 +13,7 @@
 #import "SDKeyBinder.h"
 #import "SDConfigProblemReporter.h"
 #import "SDWindowProxy.h"
+#import "SDOpenAtLogin.h"
 
 @interface AppDelegate ()
 
@@ -106,6 +107,15 @@
 
 - (IBAction) reloadConfig:(id)sender {
     [self reloadConfig];
+}
+
+- (void) menuNeedsUpdate:(NSMenu *)menu {
+    [[menu itemWithTitle:@"Open at Login"] setState:([SDOpenAtLogin opensAtLogin] ? NSOnState : NSOffState)];
+}
+
+- (IBAction) toggleOpensAtLogin:(id)sender {
+	NSInteger changingToState = ![sender state];
+	[SDOpenAtLogin setOpensAtLogin: changingToState];
 }
 
 @end

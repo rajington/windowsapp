@@ -33,6 +33,7 @@
 		94873FC817194DEC000AC0A6 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		9495B457171959B4002C9EF5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9495B456171959B4002C9EF5 /* JavaScriptCore.framework */; };
 		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
+		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDConfigProblemReporter.m */; };
 		94DAFB531719B99A00526003 /* ConfigProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,8 @@
 		9495B456171959B4002C9EF5 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
 		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
+		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
+		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
 		94DAFB4F1719B98500526003 /* SDConfigProblemReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConfigProblemReporter.h; sourceTree = "<group>"; };
 		94DAFB501719B98500526003 /* SDConfigProblemReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConfigProblemReporter.m; sourceTree = "<group>"; };
 		94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigProblemReporter.xib; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */,
 				9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */,
 				9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */,
+				94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */,
+				94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
 				94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */,
 				94867DAB1719E56600027457 /* underscore-min.js in Sources */,
+				94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
