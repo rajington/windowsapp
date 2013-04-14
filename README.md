@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
-* Current version: **1.2**
+* Current version: **1.2.1**
 * Requires: OS X 10.7 and up
 
 
@@ -295,12 +295,9 @@ var showWindow = function() {
 @class App
 
 - (void) reloadConfig;
-```
 
-```objc
-@class Msg
-
-- (void) show:(NSString*)msg;
+- (void) popup:(NSString*)msg; // for one-line strings
+- (void) show:(NSString*)msg;  // for possibly multi-line strings
 ```
 
 ```objc
@@ -385,6 +382,11 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Change log
 
+- 1.2.1:
+  - Merged `Msg` class into `App` class in API
+  - Added `popup:` method to `App` in API
+  - Reloading config now pops something up to tell you about
+  - Error window no longer steals focus
 - 1.2:
   - Added 'Open at Login' menu item
   - Added `Screen` class to API

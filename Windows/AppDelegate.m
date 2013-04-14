@@ -11,6 +11,7 @@
 #import <JSCocoa/JSCocoa.h>
 
 #import "SDKeyBinder.h"
+#import "SDPopupWindowController.h"
 #import "SDMessageWindowController.h"
 #import "SDWindowProxy.h"
 #import "SDScreenProxy.h"
@@ -22,6 +23,7 @@
 @property SDKeyBinder* keyBinder;
 @property NSStatusItem* statusItem;
 
+@property SDPopupWindowController* popupWindowController;
 @property SDMessageWindowController* messageWindowController;
 
 @end
@@ -54,15 +56,23 @@
     [self.jscocoa setObject:[SDWindowProxy self] withName:@"Win"];
     [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
     [self.jscocoa setObject:self.keyBinder withName:@"Keys"];
-    [self.jscocoa setObject:self.messageWindowController withName:@"Msg"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.messageWindowController = [[SDMessageWindowController alloc] init];
+    self.popupWindowController = [[SDPopupWindowController alloc] init];
     
     [self prepareStatusItem];
     [self prepareScriptingBridge];
     [self reloadConfig];
+}
+
+- (void) show:(NSString*)msg {
+    [self.messageWindowController show:msg];
+}
+
+- (void) popup:(NSString*)msg {
+    [self.popupWindowController show:msg];
 }
 
 - (void) reportProblem:(NSString*)problem body:(NSString*)body {
@@ -101,6 +111,9 @@
         if ([failures count] > 0) {
             [self reportProblem:@"The following hot keys could not be bound:"
                            body:[failures componentsJoinedByString:@"\n"]];
+        }
+        else {
+            [self.popupWindowController show:@"Config reloaded."];
         }
     });
 }
