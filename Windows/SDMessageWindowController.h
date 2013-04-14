@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SDConfigProblemReporter : NSWindowController
+@interface SDMessageWindowController : NSWindowController
 
-@property NSString* problem;
+- (void) show:(NSString*)message;
 
 @end

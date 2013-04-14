@@ -11,18 +11,18 @@
 #import <JSCocoa/JSCocoa.h>
 
 #import "SDKeyBinder.h"
-#import "SDConfigProblemReporter.h"
+#import "SDMessageWindowController.h"
 #import "SDWindowProxy.h"
 #import "SDScreenProxy.h"
 #import "SDOpenAtLogin.h"
 
 @interface AppDelegate ()
 
-@property JSCocoa* jsc;
-@property SDKeyBinder* bindkeyOp;
+@property JSCocoa* jscocoa;
+@property SDKeyBinder* keyBinder;
 @property NSStatusItem* statusItem;
 
-@property SDConfigProblemReporter* problemReporter;
+@property SDMessageWindowController* messageWindowController;
 
 @end
 
@@ -37,40 +37,37 @@
 }
 
 - (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
-    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld\n\n%@", lineNumber, error]];
+    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld", lineNumber]
+                   body:error];
 }
 
 - (void) prepareScriptingBridge {
-    self.bindkeyOp = [[SDKeyBinder alloc] init];
+    self.keyBinder = [[SDKeyBinder alloc] init];
     
-    self.jsc = [JSCocoa new];
-    self.jsc.delegate = self;
-    self.jsc.useJSLint = NO;
-    [self.jsc evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
-    self.jsc.useJSLint = YES;
+    self.jscocoa = [JSCocoa new];
+    self.jscocoa.delegate = self;
+    self.jscocoa.useJSLint = NO;
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
+    self.jscocoa.useJSLint = YES;
     
-    [self.jsc setObject:self withName:@"App"];
-    [self.jsc setObject:[SDWindowProxy self] withName:@"Win"];
-    [self.jsc setObject:[SDScreenProxy self] withName:@"Screen"];
-    [self.jsc setObject:self.bindkeyOp withName:@"Keys"];
+    [self.jscocoa setObject:self withName:@"App"];
+    [self.jscocoa setObject:[SDWindowProxy self] withName:@"Win"];
+    [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
+    [self.jscocoa setObject:self.keyBinder withName:@"Keys"];
+    [self.jscocoa setObject:self.messageWindowController withName:@"Msg"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    self.messageWindowController = [[SDMessageWindowController alloc] init];
+    
     [self prepareStatusItem];
     [self prepareScriptingBridge];
     [self reloadConfig];
 }
 
-- (void) reportProblem:(NSString*)problem {
-    if (self.problemReporter == nil)
-        self.problemReporter = [[SDConfigProblemReporter alloc] init];
-    
-    self.problemReporter.problem = problem;
-    
-    [NSApp activateIgnoringOtherApps:YES];
-    
-    [[self.problemReporter window] center];
-    [self.problemReporter showWindow:nil];
+- (void) reportProblem:(NSString*)problem body:(NSString*)body {
+    NSString* msg = [NSString stringWithFormat:@"== Problem ==\n%@\n\n%@", problem, body];
+    [self.messageWindowController show:msg];
 }
 
 - (void) reloadConfig {
@@ -81,28 +78,29 @@
         NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
         
         if (config == nil) {
-            [self reportProblem:@"~/.windowsapp doesn't exist"];
+            [self reportProblem:@"~/.windowsapp doesn't exist"
+                           body:@"Make it exist and try again maybe?"];
             return;
         }
         
         NSString* __autoreleasing invalidReason;
-        BOOL validSyntax = [self.jsc isSyntaxValid:config error:&invalidReason];
+        BOOL validSyntax = [self.jscocoa isSyntaxValid:config error:&invalidReason];
         
         if (validSyntax == NO) {
-            [self reportProblem:invalidReason];
+            [self reportProblem:@"Your config file has bad syntax."
+                           body:invalidReason];
             return;
         }
         
-        [self.bindkeyOp removeKeyBindings];
+        [self.keyBinder removeKeyBindings];
         
-        [self.jsc evalJSString:config];
+        [self.jscocoa evalJSString:config];
         
-        NSArray* failures = [self.bindkeyOp finalizeNewKeyBindings];
+        NSArray* failures = [self.keyBinder finalizeNewKeyBindings];
         
         if ([failures count] > 0) {
-            NSString* keyDescriptions = [failures componentsJoinedByString:@"\n"];
-            NSString* crap = [NSString stringWithFormat:@"The following hot keys could not be bound:\n\n%@", keyDescriptions];
-            [self reportProblem:crap];
+            [self reportProblem:@"The following hot keys could not be bound:"
+                           body:[failures componentsJoinedByString:@"\n"]];
         }
     });
 }

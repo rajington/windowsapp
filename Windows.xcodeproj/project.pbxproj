@@ -33,8 +33,8 @@
 		9495B457171959B4002C9EF5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9495B456171959B4002C9EF5 /* JavaScriptCore.framework */; };
 		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
-		94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDConfigProblemReporter.m */; };
-		94DAFB531719B99A00526003 /* ConfigProblemReporter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */; };
+		94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDMessageWindowController.m */; };
+		94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* MessageWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,9 +94,9 @@
 		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
 		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
 		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
-		94DAFB4F1719B98500526003 /* SDConfigProblemReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConfigProblemReporter.h; sourceTree = "<group>"; };
-		94DAFB501719B98500526003 /* SDConfigProblemReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConfigProblemReporter.m; sourceTree = "<group>"; };
-		94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigProblemReporter.xib; sourceTree = "<group>"; };
+		94DAFB4F1719B98500526003 /* SDMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMessageWindowController.h; sourceTree = "<group>"; };
+		94DAFB501719B98500526003 /* SDMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMessageWindowController.m; sourceTree = "<group>"; };
+		94DAFB521719B99A00526003 /* MessageWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,8 +227,8 @@
 			children = (
 				94873F3F17191F40000AC0A6 /* AppDelegate.h */,
 				94873F4017191F40000AC0A6 /* AppDelegate.m */,
-				94DAFB4F1719B98500526003 /* SDConfigProblemReporter.h */,
-				94DAFB501719B98500526003 /* SDConfigProblemReporter.m */,
+				94DAFB4F1719B98500526003 /* SDMessageWindowController.h */,
+				94DAFB501719B98500526003 /* SDMessageWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,7 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				94873F4217191F40000AC0A6 /* MainMenu.xib */,
-				94DAFB521719B99A00526003 /* ConfigProblemReporter.xib */,
+				94DAFB521719B99A00526003 /* MessageWindow.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 				943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */,
 				943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */,
 				943921BF1719B66C00F63073 /* windows.icns in Resources */,
-				94DAFB531719B99A00526003 /* ConfigProblemReporter.xib in Resources */,
+				94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */,
 				94867DAC1719E5A200027457 /* underscore-min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +362,7 @@
 				94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */,
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
-				94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */,
+				94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */,
 				94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */,
 				94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */,
 			);

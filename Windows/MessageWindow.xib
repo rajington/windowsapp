@@ -27,7 +27,7 @@
 		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<object class="NSCustomObject" id="1001">
-				<string key="NSClassName">SDConfigProblemReporter</string>
+				<string key="NSClassName">SDMessageWindowController</string>
 			</object>
 			<object class="NSCustomObject" id="1003">
 				<string key="NSClassName">FirstResponder</string>
@@ -38,9 +38,9 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 240}, {480, 270}}</string>
+				<string key="NSWindowRect">{{196, 240}, {388, 206}}</string>
 				<int key="NSWTFlags">544735232</int>
-				<string key="NSWindowTitle">Config Problem</string>
+				<string key="NSWindowTitle">Windows.app</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
@@ -59,7 +59,7 @@
 										<object class="NSTextView" id="350562912">
 											<reference key="NSNextResponder" ref="75937154"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{423, 228}</string>
+											<string key="NSFrameSize">{373, 206}</string>
 											<reference key="NSSuperview" ref="75937154"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="735673435"/>
@@ -79,7 +79,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="350562912"/>
-												<double key="NSWidth">423</double>
+												<double key="NSWidth">373</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -127,11 +127,11 @@
 												<int key="NSPreferredTextFinderStyle">1</int>
 											</object>
 											<int key="NSTVFlags">6</int>
-											<string key="NSMaxSize">{463, 10000000}</string>
+											<string key="NSMaxSize">{465, 10000000}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrame">{{1, 1}, {423, 228}}</string>
+									<string key="NSFrame">{{1, 1}, {373, 206}}</string>
 									<reference key="NSSuperview" ref="882919780"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="350562912"/>
@@ -162,7 +162,7 @@
 								<object class="NSScroller" id="735673435">
 									<reference key="NSNextResponder" ref="882919780"/>
 									<int key="NSvFlags">256</int>
-									<string key="NSFrame">{{424, 1}, {15, 228}}</string>
+									<string key="NSFrame">{{374, 1}, {15, 206}}</string>
 									<reference key="NSSuperview" ref="882919780"/>
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView"/>
@@ -189,7 +189,7 @@
 									<double key="NSPercent">0.94565218687057495</double>
 								</object>
 							</array>
-							<string key="NSFrame">{{20, 20}, {440, 230}}</string>
+							<string key="NSFrame">{{-1, -1}, {390, 208}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="336344517"/>
@@ -203,12 +203,12 @@
 							<double key="NSMagnification">1</double>
 						</object>
 					</array>
-					<string key="NSFrameSize">{480, 270}</string>
+					<string key="NSFrameSize">{388, 206}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="882919780"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<string key="NSFrameAutosaveName">configProb</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -226,6 +226,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
+						<string key="label">textView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="350562912"/>
+					</object>
+					<int key="connectionID">20</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="1005"/>
 						<reference key="destination" ref="1001"/>
@@ -234,15 +242,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: problem</string>
+						<string key="label">value: message</string>
 						<reference key="source" ref="350562912"/>
 						<reference key="destination" ref="1001"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="350562912"/>
 							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">value: problem</string>
+							<string key="NSLabel">value: message</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">problem</string>
+							<string key="NSKeyPath">message</string>
 							<object class="NSDictionary" key="NSOptions">
 								<string key="NS.key.0">NSConditionallySetsEditable</string>
 								<boolean value="NO" key="NS.object.0"/>
@@ -339,37 +347,27 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">19</int>
+			<int key="maxID">20</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
-					<string key="className">NSTextView</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="orderFrontSharingServicePicker:">id</string>
-						<string key="toggleQuickLookPreviewPanel:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="orderFrontSharingServicePicker:">
-							<string key="name">orderFrontSharingServicePicker:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="toggleQuickLookPreviewPanel:">
-							<string key="name">toggleQuickLookPreviewPanel:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSTextView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SDConfigProblemReporter</string>
+					<string key="className">SDMessageWindowController</string>
 					<string key="superclassName">NSWindowController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">textView</string>
+						<string key="NS.object.0">NSTextView</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">textView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">textView</string>
+							<string key="candidateClassName">NSTextView</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SDConfigProblemReporter.h</string>
+						<string key="minorKey">./Classes/SDMessageWindowController.h</string>
 					</object>
 				</object>
 			</array>

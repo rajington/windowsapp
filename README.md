@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
-* Current version: **1.1.1**
+* Current version: **1.2**
 * Requires: OS X 10.7 and up
 
 
@@ -308,6 +308,12 @@ var showWindow = function() {
 ```
 
 ```objc
+@class Msg
+
+- (void) show:(NSString*)msg;
+```
+
+```objc
 @class Keys
 
 - (void) bind:(NSString*)key
@@ -389,6 +395,11 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Change log
 
+- 1.2:
+  - Added 'Open at Login' menu item
+  - Added `Screen` class to API
+  - Added `Msg` class to API
+  - Removed `moveToNextScreen` and `moveToPreviousScreen` methods from API
 - 1.1.1:
   - Performance improvements and bug fixes
 - 1.1:
