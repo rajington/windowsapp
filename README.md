@@ -325,11 +325,11 @@ var showWindow = function() {
 - (CGRect) frame;
 - (void) setFrame:(CGRect)frame;
 
-- (void) setTopLeft:(CGPoint)thePoint;
-- (void) setSize:(CGSize)theSize;
-
 - (CGPoint) topLeft;
+- (void) setTopLeft:(CGPoint)thePoint;
+
 - (CGSize) size;
+- (void) setSize:(CGSize)theSize;
 
 - (void) maximize;
 
