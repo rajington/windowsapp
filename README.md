@@ -11,7 +11,7 @@ Table of contents:
 
 * [No really, what is Windows.app?](#no-really-what-is-windows-app)
 * [Usage](#usage)
-    * [Why JSCocoa?](#why-jscocoa)
+    * [About JSCocoa](#why-jscocoa)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
 * [Useful Config Tricks](#useful-config-tricks)
@@ -40,15 +40,14 @@ Run the app. Then create your config file at `~/.windowsapp` and write some [JSC
 
 The config file has access to [underscore.js](http://underscorejs.org/).
 
-### Why JSCocoa?
+### About JSCocoa
+
+JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar. Check out [the official syntax page](https://code.google.com/p/jscocoa/).
 
 * Gives you the full power of Javascript, as it's a superset of Javascript
 * Gives you nearly the full power of ObjC, including native bracket and dot syntax
 * Has complete access to the ObjC runtime including all Foundation and Cocoa classes
     * This means you can do almost anything that ObjC/Cocoa could do
-* Doesn't require creating a whole `WebView` just to evaluate JS
-
-JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar. Check out [the official syntax page](https://code.google.com/p/jscocoa/).
 
 ## Basic Config
 
