@@ -8,8 +8,6 @@
 
 #import "SDWindowProxy.h"
 
-#import "NSScreen+RealFrame.h"
-
 #import "SDUniversalAccessHelper.h"
 
 @interface SDWindowProxy ()
@@ -100,17 +98,6 @@
     return nil;
 }
 
-- (void) moveToFrame:(CGRect)frame onScreen:(NSScreen*)screen {
-    CGRect screenRect = [screen frameInWindowCoordinates];
-    
-    frame.origin.x += NSMinX(screenRect);
-    frame.origin.y += NSMinY(screenRect);
-    
-    frame = NSIntegralRect(frame);
-    
-    [self setFrame:frame];
-}
-
 - (CGRect) frame {
     CGRect r;
     r.origin = [self topLeft];
@@ -182,14 +169,14 @@
         CFRelease(sizeStorage);
 }
 
-- (NSScreen*) screen {
+- (SDScreenProxy*) screen {
     CGRect windowFrame = [self frame];
     
     CGFloat lastVolume = 0;
-    NSScreen* lastScreen = nil;
+    SDScreenProxy* lastScreen = nil;
     
-    for (NSScreen* screen in [NSScreen screens]) {
-        CGRect screenFrame = [screen frameInWindowCoordinates];
+    for (SDScreenProxy* screen in [SDScreenProxy allScreens]) {
+        CGRect screenFrame = [screen frameIncludingDockAndMenu];
         CGRect intersection = CGRectIntersection(windowFrame, screenFrame);
         CGFloat volume = intersection.size.width * intersection.size.height;
         
@@ -202,36 +189,8 @@
     return lastScreen;
 }
 
-- (void) moveToNextScreen {
-    NSArray* screens = [NSScreen screens];
-    NSScreen* currentScreen = [self screen];
-    
-    NSUInteger idx = [screens indexOfObject:currentScreen];
-    
-    idx += 1;
-    if (idx == [screens count])
-        idx = 0;
-    
-    NSScreen* nextScreen = [screens objectAtIndex:idx];
-    [self moveToFrame:[self frame] onScreen:nextScreen];
-}
-
-- (void) moveToPreviousScreen {
-    NSArray* screens = [NSScreen screens];
-    NSScreen* currentScreen = [self screen];
-    
-    NSUInteger idx = [screens indexOfObject:currentScreen];
-    
-    idx -= 1;
-    if (idx == -1)
-        idx = [screens count] - 1;
-    
-    NSScreen* nextScreen = [screens objectAtIndex:idx];
-    [self moveToFrame:[self frame] onScreen:nextScreen];
-}
-
 - (void) maximize {
-    CGRect screenRect = [[self screen] frameInWindowCoordinates];
+    CGRect screenRect = [[self screen] frameWithoutDockOrMenu];
     [self setFrame:screenRect];
 }
 

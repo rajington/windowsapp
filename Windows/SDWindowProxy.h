@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SDScreenProxy.h"
+
 @interface SDWindowProxy : NSObject
 
 // getting windows
@@ -34,10 +36,7 @@
 
 // screens
 
-- (NSScreen*) screen;
-
-- (void) moveToNextScreen;
-- (void) moveToPreviousScreen;
+- (SDScreenProxy*) screen;
 
 
 // focus

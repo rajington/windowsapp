@@ -183,44 +183,20 @@ var mash = ["CMD", "ALT", "CTRL"];
 // throw to next screen
 [Keys bind:"N" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
-
-    var screens = [NSScreen screens];
-    var currentScreen = [win screen];
-
-    var idx = [screens indexOfObject:currentScreen];
-
-    idx += 1;
-    if (idx == [screens count])
-        idx = 0;
-
-    var nextScreen = screens[idx];
-
-    moveToGridPropsOnScreen(win, nextScreen, gridProps(win));
+    moveToGridPropsOnScreen(win, [[win screen] nextScreen], gridProps(win));
 }];
 
 // throw to previous screen (come on, who ever has more than 2 screens?)
 [Keys bind:"P" modifiers:mash fn: function() {
     var win = [Win focusedWindow];
-
-    var screens = [NSScreen screens];
-    var currentScreen = [win screen];
-
-    var idx = [screens indexOfObject:currentScreen];
-
-    idx -= 1;
-    if (idx == -1)
-        idx = [screens count] - 1;
-
-    var nextScreen = screens[idx];
-
-    moveToGridPropsOnScreen(win, nextScreen, gridProps(win));
+    moveToGridPropsOnScreen(win, [[win screen] previousScreen], gridProps(win));
 }];
 
 // helper functions
 
 var gridProps = function(win) {
     var winFrame = [win frame];
-    var screenRect = [[win screen] frameInWindowCoordinates];
+    var screenRect = [[win screen] frameWithoutDockOrMenu];
 
     var thirdScrenWidth = screenRect.size.width / 3.0;
     var halfScreenHeight = screenRect.size.height / 2.0;
@@ -236,7 +212,7 @@ var moveToGridProps = function(win, gridProps) {
 }
 
 var moveToGridPropsOnScreen = function(win, screen, gridProps) {
-    var screenRect = [screen frameInWindowCoordinates];
+    var screenRect = [screen frameWithoutDockOrMenu];
 
     var thirdScrenWidth = screenRect.size.width / 3.0;
     var halfScreenHeight = screenRect.size.height / 2.0;
@@ -360,7 +336,7 @@ var showWindow = function() {
 
 // screens
 
-- (NSScreen*) screen;
+- (Screen*) screen;
 
 - (void) moveToNextScreen;
 - (void) moveToPreviousScreen;
@@ -384,9 +360,20 @@ var showWindow = function() {
 ```
 
 ```objc
-@class NSScreen
+@class Screen
 
-- (CGRect) frameInWindowCoordinates; // all the good names were taken
++ (Screen*) mainScreen;
++ (NSArray*) allScreens;
+
+- (CGRect) frameIncludingDockAndMenu;
+- (CGRect) frameWithoutDockOrMenu;
+
+- (Screen*) nextScreen;
+- (Screen*) previousScreen;
+
+// just in case you need this
+- (NSScreen*) actualScreenObject;
+
 ```
 
 ## License

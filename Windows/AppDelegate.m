@@ -13,6 +13,7 @@
 #import "SDKeyBinder.h"
 #import "SDConfigProblemReporter.h"
 #import "SDWindowProxy.h"
+#import "SDScreenProxy.h"
 #import "SDOpenAtLogin.h"
 
 @interface AppDelegate ()
@@ -50,6 +51,7 @@
     
     [self.jsc setObject:self withName:@"App"];
     [self.jsc setObject:[SDWindowProxy self] withName:@"Win"];
+    [self.jsc setObject:[SDScreenProxy self] withName:@"Screen"];
     [self.jsc setObject:self.bindkeyOp withName:@"Keys"];
 }
 

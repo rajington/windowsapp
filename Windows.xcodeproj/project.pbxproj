@@ -12,7 +12,7 @@
 		943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */; };
 		943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B91719B1EE00F63073 /* statusitem@2x.png */; };
 		943921BF1719B66C00F63073 /* windows.icns in Resources */ = {isa = PBXBuildFile; fileRef = 943921BE1719B66C00F63073 /* windows.icns */; };
-		94867DAB1719E56600027457 /* underscore-min.js in Sources */ = {isa = PBXBuildFile; fileRef = 94867DAA1719E56600027457 /* underscore-min.js */; };
+		94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B32171B31AC003EF64E /* SDScreenProxy.m */; };
 		94867DAC1719E5A200027457 /* underscore-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 94867DAA1719E56600027457 /* underscore-min.js */; };
 		94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F2D17191F40000AC0A6 /* Cocoa.framework */; };
 		94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94873F3617191F40000AC0A6 /* InfoPlist.strings */; };
@@ -28,7 +28,6 @@
 		94873F67171929A0000AC0A6 /* SDKeyBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F66171929A0000AC0A6 /* SDKeyBinder.m */; };
 		94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */; };
 		94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F6C171937BC000AC0A6 /* SDWindowProxy.m */; };
-		94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */; };
 		94873FC717194DE9000AC0A6 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		94873FC817194DEC000AC0A6 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94873FC617194DE9000AC0A6 /* JSCocoa.framework */; };
 		9495B457171959B4002C9EF5 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9495B456171959B4002C9EF5 /* JavaScriptCore.framework */; };
@@ -57,6 +56,8 @@
 		943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusitem_pressed@2x.png"; sourceTree = "<group>"; };
 		943921B91719B1EE00F63073 /* statusitem@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusitem@2x.png"; sourceTree = "<group>"; };
 		943921BE1719B66C00F63073 /* windows.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = windows.icns; path = "app icon/windows.icns"; sourceTree = SOURCE_ROOT; };
+		94454B31171B31AC003EF64E /* SDScreenProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDScreenProxy.h; sourceTree = "<group>"; };
+		94454B32171B31AC003EF64E /* SDScreenProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDScreenProxy.m; sourceTree = "<group>"; };
 		94867DAA1719E56600027457 /* underscore-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "underscore-min.js"; sourceTree = "<group>"; };
 		94873F2A17191F40000AC0A6 /* Windows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Windows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94873F2D17191F40000AC0A6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -87,8 +88,6 @@
 		94873F6917193270000AC0A6 /* SDKeyBindingTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDKeyBindingTranslator.m; sourceTree = "<group>"; };
 		94873F6B171937BC000AC0A6 /* SDWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWindowProxy.h; sourceTree = "<group>"; };
 		94873F6C171937BC000AC0A6 /* SDWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWindowProxy.m; sourceTree = "<group>"; };
-		94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSScreen+RealFrame.h"; sourceTree = "<group>"; };
-		94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+RealFrame.m"; sourceTree = "<group>"; };
 		94873FC617194DE9000AC0A6 /* JSCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSCocoa.framework; sourceTree = "<group>"; };
 		9495B456171959B4002C9EF5 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
@@ -122,8 +121,8 @@
 				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
 				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
 				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
-				94873F7217194722000AC0A6 /* NSScreen+RealFrame.h */,
-				94873F7317194722000AC0A6 /* NSScreen+RealFrame.m */,
+				94454B31171B31AC003EF64E /* SDScreenProxy.h */,
+				94454B32171B31AC003EF64E /* SDScreenProxy.m */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -362,11 +361,10 @@
 				94873F67171929A0000AC0A6 /* SDKeyBinder.m in Sources */,
 				94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */,
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
-				94873F7417194722000AC0A6 /* NSScreen+RealFrame.m in Sources */,
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
 				94DAFB511719B98500526003 /* SDConfigProblemReporter.m in Sources */,
-				94867DAB1719E56600027457 /* underscore-min.js in Sources */,
 				94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */,
+				94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
