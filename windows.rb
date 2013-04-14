@@ -2,8 +2,8 @@ require 'formula'
 
 class Windows < Formula
   homepage 'https://github.com/sdegutis/windows'
-  url 'https://github.com/sdegutis/Windows/archive/1.1.1.zip'
-  sha1 '67dbee34e780221b31b85c372de3a2c73b528e32'
+  url 'https://github.com/sdegutis/Windows/archive/1.2.1.zip'
+  sha1 '11ebaf4d65ea7c1cad917950bd3e0861f434d6ed'
 
   head 'https://github.com/sdegutis/Windows.git'
 
