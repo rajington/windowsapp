@@ -40,7 +40,7 @@
     [[[self window] animator] setAlphaValue:1.0];
     [NSAnimationContext endGrouping];
     
-    [self useTitleAndResize:oneLineMsg];
+    [self useTitleAndResize:[oneLineMsg description]];
     
     [self.window center];
     [self showWindow:self];

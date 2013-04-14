@@ -76,7 +76,7 @@
 }
 
 - (void) reportProblem:(NSString*)problem body:(NSString*)body {
-    NSString* msg = [NSString stringWithFormat:@"== Problem ==\n%@\n\n%@", problem, body];
+    NSString* msg = [NSString stringWithFormat:@"=== Problem ===\n%@\n\n%@", problem, body];
     [self.messageWindowController show:msg];
 }
 
