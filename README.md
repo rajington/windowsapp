@@ -12,6 +12,7 @@ Table of contents:
 * [No really, what is Windows.app?](#no-really-what-is-windows-app)
 * [Usage](#usage)
     * [Why JSCocoa?](#why-jscocoa)
+    * [Quick JSCocoa reference](#quick-jscocoa-reference)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
 * [Useful Config Tricks](#useful-config-tricks)
