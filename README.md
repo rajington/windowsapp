@@ -338,9 +338,6 @@ var showWindow = function() {
 
 - (Screen*) screen;
 
-- (void) moveToNextScreen;
-- (void) moveToPreviousScreen;
-
 
 // focus
 
