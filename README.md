@@ -305,7 +305,7 @@ var showWindow = function() {
 
 - (void) bind:(NSString*)key
     modifiers:(NSArray*)mods
-           fn:(<js-function>)fn;
+           fn:(JSFunction)fn;
 
 // key: a single-character string (doesn't matter if it's upper-case or lower-case)
 // mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
