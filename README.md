@@ -48,6 +48,15 @@ The config file has access to [underscore.js](http://underscorejs.org/).
     * This means you can do almost anything that ObjC/Cocoa could do
 * Doesn't require creating a whole `WebView` just to evaluate JS
 
+### Quick JSCocoa reference
+
+* Just a subset of JavaScript
+* Can use bracket notation to call ObjC methods: `[a callThis: foo withThat: bar];`
+* Can access all classes in ObjC
+* Call call methods using dot-notation: `a = foo.bar(baz);`
+    * If there's no arguments, don't use parens: `a = foo.bar;`
+    * If there's any args, use underscores: `a = foo.bar_(x);` and `foo.bar_baz_(x, y);`
+
 ## Basic Config
 
 This basic config makes Mash-HJKL move to the "sides" of the screen.
