@@ -12,7 +12,6 @@ Table of contents:
 * [No really, what is Windows.app?](#no-really-what-is-windows-app)
 * [Usage](#usage)
     * [Why JSCocoa?](#why-jscocoa)
-    * [Quick JSCocoa reference](#quick-jscocoa-reference)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
 * [Useful Config Tricks](#useful-config-tricks)
@@ -49,14 +48,7 @@ The config file has access to [underscore.js](http://underscorejs.org/).
     * This means you can do almost anything that ObjC/Cocoa could do
 * Doesn't require creating a whole `WebView` just to evaluate JS
 
-### Quick JSCocoa reference
-
-* Just a subset of JavaScript
-* Can use bracket notation to call ObjC methods: `[a callThis: foo withThat: bar];`
-* Can access all classes in ObjC
-* Call call methods using dot-notation: `a = foo.bar(baz);`
-    * If there's no arguments, don't use parens: `a = foo.bar;`
-    * If there's any args, use underscores: `a = foo.bar_(x);` and `foo.bar_baz_(x, y);`
+JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar. Check out [the official syntax page](https://code.google.com/p/jscocoa/).
 
 ## Basic Config
 
