@@ -26,6 +26,7 @@
 }
 
 - (void) windowDidLoad {
+    self.disappearDelay = 1.0;
     self.window.ignoresMouseEvents = YES;
 }
 
@@ -45,16 +46,16 @@
     [self.window center];
     [self showWindow:self];
     
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:self.disappearDelay];
 }
 
 - (void) fadeWindowOut {
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:1.0];
+    [[NSAnimationContext currentContext] setDuration:0.5];
     [[[self window] animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
     
-    [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:0.5];
 }
 
 - (void) closeAndResetWindow {
@@ -70,6 +71,7 @@
     
 	NSRect windowFrame = [[self window] frame];
 	windowFrame.size.width = [self.msgTextField frame].size.width + 32.0;
+	windowFrame.size.height = [self.msgTextField frame].size.height + 24.0;
 	[[self window] setFrame:windowFrame display:YES];
 }
 

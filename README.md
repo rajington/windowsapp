@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
-* Current version: **1.2.2**
+* Current version: **1.2.3**
 * Requires: OS X 10.7 and up
 
 
@@ -231,6 +231,16 @@ function print(str); // for multi-line strings
 ```
 
 ```objc
+@class PopupSettings
+
+// use like this:
+// foo = PopupSettings.disappearDelay;
+// PopupSettings.disappearDelay = 3.0;
+
+@property NSInteger disappearDelay;
+```
+
+```objc
 @class Keys
 
 - (void) bind:(NSString*)key
@@ -312,6 +322,8 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Change log
 
+- 1.2.3:
+  - Added `PopupSettings` to API
 - 1.2.2:
   - The dotfile should now be named `~/.windowsapp.js`
   - Added `alert()` and `print()` functions

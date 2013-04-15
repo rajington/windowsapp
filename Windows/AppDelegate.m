@@ -59,6 +59,7 @@
     [self.jscocoa setObject:[SDWindowProxy self] withName:@"Win"];
     [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
     [self.jscocoa setObject:self.keyBinder withName:@"Keys"];
+    [self.jscocoa setObject:self.popupWindowController withName:@"PopupSettings"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {

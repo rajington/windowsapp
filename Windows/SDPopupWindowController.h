@@ -10,6 +10,8 @@
 
 @interface SDPopupWindowController : NSWindowController
 
+@property NSInteger disappearDelay;
+
 - (void) show:(NSString*)oneLineMsg;
 
 @end

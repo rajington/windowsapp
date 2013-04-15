@@ -58,11 +58,10 @@
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="NSTextField" id="558902137">
 											<reference key="NSNextResponder" ref="286825555"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">292</int>
 											<string key="NSFrame">{{12, 11}, {183, 33}}</string>
 											<reference key="NSSuperview" ref="286825555"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<string key="NSReuseIdentifierKey">_NS:1535</string>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="260344295">
@@ -136,8 +135,8 @@
 							<bool key="NSTransparent">NO</bool>
 							<double key="NSCornerRadius2">25</double>
 							<object class="NSColor" key="NSBorderColor2">
-								<int key="NSColorSpace">3</int>
-								<bytes key="NSWhite">MCAwAA</bytes>
+								<int key="NSColorSpace">1</int>
+								<bytes key="NSRGB">MSAxIDEAA</bytes>
 							</object>
 							<object class="NSColor" key="NSFillColor2">
 								<int key="NSColorSpace">1</int>
@@ -150,7 +149,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="234389480"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1418}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
