@@ -318,7 +318,7 @@ function print(str); // for multi-line strings
 
 ## License
 
-MIT (see [LICENSE](LICENSE) file)
+MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
