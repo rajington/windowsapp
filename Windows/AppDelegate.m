@@ -91,11 +91,10 @@
     NSString* path = [@"~/.windowsapp.js" stringByStandardizingPath];
     NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
-    if (config == nil) {
+    if (config == nil)
         [self reportProblem:@"~/.windowsapp.js doesn't exist"
                        body:@"Make it exist and try again maybe?"];
         return NO;
-    }
     
     NSString* __autoreleasing invalidReason;
     BOOL validSyntax = [self.jscocoa isSyntaxValid:config error:&invalidReason];
@@ -127,11 +126,8 @@
     NSString* path = [@"~/.windowsapp.coffee" stringByStandardizingPath];
     NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
-    if (config == nil) {
-        [self reportProblem:@"~/.windowsapp.coffee doesn't exist"
-                       body:@"Make it exist and try again maybe?"];
+    if (config == nil)
         return NO;
-    }
     
     JSValueRef compileFn = [self.jscocoa evalJSString:@"CoffeeScript.compile"];
     JSValueRef compiledCode = [self.jscocoa callJSFunction:(JSObjectRef)compileFn withArguments:@[config]];
@@ -156,8 +152,10 @@
 
 - (void) reloadConfig {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (![self tryCoffeescriptConfig])
-            [self tryJavascriptConfig];
+        if (![self tryCoffeescriptConfig] && ![self tryJavascriptConfig]) {
+            [self reportProblem:@"~/.windowsapp.{coffee,js} doesn't exist"
+                           body:@"Make one exist and try again maybe? (If both exist, coffee is chosen.)"];
+        }
     });
 }
 
