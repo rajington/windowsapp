@@ -216,7 +216,10 @@ var moveToGridPropsOnScreen = function(win, screen, gridProps) {
 
 ## Other People's Configs
 
-* Coming soon...
+* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.js)
+* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp)
+
+Do you have a cool one? Let me know by [filing an Issue](https://github.com/sdegutis/windows/issues).
 
 ## API
 
