@@ -46,8 +46,6 @@ JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar.
 
 ## Basic Config
 
-This basic config makes Mash-HJKL move to the "sides" of the screen.
-
 ```javascript
 // maximize window
 [Keys bind:'M' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
