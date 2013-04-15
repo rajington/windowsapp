@@ -226,8 +226,8 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 - (void) reloadConfig;
 
-- (void) popup:(NSString*)msg; // for one-line strings
-- (void) show:(NSString*)msg;  // for possibly multi-line strings
+function alert(str); // for one-line strings
+function print(str); // for multi-line strings
 ```
 
 ```objc
@@ -314,6 +314,8 @@ MIT (see [LICENSE](LICENSE) file)
 
 - 1.2.2:
   - The dotfile should now be named `~/.windowsapp.js`
+  - Added `alert()` and `print()` functions
+  - Removed `popup:` and `show:` methods
 - 1.2.1:
   - Merged `Msg` class into `App` class in API
   - Added `popup:` method to `App` in API

@@ -52,6 +52,9 @@
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
     self.jscocoa.useJSLint = YES;
     
+    [self.jscocoa evalJSString:@"function alert(str) { [App popup: str]; }"];
+    [self.jscocoa evalJSString:@"function print(str) { [App show: str]; }"];
+    
     [self.jscocoa setObject:self withName:@"App"];
     [self.jscocoa setObject:[SDWindowProxy self] withName:@"Win"];
     [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
@@ -82,8 +85,6 @@
 
 - (void) reloadConfig {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"reloading config...");
-        
         NSString* path = [@"~/.windowsapp.js" stringByStandardizingPath];
         NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
         
