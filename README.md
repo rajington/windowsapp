@@ -226,8 +226,8 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 - (void) reloadConfig;
 
-function alert(str); // for one-line strings
-function print(str); // for multi-line strings
+function alert(str); // shows in a fancy popup
+function print(str); // shows in a plain old text box
 ```
 
 ```objc
