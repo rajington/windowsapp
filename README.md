@@ -13,11 +13,6 @@ Table of contents:
 * [Usage](#usage)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
-* [Useful Config Tricks](#useful-config-tricks)
-    * [Make Cmd-Shift-R reload your config during testing](#make-cmd-shift-r-reload-your-config-during-testing)
-    * [Use variables for common modifiers](#use-variables-for-common-modifiers)
-    * [Show an alert pop-up](#show-an-alert-pop-up)
-    * [Create a window](#create-a-window)
 * [API](#api)
 * [License](#license)
 * [Change log](#change-log)
@@ -35,7 +30,7 @@ But technically, you can do anything you want in this file. Because it's JSCocoa
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to [reload the app](#make-cmd-shift-r-reload-your-config-during-testing) during testing so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to reload the app (see the [basic config example](#basic-config)) during testing so you don't have to click the menu bar icon to do it.)
 
 The config file has access to [underscore.js](http://underscorejs.org/).
 
@@ -227,66 +222,6 @@ var moveToGridPropsOnScreen = function(win, screen, gridProps) {
 
     [win setFrame: newFrame];
 };
-```
-
-## Useful Config Tricks
-
-### Make Cmd-Shift-R reload your config during testing
-
-```javascript
-[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
-    [App reloadConfig];
-}];
-```
-
-### Use variables for common modifiers
-
-```javascript
-var mash = ["CMD", "ALT", "CTRL"];
-[Keys bind:"H" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowLeft]; }];
-[Keys bind:"L" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowRight]; }];
-[Keys bind:"J" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowDown]; }];
-[Keys bind:"K" modifiers:mash fn:function() { [[Win focusedWindow] focusWindowUp]; }];
-```
-
-### Show an alert pop-up
-
-```javascript
-var showAlert = function(title, text) {
-    [NSApp activateIgnoringOtherApps:true];
-    var win = NSAlert.alloc.init;
-    win.messageText = title;
-    win.informativeText = text;
-    [win runModal];
-};
-
-[Keys bind:"z" modifiers:["CMD"] fn: function() {
-    showAlert("stop using undo!", "the past is the past.\n\njust accept it and move on.");
-}];
-```
-
-### Create a window
-
-This creates a window with the same frame as the focused window, makes it green, and brings it to the foreground
-
-```javascript
-var showWindow = function() {
-    var frame = Win.focusedWindow.frame;
-
-    [NSApp activateIgnoringOtherApps:true];
-
-    var w  = [[NSWindow alloc] initWithContentRect:frame
-                                     styleMask:NSTitledWindowMask | NSClosableWindowMask
-                                       backing:NSBackingStoreBuffered
-                                         defer:NO];
-    [w setBackgroundColor:[NSColor greenColor]];
-
-    [w makeKeyAndOrderFront:null];
-};
-
-[Keys bind:"p" modifiers:["CMD"] fn: function() {
-    showWindow();
-}];
 ```
 
 ## API
