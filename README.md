@@ -2,7 +2,6 @@
 
 *The OS X window manager for hackers*
 
-thing | stuff
 ----- | -----
 Install | `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
 Current version | **1.2.3**
