@@ -13,6 +13,7 @@ Table of contents:
 * [Usage](#usage)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
+* [Other People's Configs](#other-peoples-configs)
 * [API](#api)
 * [License](#license)
 * [Change log](#change-log)
@@ -212,6 +213,10 @@ var moveToGridPropsOnScreen = function(win, screen, gridProps) {
     [win setFrame: newFrame];
 };
 ```
+
+## Other People's Configs
+
+* Coming soon...
 
 ## API
 
