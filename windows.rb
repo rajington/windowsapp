@@ -3,8 +3,8 @@ require 'formula'
 class Windows < Formula
   homepage 'https://github.com/sdegutis/windows'
   url 'https://github.com/sdegutis/Windows/archive/1.2.3.zip'
+  version '1.2.3'
   sha1 '9bfacf3d39d6d30d276dca4abc2be51245410c1e'
-
   head 'https://github.com/sdegutis/Windows.git'
 
   depends_on :xcode
