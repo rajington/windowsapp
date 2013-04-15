@@ -48,43 +48,32 @@ JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar.
 This basic config makes Mash-HJKL move to the "sides" of the screen.
 
 ```javascript
-// making a convenient function for our purposes
-binder = function(letter, fn) {
-  [Keys bind:letter modifiers:["CMD", "ALT", "CTRL"] fn: function() {
-      var win = [Win focusedWindow];
-      var frame = [[win screen] frameInWindowCoordinates]; // start off with the screen's full frame
-      fn(win, frame);
-  }];
-};
+// maximize window
+[Keys bind:'M' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
+    var win = Win.focusedWindow;
+    var frame = win.screen.frameWithoutDockOrMenu;
+    win.frame = frame;
+}];
 
-binder('M', function(win, frame) {
-    [win setFrame: frame]; // we're maximizing, so just set the frame without adjusting it
-});
-
-binder('H', function(win, frame) {
-    frame.size.width /= 2;
-    [win setFrame: frame];
-});
-
-binder('L', function(win, frame) {
-    frame.origin.x += frame.size.width / 2;
-    frame.size.width /= 2;
-    [win setFrame: frame];
-});
-
-binder('K', function(win, frame) {
+// push to top half of screen
+[Keys bind:'K' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
+    var win = [Win focusedWindow];
+    var frame = win.screen.frameWithoutDockOrMenu;
     frame.size.height /= 2;
-    [win setFrame: frame];
-});
+    win.frame = frame;
+}];
 
-binder('J', function(win, frame) {
+// push to bottom half of screen
+[Keys bind:'J' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
+    var win = [Win focusedWindow];
+    var frame = win.screen.frameWithoutDockOrMenu;
     frame.origin.y += frame.size.height / 2;
     frame.size.height /= 2;
-    [win setFrame: frame];
-});
+    win.frame = frame;
+}];
 
-// Cmd-Shift-R reloads this config for testing
-[Keys bind:"R" modifiers:["SHIFT", "CMD"] fn: function() {
+// reload this config for testing
+[Keys bind:'R' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
     [App reloadConfig];
 }];
 ```
