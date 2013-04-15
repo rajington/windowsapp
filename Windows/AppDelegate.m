@@ -84,11 +84,11 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"reloading config...");
         
-        NSString* path = [@"~/.windowsapp" stringByStandardizingPath];
+        NSString* path = [@"~/.windowsapp.js" stringByStandardizingPath];
         NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
         
         if (config == nil) {
-            [self reportProblem:@"~/.windowsapp doesn't exist"
+            [self reportProblem:@"~/.windowsapp.js doesn't exist"
                            body:@"Make it exist and try again maybe?"];
             return;
         }

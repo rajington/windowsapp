@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
-* Current version: **1.2.1**
+* Current version: **1.2.2**
 * Requires: OS X 10.7 and up
 
 
@@ -23,7 +23,7 @@ Table of contents:
 
 The original goal was to create a bare-bones, minimalist window manager for OS X. But it turns out to be more than that.
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates the config file `~/.windowsapp` (written in [JSCocoa](https://github.com/parmanoir/jscocoa/)) whenever you tell it to.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates the config file `~/.windowsapp.js` (written in [JSCocoa](https://github.com/parmanoir/jscocoa/)) whenever you tell it to.
 
 In this config file, you can access Windows.app's [simple API](#api), which lets you bind global hot keys to your own functions, determine window sizes and positions, move and resize windows, move focus to the closest window in a given direction, and more.
 
@@ -31,7 +31,7 @@ But technically, you can do anything you want in this file. Because it's JSCocoa
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to reload the app (see the [basic config example](#basic-config)) during testing so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp.js` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to reload the app (see the [basic config example](#basic-config)) during testing so you don't have to click the menu bar icon to do it.)
 
 The config file has access to [underscore.js](http://underscorejs.org/).
 
@@ -311,6 +311,8 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Change log
 
+- 1.2.2:
+  - The dotfile should now be named `~/.windowsapp.js`
 - 1.2.1:
   - Merged `Msg` class into `App` class in API
   - Added `popup:` method to `App` in API
