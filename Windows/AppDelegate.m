@@ -61,6 +61,8 @@
     [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
     [self.jscocoa setObject:self.keyBinder withName:@"Keys"];
     [self.jscocoa setObject:self.popupWindowController withName:@"PopupSettings"];
+    
+    [self.jscocoa evalJSString:@"bind = function(key, mods, fn) { [Keys bind:key modifiers:mods fn:fn]; }"];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
