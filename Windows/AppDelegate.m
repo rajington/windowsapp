@@ -50,6 +50,7 @@
     self.jscocoa.delegate = self;
     self.jscocoa.useJSLint = NO;
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
     self.jscocoa.useJSLint = YES;
     
     [self.jscocoa evalJSString:@"function alert(str) { [App popup: str]; }"];
@@ -84,39 +85,77 @@
     [self.messageWindowController show:msg];
 }
 
+- (BOOL) tryJavascriptConfig {
+    NSString* path = [@"~/.windowsapp.js" stringByStandardizingPath];
+    NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    if (config == nil) {
+        [self reportProblem:@"~/.windowsapp.js doesn't exist"
+                       body:@"Make it exist and try again maybe?"];
+        return NO;
+    }
+    
+    NSString* __autoreleasing invalidReason;
+    BOOL validSyntax = [self.jscocoa isSyntaxValid:config error:&invalidReason];
+    
+    if (validSyntax == NO) {
+        [self reportProblem:@"Your config file has bad syntax."
+                       body:invalidReason];
+        return YES;
+    }
+    
+    [self.keyBinder removeKeyBindings];
+    
+    [self.jscocoa evalJSString:config];
+    
+    NSArray* failures = [self.keyBinder finalizeNewKeyBindings];
+    
+    if ([failures count] > 0) {
+        [self reportProblem:@"The following hot keys could not be bound:"
+                       body:[failures componentsJoinedByString:@"\n"]];
+    }
+    else {
+        [self.popupWindowController show:@"Config reloaded."];
+    }
+    
+    return YES;
+}
+
+- (BOOL) tryCoffeescriptConfig {
+    NSString* path = [@"~/.windowsapp.coffee" stringByStandardizingPath];
+    NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    
+    if (config == nil) {
+        [self reportProblem:@"~/.windowsapp.coffee doesn't exist"
+                       body:@"Make it exist and try again maybe?"];
+        return NO;
+    }
+    
+    JSValueRef compileFn = [self.jscocoa evalJSString:@"CoffeeScript.compile"];
+    JSValueRef compiledCode = [self.jscocoa callJSFunction:(JSObjectRef)compileFn withArguments:@[config]];
+    NSString* compiledCodeStr = [self.jscocoa toObject:compiledCode];
+    
+    [self.keyBinder removeKeyBindings];
+    
+    [self.jscocoa evalJSString:compiledCodeStr];
+    
+    NSArray* failures = [self.keyBinder finalizeNewKeyBindings];
+    
+    if ([failures count] > 0) {
+        [self reportProblem:@"The following hot keys could not be bound:"
+                       body:[failures componentsJoinedByString:@"\n"]];
+    }
+    else {
+        [self.popupWindowController show:@"Config reloaded."];
+    }
+    
+    return YES;
+}
+
 - (void) reloadConfig {
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSString* path = [@"~/.windowsapp.js" stringByStandardizingPath];
-        NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-        
-        if (config == nil) {
-            [self reportProblem:@"~/.windowsapp.js doesn't exist"
-                           body:@"Make it exist and try again maybe?"];
-            return;
-        }
-        
-        NSString* __autoreleasing invalidReason;
-        BOOL validSyntax = [self.jscocoa isSyntaxValid:config error:&invalidReason];
-        
-        if (validSyntax == NO) {
-            [self reportProblem:@"Your config file has bad syntax."
-                           body:invalidReason];
-            return;
-        }
-        
-        [self.keyBinder removeKeyBindings];
-        
-        [self.jscocoa evalJSString:config];
-        
-        NSArray* failures = [self.keyBinder finalizeNewKeyBindings];
-        
-        if ([failures count] > 0) {
-            [self reportProblem:@"The following hot keys could not be bound:"
-                           body:[failures componentsJoinedByString:@"\n"]];
-        }
-        else {
-            [self.popupWindowController show:@"Config reloaded."];
-        }
+        if (![self tryCoffeescriptConfig])
+            [self tryJavascriptConfig];
     });
 }
 
