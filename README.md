@@ -349,5 +349,6 @@ MIT (see [LICENSE](LICENSE) file)
 
 ## Todo
 
+* Learn how to version properly
 * Allow the rest of the keys in BindkeyLegacyTranslator.m
 * Make it semi-safe to pass wrong stuff into API functions, especially `-bind:...`
