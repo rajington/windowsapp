@@ -9,7 +9,7 @@
 
 Table of contents:
 
-* [No really, what is Windows.app?](#no-really-what-is-windows-app)
+* [No really, what is Windows.app?](#no-really-what-is-windowsapp)
 * [Usage](#usage)
 * [Basic Config](#basic-config)
 * [Really Cool Config](#really-cool-config)
