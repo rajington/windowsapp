@@ -237,7 +237,7 @@ function print(str); // shows in a plain old text box
 // foo = PopupSettings.disappearDelay;
 // PopupSettings.disappearDelay = 3.0;
 
-@property NSInteger disappearDelay;
+@property CGFloat disappearDelay;
 ```
 
 ```objc
