@@ -220,7 +220,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ## API
 
 ```coffeescript
-class Api (singleton: 'api')
+class Api # access via singleton 'api'
 
 - (void) bind(String key,
               Array<String> modifiers,
@@ -251,7 +251,7 @@ property Float disappearDelay
 ```
 
 ```coffeescript
-class Win
+class Window
 
 # window position & size
 
@@ -293,9 +293,6 @@ class Win
 
 ```coffeescript
 class Screen
-
-+ (Screen) mainScreen
-+ (Array<Array>) allScreens
 
 - (CGRect) frameIncludingDockAndMenu
 - (CGRect) frameWithoutDockOrMenu
