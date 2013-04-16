@@ -6,7 +6,7 @@
 * Requires: OS X 10.7 and up
 * Install options:
     * `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/brew-formula.rb`
-    * [Download app](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz), unzip, right-click app, choose "Open"
+    * [Download Windows.app.zip](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz), unzip, right-click app, choose "Open"
 
 Table of contents:
 
