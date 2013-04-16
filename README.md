@@ -220,7 +220,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ## API
 
 ```coffeescript
-# class Api (singleton: 'api')
+class Api (singleton: 'api')
 
 - (void) bind(String key,
               Array<String> modifiers,
@@ -242,14 +242,16 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 - (Screen) mainScreen
 - (Array<Screen>) allScreens
+```
 
+```coffeescript
+class Settings ('api.settings')
 
-# class Settings ('api.settings')
+property Float disappearDelay
+```
 
-property CGFloat disappearDelay;
-
-
-# class Win
+```coffeescript
+class Win
 
 # window position & size
 
@@ -287,8 +289,10 @@ property CGFloat disappearDelay;
 - (String) title
 - (Boolean) isWindowMinimized
 - (Boolean) isAppHidden
+```
 
-# class Screen
+```coffeescript
+class Screen
 
 + (Screen) mainScreen
 + (Array<Array>) allScreens
