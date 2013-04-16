@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Install:
+* Install options:
     * Compile via Homebrew: `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb`
     * Download pre-built app: [`Windows.app-latest.tar.gz`](Builds/Windows.app-latest.tar.gz)
 * Current version: **2.0.3**
