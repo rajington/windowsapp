@@ -1,8 +1,8 @@
 require 'formula'
 
 class Windows < Formula
-  homepage 'https://github.com/sdegutis/windows'
-  url 'https://github.com/sdegutis/Windows/archive/2.0.zip'
+  homepage 'https://github.com/sdegutis/windows.app'
+  url 'https://github.com/sdegutis/windows.app/archive/2.0.zip'
   version '2.0'
   sha1 'cdb1ab5729daff6adb0ab7068351cf37df3c0bb0'
   head 'https://github.com/sdegutis/Windows.git'
