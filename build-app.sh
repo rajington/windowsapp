@@ -6,5 +6,5 @@ FILENAME="Builds/Windows-$VERSION.app.tar.gz"
 LATEST="Builds/Windows.app-latest.tar.gz"
 rm -rf $FILENAME
 tar -zcf $FILENAME -C build/Release Windows.app
-rm $LATEST
+rm -f $LATEST
 cp $FILENAME $LATEST
