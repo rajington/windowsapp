@@ -59,8 +59,8 @@
 
 - (NSString*) hotKeyDescription {
     return [NSString stringWithFormat:@"%@ %@",
-            [[self shortcutObject] modifierFlagsString],
-            [[self shortcutObject] keyCodeString]];
+            [self.modifiers componentsJoinedByString:@"-"],
+            self.key];
 }
 
 - (id) bindAndReturnHandler {
