@@ -35,6 +35,14 @@
     [SDAlertWindowController sharedAlertWindowController].alertAnimates = alertAnimates;
 }
 
+- (NSBox*) alertBox {
+    return [SDAlertWindowController sharedAlertWindowController].box;
+}
+
+- (NSTextField*) alertTextField {
+    return [SDAlertWindowController sharedAlertWindowController].textField;
+}
+
 @end
 
 @implementation SDAPI

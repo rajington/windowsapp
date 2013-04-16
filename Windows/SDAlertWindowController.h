@@ -17,4 +17,7 @@
 
 @property BOOL alertAnimates;
 
+@property IBOutlet NSTextField* textField;
+@property IBOutlet NSBox* box;
+
 @end

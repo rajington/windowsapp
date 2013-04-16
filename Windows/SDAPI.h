@@ -17,6 +17,8 @@
 
 @property CGFloat alertDisappearDelay;
 @property BOOL alertAnimates;
+- (NSBox*) alertBox;
+- (NSTextField*) alertTextField;
 
 @end
 

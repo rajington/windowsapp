@@ -12,13 +12,6 @@
 
 #import "SDAPI.h"
 
-@interface SDAlertWindowController ()
-
-@property IBOutlet NSTextField* msgTextField;
-@property IBOutlet NSBox* box;
-
-@end
-
 @implementation SDAlertWindowController
 
 + (SDAlertWindowController*) sharedAlertWindowController {
@@ -91,12 +84,12 @@
 - (void) useTitleAndResize:(NSString*)title {
     [self window]; // sigh; required in case nib hasnt loaded yet
     
-    self.msgTextField.stringValue = title;
-    [self.msgTextField sizeToFit];
+    self.textField.stringValue = title;
+    [self.textField sizeToFit];
     
 	NSRect windowFrame = [[self window] frame];
-	windowFrame.size.width = [self.msgTextField frame].size.width + 32.0;
-	windowFrame.size.height = [self.msgTextField frame].size.height + 24.0;
+	windowFrame.size.width = [self.textField frame].size.width + 32.0;
+	windowFrame.size.height = [self.textField frame].size.height + 24.0;
 	[[self window] setFrame:windowFrame display:YES];
 }
 

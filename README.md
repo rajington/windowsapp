@@ -45,6 +45,13 @@ Note: if your config file fails to load for some reason, all your key bindings a
 ## Example Config
 
 ```coffeescript
+# make the alert box square with white background and black text
+api.settings.alertAnimates = false
+api.settings.alertBox.fillColor = NSColor.whiteColor.colorWithAlphaComponent(0.99);
+api.settings.alertBox.borderColor = NSColor.blackColor;
+api.settings.alertTextField.textColor = NSColor.blackColor;
+api.settings.alertBox.cornerRadius = 0;
+
 # reload this config for testing
 bind "R", ["cmd", "alt", "ctrl"], ->
   api.reloadConfig
@@ -113,6 +120,9 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windows.app/b
 ```coffeescript
 property (Float) alertDisappearDelay # in seconds
 property (Boolean) alertAnimates # when opening
+
+- (NSBox) alertBox
+- (NSTextField) alertTextField
 ```
 
 ### Type: `Window`
@@ -171,6 +181,7 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
   - Fixed some alert() visual uglies
   - When keys can't be bound, show them in a more readable way
   - Tweaked 'About' window
+  - Added some more `alert` options to API
 - 2.0.3
   - Renamed `popupDisappearDelay` to `alertDisappearDelay`
 - 2.0.2
