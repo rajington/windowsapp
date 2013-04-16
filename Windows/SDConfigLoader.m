@@ -35,14 +35,28 @@
     return sharedConfigLoader;
 }
 
-- (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
-    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld", lineNumber]
-                   body:error];
+- (void) prepareScriptingBridge {
+    self.jscocoa = [JSCocoa new];
+    self.jscocoa.useAutoCall = NO;
+    self.jscocoa.useSplitCall = NO;
+    self.jscocoa.delegate = self;
+    self.jscocoa.useJSLint = NO;
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
+    self.jscocoa.useJSLint = YES;
+    
+    [self.jscocoa setObject:[SDAPI self] withName:@"api"];
+    
+    [self.jscocoa evalJSString:@"bind = function(key, mods, fn) { api.bind_modifiers_fn_(key, mods, fn); }"];
 }
 
-- (void) reportProblem:(NSString*)problem body:(NSString*)body {
-    NSString* msg = [NSString stringWithFormat:@"=== Problem ===\n%@\n\n%@", problem, body];
-    [[SDMessageWindowController sharedMessageWindowController] show:msg];
+- (void) reloadConfig {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (![self tryCoffeescriptConfig] && ![self tryJavascriptConfig]) {
+            [self reportProblem:@"~/.windowsapp.{coffee,js} doesn't exist"
+                           body:@"Make one exist and try again maybe? (If both exist, coffee is chosen.)"];
+        }
+    });
 }
 
 - (BOOL) tryJavascriptConfig {
@@ -106,36 +120,14 @@
     return YES;
 }
 
-- (void) reloadConfig {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (![self tryCoffeescriptConfig] && ![self tryJavascriptConfig]) {
-            [self reportProblem:@"~/.windowsapp.{coffee,js} doesn't exist"
-                           body:@"Make one exist and try again maybe? (If both exist, coffee is chosen.)"];
-        }
-    });
+- (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
+    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld", lineNumber]
+                   body:error];
 }
 
-- (void) prepareScriptingBridge {
-    self.jscocoa = [JSCocoa new];
-    self.jscocoa.useAutoCall = NO;
-    self.jscocoa.useSplitCall = NO;
-    self.jscocoa.delegate = self;
-    self.jscocoa.useJSLint = NO;
-    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
-    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
-    self.jscocoa.useJSLint = YES;
-    
-//    [self.jscocoa evalJSString:@"function alert(str) { [App popup: str]; }"];
-//    [self.jscocoa evalJSString:@"function print(str) { [App show: str]; }"];
-    
-    [self.jscocoa setObject:[SDAPI self] withName:@"api"];
-    
-//    [self.jscocoa setObject:self withName:@"App"];
-//    [self.jscocoa setObject:[SDWindowProxy self] withName:@"Win"];
-//    [self.jscocoa setObject:[SDScreenProxy self] withName:@"Screen"];
-//    [self.jscocoa setObject:self.keyBinder withName:@"Keys"];
-    
-    [self.jscocoa evalJSString:@"bind = function(key, mods, fn) { api.bind_modifiers_fn_(key, mods, fn); }"];
+- (void) reportProblem:(NSString*)problem body:(NSString*)body {
+    NSString* msg = [NSString stringWithFormat:@"=== Problem ===\n%@\n\n%@", problem, body];
+    [[SDMessageWindowController sharedMessageWindowController] show:msg];
 }
 
 @end
