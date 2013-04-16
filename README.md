@@ -73,7 +73,7 @@ bind "J", ["cmd", "alt", "ctrl"], ->
 
 ## More Configs
 
-The home page of the wiki is [a user-editable list of configs](https://github.com/sdegutis/windows.app/wiki). Browse configs there, and even add your own.
+The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of configs from users, and configs that replicate other apps (like SizeUp and Divvy).
 
 ## API
 
