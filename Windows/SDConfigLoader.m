@@ -37,7 +37,7 @@
 
 - (void) prepareScriptingBridge {
     self.jscocoa = [JSCocoa new];
-    self.jscocoa.useAutoCall = NO;
+    self.jscocoa.useAutoCall = YES;
     self.jscocoa.useSplitCall = NO;
     self.jscocoa.delegate = self;
     self.jscocoa.useJSLint = NO;

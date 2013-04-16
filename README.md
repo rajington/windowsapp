@@ -46,25 +46,25 @@ Your config file has access to [underscore.js](http://underscorejs.org/).
 ```coffeescript
 # reload this config for testing
 bind "R", ["CMD", "ALT", "CTRL"], ->
-  api.reloadConfig()
+  api.reloadConfig
 
 # maximize window
 bind "M", ["CMD", "ALT", "CTRL"], ->
-  win = api.focusedWindow()
-  frame = win.screen().frameWithoutDockOrMenu()
+  win = api.focusedWindow
+  frame = win.screen.frameWithoutDockOrMenu
   win.setFrame frame
 
 # push to top half of screen
 bind "K", ["CMD", "ALT", "CTRL"], ->
-  win = api.focusedWindow()
-  frame = win.screen().frameWithoutDockOrMenu()
+  win = api.focusedWindow
+  frame = win.screen.frameWithoutDockOrMenu
   frame.size.height /= 2
   win.setFrame frame
 
 # push to bottom half of screen
 bind "J", ["CMD", "ALT", "CTRL"], ->
-  win = api.focusedWindow()
-  frame = win.screen().frameWithoutDockOrMenu()
+  win = api.focusedWindow
+  frame = win.screen.frameWithoutDockOrMenu
   frame.origin.y += frame.size.height / 2
   frame.size.height /= 2
   win.setFrame frame
@@ -82,74 +82,74 @@ mash_shift = ["CMD", "ALT", "CTRL", "SHIFT"]
 
 # reload this config for testing
 bind "R", mash, ->
-  api.reloadConfig()
+  api.reloadConfig
 
 
 # Mash+Shift+HJKL focuses the next window found in the given direction
 
 bind "H", mash_shift, ->
-  api.focusedWindow().focusWindowLeft()
+  api.focusedWindow.focusWindowLeft
 
 bind "L", mash_shift, ->
-  api.focusedWindow().focusWindowRight()
+  api.focusedWindow.focusWindowRight
 
 bind "K", mash_shift, ->
-  api.focusedWindow().focusWindowUp()
+  api.focusedWindow.focusWindowUp
 
 bind "J", mash_shift, ->
-  api.focusedWindow().focusWindowDown()
+  api.focusedWindow.focusWindowDown
 
 
 # snap this window to grid
 bind ";", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   moveToGridProps win, r
 
 # snap all windows to grid
 bind "'", mash, ->
-  _.each api.visibleWindows(), (win) ->
+  _.each api.visibleWindows, (win) ->
     r = gridProps(win)
     moveToGridProps win, r
 
 # maximize
 bind "M", mash, ->
-  win = api.focusedWindow()
-  screenRect = win.screen().frameWithoutDockOrMenu()
+  win = api.focusedWindow
+  screenRect = win.screen.frameWithoutDockOrMenu
   win.setFrame screenRect
 
 
 # move left
 bind "H", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.origin.x = Math.max(r.origin.x - 1, 0)
   moveToGridProps win, r
 
 # move right
 bind "L", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width)
   moveToGridProps win, r
 
 # grow to right
 bind "O", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x)
   moveToGridProps win, r
 
 # shrink from right
 bind "I", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.size.width = Math.max(r.size.width - 1, 1)
   moveToGridProps win, r
 
 # move to upper row
 bind "K", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.origin.y = 0
   r.size.height = 1
@@ -157,7 +157,7 @@ bind "K", mash, ->
 
 # move to lower row
 bind "J", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.origin.y = 1
   r.size.height = 1
@@ -165,7 +165,7 @@ bind "J", mash, ->
 
 # fill whole vertical column
 bind "U", mash, ->
-  win = api.focusedWindow()
+  win = api.focusedWindow
   r = gridProps(win)
   r.origin.y = 0
   r.size.height = 2
@@ -173,20 +173,20 @@ bind "U", mash, ->
 
 # throw to next screen
 bind "N", mash, ->
-  win = api.focusedWindow()
-  moveToGridPropsOnScreen win, win.screen().nextScreen(), gridProps(win)
+  win = api.focusedWindow
+  moveToGridPropsOnScreen win, win.screen.nextScreen, gridProps(win)
 
 # throw to previous screen (come on, who ever has more than 2 screens?)
 bind "P", mash, ->
-  win = api.focusedWindow()
-  moveToGridPropsOnScreen win, win.screen().previousScreen(), gridProps(win)
+  win = api.focusedWindow
+  moveToGridPropsOnScreen win, win.screen.previousScreen, gridProps(win)
 
 
 # helper functions
 
 gridProps = (win) ->
-  winFrame = win.frame()
-  screenRect = win.screen().frameWithoutDockOrMenu()
+  winFrame = win.frame
+  screenRect = win.screen.frameWithoutDockOrMenu
   thirdScrenWidth = screenRect.size.width / 3.0
   halfScreenHeight = screenRect.size.height / 2.0
   CGRectMake Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth),
@@ -195,10 +195,10 @@ gridProps = (win) ->
              Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1)
 
 moveToGridProps = (win, gridProps) ->
-  moveToGridPropsOnScreen win, win.screen(), gridProps
+  moveToGridPropsOnScreen win, win.screen, gridProps
 
 moveToGridPropsOnScreen = (win, screen, gridProps) ->
-  screenRect = screen.frameWithoutDockOrMenu()
+  screenRect = screen.frameWithoutDockOrMenu
   thirdScrenWidth = screenRect.size.width / 3.0
   halfScreenHeight = screenRect.size.height / 2.0
   newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect),
