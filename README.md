@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * Install options:
-    * `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb` (requires Xcode to be installed)
+    * `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb`
     * [Download app](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz) (unzip, right-click app, choose `Open` menu option)
 * Current version: **2.0.3**
 * Requires: OS X 10.7 and up
