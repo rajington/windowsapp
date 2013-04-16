@@ -230,18 +230,18 @@ class Api # access via singleton 'api'
    # fn: a javascript function that takes no args; return val is ignored
 
 
-- (void) reloadConfig
+- (void) reloadConfig()
 - (void) alert(String str)  # shows in a fancy popup
 - (void) print(String str)  # shows in a plain old text box
 
-- (Settings) settings
+- (Settings) settings()
 
-- (Array<Window>) allWindows
-- (Array<Window>) visibleWindows
-- (Window) focusedWindow
+- (Array<Window>) allWindows()
+- (Array<Window>) visibleWindows()
+- (Window) focusedWindow()
 
-- (Screen) mainScreen
-- (Array<Screen>) allScreens
+- (Screen) mainScreen()
+- (Array<Screen>) allScreens()
 ```
 
 ```coffeescript
@@ -253,53 +253,46 @@ property Float disappearDelay
 ```coffeescript
 class Window
 
-# window position & size
-
-- (CGRect) frame
+- (CGRect) frame()
 - (void) setFrame(CGRect frame)
 
-- (CGPoint) topLeft
+- (CGPoint) topLeft()
 - (void) setTopLeft(CGPoint thePoint)
 
-- (CGSize) size
+- (CGSize) size()
 - (void) setSize(CGSize theSize)
 
-- (void) maximize
+- (void) maximize()
 
 
-# screens and windows
 
-- (Screen) screen
-
-- (Array<Window>) otherWindowsOnSameScreen
+- (Screen) screen()
+- (Array<Window>) otherWindowsOnSameScreen()
 
 
-# focus
 
-- (Boolean) focusWindow
+- (Boolean) focusWindow()
 
-- (void) focusWindowLeft
-- (void) focusWindowRight
-- (void) focusWindowUp
-- (void) focusWindowDown
+- (void) focusWindowLeft()
+- (void) focusWindowRight()
+- (void) focusWindowUp()
+- (void) focusWindowDown()
 
 
-# other window properties
 
-- (String) title
-- (Boolean) isWindowMinimized
-- (Boolean) isAppHidden
+- (String) title()
+- (Boolean) isWindowMinimized()
+- (Boolean) isAppHidden()
 ```
 
 ```coffeescript
 class Screen
 
-- (CGRect) frameIncludingDockAndMenu
-- (CGRect) frameWithoutDockOrMenu
+- (CGRect) frameIncludingDockAndMenu()
+- (CGRect) frameWithoutDockOrMenu()
 
-- (Screen) nextScreen
-- (Screen) previousScreen
-
+- (Screen) nextScreen()
+- (Screen) previousScreen()
 ```
 
 ## License
