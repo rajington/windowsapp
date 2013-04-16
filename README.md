@@ -239,6 +239,6 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Make your top-level variables keep existing after config-reloads maybe?
-* Figure out how to automatically distribute pre-compiled binaries
+* Maybe get Sparkle setup? But how would we auto-generate appcast.xml? Hmm...
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
