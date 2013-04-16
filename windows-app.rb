@@ -5,7 +5,7 @@ class WindowsApp < Formula
   url 'https://github.com/sdegutis/windows.app/archive/2.0.3.zip'
   version '2.0.3'
   sha1 '0c33a5cb3c1ad90f994aa38d3b6d5bae609ee02e'
-  head 'https://github.com/sdegutis/Windows.git'
+  head 'https://github.com/sdegutis/windows.app.git'
 
   depends_on :xcode
 
