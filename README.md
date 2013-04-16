@@ -222,24 +222,26 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ```coffeescript
 # class Api (singleton: 'api')
 
-- (void) bind:(String key, Array<String> modifiers, Function fn);
+- (void) bind(String key,
+              Array<String> modifiers,
+              Function fn)
    # key: a single-character string (doesn't matter if it's upper-case or lower-case)
    # mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
    # fn: a javascript function that takes no args; return val is ignored
 
 
-- (void) reloadConfig;
-- (void) alert:(String)str;  // shows in a fancy popup
-- (void) print:(String)str;  // shows in a plain old text box
+- (void) reloadConfig
+- (void) alert(String str)  # shows in a fancy popup
+- (void) print(String str)  # shows in a plain old text box
 
-- (Settings) settings;
+- (Settings) settings
 
-- (Array<Window>) allWindows;
-- (Array<Window>) visibleWindows;
-- (Window) focusedWindow;
+- (Array<Window>) allWindows
+- (Array<Window>) visibleWindows
+- (Window) focusedWindow
 
-- (Screen) mainScreen;
-- (Array<Screen>) allScreens;
+- (Screen) mainScreen
+- (Array<Screen>) allScreens
 
 
 # class Settings ('api.settings')
@@ -251,51 +253,51 @@ property CGFloat disappearDelay;
 
 # window position & size
 
-- (CGRect) frame;
-- (void) setFrame:(CGRect)frame;
+- (CGRect) frame
+- (void) setFrame(CGRect frame)
 
-- (CGPoint) topLeft;
-- (void) setTopLeft:(CGPoint)thePoint;
+- (CGPoint) topLeft
+- (void) setTopLeft(CGPoint thePoint)
 
-- (CGSize) size;
-- (void) setSize:(CGSize)theSize;
+- (CGSize) size
+- (void) setSize(CGSize theSize)
 
-- (void) maximize;
+- (void) maximize
 
 
 # screens and windows
 
-- (Screen) screen;
+- (Screen) screen
 
-- (Array<Window>) otherWindowsOnSameScreen;
+- (Array<Window>) otherWindowsOnSameScreen
 
 
 # focus
 
-- (Boolean) focusWindow;
+- (Boolean) focusWindow
 
-- (void) focusWindowLeft;
-- (void) focusWindowRight;
-- (void) focusWindowUp;
-- (void) focusWindowDown;
+- (void) focusWindowLeft
+- (void) focusWindowRight
+- (void) focusWindowUp
+- (void) focusWindowDown
 
 
 # other window properties
 
-- (String) title;
-- (Boolean) isWindowMinimized;
-- (Boolean) isAppHidden;
+- (String) title
+- (Boolean) isWindowMinimized
+- (Boolean) isAppHidden
 
 # class Screen
 
-+ (Screen) mainScreen;
-+ (Array<Array>) allScreens;
++ (Screen) mainScreen
++ (Array<Array>) allScreens
 
-- (CGRect) frameIncludingDockAndMenu;
-- (CGRect) frameWithoutDockOrMenu;
+- (CGRect) frameIncludingDockAndMenu
+- (CGRect) frameWithoutDockOrMenu
 
-- (Screen) nextScreen;
-- (Screen) previousScreen;
+- (Screen) nextScreen
+- (Screen) previousScreen
 
 ```
 
