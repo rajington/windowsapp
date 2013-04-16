@@ -53,14 +53,14 @@ bind "M", ["CMD", "ALT", "CTRL"], ->
 # push to top half of screen
 bind "K", ["CMD", "ALT", "CTRL"], ->
   win = Win.focusedWindow()
-  frame = win.screen.frameWithoutDockOrMenu
+  frame = win.screen().frameWithoutDockOrMenu()
   frame.size.height /= 2
   win.setFrame frame
 
 # push to bottom half of screen
 bind "J", ["CMD", "ALT", "CTRL"], ->
   win = Win.focusedWindow()
-  frame = win.screen.frameWithoutDockOrMenu
+  frame = win.screen().frameWithoutDockOrMenu()
   frame.origin.y += frame.size.height / 2
   frame.size.height /= 2
   win.setFrame frame
