@@ -164,7 +164,30 @@ property (Boolean) alertAnimates # when opening
 
 ### Other Types
 
-Everything else, like CGRect and CGPoint, is part of ObjC and Cocoa. Look up their docs elsewhere.
+The rest of the types here are classes from ObjC, bridged to JS. Here's a few for reference:
+
+#### CGRect
+
+```coffeescript
+property (CGPoint) origin # top-left point on screen
+property (CGSize) size
+```
+
+#### CGSize
+
+```coffeescript
+property (Float) width
+property (Float) height
+```
+
+#### CGPoint
+
+```coffeescript
+property (Float) x
+property (Float) y
+```
+
+The rest you'll have to look up for yourself.
 
 ## License
 
