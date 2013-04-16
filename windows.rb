@@ -22,6 +22,8 @@ class Windows < Formula
     To symlink into ~/Applications, you can do:
       brew linkapps
 
+    However, Spotlight won't see it. But `open -a windows` will.
+
     EOS
   end
 end
