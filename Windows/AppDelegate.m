@@ -47,6 +47,8 @@
     self.keyBinder = [[SDKeyBinder alloc] init];
     
     self.jscocoa = [JSCocoa new];
+    self.jscocoa.useAutoCall = NO;
+    self.jscocoa.useSplitCall = NO;
     self.jscocoa.delegate = self;
     self.jscocoa.useJSLint = NO;
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
