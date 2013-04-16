@@ -214,7 +214,6 @@ enum {
     if ([strs containsObject:@"CTRL"]) result |= NSControlKeyMask;
     if ([strs containsObject:@"ALT"]) result |= NSAlternateKeyMask;
     if ([strs containsObject:@"CMD"]) result |= NSCommandKeyMask;
-    if ([strs containsObject:@"FN"]) result |= NSFunctionKeyMask;
     
     return result;
 }

@@ -128,10 +128,13 @@ property (Float) popupDisappearDelay # in seconds
 - (void) maximize
 
 
-
 - (Screen) screen
 - (Array<Window>) otherWindowsOnSameScreen
 
+
+- (String) title
+- (Boolean) isWindowMinimized
+- (Boolean) isAppHidden
 
 
 - (Boolean) focusWindow
@@ -140,12 +143,6 @@ property (Float) popupDisappearDelay # in seconds
 - (void) focusWindowRight
 - (void) focusWindowUp
 - (void) focusWindowDown
-
-
-
-- (String) title
-- (Boolean) isWindowMinimized
-- (Boolean) isAppHidden
 ```
 
 ### Type: `Screen`
