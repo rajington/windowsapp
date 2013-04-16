@@ -130,7 +130,7 @@
 							<int key="NSBoxType">4</int>
 							<int key="NSTitlePosition">0</int>
 							<bool key="NSTransparent">NO</bool>
-							<double key="NSCornerRadius2">25</double>
+							<double key="NSCornerRadius2">27</double>
 							<reference key="NSBorderColor2" ref="892328204"/>
 							<object class="NSColor" key="NSFillColor2">
 								<int key="NSColorSpace">1</int>
