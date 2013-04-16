@@ -17,6 +17,15 @@
 
 @implementation SDMessageWindowController
 
++ (SDMessageWindowController*) sharedMessageWindowController {
+    static SDMessageWindowController* sharedMessageWindowController;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedMessageWindowController = [[SDMessageWindowController alloc] init];
+    });
+    return sharedMessageWindowController;
+}
+
 - (NSString*) windowNibName {
     return @"MessageWindow";
 }

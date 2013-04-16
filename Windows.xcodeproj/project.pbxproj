@@ -18,6 +18,8 @@
 		94454B3C171B422C003EF64E /* SDPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B3B171B422C003EF64E /* SDPopupWindow.m */; };
 		94454B3F171B479B003EF64E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94454B3E171B479B003EF64E /* QuartzCore.framework */; };
 		947E9955171CA9A9006F30AC /* coffee-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 947E9953171CA99C006F30AC /* coffee-script.js */; };
+		947E9958171CEFB5006F30AC /* SDAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 947E9957171CEFB5006F30AC /* SDAPI.m */; };
+		947E995B171CF9DE006F30AC /* SDConfigLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 947E995A171CF9DE006F30AC /* SDConfigLoader.m */; };
 		94867DAC1719E5A200027457 /* underscore-min.js in Resources */ = {isa = PBXBuildFile; fileRef = 94867DAA1719E56600027457 /* underscore-min.js */; };
 		94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94873F2D17191F40000AC0A6 /* Cocoa.framework */; };
 		94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94873F3617191F40000AC0A6 /* InfoPlist.strings */; };
@@ -70,6 +72,10 @@
 		94454B3B171B422C003EF64E /* SDPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPopupWindow.m; sourceTree = "<group>"; };
 		94454B3E171B479B003EF64E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		947E9953171CA99C006F30AC /* coffee-script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "coffee-script.js"; sourceTree = "<group>"; };
+		947E9956171CEFB5006F30AC /* SDAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAPI.h; sourceTree = "<group>"; };
+		947E9957171CEFB5006F30AC /* SDAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAPI.m; sourceTree = "<group>"; };
+		947E9959171CF9DE006F30AC /* SDConfigLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDConfigLoader.h; sourceTree = "<group>"; };
+		947E995A171CF9DE006F30AC /* SDConfigLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDConfigLoader.m; sourceTree = "<group>"; };
 		94867DAA1719E56600027457 /* underscore-min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "underscore-min.js"; sourceTree = "<group>"; };
 		94873F2A17191F40000AC0A6 /* Windows.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Windows.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94873F2D17191F40000AC0A6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -130,6 +136,10 @@
 		943921B41719AF5900F63073 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				947E9956171CEFB5006F30AC /* SDAPI.h */,
+				947E9957171CEFB5006F30AC /* SDAPI.m */,
+				947E9959171CF9DE006F30AC /* SDConfigLoader.h */,
+				947E995A171CF9DE006F30AC /* SDConfigLoader.m */,
 				94873F65171929A0000AC0A6 /* SDKeyBinder.h */,
 				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
 				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
@@ -397,6 +407,8 @@
 				94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */,
 				94454B37171B4179003EF64E /* SDPopupWindowController.m in Sources */,
 				94454B3C171B422C003EF64E /* SDPopupWindow.m in Sources */,
+				947E9958171CEFB5006F30AC /* SDAPI.m in Sources */,
+				947E995B171CF9DE006F30AC /* SDConfigLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

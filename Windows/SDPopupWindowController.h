@@ -10,7 +10,7 @@
 
 @interface SDPopupWindowController : NSWindowController
 
-@property CGFloat disappearDelay;
++ (SDPopupWindowController*) sharedPopupWindowController;
 
 - (void) show:(NSString*)oneLineMsg;
 

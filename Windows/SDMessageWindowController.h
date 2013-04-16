@@ -10,6 +10,8 @@
 
 @interface SDMessageWindowController : NSWindowController
 
++ (SDMessageWindowController*) sharedMessageWindowController;
+
 - (void) show:(NSString*)message;
 
 @end

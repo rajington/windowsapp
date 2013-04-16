@@ -10,23 +10,31 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "SDAPI.h"
+
 @interface SDPopupWindowController ()
 
 @property IBOutlet NSTextField* msgTextField;
 @property IBOutlet NSBox* box;
 
-//@property BOOL shouldBeVisible;
-
 @end
 
 @implementation SDPopupWindowController
+
++ (SDPopupWindowController*) sharedPopupWindowController {
+    static SDPopupWindowController* sharedPopupWindowController;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedPopupWindowController = [[SDPopupWindowController alloc] init];
+    });
+    return sharedPopupWindowController;
+}
 
 - (NSString*) windowNibName {
     return @"PopupWindow";
 }
 
 - (void) windowDidLoad {
-    self.disappearDelay = 1.0;
     self.window.ignoresMouseEvents = YES;
 }
 
@@ -46,7 +54,7 @@
     [self.window center];
     [self showWindow:self];
     
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:self.disappearDelay];
+    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:[SDAPI settings].disappearDelay];
 }
 
 - (void) fadeWindowOut {

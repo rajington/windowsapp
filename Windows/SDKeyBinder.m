@@ -11,9 +11,6 @@
 #import "MASShortcut+Monitoring.h"
 #import "SDKeyBindingTranslator.h"
 
-#import <JSCocoa/JSCocoa.h>
-
-
 
 @interface SDJSBlockWrapper : NSObject
 @property JSContextRef mainContext;
@@ -84,6 +81,15 @@
 @end
 
 @implementation SDKeyBinder
+
++ (SDKeyBinder*) sharedKeyBinder {
+    static SDKeyBinder* sharedKeyBinder;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedKeyBinder = [[SDKeyBinder alloc] init];
+    });
+    return sharedKeyBinder;
+}
 
 - (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn {
     SDHotKey* hotkey = [[SDHotKey alloc] init];
