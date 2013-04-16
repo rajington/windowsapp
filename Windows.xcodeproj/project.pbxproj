@@ -42,6 +42,7 @@
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDMessageWindowController.m */; };
 		94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* MessageWindow.xib */; };
+		D5FABCC3171D05710030530B /* exports.js in Resources */ = {isa = PBXBuildFile; fileRef = D5FABCC0171D04C80030530B /* exports.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,6 +116,7 @@
 		94DAFB4F1719B98500526003 /* SDMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMessageWindowController.h; sourceTree = "<group>"; };
 		94DAFB501719B98500526003 /* SDMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMessageWindowController.m; sourceTree = "<group>"; };
 		94DAFB521719B99A00526003 /* MessageWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageWindow.xib; sourceTree = "<group>"; };
+		D5FABCC0171D04C80030530B /* exports.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = exports.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 		94873F3417191F40000AC0A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D5FABCC0171D04C80030530B /* exports.js */,
 				947E9953171CA99C006F30AC /* coffee-script.js */,
 				94867DAA1719E56600027457 /* underscore-min.js */,
 				94873F3617191F40000AC0A6 /* InfoPlist.strings */,
@@ -354,6 +357,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5FABCC3171D05710030530B /* exports.js in Resources */,
 				94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */,
 				94873F4417191F40000AC0A6 /* MainMenu.xib in Resources */,
 				943921BA1719B1EE00F63073 /* statusitem.png in Resources */,
