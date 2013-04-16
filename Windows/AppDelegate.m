@@ -92,8 +92,6 @@
     NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
     if (config == nil)
-        [self reportProblem:@"~/.windowsapp.js doesn't exist"
-                       body:@"Make it exist and try again maybe?"];
         return NO;
     
     NSString* __autoreleasing invalidReason;
