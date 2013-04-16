@@ -41,6 +41,8 @@ You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exists,
 
 Your config file has access to [underscore.js](http://underscorejs.org/).
 
+Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
+
 ## Example Config - Simple
 
 ```coffeescript
