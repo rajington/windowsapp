@@ -184,12 +184,15 @@ bind "P", mash, ->
 
 # helper functions
 
-  gridProps = (win) ->
+gridProps = (win) ->
   winFrame = win.frame()
   screenRect = win.screen().frameWithoutDockOrMenu()
   thirdScrenWidth = screenRect.size.width / 3.0
   halfScreenHeight = screenRect.size.height / 2.0
-  CGRectMake Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth), Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight), Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1), Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1)
+  CGRectMake Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth),
+             Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight),
+             Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1),
+             Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1)
 
 moveToGridProps = (win, gridProps) ->
   moveToGridPropsOnScreen win, win.screen(), gridProps
@@ -198,7 +201,10 @@ moveToGridPropsOnScreen = (win, screen, gridProps) ->
   screenRect = screen.frameWithoutDockOrMenu()
   thirdScrenWidth = screenRect.size.width / 3.0
   halfScreenHeight = screenRect.size.height / 2.0
-  newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect), (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect), gridProps.size.width * thirdScrenWidth, gridProps.size.height * halfScreenHeight)
+  newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect),
+                        (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect),
+                        gridProps.size.width * thirdScrenWidth,
+                        gridProps.size.height * halfScreenHeight)
   newFrame = NSInsetRect(newFrame, 5, 5) # acts as a little margin between windows, to give shadows some breathing room
   newFrame = NSIntegralRect(newFrame)
   win.setFrame newFrame
