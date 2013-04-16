@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
+* **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows.rb`
 * Current version: **2.0**
 * Requires: OS X 10.7 and up
 
@@ -11,9 +11,9 @@ Table of contents:
 
 * [No really, what is Windows.app?](#no-really-what-is-windowsapp)
 * [Usage](#usage)
-* [Example Config - Simple](#example-config---simple)
-* [Example Config - Awesome](#example-config---awesome)
-* [Other People's Configs](#other-peoples-configs)
+* [Example Config](#example-config)
+* [Configs From Other Apps](#configs-from-other-apps)
+* [User-Contributed Configs](#user-contributed-configs)
 * [API](#api)
 * [License](#license)
 * [Change log](#change-log)
@@ -43,7 +43,7 @@ Your config file has access to [underscore.js 1.4.4](http://underscorejs.org/).
 
 Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
 
-## Example Config - Simple
+## Example Config
 
 ```coffeescript
 # reload this config for testing
@@ -72,147 +72,11 @@ bind "J", ["cmd", "alt", "ctrl"], ->
   win.setFrame frame
 ```
 
-## Example Config - Awesome
+## Configs From Other Apps
 
-This makes your screen act like a grid, and lets you move and resize windows within it:
+* [AppGrid](https://github.com/sdegutis/Windows/wiki/AppGrid-config) - makes your screen act like a grid, and lets you move and resize windows within it
 
-```coffeescript
-# treats the screen like a grid, and lets you move/resize windows along it
-
-mash = ["cmd", "alt", "ctrl"]
-mash_shift = ["cmd", "alt", "ctrl", "shift"]
-
-# reload this config for testing
-bind "R", mash, ->
-  api.reloadConfig
-
-
-# Mash+Shift+HJKL focuses the next window found in the given direction
-
-bind "H", mash_shift, ->
-  api.focusedWindow.focusWindowLeft
-
-bind "L", mash_shift, ->
-  api.focusedWindow.focusWindowRight
-
-bind "K", mash_shift, ->
-  api.focusedWindow.focusWindowUp
-
-bind "J", mash_shift, ->
-  api.focusedWindow.focusWindowDown
-
-
-# snap this window to grid
-bind ";", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  moveToGridProps win, r
-
-# snap all windows to grid
-bind "'", mash, ->
-  _.each api.visibleWindows, (win) ->
-    r = gridProps(win)
-    moveToGridProps win, r
-
-# maximize
-bind "M", mash, ->
-  win = api.focusedWindow
-  screenRect = win.screen.frameWithoutDockOrMenu
-  win.setFrame screenRect
-
-
-# move left
-bind "H", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.origin.x = Math.max(r.origin.x - 1, 0)
-  moveToGridProps win, r
-
-# move right
-bind "L", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width)
-  moveToGridProps win, r
-
-# grow to right
-bind "O", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x)
-  moveToGridProps win, r
-
-# shrink from right
-bind "I", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.size.width = Math.max(r.size.width - 1, 1)
-  moveToGridProps win, r
-
-# move to upper row
-bind "K", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.origin.y = 0
-  r.size.height = 1
-  moveToGridProps win, r
-
-# move to lower row
-bind "J", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.origin.y = 1
-  r.size.height = 1
-  moveToGridProps win, r
-
-# fill whole vertical column
-bind "U", mash, ->
-  win = api.focusedWindow
-  r = gridProps(win)
-  r.origin.y = 0
-  r.size.height = 2
-  moveToGridProps win, r
-
-# throw to next screen
-bind "N", mash, ->
-  win = api.focusedWindow
-  moveToGridPropsOnScreen win, win.screen.nextScreen, gridProps(win)
-
-# throw to previous screen (come on, who ever has more than 2 screens?)
-bind "P", mash, ->
-  win = api.focusedWindow
-  moveToGridPropsOnScreen win, win.screen.previousScreen, gridProps(win)
-
-
-# helper functions
-
-gridProps = (win) ->
-  winFrame = win.frame
-  screenRect = win.screen.frameWithoutDockOrMenu
-  thirdScrenWidth = screenRect.size.width / 3.0
-  halfScreenHeight = screenRect.size.height / 2.0
-  CGRectMake Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth),
-             Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight),
-             Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1),
-             Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1)
-
-moveToGridProps = (win, gridProps) ->
-  moveToGridPropsOnScreen win, win.screen, gridProps
-
-moveToGridPropsOnScreen = (win, screen, gridProps) ->
-  screenRect = screen.frameWithoutDockOrMenu
-  thirdScrenWidth = screenRect.size.width / 3.0
-  halfScreenHeight = screenRect.size.height / 2.0
-  newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect),
-                        (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect),
-                        gridProps.size.width * thirdScrenWidth,
-                        gridProps.size.height * halfScreenHeight)
-  newFrame = NSInsetRect(newFrame, 5, 5) # acts as a little margin between windows, to give shadows some breathing room
-  newFrame = NSIntegralRect(newFrame)
-  win.setFrame newFrame
-```
-
-## Other People's Configs
+## User-Contributed Configs
 
 * [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.coffee) - moves windows around as on a grid
 * [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.coffee) - kinda like mine, but way cooler
