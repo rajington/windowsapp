@@ -247,7 +247,7 @@ class Api # access via top-level object named 'api'
 ```coffeescript
 class Settings # access via 'api.settings'
 
-property Float disappearDelay
+property (Float) disappearDelay
 ```
 
 ```coffeescript
