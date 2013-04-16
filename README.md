@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows-app.rb`
+* **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb`
 * Current version: **2.0.3**
 * Requires: OS X 10.7 and up
 * Note: Building from homebrew requires Xcode to be installed
@@ -75,7 +75,7 @@ bind "J", ["cmd", "alt", "ctrl"], ->
 
 ## More Configs
 
-The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of configs from users, and configs that replicate other apps (like SizeUp and Divvy).
+The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of configs from users, and configs that replicate other apps (like SizeUp and Divvy).
 
 ## API
 
@@ -93,7 +93,7 @@ The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 ```
 
-The function `bind()` uses [this list](https://github.com/sdegutis/windows.app/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
+The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
 
 ### Type: `API`
 
