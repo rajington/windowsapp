@@ -91,7 +91,7 @@ The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 ```
 
-The function `bind()`'s `key` param uses [this list](https://github.com/sdegutis/windows.app/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
+The function `bind()` uses [this list](https://github.com/sdegutis/windows.app/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
 
 ### Type: `API`
 
