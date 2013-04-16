@@ -11,8 +11,8 @@ Table of contents:
 
 * [No really, what is Windows.app?](#no-really-what-is-windowsapp)
 * [Usage](#usage)
-* [Example Config - Simple](#example-config-simple)
-* [Example Config - Awesome](#example-config-awesome)
+* [Example Config - Simple](#example-config---simple)
+* [Example Config - Awesome](#example-config---awesome)
 * [Other People's Configs](#other-peoples-configs)
 * [API](#api)
 * [License](#license)
