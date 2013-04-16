@@ -21,7 +21,7 @@ Table of contents:
 
 ## No really, what is Windows.app?
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either CoffeeScript or JavaScript, depending on the extension you use.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either CoffeeScript 1.6.2 or JavaScript, depending on the extension you use.
 
 In this config file, you can access Windows.app's [simple API](#api), which gives you a few powers:
 
@@ -39,7 +39,7 @@ Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put
 
 You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, only the CoffeeScript one is used.
 
-Your config file has access to [underscore.js](http://underscorejs.org/).
+Your config file has access to [underscore.js 1.4.4](http://underscorejs.org/).
 
 Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
 
