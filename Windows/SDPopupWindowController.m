@@ -54,7 +54,7 @@
     [self.window center];
     [self showWindow:self];
     
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:[SDAPI settings].disappearDelay];
+    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:[SDAPI settings].popupDisappearDelay];
 }
 
 - (void) fadeWindowOut {

@@ -21,7 +21,7 @@
 
 - (id) init {
     if (self = [super init]) {
-        self.disappearDelay = 1.0;
+        self.popupDisappearDelay = 1.0;
     }
     return self;
 }

@@ -252,7 +252,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ### Type: `Settings`
 
 ```coffeescript
-property (Float) disappearDelay
+property (Float) popupDisappearDelay # in seconds
 ```
 
 ### Type: `Window`
