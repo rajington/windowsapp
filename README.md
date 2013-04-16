@@ -12,8 +12,7 @@ Table of contents:
 * [No really, what is Windows.app?](#no-really-what-is-windowsapp)
 * [Usage](#usage)
 * [Example Config](#example-config)
-* [Configs From Other Apps](#configs-from-other-apps)
-* [User-Contributed Configs](#user-contributed-configs)
+* [More Configs](#more-configs)
 * [API](#api)
 * [License](#license)
 * [Change log](#change-log)
@@ -72,16 +71,9 @@ bind "J", ["cmd", "alt", "ctrl"], ->
   win.setFrame frame
 ```
 
-## Configs From Other Apps
+## More Configs
 
-* [AppGrid](https://github.com/sdegutis/Windows/wiki/AppGrid-config) - makes your screen act like a grid, and lets you move and resize windows within it
-
-## User-Contributed Configs
-
-* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.coffee) - moves windows around as on a grid
-* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.coffee) - kinda like mine, but way cooler
-
-Do you have a cool one and want me to add it here? Let me know by [filing an Issue](https://github.com/sdegutis/windows/issues).
+The home page of the wiki is [a user-editable list of configs](https://github.com/sdegutis/windows.app/wiki). Browse configs there, and even add your own.
 
 ## API
 
