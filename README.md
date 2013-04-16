@@ -224,6 +224,8 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ```coffeescript
 - (API) api;
 
+- (void) require(String path) # may be JS or CS file; looks at extension to know which
+
 - (void) alert(String str)  # shows in a fancy popup
 - (void) print(String str)  # shows in a plain old text box
 
@@ -236,7 +238,6 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 ```coffeescript
 - (void) reloadConfig
-- (void) require(String path) # may be JS or CS file; looks at extension to know which
 
 - (Settings) settings
 
