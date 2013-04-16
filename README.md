@@ -44,6 +44,8 @@ Note: if your config file fails to load for some reason, all your key bindings a
 
 ## Example Config
 
+Put the following in `~/.windowsapp.coffee`
+
 ```coffeescript
 # make the alert box square with white background and black text
 api.settings.alertAnimates = false
