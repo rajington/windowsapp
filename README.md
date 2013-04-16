@@ -167,6 +167,10 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
+- HEAD
+  - Fixed some alert() visual uglies
+  - When keys can't be bound, show them in a more readable way
+  - Tweaked 'About' window
 - 2.0.3
   - Renamed `popupDisappearDelay` to `alertDisappearDelay`
 - 2.0.2
