@@ -4,7 +4,7 @@ class Windows < Formula
   homepage 'https://github.com/sdegutis/windows'
   url 'https://github.com/sdegutis/Windows/archive/2.0.zip'
   version '2.0'
-  sha1 'd459205fda3241f52cd3112d131aa0a7ee880f47'
+  sha1 'cdb1ab5729daff6adb0ab7068351cf37df3c0bb0'
   head 'https://github.com/sdegutis/Windows.git'
 
   depends_on :xcode
