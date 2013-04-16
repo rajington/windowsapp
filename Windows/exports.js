@@ -2,6 +2,10 @@ var bind = function(key, modifiers, fn) {
     api.bind_modifiers_fn_(key, modifiers, fn);
 };
 
+// I often forget to prefix these calls with "api." so maybe this is a smart idea just in case
+var alert = function(str) { api.alert(str); };
+var print = function(str) { api.print(str); };
+
 var expandPath = function(path) {
     return [[NSString stringWithString:path] stringByStandardizingPath];
 };
