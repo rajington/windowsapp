@@ -220,7 +220,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ## API
 
 ```coffeescript
-class Api # access via singleton 'api'
+class Api # access via top-level object named 'api'
 
 - (void) bind(String key,
               Array<String> modifiers,
@@ -245,7 +245,7 @@ class Api # access via singleton 'api'
 ```
 
 ```coffeescript
-class Settings ('api.settings')
+class Settings # access via 'api.settings'
 
 property Float disappearDelay
 ```
