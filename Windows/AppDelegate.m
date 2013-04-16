@@ -41,6 +41,11 @@
     [[menu itemWithTitle:@"Open at Login"] setState:([SDOpenAtLogin opensAtLogin] ? NSOnState : NSOffState)];
 }
 
+- (IBAction) showAboutPanel:(id)sender {
+    [NSApp activateIgnoringOtherApps:YES];
+    [NSApp orderFrontStandardAboutPanel:sender];
+}
+
 - (IBAction) toggleOpensAtLogin:(id)sender {
 	NSInteger changingToState = ![sender state];
 	[SDOpenAtLogin setOpensAtLogin: changingToState];
