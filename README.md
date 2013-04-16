@@ -206,8 +206,8 @@ moveToGridPropsOnScreen = (win, screen, gridProps) ->
 
 ## Other People's Configs
 
-* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.coffee)
-* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.coffee)
+* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.coffee) - moves windows around as on a grid
+* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.coffee) - kinda like mine, but way cooler
 
 Do you have a cool one and want me to add it here? Let me know by [filing an Issue](https://github.com/sdegutis/windows/issues).
 
