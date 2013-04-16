@@ -224,14 +224,14 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 ```coffeescript
 - (API) api;
 
-- (void) require(String path) # may be JS or CS file; looks at extension to know which
-
 - (void) alert(String str)  # shows in a fancy popup
 - (void) print(String str)  # shows in a plain old text box
 
 - (void) bind(String key,              # case-insensitive single-character string
               Array<String> modifiers, # may contain any number of: "CMD", "CTRL", "ALT", "SHIFT"
               Function fn)             # javascript fn that takes no args; return val is ignored
+
+- (void) require(String path) # may be JS or CS file; looks at extension to know which
 ```
 
 ### Type: `API`
