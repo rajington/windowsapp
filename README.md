@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows/master/windows.rb`
-* Current version: **1.2.3**
+* Current version: **2.0**
 * Requires: OS X 10.7 and up
 
 
@@ -21,28 +21,25 @@ Table of contents:
 
 ## No really, what is Windows.app?
 
-The original goal was to create a bare-bones, minimalist window manager for OS X. But it turns out to be more than that.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either CoffeeScript or JavaScript, depending on the extension you use.
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates the config file `~/.windowsapp.js` (written in [JSCocoa](https://github.com/parmanoir/jscocoa/)) whenever you tell it to.
+In this config file, you can access Windows.app's [simple API](#api), which gives you a few powers:
 
-In this config file, you can access Windows.app's [simple API](#api), which lets you bind global hot keys to your own functions, determine window sizes and positions, move and resize windows, move focus to the closest window in a given direction, and more.
-
-But technically, you can do anything you want in this file. Because it's JSCocoa, it has complete access to all of the Cocoa and Foundation frameworks and ObjC runtime.
+- bind global hot keys to your own functions
+- find the focused window
+- determine window sizes and positions
+- move and resize windows
+- change focus to another window
+- move focus to the closest window in a given direction
+- and more!
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp.js` and write some [JSCocoa](https://github.com/parmanoir/jscocoa/). Then reload the config file from the menu. (You may want to bind a hot key to reload the app (see the [basic config example](#basic-config)) during testing so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing (see the [basic config example](#basic-config)) so you don't have to click the menu bar icon to do it.)
 
-The config file has access to [underscore.js](http://underscorejs.org/).
+You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exists, only the CoffeeScript one is used.
 
-### About JSCocoa
-
-JSCocoa is basically a subset of JavaScript with some ObjC-like syntactic sugar. Check out [the official syntax page](https://code.google.com/p/jscocoa/).
-
-* Gives you the full power of Javascript, as it's a superset of Javascript
-* Gives you nearly the full power of ObjC, including native bracket and dot syntax
-* Has complete access to the ObjC runtime including all Foundation and Cocoa classes
-    * This means you can do almost anything that ObjC/Cocoa could do
+Your config file has access to [underscore.js](http://underscorejs.org/).
 
 ## Basic Config
 
@@ -322,6 +319,9 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
+- 2.0
+  - Added CoffeeScript option
+  - Changed up API all crazy-style
 - 1.2.3:
   - Added `PopupSettings` to API
 - 1.2.2:
