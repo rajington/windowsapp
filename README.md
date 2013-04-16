@@ -219,8 +219,10 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 ## API
 
+### Top Level
+
 ```coffeescript
-class Api # access via top-level object named 'api'
+- (API) api;
 
 - (void) bind(String key,
               Array<String> modifiers,
@@ -228,73 +230,76 @@ class Api # access via top-level object named 'api'
    # key: a single-character string (doesn't matter if it's upper-case or lower-case)
    # mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
    # fn: a javascript function that takes no args; return val is ignored
+```
 
+### Class `API`
 
-- (void) reloadConfig()
+```coffeescript
+- (void) reloadConfig
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 
 - (void) alert(String str)  # shows in a fancy popup
 - (void) print(String str)  # shows in a plain old text box
 
-- (Settings) settings()
+- (Settings) settings
 
-- (Array<Window>) allWindows()
-- (Array<Window>) visibleWindows()
-- (Window) focusedWindow()
+- (Array<Window>) allWindows
+- (Array<Window>) visibleWindows
+- (Window) focusedWindow
 
-- (Screen) mainScreen()
-- (Array<Screen>) allScreens()
+- (Screen) mainScreen
+- (Array<Screen>) allScreens
 ```
 
-```coffeescript
-class Settings # access via 'api.settings'
+### Class `Settings`
 
+```coffeescript
 property (Float) disappearDelay
 ```
 
-```coffeescript
-class Window
+### Class `Window`
 
-- (CGRect) frame()
+```coffeescript
+- (CGRect) frame
 - (void) setFrame(CGRect frame)
 
-- (CGPoint) topLeft()
+- (CGPoint) topLeft
 - (void) setTopLeft(CGPoint thePoint)
 
-- (CGSize) size()
+- (CGSize) size
 - (void) setSize(CGSize theSize)
 
-- (void) maximize()
+- (void) maximize
 
 
 
-- (Screen) screen()
-- (Array<Window>) otherWindowsOnSameScreen()
+- (Screen) screen
+- (Array<Window>) otherWindowsOnSameScreen
 
 
 
-- (Boolean) focusWindow()
+- (Boolean) focusWindow
 
-- (void) focusWindowLeft()
-- (void) focusWindowRight()
-- (void) focusWindowUp()
-- (void) focusWindowDown()
+- (void) focusWindowLeft
+- (void) focusWindowRight
+- (void) focusWindowUp
+- (void) focusWindowDown
 
 
 
-- (String) title()
-- (Boolean) isWindowMinimized()
-- (Boolean) isAppHidden()
+- (String) title
+- (Boolean) isWindowMinimized
+- (Boolean) isAppHidden
 ```
 
+### Class `Screen`
+
 ```coffeescript
-class Screen
+- (CGRect) frameIncludingDockAndMenu
+- (CGRect) frameWithoutDockOrMenu
 
-- (CGRect) frameIncludingDockAndMenu()
-- (CGRect) frameWithoutDockOrMenu()
-
-- (Screen) nextScreen()
-- (Screen) previousScreen()
+- (Screen) nextScreen
+- (Screen) previousScreen
 ```
 
 ## License
