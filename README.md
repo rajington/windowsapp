@@ -166,23 +166,21 @@ property (Boolean) alertAnimates # when opening
 
 The rest of the types here are classes from ObjC, bridged to JS. Here's a few for reference:
 
-#### CGRect
-
 ```coffeescript
+type CGRect
+
 property (CGPoint) origin # top-left point on screen
 property (CGSize) size
-```
 
-#### CGSize
 
-```coffeescript
+type CGSize
+
 property (Float) width
 property (Float) height
-```
 
-#### CGPoint
 
-```coffeescript
+type CGPoint
+
 property (Float) x
 property (Float) y
 ```
