@@ -47,7 +47,8 @@
     
     [self.jscocoa setObject:[SDAPI self] withName:@"api"];
     
-    [self.jscocoa evalJSString:@"bind = function(key, mods, fn) { api.bind_modifiers_fn_(key, mods, fn); }"];
+    NSString* exportsJSPath = [[NSBundle mainBundle] pathForResource:@"exports" ofType:@"js"];
+    [self.jscocoa evalJSFile:exportsJSPath];
 }
 
 - (void) reloadConfig {
