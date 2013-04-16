@@ -206,8 +206,8 @@ moveToGridPropsOnScreen = (win, screen, gridProps) ->
 
 ## Other People's Configs
 
-* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.js)
-* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.js)
+* [Mine](https://github.com/sdegutis/home/blob/master/.windowsapp.coffee)
+* [@pd's](https://github.com/pd/dotfiles/blob/master/windowsapp.coffee)
 
 Do you have a cool one and want me to add it here? Let me know by [filing an Issue](https://github.com/sdegutis/windows/issues).
 
