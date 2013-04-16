@@ -96,7 +96,9 @@
                        body:[failures componentsJoinedByString:@"\n"]];
     }
     else {
-        [[SDPopupWindowController sharedPopupWindowController] show:@"Config reloaded."];
+        static BOOL loadedBefore;
+        [[SDPopupWindowController sharedPopupWindowController] show:(loadedBefore ? @"Config reloaded." : @"Config loaded.")];
+        loadedBefore = YES;
     }
     
     return YES;
