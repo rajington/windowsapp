@@ -25,6 +25,7 @@
 
 + (void) reloadConfig;
 + (void) alert:(NSString*)str;
++ (void) alert:(NSString*)str withDelay:(CGFloat)delay;
 + (void) print:(NSString*)str;
 
 + (SDAPISettings*) settings;

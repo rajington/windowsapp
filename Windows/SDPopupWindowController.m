@@ -38,7 +38,7 @@
     self.window.ignoresMouseEvents = YES;
 }
 
-- (void) show:(NSString*)oneLineMsg {
+- (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay {
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(fadeWindowOut) object:nil];
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(closeAndResetWindow) object:nil];
     
@@ -54,7 +54,11 @@
     [self.window center];
     [self showWindow:self];
     
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:[SDAPI settings].popupDisappearDelay];
+    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:delay];
+}
+
+- (void) show:(NSString*)oneLineMsg {
+    [self show:oneLineMsg delay:[SDAPI settings].popupDisappearDelay];
 }
 
 - (void) fadeWindowOut {

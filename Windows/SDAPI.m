@@ -51,6 +51,10 @@
     [[SDPopupWindowController sharedPopupWindowController] show:str];
 }
 
++ (void) alert:(NSString*)str withDelay:(CGFloat)delay {
+    [[SDPopupWindowController sharedPopupWindowController] show:str delay:delay];
+}
+
 + (void) print:(NSString*)str {
     [[SDMessageWindowController sharedMessageWindowController] show:str];
 }

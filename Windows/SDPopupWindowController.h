@@ -13,5 +13,6 @@
 + (SDPopupWindowController*) sharedPopupWindowController;
 
 - (void) show:(NSString*)oneLineMsg;
+- (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay;
 
 @end

@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows-app.rb`
-* Current version: **2.0**
+* Current version: **2.0.1**
 * Requires: OS X 10.7 and up
 
 
@@ -82,8 +82,8 @@ The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of
 ```coffeescript
 - (API) api;
 
-- (void) alert(String str)  # shows in a fancy popup
-- (void) print(String str)  # shows in a plain old text box
+- (void) alert(String str)                 # shows in a fancy popup
+- (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
 
 - (void) bind(String key,              # case-insensitive single-character string
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
@@ -168,6 +168,8 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
+- 2.0.1
+  - Gave alert an optional 'delay' parameter
 - 2.0
   - Added CoffeeScript option
   - Reorganized and re-awesome'd API

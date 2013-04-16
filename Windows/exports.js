@@ -3,7 +3,12 @@ var bind = function(key, modifiers, fn) {
 };
 
 // I often forget to prefix these calls with "api." so maybe this is a smart idea just in case
-var alert = function(str) { api.alert(str); };
+var alert = function(str) {
+    if (arguments.length == 2)
+        api.alert_withDelay(str, arguments[1]);
+    else
+        api.alert(str);
+};
 var print = function(str) { api.print(str); };
 
 var expandPath = function(path) {
