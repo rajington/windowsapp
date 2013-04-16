@@ -206,6 +206,8 @@ enum {
 }
 
 + (NSUInteger) modifierFlagsForStrings:(NSArray*)strs {
+    strs = [strs valueForKeyPath:@"uppercaseString"];
+    
     NSUInteger result = 0;
     
     if ([strs containsObject:@"SHIFT"]) result |= NSShiftKeyMask;
