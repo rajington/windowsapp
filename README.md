@@ -5,7 +5,7 @@
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows-app.rb`
 * Current version: **2.0.1**
 * Requires: OS X 10.7 and up
-
+* Note: Building from homebrew requires Xcode to be installed
 
 Table of contents:
 
