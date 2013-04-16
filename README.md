@@ -50,14 +50,12 @@ bind "M", ["CMD", "ALT", "CTRL"], ->
   frame = win.screen().frameWithoutDockOrMenu()
   win.setFrame frame
 
-
 # push to top half of screen
 bind "K", ["CMD", "ALT", "CTRL"], ->
   win = Win.focusedWindow()
   frame = win.screen.frameWithoutDockOrMenu
   frame.size.height /= 2
   win.setFrame frame
-
 
 # push to bottom half of screen
 bind "J", ["CMD", "ALT", "CTRL"], ->
@@ -66,7 +64,6 @@ bind "J", ["CMD", "ALT", "CTRL"], ->
   frame.origin.y += frame.size.height / 2
   frame.size.height /= 2
   win.setFrame frame
-
 
 # reload this config for testing
 bind "R", ["CMD", "ALT", "CTRL"], ->
