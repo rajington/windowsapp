@@ -300,6 +300,10 @@ property (Float) popupDisappearDelay # in seconds
 - (Screen) previousScreen
 ```
 
+### Other Types
+
+Everything else, like CGRect and CGPoint, is part of ObjC and Cocoa. Look up their docs elsewhere.
+
 ## License
 
 MIT (see [LICENSE](Licenses/LICENSE) file)
