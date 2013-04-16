@@ -308,7 +308,8 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 - 2.0
   - Added CoffeeScript option
-  - Changed up API all crazy-style
+  - Reorganized and re-awesome'd API
+  - Modifier keys don't need to be all caps anymore
 - 1.2.3:
   - Added `PopupSettings` to API
 - 1.2.2:
