@@ -199,6 +199,7 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
   - When keys can't be bound, show them in a more readable way
   - Tweaked 'About' window
   - Added some more `alert` options to API
+  - Message window appends strings if it's already open
 - 2.0.3
   - Renamed `popupDisappearDelay` to `alertDisappearDelay`
 - 2.0.2

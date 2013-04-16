@@ -38,7 +38,13 @@
 }
 
 - (void) show:(NSString*)message {
-    self.message = message;
+    if (self.window.isVisible) {
+        self.message = [NSString stringWithFormat:@"%@\n\n\n%@", self.message, message];
+        [self.textView scrollToEndOfDocument:self];
+    }
+    else {
+        self.message = message;
+    }
     
     [self showWindow:nil];
 }
