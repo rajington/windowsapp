@@ -232,7 +232,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
    # fn: a javascript function that takes no args; return val is ignored
 ```
 
-### `API`
+### Type: `API`
 
 ```coffeescript
 - (void) reloadConfig
@@ -251,13 +251,13 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 - (Array<Screen>) allScreens
 ```
 
-### `Settings`
+### Type: `Settings`
 
 ```coffeescript
 property (Float) disappearDelay
 ```
 
-### `Window`
+### Type: `Window`
 
 ```coffeescript
 - (CGRect) frame
@@ -292,7 +292,7 @@ property (Float) disappearDelay
 - (Boolean) isAppHidden
 ```
 
-### `Screen`
+### Type: `Screen`
 
 ```coffeescript
 - (CGRect) frameIncludingDockAndMenu
