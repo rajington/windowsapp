@@ -15,7 +15,7 @@
 #import "SDAPI.h"
 
 #import "SDKeyBinder.h"
-#import "SDPopupWindowController.h"
+#import "SDAlertWindowController.h"
 #import "SDMessageWindowController.h"
 
 @interface SDConfigLoader ()
@@ -97,7 +97,7 @@
     }
     else {
         static BOOL loadedBefore;
-        [[SDPopupWindowController sharedPopupWindowController] show:(loadedBefore ? @"Config reloaded." : @"Config loaded.")];
+        [[SDAlertWindowController sharedAlertWindowController] show:(loadedBefore ? @"Config reloaded." : @"Config loaded.")];
         loadedBefore = YES;
     }
     

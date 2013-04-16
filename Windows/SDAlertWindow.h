@@ -1,5 +1,5 @@
 //
-//  SDPopupWindow.h
+//  SDAlertWindow.h
 //  Windows
 //
 //  Created by Steven on 4/14/13.
@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SDPopupWindow : NSWindow
+@interface SDAlertWindow : NSWindow
 
 @end

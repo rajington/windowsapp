@@ -15,7 +15,8 @@
 
 @interface SDAPISettings : NSObject
 
-@property CGFloat popupDisappearDelay;
+@property CGFloat alertDisappearDelay;
+@property BOOL alertAnimates;
 
 @end
 

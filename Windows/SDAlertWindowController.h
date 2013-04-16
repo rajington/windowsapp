@@ -1,5 +1,5 @@
 //
-//  SDPopupWindowController.h
+//  SDAlertWindowController.h
 //  Windows
 //
 //  Created by Steven on 4/14/13.
@@ -8,11 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SDPopupWindowController : NSWindowController
+@interface SDAlertWindowController : NSWindowController
 
-+ (SDPopupWindowController*) sharedPopupWindowController;
++ (SDAlertWindowController*) sharedAlertWindowController;
 
 - (void) show:(NSString*)oneLineMsg;
 - (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay;
+
+@property BOOL alertAnimates;
 
 @end

@@ -14,16 +14,25 @@
 #import "SDConfigLoader.h"
 #import "SDKeyBinder.h"
 
-#import "SDPopupWindowController.h"
+#import "SDAlertWindowController.h"
 #import "SDMessageWindowController.h"
 
 @implementation SDAPISettings
 
 - (id) init {
     if (self = [super init]) {
-        self.popupDisappearDelay = 1.0;
+        self.alertDisappearDelay = 1.0;
+        self.alertAnimates = YES;
     }
     return self;
+}
+
+- (BOOL) alertAnimates {
+    return [SDAlertWindowController sharedAlertWindowController].alertAnimates;
+}
+
+- (void) setAlertAnimates:(BOOL)alertAnimates {
+    [SDAlertWindowController sharedAlertWindowController].alertAnimates = alertAnimates;
 }
 
 @end
@@ -48,11 +57,11 @@
 }
 
 + (void) alert:(NSString*)str {
-    [[SDPopupWindowController sharedPopupWindowController] show:str];
+    [[SDAlertWindowController sharedAlertWindowController] show:str];
 }
 
 + (void) alert:(NSString*)str withDelay:(CGFloat)delay {
-    [[SDPopupWindowController sharedPopupWindowController] show:str delay:delay];
+    [[SDAlertWindowController sharedAlertWindowController] show:str delay:delay];
 }
 
 + (void) print:(NSString*)str {

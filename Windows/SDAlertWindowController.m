@@ -1,41 +1,50 @@
 //
-//  SDPopupWindowController.m
+//  SDAlertWindowController.m
 //  Windows
 //
 //  Created by Steven on 4/14/13.
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-#import "SDPopupWindowController.h"
+#import "SDAlertWindowController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
 #import "SDAPI.h"
 
-@interface SDPopupWindowController ()
+@interface SDAlertWindowController ()
 
 @property IBOutlet NSTextField* msgTextField;
 @property IBOutlet NSBox* box;
 
 @end
 
-@implementation SDPopupWindowController
+@implementation SDAlertWindowController
 
-+ (SDPopupWindowController*) sharedPopupWindowController {
-    static SDPopupWindowController* sharedPopupWindowController;
++ (SDAlertWindowController*) sharedAlertWindowController {
+    static SDAlertWindowController* sharedAlertWindowController;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedPopupWindowController = [[SDPopupWindowController alloc] init];
+        sharedAlertWindowController = [[SDAlertWindowController alloc] init];
     });
-    return sharedPopupWindowController;
+    return sharedAlertWindowController;
 }
 
 - (NSString*) windowNibName {
-    return @"PopupWindow";
+    return @"AlertWindow";
+}
+
+- (BOOL) alertAnimates {
+    return self.window.animationBehavior == NSWindowAnimationBehaviorAlertPanel;
+}
+
+- (void) setAlertAnimates:(BOOL)alertAnimates {
+    self.window.animationBehavior = (alertAnimates ? NSWindowAnimationBehaviorAlertPanel : NSWindowAnimationBehaviorNone);
 }
 
 - (void) windowDidLoad {
     self.window.ignoresMouseEvents = YES;
+    self.window.animationBehavior = NSWindowAnimationBehaviorAlertPanel;
 }
 
 - (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay {
@@ -58,16 +67,16 @@
 }
 
 - (void) show:(NSString*)oneLineMsg {
-    [self show:oneLineMsg delay:[SDAPI settings].popupDisappearDelay];
+    [self show:oneLineMsg delay:[SDAPI settings].alertDisappearDelay];
 }
 
 - (void) fadeWindowOut {
     [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration:0.5];
+    [[NSAnimationContext currentContext] setDuration:0.15];
     [[[self window] animator] setAlphaValue:0.0];
     [NSAnimationContext endGrouping];
     
-    [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(closeAndResetWindow) withObject:nil afterDelay:0.15];
 }
 
 - (void) closeAndResetWindow {

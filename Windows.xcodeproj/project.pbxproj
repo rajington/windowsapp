@@ -13,9 +13,9 @@
 		943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B91719B1EE00F63073 /* statusitem@2x.png */; };
 		943921BF1719B66C00F63073 /* windows.icns in Resources */ = {isa = PBXBuildFile; fileRef = 943921BE1719B66C00F63073 /* windows.icns */; };
 		94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B32171B31AC003EF64E /* SDScreenProxy.m */; };
-		94454B37171B4179003EF64E /* SDPopupWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B35171B4179003EF64E /* SDPopupWindowController.m */; };
-		94454B38171B4179003EF64E /* PopupWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94454B36171B4179003EF64E /* PopupWindow.xib */; };
-		94454B3C171B422C003EF64E /* SDPopupWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B3B171B422C003EF64E /* SDPopupWindow.m */; };
+		94454B37171B4179003EF64E /* SDAlertWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B35171B4179003EF64E /* SDAlertWindowController.m */; };
+		94454B38171B4179003EF64E /* AlertWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94454B36171B4179003EF64E /* AlertWindow.xib */; };
+		94454B3C171B422C003EF64E /* SDAlertWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 94454B3B171B422C003EF64E /* SDAlertWindow.m */; };
 		94454B3F171B479B003EF64E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94454B3E171B479B003EF64E /* QuartzCore.framework */; };
 		947E9955171CA9A9006F30AC /* coffee-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 947E9953171CA99C006F30AC /* coffee-script.js */; };
 		947E9958171CEFB5006F30AC /* SDAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 947E9957171CEFB5006F30AC /* SDAPI.m */; };
@@ -67,11 +67,11 @@
 		943921BE1719B66C00F63073 /* windows.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = windows.icns; path = "Graphics/app-icon/windows.icns"; sourceTree = SOURCE_ROOT; };
 		94454B31171B31AC003EF64E /* SDScreenProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDScreenProxy.h; sourceTree = "<group>"; };
 		94454B32171B31AC003EF64E /* SDScreenProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDScreenProxy.m; sourceTree = "<group>"; };
-		94454B34171B4179003EF64E /* SDPopupWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPopupWindowController.h; sourceTree = "<group>"; };
-		94454B35171B4179003EF64E /* SDPopupWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPopupWindowController.m; sourceTree = "<group>"; };
-		94454B36171B4179003EF64E /* PopupWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupWindow.xib; sourceTree = "<group>"; };
-		94454B3A171B422C003EF64E /* SDPopupWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPopupWindow.h; sourceTree = "<group>"; };
-		94454B3B171B422C003EF64E /* SDPopupWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPopupWindow.m; sourceTree = "<group>"; };
+		94454B34171B4179003EF64E /* SDAlertWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAlertWindowController.h; sourceTree = "<group>"; };
+		94454B35171B4179003EF64E /* SDAlertWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAlertWindowController.m; sourceTree = "<group>"; };
+		94454B36171B4179003EF64E /* AlertWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertWindow.xib; sourceTree = "<group>"; };
+		94454B3A171B422C003EF64E /* SDAlertWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAlertWindow.h; sourceTree = "<group>"; };
+		94454B3B171B422C003EF64E /* SDAlertWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAlertWindow.m; sourceTree = "<group>"; };
 		94454B3E171B479B003EF64E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		947E9953171CA99C006F30AC /* coffee-script.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "coffee-script.js"; sourceTree = "<group>"; };
 		947E9956171CEFB5006F30AC /* SDAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAPI.h; sourceTree = "<group>"; };
@@ -169,8 +169,8 @@
 		94454B39171B421D003EF64E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				94454B3A171B422C003EF64E /* SDPopupWindow.h */,
-				94454B3B171B422C003EF64E /* SDPopupWindow.m */,
+				94454B3A171B422C003EF64E /* SDAlertWindow.h */,
+				94454B3B171B422C003EF64E /* SDAlertWindow.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 				94873F4017191F40000AC0A6 /* AppDelegate.m */,
 				94DAFB4F1719B98500526003 /* SDMessageWindowController.h */,
 				94DAFB501719B98500526003 /* SDMessageWindowController.m */,
-				94454B34171B4179003EF64E /* SDPopupWindowController.h */,
-				94454B35171B4179003EF64E /* SDPopupWindowController.m */,
+				94454B34171B4179003EF64E /* SDAlertWindowController.h */,
+				94454B35171B4179003EF64E /* SDAlertWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -281,7 +281,7 @@
 			children = (
 				94873F4217191F40000AC0A6 /* MainMenu.xib */,
 				94DAFB521719B99A00526003 /* MessageWindow.xib */,
-				94454B36171B4179003EF64E /* PopupWindow.xib */,
+				94454B36171B4179003EF64E /* AlertWindow.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 				94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */,
 				94867DAC1719E5A200027457 /* underscore-min.js in Resources */,
 				947E9955171CA9A9006F30AC /* coffee-script.js in Resources */,
-				94454B38171B4179003EF64E /* PopupWindow.xib in Resources */,
+				94454B38171B4179003EF64E /* AlertWindow.xib in Resources */,
 				947E995F171D18B6006F30AC /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,8 +413,8 @@
 				94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */,
 				94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */,
 				94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */,
-				94454B37171B4179003EF64E /* SDPopupWindowController.m in Sources */,
-				94454B3C171B422C003EF64E /* SDPopupWindow.m in Sources */,
+				94454B37171B4179003EF64E /* SDAlertWindowController.m in Sources */,
+				94454B3C171B422C003EF64E /* SDAlertWindow.m in Sources */,
 				947E9958171CEFB5006F30AC /* SDAPI.m in Sources */,
 				947E995B171CF9DE006F30AC /* SDConfigLoader.m in Sources */,
 			);

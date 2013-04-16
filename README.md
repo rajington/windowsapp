@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows-app.rb`
-* Current version: **2.0.2**
+* Current version: **2.0.3**
 * Requires: OS X 10.7 and up
 * Note: Building from homebrew requires Xcode to be installed
 
@@ -82,7 +82,7 @@ The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of
 ```coffeescript
 - (API) api;
 
-- (void) alert(String str)                 # shows in a fancy popup
+- (void) alert(String str)                 # shows in a fancy alert
 - (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
 
 - (void) bind(String key,              # case-insensitive single-character string; see link below
@@ -111,7 +111,8 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windows.app/b
 ### Type: `Settings`
 
 ```coffeescript
-property (Float) popupDisappearDelay # in seconds
+property (Float) alertDisappearDelay # in seconds
+property (Boolean) alertAnimates # when opening
 ```
 
 ### Type: `Window`
@@ -166,6 +167,8 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
+- 2.0.3
+  - Renamed `popupDisappearDelay` to `alertDisappearDelay`
 - 2.0.2
   - Bound the rest of the keys
 - 2.0.1
