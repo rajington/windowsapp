@@ -45,24 +45,24 @@ Your config file has access to [underscore.js](http://underscorejs.org/).
 
 ```coffeescript
 # reload this config for testing
-bind "R", ["CMD", "ALT", "CTRL"], ->
+bind "R", ["cmd", "alt", "ctrl"], ->
   api.reloadConfig
 
 # maximize window
-bind "M", ["CMD", "ALT", "CTRL"], ->
+bind "M", ["cmd", "alt", "ctrl"], ->
   win = api.focusedWindow
   frame = win.screen.frameWithoutDockOrMenu
   win.setFrame frame
 
 # push to top half of screen
-bind "K", ["CMD", "ALT", "CTRL"], ->
+bind "K", ["cmd", "alt", "ctrl"], ->
   win = api.focusedWindow
   frame = win.screen.frameWithoutDockOrMenu
   frame.size.height /= 2
   win.setFrame frame
 
 # push to bottom half of screen
-bind "J", ["CMD", "ALT", "CTRL"], ->
+bind "J", ["cmd", "alt", "ctrl"], ->
   win = api.focusedWindow
   frame = win.screen.frameWithoutDockOrMenu
   frame.origin.y += frame.size.height / 2
@@ -77,8 +77,8 @@ This makes your screen act like a grid, and lets you move and resize windows wit
 ```coffeescript
 # treats the screen like a grid, and lets you move/resize windows along it
 
-mash = ["CMD", "ALT", "CTRL"]
-mash_shift = ["CMD", "ALT", "CTRL", "SHIFT"]
+mash = ["cmd", "alt", "ctrl"]
+mash_shift = ["cmd", "alt", "ctrl", "shift"]
 
 # reload this config for testing
 bind "R", mash, ->
@@ -228,7 +228,7 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 - (void) print(String str)  # shows in a plain old text box
 
 - (void) bind(String key,              # case-insensitive single-character string
-              Array<String> modifiers, # may contain any number of: "CMD", "CTRL", "ALT", "SHIFT"
+              Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
 
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
