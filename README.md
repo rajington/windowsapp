@@ -219,49 +219,37 @@ Do you have a cool one and want me to add it here? Let me know by [filing an Iss
 
 ## API
 
-```objc
-@class App
+```coffeescript
+# class Api (singleton: 'api')
+
+- (void) bind:(String key, Array<String> modifiers, Function fn);
+   # key: a single-character string (doesn't matter if it's upper-case or lower-case)
+   # mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
+   # fn: a javascript function that takes no args; return val is ignored
+
 
 - (void) reloadConfig;
+- (void) alert:(String)str;  // shows in a fancy popup
+- (void) print:(String)str;  // shows in a plain old text box
 
-function alert(str); // shows in a fancy popup
-function print(str); // shows in a plain old text box
-```
+- (Settings) settings;
 
-```objc
-@class PopupSettings
+- (Array<Window>) allWindows;
+- (Array<Window>) visibleWindows;
+- (Window) focusedWindow;
 
-// use like this:
-// foo = PopupSettings.disappearDelay;
-// PopupSettings.disappearDelay = 3.0;
-
-@property CGFloat disappearDelay;
-```
-
-```objc
-@class Keys
-
-- (void) bind:(NSString*)key
-    modifiers:(NSArray*)mods
-           fn:(JSFunction)fn;
-
-// key: a single-character string (doesn't matter if it's upper-case or lower-case)
-// mods: an array of any number of: "CMD", "CTRL", "ALT", "SHIFT", "FN"
-// fn: a javascript function that takes no args; return val is ignored
-```
-
-```objc
-@class Win
-
-// getting windows
-
-+ (NSArray*) allWindows;
-+ (NSArray*) visibleWindows;
-+ (Win*) focusedWindow;
-- (NSArray*) otherWindowsOnSameScreen;
+- (Screen) mainScreen;
+- (Array<Screen>) allScreens;
 
 
-// window position & size
+# class Settings ('api.settings')
+
+property CGFloat disappearDelay;
+
+
+# class Win
+
+# window position & size
 
 - (CGRect) frame;
 - (void) setFrame:(CGRect)frame;
@@ -275,14 +263,16 @@ function print(str); // shows in a plain old text box
 - (void) maximize;
 
 
-// screens
+# screens and windows
 
-- (Screen*) screen;
+- (Screen) screen;
+
+- (Array<Window>) otherWindowsOnSameScreen;
 
 
-// focus
+# focus
 
-- (BOOL) focusWindow;
+- (Boolean) focusWindow;
 
 - (void) focusWindowLeft;
 - (void) focusWindowRight;
@@ -290,27 +280,22 @@ function print(str); // shows in a plain old text box
 - (void) focusWindowDown;
 
 
-// other window properties
+# other window properties
 
-- (NSString *) title;
-- (BOOL) isWindowMinimized;
-- (BOOL) isAppHidden;
-```
+- (String) title;
+- (Boolean) isWindowMinimized;
+- (Boolean) isAppHidden;
 
-```objc
-@class Screen
+# class Screen
 
-+ (Screen*) mainScreen;
-+ (NSArray*) allScreens;
++ (Screen) mainScreen;
++ (Array<Array>) allScreens;
 
 - (CGRect) frameIncludingDockAndMenu;
 - (CGRect) frameWithoutDockOrMenu;
 
-- (Screen*) nextScreen;
-- (Screen*) previousScreen;
-
-// just in case you need this
-- (NSScreen*) actualScreenObject;
+- (Screen) nextScreen;
+- (Screen) previousScreen;
 
 ```
 
