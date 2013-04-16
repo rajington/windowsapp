@@ -85,7 +85,7 @@ The [wiki home page](https://github.com/sdegutis/windows.app/wiki) has a list of
 - (void) alert(String str)                 # shows in a fancy popup
 - (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
 
-- (void) bind(String key,              # case-insensitive single-character string
+- (void) bind(String key,              # case-insensitive single-character string; [complete list](https://github.com/sdegutis/windows.app/blob/master/Windows/SDKeyBindingTranslator.m#L148)
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
 
