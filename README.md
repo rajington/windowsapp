@@ -83,7 +83,7 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ### Top Level
 
 ```coffeescript
-- (API) api;
+- (API) api
 
 - (void) alert(String str)                 # shows in a fancy alert
 - (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
