@@ -231,6 +231,8 @@ class Api # access via top-level object named 'api'
 
 
 - (void) reloadConfig()
+- (void) require(String path) # may be JS or CS file; looks at extension to know which
+
 - (void) alert(String str)  # shows in a fancy popup
 - (void) print(String str)  # shows in a plain old text box
 
