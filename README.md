@@ -49,7 +49,7 @@ Note: if your config file fails to load for some reason, all your key bindings a
 api.settings.alertAnimates = false
 api.settings.alertBox.fillColor = NSColor.whiteColor.colorWithAlphaComponent(0.99);
 api.settings.alertBox.borderColor = NSColor.blackColor;
-api.settings.alertTextField.textColor = NSColor.blackColor;
+api.settings.alertTextField.textColor = NSColor.colorWithDeviceHue_saturation_brightness_alpha(0.57, 0.8, 0.5, 1.0);
 api.settings.alertBox.cornerRadius = 0;
 
 # reload this config for testing
