@@ -2,9 +2,9 @@ require 'formula'
 
 class Windows < Formula
   homepage 'https://github.com/sdegutis/windows'
-  url 'https://github.com/sdegutis/Windows/archive/1.2.3.zip'
-  version '1.2.3'
-  sha1 '9bfacf3d39d6d30d276dca4abc2be51245410c1e'
+  url 'https://github.com/sdegutis/Windows/archive/2.0.zip'
+  version '2.0'
+  sha1 'd459205fda3241f52cd3112d131aa0a7ee880f47'
   head 'https://github.com/sdegutis/Windows.git'
 
   depends_on :xcode
