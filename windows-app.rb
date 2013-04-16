@@ -1,10 +1,10 @@
 require 'formula'
 
-class Windows < Formula
+class WindowsApp < Formula
   homepage 'https://github.com/sdegutis/windows.app'
   url 'https://github.com/sdegutis/windows.app/archive/2.0.zip'
   version '2.0'
-  sha1 '4526ba9bd7b8f1d21af94749ca70d176826ec404'
+  sha1 'c1ad09000b7e783e7ddea108b25299e79f3657a8'
   head 'https://github.com/sdegutis/Windows.git'
 
   depends_on :xcode
