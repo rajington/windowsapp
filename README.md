@@ -204,7 +204,6 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Todo
 
-These are great opportunities for you to contribute, esp. if you know JS :)
-
-* Get someone to test it on 10.6, it probably would work
+* Figure out how to automatically distribute pre-compiled binaries
+* Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
