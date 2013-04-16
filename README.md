@@ -5,6 +5,7 @@
 * Install options:
     * Compile via Homebrew: `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb`
     * Download pre-built app: [`Windows.app-latest.tar.gz`](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz)
+        * Unzip the app, right-click it, choose the `Open` menu option
 * Current version: **2.0.3**
 * Requires: OS X 10.7 and up
 * Note: Building from homebrew requires Xcode to be installed
