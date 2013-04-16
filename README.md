@@ -11,8 +11,8 @@ Table of contents:
 
 * [No really, what is Windows.app?](#no-really-what-is-windowsapp)
 * [Usage](#usage)
-* [Basic Config](#basic-config)
-* [Really Cool Config](#really-cool-config)
+* [Example Config - Simple](#example-config-simple)
+* [Example Config - Awesome](#example-config-awesome)
 * [Other People's Configs](#other-peoples-configs)
 * [API](#api)
 * [License](#license)
@@ -35,178 +35,176 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing (see the [basic config example](#basic-config)) so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing (see the [basic config example](#example-config-simple)) so you don't have to click the menu bar icon to do it.)
 
 You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exists, only the CoffeeScript one is used.
 
 Your config file has access to [underscore.js](http://underscorejs.org/).
 
-## Basic Config
+## Example Config - Simple
 
-```javascript
-// maximize window
-[Keys bind:'M' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
-    var win = Win.focusedWindow;
-    var frame = win.screen.frameWithoutDockOrMenu;
-    win.frame = frame;
-}];
+```coffeescript
+# maximize window
+bind "M", ["CMD", "ALT", "CTRL"], ->
+  win = Win.focusedWindow()
+  frame = win.screen().frameWithoutDockOrMenu()
+  win.setFrame frame
 
-// push to top half of screen
-[Keys bind:'K' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
-    var win = [Win focusedWindow];
-    var frame = win.screen.frameWithoutDockOrMenu;
-    frame.size.height /= 2;
-    win.frame = frame;
-}];
 
-// push to bottom half of screen
-[Keys bind:'J' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
-    var win = [Win focusedWindow];
-    var frame = win.screen.frameWithoutDockOrMenu;
-    frame.origin.y += frame.size.height / 2;
-    frame.size.height /= 2;
-    win.frame = frame;
-}];
+# push to top half of screen
+bind "K", ["CMD", "ALT", "CTRL"], ->
+  win = Win.focusedWindow()
+  frame = win.screen.frameWithoutDockOrMenu
+  frame.size.height /= 2
+  win.setFrame frame
 
-// reload this config for testing
-[Keys bind:'R' modifiers:['CMD', 'ALT', 'CTRL'] fn: function() {
-    [App reloadConfig];
-}];
+
+# push to bottom half of screen
+bind "J", ["CMD", "ALT", "CTRL"], ->
+  win = Win.focusedWindow()
+  frame = win.screen.frameWithoutDockOrMenu
+  frame.origin.y += frame.size.height / 2
+  frame.size.height /= 2
+  win.setFrame frame
+
+
+# reload this config for testing
+bind "R", ["CMD", "ALT", "CTRL"], ->
+  App.reloadConfig()
 ```
 
-## Really Cool Config
+## Example Config - Awesome
 
 This makes your screen act like a grid, and lets you move and resize windows within it:
 
-```javascript
-var mash = ["CMD", "ALT", "CTRL"];
+```coffeescript
+# treats the screen like a grid, and lets you move/resize windows along it
 
-// reload this config for testing
-[Keys bind:"R" modifiers:mash fn: function() {
-    [App reloadConfig];
-}];
+mash = ["CMD", "ALT", "CTRL"]
+mash_shift = ["CMD", "ALT", "CTRL", "SHIFT"]
 
-// snap this window to grid
-[Keys bind:"." modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    moveToGridProps(win, r);
-}];
 
-// snap all windows to grid
-[Keys bind:"," modifiers:mash fn: function() {
-    _.each([Win visibleWindows], function(win) {
-        var r = gridProps(win);
-        moveToGridProps(win, r);
-    });
-}];
+# reload this config for testing
+bind "R", mash, ->
+  App.reloadConfig()
 
-// move left
-[Keys bind:"H" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.origin.x = Math.max(r.origin.x - 1, 0);
-    moveToGridProps(win, r);
-}];
+# snap this window to grid
+bind ";", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  moveToGridProps win, r
 
-// move right
-[Keys bind:"L" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width);
-    moveToGridProps(win, r);
-}];
+# snap all windows to grid
+bind "'", mash, ->
+  _.each Win.visibleWindows(), (win) ->
+    r = gridProps(win)
+    moveToGridProps win, r
 
-// grow to right
-[Keys bind:"O" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x);
-    moveToGridProps(win, r);
-}];
+# maximize
+bind "M", mash, ->
+  win = Win.focusedWindow()
+  screenRect = win.screen().frameWithoutDockOrMenu()
+  win.setFrame screenRect
 
-// shrink from right
-[Keys bind:"I" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.size.width = Math.max(r.size.width - 1, 1);
-    moveToGridProps(win, r);
-}];
+# focus left
+bind "H", mash_shift, ->
+  Win.focusedWindow().focusWindowLeft()
 
-// move to upper row
-[Keys bind:"K" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.origin.y = 0;
-    r.size.height = 1;
-    moveToGridProps(win, r);
-}];
+# focus right
+bind "L", mash_shift, ->
+  Win.focusedWindow().focusWindowRight()
 
-// move to lower row
-[Keys bind:"J" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.origin.y = 1;
-    r.size.height = 1;
-    moveToGridProps(win, r);
-}];
+# focus up
+bind "K", mash_shift, ->
+  Win.focusedWindow().focusWindowUp()
 
-// fill whole vertical column
-[Keys bind:"U" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    var r = gridProps(win);
-    r.origin.y = 0;
-    r.size.height = 2;
-    moveToGridProps(win, r);
-}];
+# focus down
+bind "J", mash_shift, ->
+  Win.focusedWindow().focusWindowDown()
 
-// throw to next screen
-[Keys bind:"N" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    moveToGridPropsOnScreen(win, [[win screen] nextScreen], gridProps(win));
-}];
+# move left
+bind "H", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.origin.x = Math.max(r.origin.x - 1, 0)
+  moveToGridProps win, r
 
-// throw to previous screen (come on, who ever has more than 2 screens?)
-[Keys bind:"P" modifiers:mash fn: function() {
-    var win = [Win focusedWindow];
-    moveToGridPropsOnScreen(win, [[win screen] previousScreen], gridProps(win));
-}];
+# move right
+bind "L", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.origin.x = Math.min(r.origin.x + 1, 3 - r.size.width)
+  moveToGridProps win, r
 
-// helper functions
+# grow to right
+bind "O", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.size.width = Math.min(r.size.width + 1, 3 - r.origin.x)
+  moveToGridProps win, r
 
-var gridProps = function(win) {
-    var winFrame = [win frame];
-    var screenRect = [[win screen] frameWithoutDockOrMenu];
+# shrink from right
+bind "I", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.size.width = Math.max(r.size.width - 1, 1)
+  moveToGridProps win, r
 
-    var thirdScrenWidth = screenRect.size.width / 3.0;
-    var halfScreenHeight = screenRect.size.height / 2.0;
+# move to upper row
+bind "K", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.origin.y = 0
+  r.size.height = 1
+  moveToGridProps win, r
 
-    return CGRectMake(Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth),
-                      Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight),
-                      Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1),
-                      Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1));
-};
+# move to lower row
+bind "J", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.origin.y = 1
+  r.size.height = 1
+  moveToGridProps win, r
 
-var moveToGridProps = function(win, gridProps) {
-  moveToGridPropsOnScreen(win, [win screen], gridProps);
-}
+# fill whole vertical column
+bind "U", mash, ->
+  win = Win.focusedWindow()
+  r = gridProps(win)
+  r.origin.y = 0
+  r.size.height = 2
+  moveToGridProps win, r
 
-var moveToGridPropsOnScreen = function(win, screen, gridProps) {
-    var screenRect = [screen frameWithoutDockOrMenu];
+# throw to next screen
+bind "N", mash, ->
+  win = Win.focusedWindow()
+  moveToGridPropsOnScreen win, win.screen().nextScreen(), gridProps(win)
 
-    var thirdScrenWidth = screenRect.size.width / 3.0;
-    var halfScreenHeight = screenRect.size.height / 2.0;
+# throw to previous screen (come on, who ever has more than 2 screens?)
+bind "P", mash, ->
+  win = Win.focusedWindow()
+  moveToGridPropsOnScreen win, win.screen().previousScreen(), gridProps(win)
 
-    var newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect),
-                              (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect),
-                              gridProps.size.width * thirdScrenWidth,
-                              gridProps.size.height * halfScreenHeight);
 
-    newFrame = NSInsetRect(newFrame, 5, 5); // acts as a little margin between windows, to give shadows some breathing room
-    newFrame = NSIntegralRect(newFrame);
+# helper functions
 
-    [win setFrame: newFrame];
-};
+  gridProps = (win) ->
+  winFrame = win.frame()
+  screenRect = win.screen().frameWithoutDockOrMenu()
+  thirdScrenWidth = screenRect.size.width / 3.0
+  halfScreenHeight = screenRect.size.height / 2.0
+  CGRectMake Math.round((winFrame.origin.x - NSMinX(screenRect)) / thirdScrenWidth), Math.round((winFrame.origin.y - NSMinY(screenRect)) / halfScreenHeight), Math.max(Math.round(winFrame.size.width / thirdScrenWidth), 1), Math.max(Math.round(winFrame.size.height / halfScreenHeight), 1)
+
+moveToGridProps = (win, gridProps) ->
+  moveToGridPropsOnScreen win, win.screen(), gridProps
+
+moveToGridPropsOnScreen = (win, screen, gridProps) ->
+  screenRect = screen.frameWithoutDockOrMenu()
+  thirdScrenWidth = screenRect.size.width / 3.0
+  halfScreenHeight = screenRect.size.height / 2.0
+  newFrame = CGRectMake((gridProps.origin.x * thirdScrenWidth) + NSMinX(screenRect), (gridProps.origin.y * halfScreenHeight) + NSMinY(screenRect), gridProps.size.width * thirdScrenWidth, gridProps.size.height * halfScreenHeight)
+  newFrame = NSInsetRect(newFrame, 5, 5) # acts as a little margin between windows, to give shadows some breathing room
+  newFrame = NSIntegralRect(newFrame)
+  win.setFrame newFrame
 ```
 
 ## Other People's Configs
