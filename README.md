@@ -35,9 +35,9 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 
 ## Usage
 
-Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing (see the [basic config example](#example-config-simple)) so you don't have to click the menu bar icon to do it.)
+Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience.)
 
-You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exists, only the CoffeeScript one is used.
+You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, only the CoffeeScript one is used.
 
 Your config file has access to [underscore.js](http://underscorejs.org/).
 
