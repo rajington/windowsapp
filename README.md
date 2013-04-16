@@ -3,17 +3,15 @@
 *The OS X window manager for hackers*
 
 * Install options:
-    * Compile via Homebrew: `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb`
-    * Download pre-built app: [`Windows.app-latest.tar.gz`](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz)
-        * Unzip the app, right-click it, choose the `Open` menu option
+    * `brew install --HEAD https://raw.github.com/sdegutis/windowsapp/master/windows-app.rb` (requires Xcode to be installed)
+    * [Download app](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows.app-latest.tar.gz) (unzip, right-click app, choose `Open` menu option)
 * Current version: **2.0.3**
 * Requires: OS X 10.7 and up
-* Note: Building from homebrew requires Xcode to be installed
 
 Table of contents:
 
 * [No really, what is Windows.app?](#no-really-what-is-windowsapp)
-* [Usage](#usage)
+* [How To Use](#how-to-use)
 * [Example Config](#example-config)
 * [More Configs](#more-configs)
 * [API](#api)
@@ -35,7 +33,7 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 - move focus to the closest window in a given direction
 - and more!
 
-## Usage
+## How To Use
 
 Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience.)
 
