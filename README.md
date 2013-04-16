@@ -3,7 +3,7 @@
 *The OS X window manager for hackers*
 
 * **Install:** `brew install --HEAD https://raw.github.com/sdegutis/windows.app/master/windows-app.rb`
-* Current version: **2.0.1**
+* Current version: **2.0.2**
 * Requires: OS X 10.7 and up
 * Note: Building from homebrew requires Xcode to be installed
 
@@ -166,6 +166,8 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Change log
 
+- 2.0.2
+  - Bound the rest of the keys
 - 2.0.1
   - Gave alert an optional 'delay' parameter
 - 2.0
@@ -199,6 +201,7 @@ MIT (see [LICENSE](Licenses/LICENSE) file)
 
 ## Todo
 
+These are great opportunities for you to contribute, esp. if you know JS :)
+
 * Get someone to test it on 10.6, it probably would work
-* Allow the rest of the keys in `SDKeyBindingTranslator.m`
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`

@@ -148,6 +148,9 @@ enum {
 + (NSUInteger) keyCodeForString:(NSString*)str {
     str = [str uppercaseString];
     
+    // you should prefer typing these in upper-case in your config file,
+    // since they look more unique (and less confusing) that way
+    
     if ([str isEqualToString:@"A"]) return kVK_ANSI_A;
     if ([str isEqualToString:@"S"]) return kVK_ANSI_S;
     if ([str isEqualToString:@"D"]) return kVK_ANSI_D;
@@ -181,25 +184,86 @@ enum {
     if ([str isEqualToString:@"P"]) return kVK_ANSI_P;
     if ([str isEqualToString:@"L"]) return kVK_ANSI_L;
     if ([str isEqualToString:@"J"]) return kVK_ANSI_J;
+    if ([str isEqualToString:@"K"]) return kVK_ANSI_K;
     if ([str isEqualToString:@"N"]) return kVK_ANSI_N;
     if ([str isEqualToString:@"M"]) return kVK_ANSI_M;
-    if ([str isEqualToString:@"K"]) return kVK_ANSI_K;
-    if ([str isEqualToString:@"'"]) return kVK_ANSI_Quote;
-    if ([str isEqualToString:@";"]) return kVK_ANSI_Semicolon;
-    if ([str isEqualToString:@"\\"]) return kVK_ANSI_Backslash;
-    if ([str isEqualToString:@","]) return kVK_ANSI_Comma;
-    if ([str isEqualToString:@"."]) return kVK_ANSI_Period;
-    if ([str isEqualToString:@"/"]) return kVK_ANSI_Slash;
+    
+    if ([str isEqualToString:@"F1"]) return kVK_F1;
+    if ([str isEqualToString:@"F2"]) return kVK_F2;
+    if ([str isEqualToString:@"F3"]) return kVK_F3;
+    if ([str isEqualToString:@"F4"]) return kVK_F4;
+    if ([str isEqualToString:@"F5"]) return kVK_F5;
+    if ([str isEqualToString:@"F6"]) return kVK_F6;
+    if ([str isEqualToString:@"F7"]) return kVK_F7;
+    if ([str isEqualToString:@"F8"]) return kVK_F8;
+    if ([str isEqualToString:@"F9"]) return kVK_F9;
+    if ([str isEqualToString:@"F10"]) return kVK_F10;
+    if ([str isEqualToString:@"F11"]) return kVK_F11;
+    if ([str isEqualToString:@"F12"]) return kVK_F12;
+    if ([str isEqualToString:@"F13"]) return kVK_F13;
+    if ([str isEqualToString:@"F14"]) return kVK_F14;
+    if ([str isEqualToString:@"F15"]) return kVK_F15;
+    if ([str isEqualToString:@"F16"]) return kVK_F16;
+    if ([str isEqualToString:@"F17"]) return kVK_F17;
+    if ([str isEqualToString:@"F18"]) return kVK_F18;
+    if ([str isEqualToString:@"F19"]) return kVK_F19;
+    if ([str isEqualToString:@"F20"]) return kVK_F20;
+    
+    if ([str isEqualToString:@"`"]) return kVK_ANSI_Grave;
     if ([str isEqualToString:@"="]) return kVK_ANSI_Equal;
     if ([str isEqualToString:@"-"]) return kVK_ANSI_Minus;
     if ([str isEqualToString:@"]"]) return kVK_ANSI_RightBracket;
     if ([str isEqualToString:@"["]) return kVK_ANSI_LeftBracket;
+    if ([str isEqualToString:@"'"]) return kVK_ANSI_Quote;
+    if ([str isEqualToString:@";"]) return kVK_ANSI_Semicolon;
+    if ([str isEqualToString:@"\\"]) return kVK_ANSI_Backslash;
+    if ([str isEqualToString:@","]) return kVK_ANSI_Comma;
+    if ([str isEqualToString:@"/"]) return kVK_ANSI_Slash;
+    if ([str isEqualToString:@"."]) return kVK_ANSI_Period;
+    
+    // you should prefer typing these in lower-case in your config file,
+    // since there's no concern for ambiguity/confusion with words, just with chars.
+    
+    if ([str isEqualToString:@"PAD."]) return kVK_ANSI_KeypadDecimal;
+    if ([str isEqualToString:@"PAD*"]) return kVK_ANSI_KeypadMultiply;
+    if ([str isEqualToString:@"PAD+"]) return kVK_ANSI_KeypadPlus;
+    if ([str isEqualToString:@"PAD/"]) return kVK_ANSI_KeypadDivide;
+    if ([str isEqualToString:@"PAD-"]) return kVK_ANSI_KeypadMinus;
+    if ([str isEqualToString:@"PAD="]) return kVK_ANSI_KeypadEquals;
+    if ([str isEqualToString:@"PAD0"]) return kVK_ANSI_Keypad0;
+    if ([str isEqualToString:@"PAD1"]) return kVK_ANSI_Keypad1;
+    if ([str isEqualToString:@"PAD2"]) return kVK_ANSI_Keypad2;
+    if ([str isEqualToString:@"PAD3"]) return kVK_ANSI_Keypad3;
+    if ([str isEqualToString:@"PAD4"]) return kVK_ANSI_Keypad4;
+    if ([str isEqualToString:@"PAD5"]) return kVK_ANSI_Keypad5;
+    if ([str isEqualToString:@"PAD6"]) return kVK_ANSI_Keypad6;
+    if ([str isEqualToString:@"PAD7"]) return kVK_ANSI_Keypad7;
+    if ([str isEqualToString:@"PAD8"]) return kVK_ANSI_Keypad8;
+    if ([str isEqualToString:@"PAD9"]) return kVK_ANSI_Keypad9;
+    if ([str isEqualToString:@"PAD_CLEAR"]) return kVK_ANSI_KeypadClear;
+    if ([str isEqualToString:@"PAD_ENTER"]) return kVK_ANSI_KeypadEnter;
+    
+    if ([str isEqualToString:@"RETURN"]) return kVK_Return;
+    if ([str isEqualToString:@"TAB"]) return kVK_Tab;
+    if ([str isEqualToString:@"SPACE"]) return kVK_Space;
+    if ([str isEqualToString:@"DELETE"]) return kVK_Delete;
+    if ([str isEqualToString:@"ESCAPE"]) return kVK_Escape;
+    if ([str isEqualToString:@"HELP"]) return kVK_Help;
+    if ([str isEqualToString:@"HOME"]) return kVK_Home;
+    if ([str isEqualToString:@"PAGE_UP"]) return kVK_PageUp;
+    if ([str isEqualToString:@"FORWARD_DELETE"]) return kVK_ForwardDelete;
+    if ([str isEqualToString:@"END"]) return kVK_End;
+    if ([str isEqualToString:@"PAGE_DOWN"]) return kVK_PageDown;
     if ([str isEqualToString:@"LEFT"]) return kVK_LeftArrow;
     if ([str isEqualToString:@"RIGHT"]) return kVK_RightArrow;
-    if ([str isEqualToString:@"UP"]) return kVK_UpArrow;
     if ([str isEqualToString:@"DOWN"]) return kVK_DownArrow;
+    if ([str isEqualToString:@"UP"]) return kVK_UpArrow;
     
-    // TODO: add the rest :(
+//    // aww, this would have been really cool. oh well.
+//    if ([str isEqualToString:@"VOL_UP"]) return kVK_VolumeUp;
+//    if ([str isEqualToString:@"VOL_DOWN"]) return kVK_VolumeDown;
+//    if ([str isEqualToString:@"RIGHT_SHIFT"]) return kVK_RightShift;
+    
     // TODO: make this do something smarter than return -1 for unknowns
     
     return -1;
