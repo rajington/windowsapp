@@ -48,6 +48,8 @@
 }
 
 - (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay {
+    NSDisableScreenUpdates();
+    
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(fadeWindowOut) object:nil];
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(closeAndResetWindow) object:nil];
     
@@ -64,6 +66,8 @@
     [self showWindow:self];
     
     [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:delay];
+    
+    NSEnableScreenUpdates();
 }
 
 - (void) show:(NSString*)oneLineMsg {
