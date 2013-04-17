@@ -190,7 +190,9 @@ The rest you'll have to look up for yourself.
 
 ## License
 
-MIT (see [LICENSE](Licenses/LICENSE) file)
+It's been said that the license you pick reveals what you're afraid of. So if you're afraid if people using your work in proprietary code, you'll use the GPL, and if you're afraid of people abusing your good name, you'll use the BSD.
+
+Therefore, this software is licensed as MIT (see [LICENSE](Licenses/LICENSE) file), with the additional clause that by using this software you agree not to put spiders or other bugs under my pillow or blankets.
 
 ## Change log
 
