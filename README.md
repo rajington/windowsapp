@@ -195,6 +195,7 @@ The rest you'll have to look up for yourself.
   - Tweaked 'About' window
   - Added some more `alert` options to API
   - Message window appends strings if it's already open
+  - Added `require()` function
 - 2.0.3
   - Renamed `popupDisappearDelay` to `alertDisappearDelay`
 - 2.0.2
