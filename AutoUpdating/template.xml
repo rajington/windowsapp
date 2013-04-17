@@ -1,0 +1,14 @@
+<item>
+  <title>Version <%version%></title>
+  <description>
+    <![CDATA[
+             Changes listed in the official <a href="https://github.com/sdegutis/windowsapp#change-log">change log</a>.
+    ]]>
+  </description>
+  <pubDate><%date%></pubDate>
+  <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-<%version%>.app.tar.gz"
+             sparkle:version="<%version%>"
+             sparkle:dsaSignature="<%signature%>"
+             length="<%filesize%>"
+             type="application/octet-stream" />
+</item>
