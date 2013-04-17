@@ -4,7 +4,7 @@
 
 * Current version: **2.0.4**
 * Requires: OS X 10.7 and up
-* Download: [.zip](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
+* Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
 Table of contents:
 
