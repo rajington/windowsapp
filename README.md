@@ -233,6 +233,9 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
+* Add option to auto-reload your config file when it changes
+* Make config loader choose the config with the latest timestamp?
+* Make "config loaded" alert show which config has been used
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Make your top-level variables keep existing after config-reloads maybe?
 * Maybe get Sparkle setup? But how would we auto-generate appcast.xml? Hmm...
