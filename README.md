@@ -234,6 +234,7 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
+* Move most of the config loading code into `exports.js`
 * Add option to auto-reload your config file when it changes
 * Make config loader choose the config with the latest timestamp?
 * Make "config loaded" alert show which config has been used
