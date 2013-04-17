@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
   <channel>
     <title>Windows.app Changelog</title>
     <link>https://raw.github.com/sdegutis/windowsapp/master/appcast.xml</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
-
+    <item>
+      <title>Version 2.0.3</title>
+      <description><![CDATA[ Changes listed in the official <a href="https://github.com/sdegutis/windowsapp#change-log">change log</a>. ]]></description>
+      <pubDate>Wed Apr 17 09:36:11 CDT 2013</pubDate>
+      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.3.app.tar.gz" sparkle:version="2.0.3" sparkle:dsaSignature="MC0CFQCxEjRsSUY1/0zBrAV4zBPb3hZUXgIUBlUWXQUcLkHHO6yIloYkTBU3Ds0=" length="613334" type="application/octet-stream"/>
+    </item>
     <!-- items go here, in order -->
-
   </channel>
 </rss>
