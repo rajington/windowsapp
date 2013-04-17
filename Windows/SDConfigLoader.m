@@ -55,7 +55,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         if (![self tryDotConfig:YES] && ![self tryDotConfig:NO]) {
             [self reportProblem:@"~/.windowsapp.{coffee,js} doesn't exist"
-                           body:@"Make one exist and try again maybe? (If both exist, coffee is chosen.)"];
+                           body:@"Make one exist, and click Reload Config in the menu. (If both exist, coffee is chosen.)"];
         }
     });
 }
