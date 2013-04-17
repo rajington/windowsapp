@@ -17,6 +17,5 @@
       <pubDate>Wed Apr 17 09:36:11 CDT 2013</pubDate>
       <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.3.app.tar.gz" sparkle:version="2.0.3" sparkle:dsaSignature="MC0CFQCxEjRsSUY1/0zBrAV4zBPb3hZUXgIUBlUWXQUcLkHHO6yIloYkTBU3Ds0=" length="613334" type="application/octet-stream"/>
     </item>
-    <!-- items go here, in order -->
   </channel>
 </rss>
