@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.0.3**
+* Current version: **2.0.4**
 * Requires: OS X 10.7 and up
 * Install: [Download .zip](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -194,7 +194,8 @@ Therefore, this software is licensed under the [MIT license](Licenses/LICENSE) w
 
 ## Change log
 
-- HEAD
+- 2.0.4
+  - Added an automatic updater!
   - Fixed some alert() visual uglies
   - When keys can't be bound, show them in a more readable way
   - Tweaked 'About' window
