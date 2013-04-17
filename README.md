@@ -238,11 +238,11 @@ The rest you'll have to look up for yourself.
 * Fix memory leaks in `exports.js`
     * apparently JSCocoa doesn't use ARC and needs `.autorelease` anywhere we use `.alloc`, etc
 * Add option to auto-reload your config file when it changes
+* Add a repl somehow? Not sure the best UI yet...
 * Make config loader choose the config with the latest timestamp?
 * Make "config loaded" alert show which config has been used
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Make your top-level variables keep existing after config-reloads maybe?
-* Maybe get Sparkle setup? But how would we auto-generate appcast.xml? Hmm...
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
 
