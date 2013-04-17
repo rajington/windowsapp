@@ -242,6 +242,10 @@ The rest you'll have to look up for yourself.
 * Make config loader choose the config with the latest timestamp?
 * Make "config loaded" alert show which config has been used
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
+* Maybe add some API functions for other things
+  * `api.open(appNameOrPath)`
+  * `api.shell(path, argsList)`
+  * other stuff
 * Make your top-level variables keep existing after config-reloads maybe?
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
