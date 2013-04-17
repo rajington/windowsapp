@@ -7,13 +7,13 @@
     <language>en</language>
     <item>
       <title>Version 2.0.4</title>
-      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp/blob/master/README.md#change-log</sparkle:releaseNotesLink>
+      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
       <pubDate>Wed Apr 17 09:37:50 CDT 2013</pubDate>
       <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.4.app.tar.gz" sparkle:version="2.0.4" sparkle:dsaSignature="MCwCFDlzmDQJbyF8ABf2h55+zuOLeSb6AhROEM8RAxPdnKSYSo5oBxxeRU2KVg==" length="1285883" type="application/octet-stream"/>
     </item>
     <item>
       <title>Version 2.0.3</title>
-      <description><![CDATA[ Changes listed in the official <a href="https://github.com/sdegutis/windowsapp#change-log">change log</a>. ]]></description>
+      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
       <pubDate>Wed Apr 17 09:36:11 CDT 2013</pubDate>
       <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.3.app.tar.gz" sparkle:version="2.0.3" sparkle:dsaSignature="MC0CFQCxEjRsSUY1/0zBrAV4zBPb3hZUXgIUBlUWXQUcLkHHO6yIloYkTBU3Ds0=" length="613334" type="application/octet-stream"/>
     </item>
