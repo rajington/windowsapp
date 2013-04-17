@@ -89,6 +89,7 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 - (void) bind(String key,              # case-insensitive single-character string; see link below
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
+
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 ```
 
