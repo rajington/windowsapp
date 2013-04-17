@@ -8,8 +8,8 @@
     <item>
       <title>Version 2.0.4</title>
       <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
-      <pubDate>Wed Apr 17 09:37:50 CDT 2013</pubDate>
-      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.4.app.tar.gz" sparkle:version="2.0.4" sparkle:dsaSignature="MCwCFDlzmDQJbyF8ABf2h55+zuOLeSb6AhROEM8RAxPdnKSYSo5oBxxeRU2KVg==" length="1285883" type="application/octet-stream"/>
+      <pubDate>Wed Apr 17 10:05:18 CDT 2013</pubDate>
+      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.4.app.tar.gz" sparkle:version="2.0.4" sparkle:dsaSignature="MCwCFGGAc/xkP0vDUCS6F/05hEtom+NcAhRw2S4odJ4k1nd+1uulgVBf2n/fkA==" length="1285871" type="application/octet-stream"/>
     </item>
     <item>
       <title>Version 2.0.3</title>

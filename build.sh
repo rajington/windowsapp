@@ -17,7 +17,7 @@ cp $FILENAME $LATEST
 echo "Created $LATEST"
 
 # sign update
-SIG=$(ruby ./AutoUpdating/sign_update.rb Builds/Windows-2.0.3.app.tar.gz AutoUpdating/dsa_priv.pem)
+SIG=$(ruby ./AutoUpdating/sign_update.rb $FILENAME AutoUpdating/dsa_priv.pem)
 FILESIZE=$(stat -f %z $FILENAME)
 APPCASTITEM=$(cat AutoUpdating/template.xml \
     | perl -i -pe "s|<%version%>|$VERSION|g" \
