@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import <Sparkle/Sparkle.h>
+
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (weak) IBOutlet NSMenu *statusItemMenu;
+@property IBOutlet SUUpdater *updater;
 
 @end

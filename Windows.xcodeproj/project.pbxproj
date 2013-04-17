@@ -43,6 +43,9 @@
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDMessageWindowController.m */; };
 		94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* MessageWindow.xib */; };
+		94E0964B171ED905002D8668 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
+		94E0964C171ED9D6002D8668 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
+		94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94E0964D171EDBA6002D8668 /* dsa_pub.pem */; };
 		D5FABCC3171D05710030530B /* exports.js in Resources */ = {isa = PBXBuildFile; fileRef = D5FABCC0171D04C80030530B /* exports.js */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				94C85826171C55C6007790F2 /* JSCocoa.framework in CopyFiles */,
+				94E0964C171ED9D6002D8668 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +122,8 @@
 		94DAFB4F1719B98500526003 /* SDMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMessageWindowController.h; sourceTree = "<group>"; };
 		94DAFB501719B98500526003 /* SDMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMessageWindowController.m; sourceTree = "<group>"; };
 		94DAFB521719B99A00526003 /* MessageWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageWindow.xib; sourceTree = "<group>"; };
+		94E0964A171ED905002D8668 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ThirdParty/Sparkle.framework; sourceTree = "<group>"; };
+		94E0964D171EDBA6002D8668 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = AutoUpdating/dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		D5FABCC0171D04C80030530B /* exports.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = exports.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +137,7 @@
 				94873F60171920B4000AC0A6 /* Carbon.framework in Frameworks */,
 				94873F2E17191F40000AC0A6 /* Cocoa.framework in Frameworks */,
 				94C85825171C551B007790F2 /* JSCocoa.framework in Frameworks */,
+				94E0964B171ED905002D8668 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +204,7 @@
 		94873F2C17191F40000AC0A6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94E0964A171ED905002D8668 /* Sparkle.framework */,
 				94C85824171C551B007790F2 /* JSCocoa.framework */,
 				94454B3E171B479B003EF64E /* QuartzCore.framework */,
 				9495B456171959B4002C9EF5 /* JavaScriptCore.framework */,
@@ -235,6 +243,7 @@
 		94873F3417191F40000AC0A6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94E0964D171EDBA6002D8668 /* dsa_pub.pem */,
 				D5FABCC0171D04C80030530B /* exports.js */,
 				947E9953171CA99C006F30AC /* coffee-script.js */,
 				94867DAA1719E56600027457 /* underscore-min.js */,
@@ -373,6 +382,7 @@
 				947E9955171CA9A9006F30AC /* coffee-script.js in Resources */,
 				94454B38171B4179003EF64E /* AlertWindow.xib in Resources */,
 				947E995F171D18B6006F30AC /* Credits.rtf in Resources */,
+				94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
