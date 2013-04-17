@@ -236,7 +236,7 @@ The rest you'll have to look up for yourself.
 
 * Move most of the config loading code into `exports.js`
 * Fix memory leaks in `exports.js`
-    * apparently it doesn't use ARC and needs `.autorelease` anywhere we use `.alloc`, etc
+    * apparently JSCocoa doesn't use ARC and needs `.autorelease` anywhere we use `.alloc`, etc
 * Add option to auto-reload your config file when it changes
 * Make config loader choose the config with the latest timestamp?
 * Make "config loaded" alert show which config has been used
