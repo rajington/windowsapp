@@ -235,7 +235,8 @@ The rest you'll have to look up for yourself.
 ## Todo
 
 * Move most of the config loading code into `exports.js`
-* Fix memory leaks in javascript code that: apparently it doesn't use ARC and needs `.autorelease.` anywhere `.alloc` is used, etc
+* Fix memory leaks in javascript code that
+    * apparently it doesn't use ARC and needs `.autorelease` anywhere we use `.alloc`, etc
 * Add option to auto-reload your config file when it changes
 * Make config loader choose the config with the latest timestamp?
 * Make "config loaded" alert show which config has been used
