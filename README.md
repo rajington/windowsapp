@@ -19,7 +19,7 @@ Table of contents:
 
 ## No really, what is Windows.app?
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either CoffeeScript (1.6.2) or JavaScript, depending on the extension you use.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either [CoffeeScript (1.6.2)](http://coffeescript.org/) or JavaScript, depending on the extension you use.
 
 In this config file, you can access Windows.app's [simple API](#api), which gives you a few powers:
 
