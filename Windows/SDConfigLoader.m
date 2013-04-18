@@ -47,14 +47,12 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     self.jscocoa.useSplitCall = NO;
     self.jscocoa.delegate = self;
     self.jscocoa.useJSLint = NO;
+    self.jscocoa.useAutoCall = NO;
+    
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
-    self.jscocoa.useJSLint = YES;
-    
     [self.jscocoa setObject:[SDAPI self] withName:@"api"];
-    
-    NSString* exportsJSPath = [[NSBundle mainBundle] pathForResource:@"exports" ofType:@"js"];
-    [self.jscocoa evalJSFile:exportsJSPath];
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"exports" ofType:@"js"]];
     
     [self watchDirs];
 }

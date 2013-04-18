@@ -21,16 +21,16 @@ var alert = function(str) {
 var print = function(str) { api.print(str); };
 
 var expandPath = function(path) {
-  return NSString.stringWithString(path).stringByStandardizingPath;
+  return NSString.stringWithString_(path).stringByStandardizingPath();
 };
 
 var readFile = function(file) {
   var path = expandPath(file);
-  return NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, null);
+  return NSString.stringWithContentsOfFile_encoding_error_(path, NSUTF8StringEncoding, null);
 };
 
 var selectedText = function() {
-  return api.selectedText;
+  return api.selectedText();
 };
 
 var clipboardContents = function() {
@@ -47,7 +47,7 @@ var compile = function(coffee) {
 
 var require = (function(globalContext) {
   return function(file) {
-    file = NSString.stringWithString(file)
+    file = NSString.stringWithString_(file)
 
     var contents = readFile(file);
 
@@ -64,12 +64,12 @@ var require = (function(globalContext) {
 })(this);
 
 var reloadConfigExt = function(file) {
-  SDKeyBinder.sharedKeyBinder.removeKeyBindings;
+  SDKeyBinder.sharedKeyBinder().removeKeyBindings();
 
   if (!require(file))
     return false;
 
-  var failures = SDKeyBinder.sharedKeyBinder.finalizeNewKeyBindings;
+  var failures = SDKeyBinder.sharedKeyBinder().finalizeNewKeyBindings();
 
   if (failures.count > 0) {
     print("The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n"));
@@ -84,7 +84,7 @@ var reloadConfigExt = function(file) {
 
 var reloadConfig = function() {
   api.doAsync(function() {
-    var configFile = api.configFileToUse;
+    var configFile = api.configFileToUse();
 
     if (configFile)
       reloadConfigExt(configFile);

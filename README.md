@@ -53,24 +53,24 @@ Put the following in `~/.windowsapp.coffee`
 
 ```coffeescript
 # useful for testing
-bind "R", ["cmd", "alt", "ctrl"], -> api.reloadConfig
+bind "R", ["cmd", "alt", "ctrl"], -> api.reloadConfig()
 
 # maximize window
 bind "M", ["cmd", "alt", "ctrl"], ->
-  win = api.focusedWindow
-  win.setFrame win.screen.frameWithoutDockOrMenu
+  win = api.focusedWindow()
+  win.setFrame win.screen().frameWithoutDockOrMenu()
 
 # push to top half of screen
 bind "K", ["cmd", "alt", "ctrl"], ->
-  win = api.focusedWindow
-  frame = win.screen.frameWithoutDockOrMenu
+  win = api.focusedWindow()
+  frame = win.screen().frameWithoutDockOrMenu()
   frame.size.height /= 2
   win.setFrame frame
 
 # push to bottom half of screen
 bind "J", ["cmd", "alt", "ctrl"], ->
-  win = api.focusedWindow
-  frame = win.screen.frameWithoutDockOrMenu
+  win = api.focusedWindow()
+  frame = win.screen().frameWithoutDockOrMenu()
   frame.origin.y += frame.size.height / 2
   frame.size.height /= 2
   win.setFrame frame
@@ -82,16 +82,10 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 
 ## API
 
-**IMPORTANT:**
-
-Currently, when calling any function in the API which takes no arguments (except for those in the top level), you must not use parentheses! For example, `win = api.focusedWindow();` will not work; instead you must use `win = api.focusedWindow;`
-
-This will change in the next version. It will break your configs, but adding empty parentheses after these calls will fix it.
-
 ### Top Level
 
 ```coffeescript
-- (API) api
+property (API) api
 
 - (void) alert(String str)                 # shows in a fancy alert
 - (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
@@ -116,70 +110,70 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 ### Type: `API`
 
 ```coffeescript
-- (void) reloadConfig
+- (void) reloadConfig()
 
-- (Settings) settings
+- (Settings) settings()
 
-- (Array<Window>) allWindows
-- (Array<Window>) visibleWindows
-- (Window) focusedWindow
+- (Array<Window>) allWindows()
+- (Array<Window>) visibleWindows()
+- (Window) focusedWindow()
 
-- (Screen) mainScreen
-- (Array<Screen>) allScreens
+- (Screen) mainScreen()
+- (Array<Screen>) allScreens()
 
-- (String) selectedText
+- (String) selectedText()
 ```
 
 ### Type: `Settings`
 
 ```coffeescript
-property (Float) alertDisappearDelay # in seconds
-property (Boolean) alertAnimates # when opening
+property (Float) alertDisappearDelay # in seconds.
+property (Boolean) alertAnimates     # when opening.
 
-- (NSBox) alertBox
-- (NSTextField) alertTextField
+- (NSBox) alertBox()
+- (NSTextField) alertTextField()
 ```
 
 ### Type: `Window`
 
 ```coffeescript
-- (CGRect) frame
+- (CGRect) frame()
 - (void) setFrame(CGRect frame)
 
-- (CGPoint) topLeft
+- (CGPoint) topLeft()
 - (void) setTopLeft(CGPoint thePoint)
 
-- (CGSize) size
+- (CGSize) size()
 - (void) setSize(CGSize theSize)
 
-- (void) maximize
+- (void) maximize()
 
 
-- (Screen) screen
+- (Screen) screen()
 - (Array<Window>) otherWindowsOnSameScreen
 
 
-- (String) title
-- (Boolean) isWindowMinimized
-- (Boolean) isAppHidden
+- (String) title()
+- (Boolean) isWindowMinimized()
+- (Boolean) isAppHidden()
 
 
-- (Boolean) focusWindow
+- (Boolean) focusWindow()
 
-- (void) focusWindowLeft
-- (void) focusWindowRight
-- (void) focusWindowUp
-- (void) focusWindowDown
+- (void) focusWindowLeft()
+- (void) focusWindowRight()
+- (void) focusWindowUp()
+- (void) focusWindowDown()
 ```
 
 ### Type: `Screen`
 
 ```coffeescript
-- (CGRect) frameIncludingDockAndMenu
-- (CGRect) frameWithoutDockOrMenu
+- (CGRect) frameIncludingDockAndMenu()
+- (CGRect) frameWithoutDockOrMenu()
 
-- (Screen) nextScreen
-- (Screen) previousScreen
+- (Screen) nextScreen()
+- (Screen) previousScreen()
 ```
 
 ### Other Types
@@ -204,6 +198,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- 2.1.2
+  - All function calls now require parentheses, even if they take no args
 - 2.1.1
   - Fix `shell` when giving stdin so it doesn't hang
 - 2.1
