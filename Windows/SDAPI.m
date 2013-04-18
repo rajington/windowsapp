@@ -105,4 +105,32 @@
     return [SDScreenProxy allScreens];
 }
 
++ (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input {
+    NSPipe* outPipe = [NSPipe pipe];
+    NSPipe* errPipe = [NSPipe pipe];
+    NSPipe* inPipe = [NSPipe pipe];
+    
+    if (input)
+        [[inPipe fileHandleForWriting] writeData:[input dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSTask* task = [[NSTask alloc] init];
+    [task setLaunchPath:cmd];
+    [task setArguments:args];
+    task.standardInput = inPipe;
+    task.standardOutput = outPipe;
+    task.standardError = errPipe;
+    [task launch];
+    [task waitUntilExit];
+    
+    NSData* stdoutData = [[outPipe fileHandleForReading] readDataToEndOfFile];
+    NSString* stdoutString = [[NSString alloc] initWithData:stdoutData encoding:NSUTF8StringEncoding];
+    
+    NSData* stderrData = [[errPipe fileHandleForReading] readDataToEndOfFile];
+    NSString* stderrString = [[NSString alloc] initWithData:stderrData encoding:NSUTF8StringEncoding];
+    
+    return @{@"status": @([task terminationStatus]),
+             @"stdout": stdoutString,
+             @"stderr": stderrString};
+}
+
 @end

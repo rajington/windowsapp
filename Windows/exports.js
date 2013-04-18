@@ -1,5 +1,13 @@
 // important! JSCocoa doesn't do ARC. so if we do alloc, we need to do autorelease, old school
 
+var shell = function(path, args, input) {
+  return api.shell_args_input(path, args, input);
+}
+
+var open = function(thing) {
+  api.shell_args_input("/usr/bin/open", [thing], null);
+}
+
 var bind = function(key, modifiers, fn) {
   api.bind_modifiers_fn_(key, modifiers, fn);
 };

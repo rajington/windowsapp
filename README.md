@@ -91,6 +91,12 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
               Function fn)             # javascript fn that takes no args; return val is ignored
 
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
+
+- (Hash) shell(String path, Array<String> args[, String stdin]) # returns {"stdout": string,
+                                                                           "stderr": string,
+                                                                           "status": int}
+
+- (void) open(String thing) # can be path or URL
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -192,6 +198,7 @@ The rest you'll have to look up for yourself.
 - HEAD
   - Config files now eval in the same `this` every time
   - The "config loaded" alert show which config has been used
+  - Adds `shell` and `open` commands
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -237,14 +244,13 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
-* Move most of the config loading code into `exports.js`
 * Add option to auto-reload your config file when it changes
 * Add a repl somehow? Not sure the best UI yet...
 * Make config loader choose the config with the latest timestamp?
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Maybe add some API functions for other things
-  * `api.open(appNameOrPath)`
-  * `api.shell(path, argsList)`
+  * `api.pasteboardString`
+  * `api.highlightedText`
   * other stuff
 * Rip out JSCocoa and just use JavascriptCore maybe?
   * We don't need ObjJ syntax
