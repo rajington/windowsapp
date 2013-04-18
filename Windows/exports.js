@@ -27,28 +27,27 @@ var compile = function(coffee) {
 
 var require = (function(globalContext) {
   return function(file) {
-    var path = expandPath(file);
-    var contents = readFile(path);
+    file = NSString.stringWithString(file)
 
-    if (path.hasSuffix('.js'))
+    var contents = readFile(file);
+
+    if (!contents)
+      return false;
+
+    if (file.hasSuffix('.js'))
       eval.call(globalContext, contents)
-    else if (path.hasSuffix('.coffee'))
+    else if (file.hasSuffix('.coffee'))
       eval.call(globalContext, compile(contents));
+
+    return true;
   };
 })(this);
 
-var reloadConfigExt = function(globalContext, whichConfig) {
-  var path = NSString.stringWithString("~/.windowsapp.coffee").stringByStandardizingPath;
-  var config = NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, null);
-
-  if (config == null)
-    return false;
-
-  config = CoffeeScript.compile(config, {bare: true});
-
+var reloadConfigExt = function(file) {
   SDKeyBinder.sharedKeyBinder.removeKeyBindings;
 
-  eval.call(globalContext, config);
+  if (!require(file))
+    return false;
 
   var failures = SDKeyBinder.sharedKeyBinder.finalizeNewKeyBindings;
 
@@ -56,7 +55,7 @@ var reloadConfigExt = function(globalContext, whichConfig) {
     print("The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n"));
   }
   else {
-    alert((typeof this.__loadedBefore == 'undefined' ? "Config loaded." : "Config reloaded."));
+    alert((typeof this.__loadedBefore == 'undefined' ? "Loaded config " : "Reloaded config ") + file);
     this.__loadedBefore = true;
   }
 
@@ -66,7 +65,7 @@ var reloadConfigExt = function(globalContext, whichConfig) {
 var reloadConfig = (function(globalContext) {
   return function() {
     api.doAsync(function() {
-      if (!reloadConfigExt(globalContext, 'cs') && !reloadConfigExt(globalContext, 'js')) {
+      if (!reloadConfigExt('~/.windowsapp.coffee') && !reloadConfigExt('~/.windowsapp.js')) {
         alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
       }
     });

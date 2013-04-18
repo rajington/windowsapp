@@ -191,6 +191,7 @@ The rest you'll have to look up for yourself.
 
 - HEAD
   - Config files now eval in the same `this` every time
+  - The "config loaded" alert show which config has been used
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -240,7 +241,6 @@ The rest you'll have to look up for yourself.
 * Add option to auto-reload your config file when it changes
 * Add a repl somehow? Not sure the best UI yet...
 * Make config loader choose the config with the latest timestamp?
-* Make "config loaded" alert show which config has been used
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Maybe add some API functions for other things
   * `api.open(appNameOrPath)`
@@ -250,7 +250,6 @@ The rest you'll have to look up for yourself.
   * We don't need ObjJ syntax
   * But we do want automatic bridging to ObjC classes/methods
   * And we do want auto-call, it's pretty sweet
-* Make your top-level variables keep existing after config-reloads maybe?
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
 
