@@ -176,20 +176,15 @@ property (Boolean) alertAnimates # when opening
 The rest of the types here are classes from ObjC, bridged to JS. Here's a few for reference:
 
 ```coffeescript
-type CGRect
-
+# CGRect
 property (CGPoint) origin # top-left
 property (CGSize) size
 
-
-type CGSize
-
+# CGSize
 property (Float) width
 property (Float) height
 
-
-type CGPoint
-
+# CGPoint
 property (Float) x
 property (Float) y
 ```
