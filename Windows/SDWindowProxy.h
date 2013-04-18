@@ -55,4 +55,9 @@
 - (BOOL) isWindowMinimized;
 - (BOOL) isAppHidden;
 
+
+// this doesn't really belong here, but...
++ (NSString*) selectedText;
+
+
 @end

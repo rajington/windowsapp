@@ -105,6 +105,10 @@
     return [SDScreenProxy allScreens];
 }
 
++ (NSString*) selectedText {
+    return [SDWindowProxy selectedText];
+}
+
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input {
     NSPipe* outPipe = [NSPipe pipe];
     NSPipe* errPipe = [NSPipe pipe];

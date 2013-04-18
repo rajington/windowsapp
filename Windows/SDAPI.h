@@ -42,6 +42,8 @@
 + (SDScreenProxy*) mainScreen;
 + (NSArray*) allScreens;
 
++ (NSString*) selectedText;
+
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input;
 
 @end

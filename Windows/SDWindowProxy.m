@@ -18,6 +18,30 @@
 
 @implementation SDWindowProxy
 
++ (NSString*) selectedText {
+    if ([SDUniversalAccessHelper complainIfNeeded])
+        return nil;
+    
+    AXError error;
+    
+    AXUIElementRef app = nil;
+    if ((error = AXUIElementCopyAttributeValue([self systemWideElement], kAXFocusedApplicationAttribute, (CFTypeRef *) &app)) != kAXErrorSuccess)
+        return nil;
+    
+    AXUIElementRef attr = nil;
+    if ((error = AXUIElementCopyAttributeValue(app, kAXFocusedUIElementAttribute, (CFTypeRef *)&attr)) != kAXErrorSuccess)
+        return nil;
+    CFRelease(app);
+    
+    CFTypeRef value = nil;
+    if ((error = AXUIElementCopyAttributeValue(attr, kAXSelectedTextAttribute, &value)) != kAXErrorSuccess)
+        return nil;
+    CFRelease(attr);
+    
+    CFStringRef str = (CFStringRef)value;
+    return (__bridge_transfer NSString*)str;
+}
+
 + (NSArray*) allWindows {
     if ([SDUniversalAccessHelper complainIfNeeded])
         return nil;
