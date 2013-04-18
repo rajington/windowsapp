@@ -82,6 +82,12 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 
 ## API
 
+**IMPORTANT:**
+
+Currently, when calling any function in the API which takes no arguments (except for those in the top level), you must not use parentheses! For example, `win = api.focusedWindow();` will not work; instead you must use `win = api.focusedWindow;`
+
+This will change in the next version. It will break your configs, but adding empty parentheses after these calls will fix it.
+
 ### Top Level
 
 ```coffeescript
