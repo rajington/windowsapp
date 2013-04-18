@@ -29,13 +29,17 @@ var readFile = function(file) {
   return NSString.stringWithContentsOfFile_encoding_error(path, NSUTF8StringEncoding, null);
 };
 
+var selectedText = function() {
+  return api.selectedText;
+};
+
 var clipboardContents = function() {
   var body  = NSPasteboard.generalPasteboard.stringForType(NSPasteboardTypeString)
   if (body)
     return body.toString()
   else
     return null;
-}
+};
 
 var compile = function(coffee) {
   return CoffeeScript.compile(coffee, { bare: true });
