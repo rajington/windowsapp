@@ -269,7 +269,6 @@ The rest you'll have to look up for yourself.
                   * Maybe become a hybrid of what it is now and the alert window?
 * API
     * Better error handling when passing wrong stuff into API functions
-    * Create `api.evalJS()` and `api.evalCS()`
     * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
