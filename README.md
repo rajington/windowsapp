@@ -250,14 +250,18 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
+* Somehow make the message window better
+    * It's a confusing UI
+        * It doens't close after the error it first told me about is gone
+        * It scrolls to the bottom with new messages, but somehow I still don't expected that
 * Add a repl somehow? Not sure the best UI yet...
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
 * Rip out JSCocoa and just use JavascriptCore maybe?
-  * We don't need ObjJ syntax
-  * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
-  * But we do want automatic bridging to ObjC classes/methods
-  * And we do want auto-call, it's pretty sweet
+    * We don't need ObjJ syntax
+    * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
+    * But we do want automatic bridging to ObjC classes/methods
+    * And we do want auto-call, it's pretty sweet
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
 
