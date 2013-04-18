@@ -97,6 +97,8 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
+
+- (String) clipboardContents
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -198,7 +200,7 @@ The rest you'll have to look up for yourself.
 - HEAD
   - Config files now eval in the same `this` every time
   - The "config loaded" alert show which config has been used
-  - Adds `shell` and `open` commands
+  - Adds `shell`, `open`, `clipboardContents` functions
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -249,9 +251,8 @@ The rest you'll have to look up for yourself.
 * Make config loader choose the config with the latest timestamp?
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Maybe add some API functions for other things
-  * `api.pasteboardString`
-  * `api.highlightedText`
-  * other stuff
+  * `api.selectedText`
+  * other stuff maybe?
 * Rip out JSCocoa and just use JavascriptCore maybe?
   * We don't need ObjJ syntax
   * But we do want automatic bridging to ObjC classes/methods
