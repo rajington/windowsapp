@@ -262,6 +262,8 @@ The rest you'll have to look up for yourself.
         * After each message, it auto-scrolls to the bottom
         * Before each message, it shows the timestamp of when it was sent
         * Between each message, it inserts a &lt;hr&gt;
+        * Don't clear the window each time it opens, leave it full
+        * Add a button to let you clear it when/if you want to
         * There's still one problem:
             * What happens when the error that opened the log goes away?
                 * We still have to manually close the log, that's annoying.
