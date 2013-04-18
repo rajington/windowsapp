@@ -137,4 +137,34 @@
              @"stderr": stderrString};
 }
 
++ (NSString*) configFileToUse {
+    NSString* coffeeFile = @"~/.windowsapp.coffee";
+    NSString* jsFile = @"~/.windowsapp.js";
+    
+    NSArray* prettyChoices = @[coffeeFile, jsFile];
+    NSArray* choices = [prettyChoices valueForKeyPath:@"stringByStandardizingPath"];
+    
+    NSDictionary* results = [NSDictionary dictionaryWithObjects:prettyChoices forKeys:choices];
+    
+    NSMutableArray* finalContenders = [NSMutableArray array];
+    
+    for (NSString* candidate in choices) {
+        if ([[NSFileManager defaultManager] fileExistsAtPath:candidate] && [[NSFileManager defaultManager] isReadableFileAtPath:candidate]) {
+            NSURL* url = [[NSURL fileURLWithPath:candidate] URLByResolvingSymlinksInPath];
+            NSDictionary* attrs = [url resourceValuesForKeys:@[NSURLContentModificationDateKey] error:NULL];
+            [finalContenders addObject:@{@"file": candidate, @"timestamp": [attrs objectForKey:NSURLContentModificationDateKey]}];
+        }
+    }
+    
+    if ([finalContenders count] == 2) {
+        [finalContenders sortUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
+            NSDate* date1 = [obj1 objectForKey:@"timestamp"];
+            NSDate* date2 = [obj2 objectForKey:@"timestamp"];
+            return [date1 compare: date2];
+        }];
+    }
+    
+    return [results objectForKey:[[finalContenders lastObject] objectForKey:@"file"]];
+}
+
 @end

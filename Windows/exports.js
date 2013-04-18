@@ -80,8 +80,11 @@ var reloadConfigExt = function(file) {
 
 var reloadConfig = function() {
   api.doAsync(function() {
-    if (!reloadConfigExt('~/.windowsapp.coffee') && !reloadConfigExt('~/.windowsapp.js')) {
+    var configFile = api.configFileToUse;
+
+    if (configFile)
+      reloadConfigExt(configFile);
+    else
       alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
-    }
   });
 }

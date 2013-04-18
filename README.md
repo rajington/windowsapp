@@ -35,7 +35,7 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 
 Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience.)
 
-You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, only the CoffeeScript one is used.
+You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, whichever was edited (or `touch`ed) more recently will be used.
 
 Your config file has access to [underscore.js 1.4.4](http://underscorejs.org/).
 
@@ -202,6 +202,7 @@ The rest you'll have to look up for yourself.
   - Config files now eval in the same `this` every time
   - The "config loaded" alert show which config has been used
   - Adds `shell`, `open`, `clipboardContents`, `selectedText` functions
+  - Determines which config file to use based on which was edited more recently
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -249,7 +250,6 @@ The rest you'll have to look up for yourself.
 
 * Add option to auto-reload your config file when it changes
 * Add a repl somehow? Not sure the best UI yet...
-* Make config loader choose the config with the latest timestamp?
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Rip out JSCocoa and just use JavascriptCore maybe?
   * We don't need ObjJ syntax

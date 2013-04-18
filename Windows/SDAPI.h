@@ -46,4 +46,6 @@
 
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input;
 
++ (NSString*) configFileToUse;
+
 @end
