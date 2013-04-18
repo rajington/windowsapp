@@ -178,7 +178,7 @@ The rest of the types here are classes from ObjC, bridged to JS. Here's a few fo
 ```coffeescript
 type CGRect
 
-property (CGPoint) origin # top-left point on screen
+property (CGPoint) origin # top-left
 property (CGSize) size
 
 
