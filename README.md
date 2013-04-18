@@ -279,6 +279,7 @@ The rest you'll have to look up for yourself.
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
     * Make the ObjC API private (called `_api`) and only used in `exports.js`, and make the public-facing `api` a pure-JS object
         * Rearrange functions so we're not so inconsistent about what's in the Top-Level environment and what's in `api`
+        * Functions that return stuff should be in `api` and "statements" like `require` or `alert` should go at the top-level. The only reason `api` exists as a namespace is so you can have variables like `focusedWindow` or `allWindows` if you dig that kinda thing
     * Make some nice JS helper functions for NSColor
 * Other
     * Merge Top sections of this README, they're too wordy; just Get To The Point™
