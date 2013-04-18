@@ -33,7 +33,7 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 
 ## How To Use
 
-Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience.)
+Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience. Or you can toggle the auto-reload option from the menu.)
 
 You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, whichever was edited more recently will be used. If you want to force the other one to be loaded, use `touch` on the file.
 
@@ -198,6 +198,7 @@ The rest you'll have to look up for yourself.
   - The "config loaded" alert show which config has been used
   - Adds `shell`, `open`, `clipboardContents`, `selectedText` functions
   - Determines which config file to use based on which was edited more recently
+  - Added option to auto-reload your config file when it changes
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -243,7 +244,6 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
-* Add option to auto-reload your config file when it changes
 * Add a repl somehow? Not sure the best UI yet...
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Rip out JSCocoa and just use JavascriptCore maybe?

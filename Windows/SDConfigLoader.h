@@ -15,4 +15,6 @@
 - (void) prepareScriptingBridge;
 - (void) reloadConfig;
 
+- (void) reloadConfigIfWatchEnabled;
+
 @end
