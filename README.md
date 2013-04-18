@@ -261,6 +261,19 @@ The rest you'll have to look up for yourself.
         * Maybe become a hybrid of what it is now and the alert window?
     * Add a repl somehow? Not sure the best UI yet...
         * Maybe merge this with the "message" window?
+    * Okay how about this idea...
+        * There's a "Windows.app Log" window
+            * It uses a WebView for easier styling than NSTextView
+            * At the bottom of the window is a text field that acts as a REPL
+            * Different types of messages display differently
+                * Errors = red, user-messages = blue, REPL results = green
+            * After each message, it auto-scrolls to the bottom
+            * Before each message, it shows the timestamp of when it was sent
+            * Between each message, it inserts a &lt;hr&gt;
+        * There's still one problem:
+            * What happens when the error that opened the log goes away?
+                * We still have to manually close the log, that's annoying.
+                * How do we solve this?
 * API
     * Bug Kyle to make some nice JS helper functions for NSColor maybe?
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
