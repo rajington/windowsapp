@@ -262,6 +262,6 @@ The rest you'll have to look up for yourself.
 
 ## License
 
-It's been said that a project's license reveals what the authors were afraid of. So if they're afraid of having their name dragged through the mud, they'll choose the BSD over MIT, and if they're afraid people will use their work in some proprietary project without contributing back to the community, they'll choose the GPL over either.
+It's been said that a project's license reveals what the authors were afraid of. For example, if they're afraid of having their name dragged through the mud, they'll choose the BSD over MIT, and if they're afraid people will use their work in some proprietary project without contributing back to the community, they'll choose the GPL over either.
 
 Therefore, this software is licensed under the [MIT license](Licenses/LICENSE) with the additional clause that by using this software you agree not to put spiders or any other bugs under my pillow or blankets.
