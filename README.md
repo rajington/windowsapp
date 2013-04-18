@@ -268,6 +268,9 @@ The rest you'll have to look up for yourself.
                 * How do we solve this?
                   * Maybe become a hybrid of what it is now and the alert window?
 * API
+    * Add `api.evalSelectedText()` for live/interactive REPL action
+        * Make note if it in the README, reminding people they can just highlight someone else's config and run `evalSelectedText` to try it out for themselves
+        * Also remind them that they can just run `reloadConfig` to undo the other person's key-bindings
     * Better error handling when passing wrong stuff into API functions
     * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
