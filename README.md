@@ -184,7 +184,7 @@ property (CGSize) size
 property (Float) width
 property (Float) height
 
-@type CGPoint
+# CGPoint
 property (Float) x
 property (Float) y
 ```
