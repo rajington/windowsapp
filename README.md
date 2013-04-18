@@ -254,7 +254,9 @@ The rest you'll have to look up for yourself.
     * It's a confusing UI
         * It doens't close after the error it first told me about is gone
         * It scrolls to the bottom with new messages, but somehow I still don't expected that
+    * Maybe become a hybrid of what it is now and the alert window?
 * Add a repl somehow? Not sure the best UI yet...
+    * Maybe merge this with the "message" window?
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
 * Rip out JSCocoa and just use JavascriptCore maybe?
