@@ -114,8 +114,10 @@
     NSPipe* errPipe = [NSPipe pipe];
     NSPipe* inPipe = [NSPipe pipe];
     
-    if (input)
+    if (input) {
         [[inPipe fileHandleForWriting] writeData:[input dataUsingEncoding:NSUTF8StringEncoding]];
+        [[inPipe fileHandleForWriting] closeFile];
+    }
     
     NSTask* task = [[NSTask alloc] init];
     [task setLaunchPath:cmd];

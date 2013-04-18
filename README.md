@@ -198,6 +198,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- 2.1.1
+  - Fix `shell` when giving stdin so it doesn't hang
 - 2.1
   - Config files now eval in the same `this` every time
   - The "config loaded" alert show which config has been used
