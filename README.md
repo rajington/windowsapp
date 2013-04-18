@@ -251,22 +251,34 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
-* Somehow make the message window better
-    * It's a confusing UI
-        * It doens't close after the error it first told me about is gone
-        * It scrolls to the bottom with new messages, but somehow I still don't expected that
-    * Maybe become a hybrid of what it is now and the alert window?
-* Add a repl somehow? Not sure the best UI yet...
-    * Maybe merge this with the "message" window?
-* Bug Kyle to make some nice JS helper functions for NSColor maybe?
-* Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
-* Rip out JSCocoa and just use JavascriptCore maybe?
-    * We don't need ObjJ syntax
-    * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
-    * But we do want automatic bridging to ObjC classes/methods
-    * And we do want auto-call, it's pretty sweet
-* Figure out how to get it working on 10.6 (weak references aren't allowed there)
-* Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
+* UI
+    * Somehow make the message window better
+        * It's a confusing UI
+            * It doens't close after the error it first told me about is gone
+            * It scrolls to the bottom with new messages, but somehow I still don't expected that
+        * Maybe become a hybrid of what it is now and the alert window?
+    * Add a repl somehow? Not sure the best UI yet...
+        * Maybe merge this with the "message" window?
+* API
+    * Bug Kyle to make some nice JS helper functions for NSColor maybe?
+    * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
+    * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
+    * Ideally, have the ObjC API be secret, called `_api` and only used in `exports.js`, and make `api` a pure-JS object
+        * Then we wouldn't have to be inconsistent about what's in the Top-Level environment and what's in `api`
+        * The problem is that AutoCall only works on ObjC methods!
+        * Plus AutoCall is confusing and unexpected behavior, with no obvious rule on what can be AutoCall'd
+        * But AutoCall is admittedly convenient
+            * When I was using Slate, I would often forget the parens and not realize until too late.
+            * But maybe we can solve this problem, the root porblem, a different way and just get rid of AutoCall once and for all?
+    * Maybe figure out a way to not have to do nil-checks so often?
+        * Passing nil to many functions that expect strings pops up an error message
+* Other
+    * Rip out JSCocoa and just use JavascriptCore maybe?
+        * We don't need ObjJ syntax
+        * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
+        * But we do want automatic bridging to ObjC classes/methods
+        * And we do want auto-call, it's pretty sweet
+    * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
 
