@@ -276,6 +276,7 @@ The rest you'll have to look up for yourself.
         * Rearrange functions so we're not so inconsistent about what's in the Top-Level environment and what's in `api`
     * Make some nice JS helper functions for NSColor
 * Other
+    * Merge Top sections of this README, they're too wordy; just Get To The Point™
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
