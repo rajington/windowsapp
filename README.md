@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.1**
+* Current version: **2.1.1**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
