@@ -259,7 +259,7 @@ The rest you'll have to look up for yourself.
         * At the bottom of the window is a text field that acts as a REPL
         * Different types of messages display differently
             * Errors = red, user-messages = blue, REPL results = green
-        * After each message, it auto-scrolls to the bottom
+        * After printing a new message, it auto-scrolls to the bottom
         * Before each message, it shows the timestamp of when it was sent
         * Between each message, it inserts a &lt;hr&gt;
         * Don't clear the window each time it opens, leave it full
