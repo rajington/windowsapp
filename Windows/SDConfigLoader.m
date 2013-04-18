@@ -52,65 +52,17 @@
 }
 
 - (void) reloadConfig {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (![self tryDotConfig:YES] && ![self tryDotConfig:NO]) {
-            [self reportProblem:@"~/.windowsapp.{coffee,js} doesn't exist"
-                           body:@"Make one exist, and click Reload Config in the menu. (If both exist, coffee is chosen.)"];
-        }
-    });
-}
-
-- (BOOL) tryDotConfig:(BOOL)useCoffeeVersion {
-    NSString* filename = (useCoffeeVersion ? @"~/.windowsapp.coffee" : @"~/.windowsapp.js");
+    JSValueRef compileFn = [self.jscocoa evalJSString:@"reloadConfig"];
     
-    NSString* path = [filename stringByStandardizingPath];
-    NSString* config = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
-    
-    if (config == nil)
-        return NO;
-    
-    if (useCoffeeVersion) {
-        JSValueRef compileFn = [self.jscocoa evalJSString:@"CoffeeScript.compile"];
-        JSValueRef compiledCode = [self.jscocoa callJSFunction:(JSObjectRef)compileFn withArguments:@[config]];
-        config = [self.jscocoa toObject:compiledCode];
-    }
-    else {
-        NSString* __autoreleasing invalidReason;
-        BOOL validSyntax = [self.jscocoa isSyntaxValid:config error:&invalidReason];
-        
-        if (validSyntax == NO) {
-            [self reportProblem:@"Your config file has bad syntax."
-                           body:invalidReason];
-            return YES;
-        }
-    }
-    
-    [[SDKeyBinder sharedKeyBinder] removeKeyBindings];
-    
-    [self.jscocoa evalJSString:config];
-    
-    NSArray* failures = [[SDKeyBinder sharedKeyBinder] finalizeNewKeyBindings];
-    
-    if ([failures count] > 0) {
-        [self reportProblem:@"The following hot keys could not be bound:"
-                       body:[failures componentsJoinedByString:@"\n"]];
-    }
-    else {
-        static BOOL loadedBefore;
-        [[SDAlertWindowController sharedAlertWindowController] show:(loadedBefore ? @"Config reloaded." : @"Config loaded.")];
-        loadedBefore = YES;
-    }
-    
-    return YES;
+    [self.jscocoa callJSFunction:(JSObjectRef)compileFn
+                   withArguments:nil];
 }
 
 - (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
-    [self reportProblem:[NSString stringWithFormat:@"Error in config file on line: %ld", lineNumber]
-                   body:error];
-}
-
-- (void) reportProblem:(NSString*)problem body:(NSString*)body {
-    NSString* msg = [NSString stringWithFormat:@"=== Problem ===\n%@\n\n%@", problem, body];
+    NSString* msg = [NSString stringWithFormat:
+                     @"=== Problem ===\n"
+                     @"Error in config file on line: %ld\n\n%@",
+                     lineNumber, error];
     [[SDMessageWindowController sharedMessageWindowController] show:msg];
 }
 

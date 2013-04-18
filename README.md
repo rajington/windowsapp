@@ -189,6 +189,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- HEAD
+  - Config files now eval in the same `this` every time
 - 2.0.4
   - Added an automatic updater!
   - Fixed some alert() visual uglies
@@ -235,8 +237,6 @@ The rest you'll have to look up for yourself.
 ## Todo
 
 * Move most of the config loading code into `exports.js`
-* Fix memory leaks in `exports.js`
-    * apparently JSCocoa doesn't use ARC and needs `.autorelease` anywhere we use `.alloc`, etc
 * Add option to auto-reload your config file when it changes
 * Add a repl somehow? Not sure the best UI yet...
 * Make config loader choose the config with the latest timestamp?

@@ -17,6 +17,8 @@
 #import "SDAlertWindowController.h"
 #import "SDMessageWindowController.h"
 
+#import "SDJSBlockWrapper.h"
+
 @implementation SDAPISettings
 
 - (id) init {
@@ -54,6 +56,13 @@
         settings = [[SDAPISettings alloc] init];
     });
     return settings;
+}
+
++ (void) doAsync:(JSValueRefAndContextRef)fn {
+    SDJSBlockWrapper* block = [[SDJSBlockWrapper alloc] initWithJavaScriptFn:fn];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [block call];
+    });
 }
 
 + (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn {

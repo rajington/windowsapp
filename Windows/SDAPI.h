@@ -26,6 +26,8 @@
 
 + (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn;
 
++ (void) doAsync:(JSValueRefAndContextRef)fn;
+
 + (void) reloadConfig;
 + (void) alert:(NSString*)str;
 + (void) alert:(NSString*)str withDelay:(CGFloat)delay;

@@ -11,35 +11,7 @@
 #import "MASShortcut+Monitoring.h"
 #import "SDKeyBindingTranslator.h"
 
-
-@interface SDJSBlockWrapper : NSObject
-@property JSContextRef mainContext;
-@property JSValueRef actualFn;
-@end
-
-@implementation SDJSBlockWrapper
-
-- (id) initWithJavaScriptFn:(JSValueRefAndContextRef)fn {
-    if (self = [super init]) {
-        self.mainContext = [[JSCocoa controllerFromContext:fn.ctx] ctx];
-        self.actualFn = fn.value;
-        
-        JSValueProtect(self.mainContext, self.actualFn);
-    }
-    return self;
-}
-
-- (void) call {
-    [[JSCocoa controllerFromContext:self.mainContext] callJSFunction:(JSObjectRef)(self.actualFn)
-                                                       withArguments:nil];
-}
-
-- (void) dealloc {
-    JSValueUnprotect(self.mainContext, self.actualFn);
-}
-
-@end
-
+#import "SDJSBlockWrapper.h"
 
 
 @interface SDHotKey : NSObject

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940BF5E9171FA49B0041089B /* SDJSBlockWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 940BF5E8171FA49B0041089B /* SDJSBlockWrapper.m */; };
 		943921BA1719B1EE00F63073 /* statusitem.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B61719B1EE00F63073 /* statusitem.png */; };
 		943921BB1719B1EE00F63073 /* statusitem_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B71719B1EE00F63073 /* statusitem_pressed.png */; };
 		943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */; };
@@ -64,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		940BF5E7171FA49B0041089B /* SDJSBlockWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDJSBlockWrapper.h; sourceTree = "<group>"; };
+		940BF5E8171FA49B0041089B /* SDJSBlockWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDJSBlockWrapper.m; sourceTree = "<group>"; };
 		943921B61719B1EE00F63073 /* statusitem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusitem.png; sourceTree = "<group>"; };
 		943921B71719B1EE00F63073 /* statusitem_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statusitem_pressed.png; sourceTree = "<group>"; };
 		943921B81719B1EE00F63073 /* statusitem_pressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statusitem_pressed@2x.png"; sourceTree = "<group>"; };
@@ -153,6 +156,8 @@
 				947E995A171CF9DE006F30AC /* SDConfigLoader.m */,
 				94873F65171929A0000AC0A6 /* SDKeyBinder.h */,
 				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
+				940BF5E7171FA49B0041089B /* SDJSBlockWrapper.h */,
+				940BF5E8171FA49B0041089B /* SDJSBlockWrapper.m */,
 				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
 				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
 				94454B31171B31AC003EF64E /* SDScreenProxy.h */,
@@ -427,6 +432,7 @@
 				94454B3C171B422C003EF64E /* SDAlertWindow.m in Sources */,
 				947E9958171CEFB5006F30AC /* SDAPI.m in Sources */,
 				947E995B171CF9DE006F30AC /* SDConfigLoader.m in Sources */,
+				940BF5E9171FA49B0041089B /* SDJSBlockWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
