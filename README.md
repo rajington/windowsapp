@@ -246,6 +246,10 @@ The rest you'll have to look up for yourself.
   * `api.open(appNameOrPath)`
   * `api.shell(path, argsList)`
   * other stuff
+* Rip out JSCocoa and just use JavascriptCore maybe?
+  * We don't need ObjJ syntax
+  * But we do want automatic bridging to ObjC classes/methods
+  * And we do want auto-call, it's pretty sweet
 * Make your top-level variables keep existing after config-reloads maybe?
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
