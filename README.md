@@ -254,46 +254,28 @@ The rest you'll have to look up for yourself.
 ## Todo
 
 * UI
-    * Somehow make the message window better
-        * It's a confusing UI
-            * It doens't close after the error it first told me about is gone
-            * It scrolls to the bottom with new messages, but somehow I still don't expected that
-        * Maybe become a hybrid of what it is now and the alert window?
-    * Add a repl somehow? Not sure the best UI yet...
-        * Maybe merge this with the "message" window?
-    * Okay how about this idea...
-        * There's a "Windows.app Log" window
-            * It uses a WebView for easier styling than NSTextView
-            * At the bottom of the window is a text field that acts as a REPL
-            * Different types of messages display differently
-                * Errors = red, user-messages = blue, REPL results = green
-            * After each message, it auto-scrolls to the bottom
-            * Before each message, it shows the timestamp of when it was sent
-            * Between each message, it inserts a &lt;hr&gt;
+    * New Log window plan:
+        * It uses a WebView for easier styling than NSTextView
+        * At the bottom of the window is a text field that acts as a REPL
+        * Different types of messages display differently
+            * Errors = red, user-messages = blue, REPL results = green
+        * After each message, it auto-scrolls to the bottom
+        * Before each message, it shows the timestamp of when it was sent
+        * Between each message, it inserts a &lt;hr&gt;
         * There's still one problem:
             * What happens when the error that opened the log goes away?
                 * We still have to manually close the log, that's annoying.
                 * How do we solve this?
+                  * Maybe become a hybrid of what it is now and the alert window?
 * API
-    * Bug Kyle to make some nice JS helper functions for NSColor maybe?
+    * Better error handling when passing wrong stuff into API functions
+    * Figure out a way to not have to do nil-checks so often
+    * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
-    * Make it semi-safe to pass wrong stuff into API functions, especially `bind()`
-    * Ideally, have the ObjC API be secret, called `_api` and only used in `exports.js`, and make `api` a pure-JS object
-        * Then we wouldn't have to be inconsistent about what's in the Top-Level environment and what's in `api`
-        * The problem is that AutoCall only works on ObjC methods!
-        * Plus AutoCall is confusing and unexpected behavior, with no obvious rule on what can be AutoCall'd
-        * But AutoCall is admittedly convenient
-            * When I was using Slate, I would often forget the parens and not realize until too late.
-            * But maybe we can solve this problem, the root porblem, a different way and just get rid of AutoCall once and for all?
-    * Maybe figure out a way to not have to do nil-checks so often?
-        * Passing nil to many functions that expect strings pops up an error message
-    * Add events to API (`kAXWindowCreatedNotification`, etc) maybe?
+    * Make the ObjC API private (called `_api`) and only used in `exports.js`, and make the public-facing `api` a pure-JS object
+        * Rearrange functions so we're not so inconsistent about what's in the Top-Level environment and what's in `api`
+    * Make some nice JS helper functions for NSColor
 * Other
-    * Rip out JSCocoa and just use JavascriptCore maybe?
-        * We don't need ObjJ syntax
-        * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
-        * But we do want automatic bridging to ObjC classes/methods
-        * And we do want auto-call (maybe; see API section)
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
