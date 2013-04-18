@@ -93,8 +93,8 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 
 - (Hash) shell(String path, Array<String> args[, String stdin]) # returns {"stdout": string,
-                                                                           "stderr": string,
-                                                                           "status": int}
+                                                                #          "stderr": string,
+                                                                #          "status": int}
 
 - (void) open(String thing) # can be path or URL
 ```
