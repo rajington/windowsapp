@@ -272,6 +272,7 @@ The rest you'll have to look up for yourself.
             * But maybe we can solve this problem, the root porblem, a different way and just get rid of AutoCall once and for all?
     * Maybe figure out a way to not have to do nil-checks so often?
         * Passing nil to many functions that expect strings pops up an error message
+    * Add events to API (`kAXWindowCreatedNotification`, etc) maybe?
 * Other
     * Rip out JSCocoa and just use JavascriptCore maybe?
         * We don't need ObjJ syntax
