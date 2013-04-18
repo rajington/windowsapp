@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.0.4**
+* Current version: **2.1**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -199,7 +199,7 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
-- HEAD
+- 2.1
   - Config files now eval in the same `this` every time
   - The "config loaded" alert show which config has been used
   - Adds `shell`, `open`, `clipboardContents`, `selectedText` functions
@@ -254,6 +254,7 @@ The rest you'll have to look up for yourself.
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
 * Rip out JSCocoa and just use JavascriptCore maybe?
   * We don't need ObjJ syntax
+  * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
   * But we do want automatic bridging to ObjC classes/methods
   * And we do want auto-call, it's pretty sweet
 * Figure out how to get it working on 10.6 (weak references aren't allowed there)
