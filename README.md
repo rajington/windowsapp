@@ -52,15 +52,13 @@ Note: if your editor likes to backup your files into the same directory, you may
 Put the following in `~/.windowsapp.coffee`
 
 ```coffeescript
-# reload this config for testing
-bind "R", ["cmd", "alt", "ctrl"], ->
-  api.reloadConfig
+# useful for testing
+bind "R", ["cmd", "alt", "ctrl"], -> api.reloadConfig
 
 # maximize window
 bind "M", ["cmd", "alt", "ctrl"], ->
   win = api.focusedWindow
-  frame = win.screen.frameWithoutDockOrMenu
-  win.setFrame frame
+  win.setFrame win.screen.frameWithoutDockOrMenu
 
 # push to top half of screen
 bind "K", ["cmd", "alt", "ctrl"], ->
