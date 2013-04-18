@@ -252,6 +252,7 @@ The rest you'll have to look up for yourself.
 
 * Add a repl somehow? Not sure the best UI yet...
 * Bug Kyle to make some nice JS helper functions for NSColor maybe?
+* Add `App` type for NSRunningApplication
 * Rip out JSCocoa and just use JavascriptCore maybe?
   * We don't need ObjJ syntax
   * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
