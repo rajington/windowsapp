@@ -35,7 +35,7 @@ var require = (function(globalContext) {
       return false;
 
     if (file.hasSuffix('.js'))
-      eval.call(globalContext, contents)
+      eval.call(globalContext, String(contents));
     else if (file.hasSuffix('.coffee'))
       eval.call(globalContext, compile(contents));
 
@@ -62,12 +62,10 @@ var reloadConfigExt = function(file) {
   return true;
 };
 
-var reloadConfig = (function(globalContext) {
-  return function() {
-    api.doAsync(function() {
-      if (!reloadConfigExt('~/.windowsapp.coffee') && !reloadConfigExt('~/.windowsapp.js')) {
-        alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
-      }
-    });
-  }
-})(this);
+var reloadConfig = function() {
+  api.doAsync(function() {
+    if (!reloadConfigExt('~/.windowsapp.coffee') && !reloadConfigExt('~/.windowsapp.js')) {
+      alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
+    }
+  });
+}
