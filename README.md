@@ -45,7 +45,7 @@ Note: if your config file fails to load for some reason, all your key bindings a
 
 If you enable this feature, then Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, or the directory `~/.windowsapp`, intended as a fine place to put files you `require`. Any time the contents are changed in either of these files, or any file in the entire `~/.windowsapp` tree, the config is reloaded.
 
-Note: if your editor like to backup your files into its own directory, you may want to change that first.
+Note: if your editor likes to backup your files into its own directory, you may want to change that first.
 
 ## Example Config
 
