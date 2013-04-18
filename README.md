@@ -277,7 +277,7 @@ The rest you'll have to look up for yourself.
         * We don't need ObjJ syntax
         * JSCocoa's parser doesn't play nicely with CoffeeScript-generated code sometimes
         * But we do want automatic bridging to ObjC classes/methods
-        * And we do want auto-call, it's pretty sweet
+        * And we do want auto-call (maybe; see API section)
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
