@@ -41,6 +41,10 @@ Your config file has access to [underscore.js 1.4.4](http://underscorejs.org/).
 
 Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
 
+### Auto-reload config feature
+
+If you enable this feature, then Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, or the directory `~/.windowsapp`, intended as a fine place to put files you `require`.
+
 ## Example Config
 
 Put the following in `~/.windowsapp.coffee`
