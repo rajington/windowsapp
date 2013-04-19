@@ -197,7 +197,7 @@ The rest you'll have to look up for yourself.
   - Converted all public-facing API to pure JS objects
   - Moved `selectedText()` to `api` object
 - 2.1.2
-  - Initial stable version anyone should care about
+  - First version anyone should care about
 
 ## Todo
 
