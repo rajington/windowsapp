@@ -6,28 +6,28 @@
 //  Copyright (c) 2013 Giant Robot Software. All rights reserved.
 //
 
-#import "SDMessageWindowController.h"
+#import "SDLogWindowController.h"
 
-@interface SDMessageWindowController ()
+@interface SDLogWindowController ()
 
 @property NSString* message;
 @property IBOutlet NSTextView* textView;
 
 @end
 
-@implementation SDMessageWindowController
+@implementation SDLogWindowController
 
-+ (SDMessageWindowController*) sharedMessageWindowController {
-    static SDMessageWindowController* sharedMessageWindowController;
++ (SDLogWindowController*) sharedMessageWindowController {
+    static SDLogWindowController* sharedMessageWindowController;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedMessageWindowController = [[SDMessageWindowController alloc] init];
+        sharedMessageWindowController = [[SDLogWindowController alloc] init];
     });
     return sharedMessageWindowController;
 }
 
 - (NSString*) windowNibName {
-    return @"MessageWindow";
+    return @"LogWindow";
 }
 
 - (void) windowDidLoad {

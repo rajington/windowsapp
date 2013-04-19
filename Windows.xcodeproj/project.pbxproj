@@ -42,8 +42,8 @@
 		94C85825171C551B007790F2 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
 		94C85826171C55C6007790F2 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
-		94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDMessageWindowController.m */; };
-		94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* MessageWindow.xib */; };
+		94DAFB511719B98500526003 /* SDLogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDLogWindowController.m */; };
+		94DAFB531719B99A00526003 /* LogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* LogWindow.xib */; };
 		94E0964B171ED905002D8668 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964C171ED9D6002D8668 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94E0964D171EDBA6002D8668 /* dsa_pub.pem */; };
@@ -122,9 +122,9 @@
 		94C85824171C551B007790F2 /* JSCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSCocoa.framework; path = ThirdParty/JSCocoa.framework; sourceTree = "<group>"; };
 		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
 		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
-		94DAFB4F1719B98500526003 /* SDMessageWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDMessageWindowController.h; sourceTree = "<group>"; };
-		94DAFB501719B98500526003 /* SDMessageWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDMessageWindowController.m; sourceTree = "<group>"; };
-		94DAFB521719B99A00526003 /* MessageWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageWindow.xib; sourceTree = "<group>"; };
+		94DAFB4F1719B98500526003 /* SDLogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLogWindowController.h; sourceTree = "<group>"; };
+		94DAFB501719B98500526003 /* SDLogWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLogWindowController.m; sourceTree = "<group>"; };
+		94DAFB521719B99A00526003 /* LogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogWindow.xib; sourceTree = "<group>"; };
 		94E0964A171ED905002D8668 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ThirdParty/Sparkle.framework; sourceTree = "<group>"; };
 		94E0964D171EDBA6002D8668 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = AutoUpdating/dsa_pub.pem; sourceTree = SOURCE_ROOT; };
 		D5FABCC0171D04C80030530B /* exports.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = exports.js; sourceTree = "<group>"; };
@@ -282,8 +282,8 @@
 			children = (
 				94873F3F17191F40000AC0A6 /* AppDelegate.h */,
 				94873F4017191F40000AC0A6 /* AppDelegate.m */,
-				94DAFB4F1719B98500526003 /* SDMessageWindowController.h */,
-				94DAFB501719B98500526003 /* SDMessageWindowController.m */,
+				94DAFB4F1719B98500526003 /* SDLogWindowController.h */,
+				94DAFB501719B98500526003 /* SDLogWindowController.m */,
 				94454B34171B4179003EF64E /* SDAlertWindowController.h */,
 				94454B35171B4179003EF64E /* SDAlertWindowController.m */,
 			);
@@ -294,7 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				94873F4217191F40000AC0A6 /* MainMenu.xib */,
-				94DAFB521719B99A00526003 /* MessageWindow.xib */,
+				94DAFB521719B99A00526003 /* LogWindow.xib */,
 				94454B36171B4179003EF64E /* AlertWindow.xib */,
 			);
 			name = XIBs;
@@ -382,7 +382,7 @@
 				943921BC1719B1EE00F63073 /* statusitem_pressed@2x.png in Resources */,
 				943921BD1719B1EE00F63073 /* statusitem@2x.png in Resources */,
 				943921BF1719B66C00F63073 /* windows.icns in Resources */,
-				94DAFB531719B99A00526003 /* MessageWindow.xib in Resources */,
+				94DAFB531719B99A00526003 /* LogWindow.xib in Resources */,
 				94867DAC1719E5A200027457 /* underscore-min.js in Resources */,
 				947E9955171CA9A9006F30AC /* coffee-script.js in Resources */,
 				94454B38171B4179003EF64E /* AlertWindow.xib in Resources */,
@@ -425,7 +425,7 @@
 				94873F6A17193270000AC0A6 /* SDKeyBindingTranslator.m in Sources */,
 				94873F6D171937BC000AC0A6 /* SDWindowProxy.m in Sources */,
 				9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */,
-				94DAFB511719B98500526003 /* SDMessageWindowController.m in Sources */,
+				94DAFB511719B98500526003 /* SDLogWindowController.m in Sources */,
 				94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */,
 				94454B33171B31AC003EF64E /* SDScreenProxy.m in Sources */,
 				94454B37171B4179003EF64E /* SDAlertWindowController.m in Sources */,

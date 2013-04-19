@@ -16,7 +16,7 @@
 
 #import "SDKeyBinder.h"
 #import "SDAlertWindowController.h"
-#import "SDMessageWindowController.h"
+#import "SDLogWindowController.h"
 
 @interface SDConfigLoader ()
 
@@ -77,7 +77,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
                      @"=== Problem ===\n"
                      @"Error in config file on line: %ld\n\n%@",
                      lineNumber, error];
-    [[SDMessageWindowController sharedMessageWindowController] show:msg];
+    [[SDLogWindowController sharedMessageWindowController] show:msg];
 }
 
 - (void) watchDirs {

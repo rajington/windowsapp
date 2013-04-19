@@ -15,7 +15,7 @@
 #import "SDKeyBinder.h"
 
 #import "SDAlertWindowController.h"
-#import "SDMessageWindowController.h"
+#import "SDLogWindowController.h"
 
 #import "SDJSBlockWrapper.h"
 
@@ -82,7 +82,7 @@
 }
 
 + (void) print:(NSString*)str {
-    [[SDMessageWindowController sharedMessageWindowController] show:str];
+    [[SDLogWindowController sharedMessageWindowController] show:str];
 }
 
 + (NSArray*) allWindows {

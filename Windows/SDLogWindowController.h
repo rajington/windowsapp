@@ -8,9 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SDMessageWindowController : NSWindowController
+@interface SDLogWindowController : NSWindowController
 
-+ (SDMessageWindowController*) sharedMessageWindowController;
++ (SDLogWindowController*) sharedMessageWindowController;
 
 - (void) show:(NSString*)message;
 
