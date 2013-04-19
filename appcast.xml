@@ -8,32 +8,14 @@
     <item>
       <title>Version 2.2</title>
       <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
-      <pubDate>Fri Apr 19 14:49:25 CDT 2013</pubDate>
-      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.2.app.tar.gz" sparkle:version="2.2" sparkle:dsaSignature="MCwCFDsSetH8sFQY5InMOnPH89Rs6DDeAhRLwYmHgo41Wqc5kL2ANEOItnVatw==" length="1290158" type="application/octet-stream"/>
+      <pubDate>Fri Apr 19 14:53:43 CDT 2013</pubDate>
+      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.2.app.tar.gz" sparkle:version="2.2" sparkle:dsaSignature="MCwCFCjU/GDe947JEzGDM2JUZIotfBQNAhRo5WFUC3iBHEYzHqjZONB+hNFRAw==" length="1290164" type="application/octet-stream"/>
     </item>
     <item>
       <title>Version 2.1.2</title>
       <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
       <pubDate>Thu Apr 18 13:30:23 CDT 2013</pubDate>
       <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.1.2.app.tar.gz" sparkle:version="2.1.2" sparkle:dsaSignature="MC0CFQCO80X/DWuEXT9MPjL6RSvk7fbgtAIUZGyQXw6R7o6vKFJzvJzufbpdxGw=" length="1287744" type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 2.1.1</title>
-      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
-      <pubDate>Thu Apr 18 10:51:27 CDT 2013</pubDate>
-      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.1.1.app.tar.gz" sparkle:version="2.1.1" sparkle:dsaSignature="MCwCFCJslWabJcST0k7Nhk5d01kBCaHgAhRUgElpdkI/3tOUKxO4IseW+MIQrA==" length="1287722" type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 2.1</title>
-      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
-      <pubDate>Thu Apr 18 03:04:37 CDT 2013</pubDate>
-      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.1.app.tar.gz" sparkle:version="2.1" sparkle:dsaSignature="MC4CFQCW/ExWWshumEnlVWT004/w3M9yjAIVAMACEOVePV8Xo7RpQH2ZoGkjhSO0" length="1287723" type="application/octet-stream"/>
-    </item>
-    <item>
-      <title>Version 2.0.4</title>
-      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
-      <pubDate>Wed Apr 17 10:05:18 CDT 2013</pubDate>
-      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.0.4.app.tar.gz" sparkle:version="2.0.4" sparkle:dsaSignature="MCwCFGGAc/xkP0vDUCS6F/05hEtom+NcAhRw2S4odJ4k1nd+1uulgVBf2n/fkA==" length="1285871" type="application/octet-stream"/>
     </item>
   </channel>
 </rss>

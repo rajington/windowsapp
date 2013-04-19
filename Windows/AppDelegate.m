@@ -44,6 +44,7 @@
 }
 
 - (IBAction) showLogWindow:(id)sender {
+    [NSApp activateIgnoringOtherApps:YES];
     [[SDLogWindowController sharedLogWindowController] showWindow:self];
 }
 
