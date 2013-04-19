@@ -18,31 +18,31 @@ Table of contents:
 
 ## Overview
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file. The real power behind Windows.app is what your configs are capable of.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates a config file in your home directory. The real power behind Windows.app is what your configs are capable of.
 
-Your config can either be written in [CoffeeScript (1.6.2)](http://coffeescript.org/) or JavaScript, depending on whether you name it `~/.windowsapp.coffee` or `~/.windowsapp.js`. For your convenience, [underscore.js (1.4.4)](http://underscorejs.org/) is loaded before your configs.
+You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) or JavaScript, depending on whether you name it `~/.windowsapp.coffee` or `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded before your config file.
 
-Note: if both configs exist, the most recently modified one will be chosen. You can override this by using `touch`.
+(Note: if both configs exist, the most recently modified one will be chosen. You can override this by using `touch`.)
 
-#### Auto-Reload Configs
-
-If you enable this feature from the menu, Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, and the directory `~/.windowsapp`. This directory is intended as a fine place to put files you `require`. Any time the contents are changed in either of these files, or any file in the entire `~/.windowsapp` tree, Windows.app reloads your configs.
-
-Note: if your editor likes to backup your files into the same directory, you may want to change that first, or it'll mess with auto-reload.
-
-### API Overview
-
-In this config file, you can access Windows.app's [simple API](#api), which gives you a few powers:
+In this config file, you can access Windows.app's [simple API](#api), which gives you several fun powers:
 
 - bind global hot keys to your own functions
 - find the focused window
 - determine window sizes and positions
 - move and resize windows
 - change focus to another window
-- move focus to the closest window in a given direction
+- transfer focus to the closest window in a given direction
+- run shell scripts
+- open apps, links, or files
 - and more!
 
-Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
+(Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.)
+
+#### Auto-Reload Configs
+
+If you enable "Auto-Reload Configs" in the menu, Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, and the directory `~/.windowsapp`. This directory is intended as a fine place to put files you want to `require`. Any time the contents of either of these files change, or any file in the entire `~/.windowsapp` tree changes, Windows.app reloads your configs.
+
+(Note: if your editor likes to backup your files into the same directory, you may want to change that first, or it'll mess with auto-reload.)
 
 ## Example Config
 
