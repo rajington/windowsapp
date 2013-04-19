@@ -81,7 +81,7 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ## API
 
 ```coffeescript
-/* Global Vars */
+# Global Vars
 
 property (API) api
 
@@ -103,7 +103,7 @@ property (API) api
 
 - (void) open(String thing) # can be path or URL
 
-/* type API */
+# type API
 
 - (Settings) settings()
 
