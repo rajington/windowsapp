@@ -204,10 +204,10 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
-* Help wanted! We need:
+* Want to help? We need these 3 things:
     * better CSS styling in [the Log Window](Windows/logwindow.html)
-    * a better app icon
-    * a better menu bar (status item) icon
+    * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
+    * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * UI
     * Make C-n/C-p (and up/down) navigate through history in Log Window/REPL
     * Maybe listen on some port for messages, so you can use emacs as a repl instead
