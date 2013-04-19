@@ -201,8 +201,11 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
+* Help wanted! We need:
+    * better CSS styling in [the Log Window](Windows/logwindow.html)
+    * a better app icon
+    * a better menu bar (status item) icon
 * UI
-    * Someone please style the Log Window better? (by editing css in `logwindow.html`)
     * Make C-n/C-p (and up/down) navigate through history in Log Window/REPL
     * Maybe listen on some port for messages, so you can use emacs as a repl instead
 * API
