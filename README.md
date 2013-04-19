@@ -227,12 +227,12 @@ The rest you'll have to look up for yourself.
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
     * Make some nice JS helper functions for NSColor
-    * Maybe bring back Nu again?
-        * It's a fine language, it's just not as easy to manipulate CGRects with it as with JS/CS
-    * Figure out if we can use ClojureScript
-        * We can, but it requires node, and it's a little slow to reload
-        * Is there a pure-javascript compiler available for it? That'd be ideal.
-        * Would we even want to? It's not that conductive to OOP, is it?
+    * Add some more languages, especially from https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS
+        * Make them user-configurable somehow?
+        * Let users "define" a language:
+            * `define('.rb', '~/.windowsapp/langs/rubyjs.js', 'RubyJS.compile');` (filename ext, source location, compiler function name)
+            * `require('~/.windowsapp/myfile.rb');`
+            * Seems legit.
 * Other
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
