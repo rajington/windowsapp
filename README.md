@@ -8,8 +8,7 @@
 
 Table of contents:
 
-* [No really, what is Windows.app?](#no-really-what-is-windowsapp)
-* [How To Use](#how-to-use)
+* [Overview](#overview)
 * [Example Config](#example-config)
 * [More Configs](#more-configs)
 * [API](#api)
@@ -17,9 +16,21 @@ Table of contents:
 * [Todo](#todo)
 * [License](#license)
 
-## No really, what is Windows.app?
+## Overview
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file `~/.windowsapp.{coffee,js}` whenever you tell it to. The config file can be either [CoffeeScript (1.6.2)](http://coffeescript.org/) or JavaScript, depending on the extension you use.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates your config file. The real power behind Windows.app is what your configs are capable of.
+
+Your config can either be written in [CoffeeScript (1.6.2)](http://coffeescript.org/) or JavaScript, depending on whether you name it `~/.windowsapp.coffee` or `~/.windowsapp.js`. For your convenience, [underscore.js (1.4.4)](http://underscorejs.org/) is loaded before your configs.
+
+Note: if both configs exist, the most recently modified one will be chosen. You can override this by using `touch`.
+
+#### Auto-Reload Configs
+
+If you enable this feature from the menu, Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, and the directory `~/.windowsapp`. This directory is intended as a fine place to put files you `require`. Any time the contents are changed in either of these files, or any file in the entire `~/.windowsapp` tree, Windows.app reloads your configs.
+
+Note: if your editor likes to backup your files into the same directory, you may want to change that first, or it'll mess with auto-reload.
+
+### API Overview
 
 In this config file, you can access Windows.app's [simple API](#api), which gives you a few powers:
 
@@ -31,21 +42,7 @@ In this config file, you can access Windows.app's [simple API](#api), which give
 - move focus to the closest window in a given direction
 - and more!
 
-## How To Use
-
-Run the app. Then create your config file at `~/.windowsapp.{coffee,js}` and put some code in it. Then reload the config file from the menu. (You may want to bind a hot key to reload the app during testing for convenience. Or you can toggle the auto-reload option from the menu.)
-
-You can use either `~/.windowsapp.coffee` or `~/.windowsapp.js`. If both exist, whichever was edited more recently will be used. If you want to force the other one to be loaded, use `touch` on the file.
-
-Your config file has access to [underscore.js (1.4.4)](http://underscorejs.org/).
-
 Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
-
-### Auto-reload config feature
-
-If you enable this feature, then Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, or the directory `~/.windowsapp`, intended as a fine place to put files you `require`. Any time the contents are changed in either of these files, or any file in the entire `~/.windowsapp` tree, the config is reloaded.
-
-Note: if your editor likes to backup your files into the same directory, you may want to change that first, or it'll mess with auto-reload.
 
 ## Example Config
 
