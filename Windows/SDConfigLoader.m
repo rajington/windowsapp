@@ -43,9 +43,9 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 
 - (void) prepareScriptingBridge {
     self.jscocoa = [JSCocoa new];
+    self.jscocoa.delegate = self;
     self.jscocoa.useAutoCall = YES;
     self.jscocoa.useSplitCall = NO;
-    self.jscocoa.delegate = self;
     self.jscocoa.useJSLint = NO;
     self.jscocoa.useAutoCall = NO;
     
@@ -53,7 +53,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"exports" ofType:@"js"]];
     
-    [self watchDirs];
+    [self watchConfigFiles];
 }
 
 - (void) reloadConfigIfWatchEnabled {
@@ -79,7 +79,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     [[SDLogWindowController sharedLogWindowController] show:msg];
 }
 
-- (void) watchDirs {
+- (void) watchConfigFiles {
     NSArray *pathsToWatch = @[[@"~/.windowsapp.js" stringByStandardizingPath],
                               [@"~/.windowsapp.coffee" stringByStandardizingPath],
                               [@"~/.windowsapp" stringByStandardizingPath]];

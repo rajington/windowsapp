@@ -35,7 +35,7 @@ var alert = function(str) {
   else
     SDAlertWindowController.sharedAlertWindowController().show_(str);
 };
-var print = function(str) { SDLogWindowController.sharedLogWindowController().show_(str); };
+var log = function(str) { SDLogWindowController.sharedLogWindowController().show_(str); };
 
 var expandPath = function(path) {
   return NSString.stringWithString_(path).stringByStandardizingPath();
@@ -77,7 +77,7 @@ var _reloadConfig = function(file) {
   var failures = SDKeyBinder.sharedKeyBinder().finalizeNewKeyBindings();
 
   if (failures.count > 0) {
-    print("The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n"));
+    log("The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n"));
   }
   else {
     alert((typeof this.__loadedBefore == 'undefined' ? "Loaded config " : "Reloaded config ") + file);
