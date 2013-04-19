@@ -203,6 +203,8 @@ The rest you'll have to look up for yourself.
 
 * UI
     * Someone please style the Log Window better? (by editing css in `logwindow.html`)
+    * Make C-n/C-p (and up/down) navigate through history in Log Window/REPL
+    * Maybe listen on some port for messages, so you can use emacs as a repl instead
 * API
     * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
     * Add `api.evalSelectedText()` for live/interactive REPL action
