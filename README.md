@@ -279,6 +279,10 @@ The rest you'll have to look up for yourself.
         * Rearrange functions so we're not so inconsistent about what's in the Top-Level environment and what's in `api`
         * Functions that return stuff should be in `api` and "statements" like `require` or `alert` should go at the top-level. The only reason `api` exists as a namespace is so you can have variables like `focusedWindow` or `allWindows` if you dig that kinda thing
     * Make some nice JS helper functions for NSColor
+    * Maybe bring back Nu again?
+        * It's a fine language, it's just not as easy to manipulate CGRects with it as with JS/CS
+    * Figure out if we can use ClojureScript
+        * Would we even want to? It's not that conductive to OOP
 * Other
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
