@@ -18,7 +18,7 @@ Table of contents:
 
 ## Overview
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates a config file in your home directory. The real power behind Windows.app is what you can do in your config file.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory. The real power behind Windows.app is what you can do in this config file.
 
 You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
 
