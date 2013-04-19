@@ -35,13 +35,17 @@ Here are some things you can do with Windows.app's [simple API](#api):
 - open apps, links, or files
 - and more!
 
-If you want to make your config files more modular, put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file.
+#### Modular Configs
 
-Note: If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`. Also, if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
+If you want to make your config files more modular, put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file.
 
 #### Auto-Reload Configs
 
 When you enable this feature via the menu, Windows.app will reload your config file any time `~/.windowsapp.coffee`, `~/.windowsapp.js`, or any file within `~/.windowsapp/` changes.
+
+#### Config Caveats
+
+Note: If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`. Also, if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
 
 ## Example Config
 
