@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
+set -e
+
 # build app
-xcodebuild
+xcodebuild clean build
 VERSION=$(defaults read $(pwd)/Windows/Windows-Info CFBundleVersion)
 FILENAME="Builds/Windows-$VERSION.app.tar.gz"
 LATEST="Builds/Windows-LATEST.app.tar.gz"
