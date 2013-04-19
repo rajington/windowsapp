@@ -120,7 +120,7 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Array<Screen>) allScreens()
 
 - (String) clipboardContents()
-- (String) selectedText()
+- (String) selectedText() # doesn't work in webviews sadly (yet?)
 ```
 
 ### Type: `Settings`
