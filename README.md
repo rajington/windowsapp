@@ -45,9 +45,8 @@ When you enable this feature via the menu, Windows.app will reload your config f
 
 #### Config Caveats
 
-If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
-
-If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
+- If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
+- If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
 
 ## Example Config
 
