@@ -51,7 +51,7 @@ Put the following in `~/.windowsapp.coffee`
 
 ```coffeescript
 # useful for testing
-bind "R", ["cmd", "alt", "ctrl"], -> api.reloadConfig()
+bind "R", ["cmd", "alt", "ctrl"], -> reloadConfig()
 
 # maximize window
 bind "M", ["cmd", "alt", "ctrl"], ->

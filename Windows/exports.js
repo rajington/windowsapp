@@ -46,6 +46,10 @@ var readFile = function(file) {
   return NSString.stringWithContentsOfFile_encoding_error_(path, NSUTF8StringEncoding, null);
 };
 
+var compileCS = function(coffee) {
+  return CoffeeScript.compile(coffee, { bare: true });
+};
+
 var require = (function(globalContext) {
   return function(file) {
     file = NSString.stringWithString_(file)
@@ -58,7 +62,7 @@ var require = (function(globalContext) {
     if (file.hasSuffix('.js'))
       eval.call(globalContext, String(contents));
     else if (file.hasSuffix('.coffee'))
-      eval.call(globalContext, CoffeeScript.compile(contents, { bare: true }));
+      eval.call(globalContext, compileCS(contents));
 
     return true;
   };
