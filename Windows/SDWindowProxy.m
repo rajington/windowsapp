@@ -25,17 +25,23 @@
     AXError error;
     
     AXUIElementRef app = nil;
-    if ((error = AXUIElementCopyAttributeValue([self systemWideElement], kAXFocusedApplicationAttribute, (CFTypeRef *) &app)) != kAXErrorSuccess)
+    if ((error = AXUIElementCopyAttributeValue([self systemWideElement], kAXFocusedApplicationAttribute, (CFTypeRef *) &app)) != kAXErrorSuccess) {
+        NSLog(@"selectedText Error 1");
         return nil;
+    }
     
     AXUIElementRef attr = nil;
-    if ((error = AXUIElementCopyAttributeValue(app, kAXFocusedUIElementAttribute, (CFTypeRef *)&attr)) != kAXErrorSuccess)
+    if ((error = AXUIElementCopyAttributeValue(app, kAXFocusedUIElementAttribute, (CFTypeRef *)&attr)) != kAXErrorSuccess) {
+        NSLog(@"selectedText Error 2");
         return nil;
+    }
     CFRelease(app);
     
     CFTypeRef value = nil;
-    if ((error = AXUIElementCopyAttributeValue(attr, kAXSelectedTextAttribute, &value)) != kAXErrorSuccess)
+    if ((error = AXUIElementCopyAttributeValue(attr, kAXSelectedTextAttribute, &value)) != kAXErrorSuccess) {
+        NSLog(@"selectedText Error 3");
         return nil;
+    }
     CFRelease(attr);
     
     CFStringRef str = (CFStringRef)value;
