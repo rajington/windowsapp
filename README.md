@@ -22,7 +22,7 @@ At it's core, Windows.app is just a program that runs quietly in your menu bar, 
 
 You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand. If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
 
-In your config file, you'll primarily want to `bind()` global hot keys to your own JavaScript functions. What these functions do is fully up to you.
+Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
 ### Overview of Windows.app's [simple API](#api)
 
