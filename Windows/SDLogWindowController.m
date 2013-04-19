@@ -17,7 +17,6 @@
 @property IBOutlet WebView* webView;
 @property (copy) dispatch_block_t beforeReady;
 @property BOOL ready;
-@property BOOL hasContent;
 
 @end
 
@@ -37,7 +36,8 @@
 }
 
 - (IBAction) evalFromRepl:(id)sender {
-    NSString* str = [[SDConfigLoader sharedConfigLoader] evalString:[sender stringValue]];
+    NSString* str = [[SDConfigLoader sharedConfigLoader] evalString:[sender stringValue]
+                                                           asCoffee:[[NSUserDefaults standardUserDefaults] boolForKey:@"replUsesCoffee"]];
     [self show:str type:SDLogMessageTypeREPL];
     [sender setStringValue:@""];
 }
@@ -45,8 +45,6 @@
 - (IBAction) clearLog:(id)sender {
     DOMDocument* doc = [self.webView mainFrameDocument];
     [doc body].innerHTML = @"";
-    
-    self.hasContent = NO;
 }
 
 - (void)webView:(WebView *)sender didFinishLoadForFrame:(WebFrame *)frame {
@@ -80,16 +78,13 @@
 }
 
 - (void) show:(NSString*)message type:(NSString*)type {
-    self.window.level = NSFloatingWindowLevel;
-    [self showWindow:nil];
+    if (!self.window.isVisible) {
+        self.window.level = NSFloatingWindowLevel;
+        [self showWindow:nil];
+    }
     
     [self doWhenReady:^{
         DOMDocument* doc = [self.webView mainFrameDocument];
-        
-        if (self.hasContent) {
-            DOMHTMLHRElement* hr = (id)[doc createElement:@"hr"];
-            [[doc body] appendChild:hr];
-        }
         
         NSString* classname = [@{SDLogMessageTypeError: @"error",
                                SDLogMessageTypeUser: @"user",
@@ -99,18 +94,19 @@
         stampFormatter.dateStyle = NSDateFormatterNoStyle;
         stampFormatter.timeStyle = NSDateFormatterShortStyle;
         
+        DOMHTMLDivElement* div = (id)[doc createElement:@"div"];
+        div.className = classname;
+        [[doc body] appendChild:div];
+        
         DOMHTMLElement* stamp = (id)[doc createElement:@"small"];
         stamp.innerText = [stampFormatter stringFromDate:[NSDate date]];
-        [[doc body] appendChild:stamp];
+        [div appendChild:stamp];
         
         DOMHTMLParagraphElement* p = (id)[doc createElement:@"p"];
         p.innerText = message;
-        p.className = classname;
-        [[doc body] appendChild:p];
+        [div appendChild:p];
         
         [[self.webView windowScriptObject] evaluateWebScript:@"window.scrollTo(0, document.body.scrollHeight);"];
-        
-        self.hasContent = YES;
     }];
 }
 

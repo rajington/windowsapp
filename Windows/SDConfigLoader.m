@@ -60,7 +60,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 
 - (void) reloadConfigIfWatchEnabled {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"AutoReloadConfigs"]) {
-        // this guards against there sometimes being 2 notifications in a row
+        // this (hopefully?) guards against there sometimes being 2 notifications in a row
         [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(reloadConfig) object:nil];
         [self performSelector:@selector(reloadConfig) withObject:nil afterDelay:0.1];
     }
@@ -70,15 +70,16 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     [self.jscocoa callJSFunctionNamed:@"reloadConfig" withArguments:nil];
 }
 
-- (NSString*) evalString:(NSString*)str {
-    return [[self.jscocoa eval:str] description];
+- (NSString*) evalString:(NSString*)str asCoffee:(BOOL)useCoffee {
+    if (useCoffee)
+        return [self evalString:[self.jscocoa callFunction:@"compileCS" withArguments:@[str]]
+                       asCoffee:NO];
+    else
+        return [[self.jscocoa eval:str] description];
 }
 
 - (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
-    NSString* msg = [NSString stringWithFormat:
-                     @"=== Problem ===\n"
-                     @"Error in config file on line: %ld\n\n%@",
-                     lineNumber, error];
+    NSString* msg = [NSString stringWithFormat: @"Error in config file on line: %ld\n\n%@", lineNumber, error];
     [[SDLogWindowController sharedLogWindowController] show:msg type:SDLogMessageTypeError];
 }
 

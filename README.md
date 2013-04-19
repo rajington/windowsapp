@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.2**
+* Current version: **2.2.1**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -191,6 +191,9 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- 2.2.1
+  - REPL can now take CoffeeScript or JS
+  - Re-styled logs in Log Window
 - 2.2
   - Renamed `print()` to `log()`
   - Converted all public-facing API to pure JS objects

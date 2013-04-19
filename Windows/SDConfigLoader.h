@@ -15,6 +15,6 @@
 - (void) prepareScriptingBridge;
 - (void) reloadConfig;
 
-- (NSString*) evalString:(NSString*)str;
+- (NSString*) evalString:(NSString*)str asCoffee:(BOOL)useCoffee;
 
 @end
