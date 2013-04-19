@@ -280,7 +280,6 @@ The rest you'll have to look up for yourself.
         * Functions that return stuff should be in `api` and "statements" like `require` or `alert` should go at the top-level. The only reason `api` exists as a namespace is so you can have variables like `focusedWindow` or `allWindows` if you dig that kinda thing
     * Make some nice JS helper functions for NSColor
 * Other
-    * Merge Top sections of this README, they're too wordy; just Get To The Point™
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
