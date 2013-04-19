@@ -18,7 +18,7 @@ Table of contents:
 
 ## Overview
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory. The real power behind Windows.app is what you can do in this config file.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
 You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
 
@@ -135,29 +135,23 @@ property (Boolean) alertAnimates     # when opening.
 ### Type: `Window`
 
 ```coffeescript
-- (CGRect) frame()
-- (void) setFrame(CGRect frame)
-
 - (CGPoint) topLeft()
-- (void) setTopLeft(CGPoint thePoint)
-
 - (CGSize) size()
+- (CGRect) frame()
+
+- (void) setTopLeft(CGPoint thePoint)
 - (void) setSize(CGSize theSize)
-
+- (void) setFrame(CGRect frame)
 - (void) maximize()
-
 
 - (Screen) screen()
 - (Array<Window>) otherWindowsOnSameScreen
-
 
 - (String) title()
 - (Boolean) isWindowMinimized()
 - (Boolean) isAppHidden()
 
-
 - (Boolean) focusWindow()
-
 - (void) focusWindowLeft()
 - (void) focusWindowRight()
 - (void) focusWindowUp()
