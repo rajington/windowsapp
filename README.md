@@ -268,6 +268,7 @@ The rest you'll have to look up for yourself.
                 * How do we solve this?
                   * Maybe become a hybrid of what it is now and the alert window?
 * API
+    * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
     * Add `api.evalSelectedText()` for live/interactive REPL action
         * Make note if it in the README, reminding people they can just highlight someone else's config and run `evalSelectedText` to try it out for themselves
         * Also remind them that they can just run `reloadConfig` to undo the other person's key-bindings
