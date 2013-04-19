@@ -103,6 +103,8 @@ property (API) api
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
+
+- (String) selectedText()
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -119,7 +121,6 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Screen) mainScreen()
 - (Array<Screen>) allScreens()
 
-- (String) selectedText()
 - (String) clipboardContents()
 ```
 
