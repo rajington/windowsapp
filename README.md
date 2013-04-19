@@ -37,7 +37,7 @@ Here are some things you can do with Windows.app's [simple API](#api):
 
 #### Modular Configs
 
-If you want to make your config files more modular, put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file.
+Feel free to put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file. This directory is watched by the auto-reload feature.
 
 #### Auto-Reload Configs
 
