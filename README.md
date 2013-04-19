@@ -279,7 +279,9 @@ The rest you'll have to look up for yourself.
     * Maybe bring back Nu again?
         * It's a fine language, it's just not as easy to manipulate CGRects with it as with JS/CS
     * Figure out if we can use ClojureScript
-        * Would we even want to? It's not that conductive to OOP
+        * We can, but it requires node, and it's a little slow to reload
+        * Is there a pure-javascript compiler available for it? That'd be ideal.
+        * Would we even want to? It's not that conductive to OOP, is it?
 * Other
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
