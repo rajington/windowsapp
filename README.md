@@ -24,7 +24,7 @@ You can either write your config file in [CoffeeScript](http://coffeescript.org/
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
-### Overview of Windows.app's [simple API](#api)
+Here are some things you can do with Windows.app's [simple API](#api):
 
 - find the focused window
 - determine window sizes and positions
