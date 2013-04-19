@@ -90,7 +90,7 @@ var _reloadConfig = function() {
     log("The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n"));
   }
   else {
-    alert((typeof this.__loadedBefore == 'undefined' ? "Loaded config " : "Reloaded config ") + file);
+    alert((typeof this.__loadedBefore == 'undefined' ? "Loaded " : "Reloaded ") + file);
     this.__loadedBefore = true;
   }
 };
