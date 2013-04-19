@@ -20,7 +20,7 @@ Table of contents:
 
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates a config file in your home directory. The real power behind Windows.app is what you can do in your config file.
 
-You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand. If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
+You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
@@ -35,7 +35,7 @@ Here are some things you can do with Windows.app's [simple API](#api):
 - open apps, links, or files
 - and more!
 
-Note: if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
+Note: If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`. Also, if your config file fails to load for some reason, all your key bindings are un-bound (as a precaution, presuming that your config file is in an unpredictable state). They will be re-bound again next time your config file is successfully loaded.
 
 #### Auto-Reload Configs
 
