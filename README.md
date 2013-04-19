@@ -213,12 +213,12 @@ The rest you'll have to look up for yourself.
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
     * Make some nice JS helper functions for NSColor
-    * Add some more languages, especially from https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS
+    * Add some more languages, especially from [altjs.org](http://altjs.org/) and [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)
         * Make them user-configurable somehow?
         * Let users "define" a language:
             * `define('.rb', '~/.windowsapp/langs/rubyjs.js', 'RubyJS.compile');` (filename ext, source location, compiler function name)
             * `require('~/.windowsapp/myfile.rb');`
-            * Seems legit.
+            * Seems legit. Maybe.
 * Other
     * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
