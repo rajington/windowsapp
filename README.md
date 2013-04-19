@@ -83,6 +83,8 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ### Top Level
 
 ```coffeescript
+### Global Vars
+
 property (API) api
 
 - (void) log(String str)                   # shows up in the log window
@@ -91,6 +93,8 @@ property (API) api
 - (void) bind(String key,              # case-insensitive single-character string; see link below
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
+                                       # See this list for valid keys:
+                                       # https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148
 
 - (void) reloadConfig()
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
@@ -100,13 +104,9 @@ property (API) api
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
-```
 
-The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
+### type API
 
-### Type: `API`
-
-```coffeescript
 - (Settings) settings()
 
 - (Array<Window>) allWindows()
