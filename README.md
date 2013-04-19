@@ -39,9 +39,11 @@ Note: If both config files exist, the most recently modified one will be chosen.
 
 #### Auto-Reload Configs
 
-When you enable this feature via the menu, Windows.app will watch for changes in `~/.windowsapp.coffee`, `~/.windowsapp.js`, and the directory `~/.windowsapp`. This directory is intended as a fine place to put files you want to `require`. Any time the contents of either of these files change, or any file in the entire `~/.windowsapp` tree changes, Windows.app reloads your configs.
+When you enable this feature via the menu, Windows.app will reload your config file any time `~/.windowsapp.coffee` or `~/.windowsapp.js` changes.
 
-Note: if your editor likes to backup your files into the same directory, you may want to change that first, or it'll mess with auto-reload.
+If you want to make your config files more modular, you can create the directory `~/.windowsapp` and use `require()` to load files within it. Auto-Reload will automatically reload your config file when anything inside this tree changes.
+
+Note: if your editor likes to make backup files in the same directory as the files you're editing, you may want to change that first, or it might auto-reload more often than you expect.
 
 ## Example Config
 
