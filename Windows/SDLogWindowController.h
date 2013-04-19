@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SDLogWindowController : NSWindowController
+#define SDLogMessageTypeError @"SDLogMessageTypeError"
+#define SDLogMessageTypeUser @"SDLogMessageTypeUser"
+#define SDLogMessageTypeREPL @"SDLogMessageTypeREPL"
+
+@interface SDLogWindowController : NSWindowController <NSWindowDelegate>
 
 + (SDLogWindowController*) sharedLogWindowController;
 
-- (void) show:(NSString*)message;
+- (void) show:(NSString*)message type:(NSString*)type;
 
 @end

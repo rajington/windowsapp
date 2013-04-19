@@ -11,6 +11,8 @@
 #import "SDOpenAtLogin.h"
 #import "SDConfigLoader.h"
 
+#import "SDLogWindowController.h"
+
 @interface AppDelegate ()
 
 @property NSStatusItem* statusItem;
@@ -39,6 +41,10 @@
 
 - (void) menuNeedsUpdate:(NSMenu *)menu {
     [[menu itemWithTitle:@"Open at Login"] setState:([SDOpenAtLogin opensAtLogin] ? NSOnState : NSOffState)];
+}
+
+- (IBAction) showLogWindow:(id)sender {
+    [[SDLogWindowController sharedLogWindowController] showWindow:self];
 }
 
 - (IBAction) showAboutPanel:(id)sender {

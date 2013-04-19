@@ -1316,6 +1316,14 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
+					<object class="NSMenuItem" id="677817266">
+						<reference key="NSMenu" ref="800689991"/>
+						<string key="NSTitle">Open Log Window</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="35465992"/>
+						<reference key="NSMixedImage" ref="502551668"/>
+					</object>
 					<object class="NSMenuItem" id="878732977">
 						<reference key="NSMenu" ref="800689991"/>
 						<bool key="NSIsDisabled">YES</bool>
@@ -1326,7 +1334,7 @@
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
-					<object class="NSMenuItem" id="677817266">
+					<object class="NSMenuItem" id="548804206">
 						<reference key="NSMenu" ref="800689991"/>
 						<string key="NSTitle">Check for Updates...</string>
 						<string key="NSKeyEquiv"/>
@@ -2097,6 +2105,14 @@
 					<int key="connectionID">551</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showLogWindow:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="677817266"/>
+					</object>
+					<int key="connectionID">563</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="800689991"/>
@@ -2108,9 +2124,9 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">checkForUpdates:</string>
 						<reference key="source" ref="1062967641"/>
-						<reference key="destination" ref="677817266"/>
+						<reference key="destination" ref="548804206"/>
 					</object>
-					<int key="connectionID">557</int>
+					<int key="connectionID">561</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -3122,10 +3138,11 @@
 							<reference ref="439556459"/>
 							<reference ref="548652260"/>
 							<reference ref="702111601"/>
-							<reference ref="878732977"/>
 							<reference ref="62683281"/>
 							<reference ref="747282237"/>
 							<reference ref="677817266"/>
+							<reference ref="548804206"/>
+							<reference ref="878732977"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -3137,11 +3154,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">539</int>
 						<reference key="object" ref="271167897"/>
-						<reference key="parent" ref="800689991"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">540</int>
-						<reference key="object" ref="878732977"/>
 						<reference key="parent" ref="800689991"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3178,6 +3190,16 @@
 						<int key="objectID">558</int>
 						<reference key="object" ref="808299785"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">560</int>
+						<reference key="object" ref="548804206"/>
+						<reference key="parent" ref="800689991"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">562</int>
+						<reference key="object" ref="878732977"/>
+						<reference key="parent" ref="800689991"/>
 					</object>
 				</array>
 			</object>
@@ -3321,7 +3343,6 @@
 				<string key="536.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="537.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="539.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="540.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="544.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="548.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="550.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3330,6 +3351,8 @@
 				<string key="556.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="558.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="56.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="560.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="562.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="72.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3348,7 +3371,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">559</int>
+			<int key="maxID">563</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

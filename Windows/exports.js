@@ -9,7 +9,7 @@ var api = {
   allScreens: function() { return SDScreenProxy.allScreens(); },
   selectedText: function() { return SDWindowProxy.selectedText(); },
   clipboardContents: function() {
-    var body  = NSPasteboard.generalPasteboard.stringForType(NSPasteboardTypeString)
+    var body  = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
     if (body)
       return body.toString()
     else
@@ -35,7 +35,10 @@ var alert = function(str) {
   else
     SDAlertWindowController.sharedAlertWindowController().show_(str);
 };
-var log = function(str) { SDLogWindowController.sharedLogWindowController().show_(str); };
+
+var log = function(str) {
+  SDLogWindowController.sharedLogWindowController().show_type_(str, "SDLogMessageTypeUser");
+};
 
 var expandPath = function(path) {
   return NSString.stringWithString_(path).stringByStandardizingPath();
@@ -68,11 +71,18 @@ var require = (function(globalContext) {
   };
 })(this);
 
-var _reloadConfig = function(file) {
+var _reloadConfig = function() {
+  var file = SDConfigLoader.configFileToUse();
+
+  if (!file) {
+    alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
+    return;
+  }
+
   SDKeyBinder.sharedKeyBinder().removeKeyBindings();
 
   if (!require(file))
-    return false;
+    return;
 
   var failures = SDKeyBinder.sharedKeyBinder().finalizeNewKeyBindings();
 
@@ -83,17 +93,12 @@ var _reloadConfig = function(file) {
     alert((typeof this.__loadedBefore == 'undefined' ? "Loaded config " : "Reloaded config ") + file);
     this.__loadedBefore = true;
   }
-
-  return true;
 };
 
 var reloadConfig = function() {
+  // without doAsync, reloading your configs from an interactive
+  // action initiated by a function in your config breaks everything.
   SDAPI.doAsync(function() {
-    var configFile = SDConfigLoader.configFileToUse();
-
-    if (configFile)
-      _reloadConfig(configFile);
-    else
-      alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
+    _reloadConfig();
   });
 }

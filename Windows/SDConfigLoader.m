@@ -22,6 +22,8 @@
 
 @property JSCocoa* jscocoa;
 
+- (void) reloadConfigIfWatchEnabled;
+
 @end
 
 
@@ -65,10 +67,11 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (void) reloadConfig {
-    JSValueRef compileFn = [self.jscocoa evalJSString:@"reloadConfig"];
-    
-    [self.jscocoa callJSFunction:(JSObjectRef)compileFn
-                   withArguments:nil];
+    [self.jscocoa callJSFunctionNamed:@"reloadConfig" withArguments:nil];
+}
+
+- (NSString*) evalString:(NSString*)str {
+    return [[self.jscocoa eval:str] description];
 }
 
 - (void) JSCocoa:(JSCocoaController*)controller hadError:(NSString*)error onLineNumber:(NSInteger)lineNumber atSourceURL:(id)url {
@@ -76,7 +79,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
                      @"=== Problem ===\n"
                      @"Error in config file on line: %ld\n\n%@",
                      lineNumber, error];
-    [[SDLogWindowController sharedLogWindowController] show:msg];
+    [[SDLogWindowController sharedLogWindowController] show:msg type:SDLogMessageTypeError];
 }
 
 - (void) watchConfigFiles {

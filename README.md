@@ -196,27 +196,14 @@ The rest you'll have to look up for yourself.
   - Renamed `print()` to `log()`
   - Converted all public-facing API to pure JS objects
   - Moved `selectedText()` to `api` object
+  - Revamped Log Window, now includes REPL
 - 2.1.2
   - First version anyone should care about
 
 ## Todo
 
 * UI
-    * New Log window plan:
-        * It uses a WebView for easier styling than NSTextView
-        * At the bottom of the window is a text field that acts as a REPL
-        * Different types of messages display differently
-            * Errors = red, user-messages = blue, REPL results = green
-        * After printing a new message, it auto-scrolls to the bottom
-        * Before each message, it shows the timestamp of when it was sent
-        * Between each message, it inserts a &lt;hr&gt;
-        * Don't clear the window each time it opens, leave it full
-        * Add a button to let you clear it when/if you want to
-        * There's still one problem:
-            * What happens when the error that opened the log goes away?
-                * We still have to manually close the log, that's annoying.
-                * How do we solve this?
-                  * Maybe become a hybrid of what it is now and the alert window?
+    * Someone please style the Log Window better? (by editing css in `logwindow.html`)
 * API
     * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
     * Add `api.evalSelectedText()` for live/interactive REPL action
