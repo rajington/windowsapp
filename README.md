@@ -18,9 +18,11 @@ Table of contents:
 
 ## Overview
 
-At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates a config file in your home directory. The real power behind Windows.app is what your configs are capable of.
+At it's core, Windows.app is just a program that runs quietly in your menu bar, and evaluates a config file in your home directory. The real power behind Windows.app is hat your configs are capable of.
 
 You can either write your config file in [CoffeeScript](http://coffeescript.org/) (1.6.2) as `~/.windowsapp.coffee`, or JavaScript as `~/.windowsapp.js`. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded before your config file. If both configs exist, the most recently modified one will be chosen. You can override this by using `touch`.
+
+In these config files, you'll probably want to `bind()` global hot keys to JavaScript functions that you create. What these functions do is fully up to you.
 
 ### Overview of Windows.app's [simple API](#api)
 
