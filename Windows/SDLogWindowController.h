@@ -10,7 +10,7 @@
 
 @interface SDLogWindowController : NSWindowController
 
-+ (SDLogWindowController*) sharedMessageWindowController;
++ (SDLogWindowController*) sharedLogWindowController;
 
 - (void) show:(NSString*)message;
 

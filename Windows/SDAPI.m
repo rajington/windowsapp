@@ -65,50 +65,6 @@
     });
 }
 
-+ (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn {
-    [[SDKeyBinder sharedKeyBinder] bind:key modifiers:mods fn:fn];
-}
-
-+ (void) reloadConfig {
-    [[SDConfigLoader sharedConfigLoader] reloadConfig];
-}
-
-+ (void) alert:(NSString*)str {
-    [[SDAlertWindowController sharedAlertWindowController] show:str];
-}
-
-+ (void) alert:(NSString*)str withDelay:(CGFloat)delay {
-    [[SDAlertWindowController sharedAlertWindowController] show:str delay:delay];
-}
-
-+ (void) print:(NSString*)str {
-    [[SDLogWindowController sharedMessageWindowController] show:str];
-}
-
-+ (NSArray*) allWindows {
-    return [SDWindowProxy allWindows];
-}
-
-+ (NSArray*) visibleWindows {
-    return [SDWindowProxy visibleWindows];
-}
-
-+ (SDWindowProxy*) focusedWindow {
-    return [SDWindowProxy focusedWindow];
-}
-
-+ (SDScreenProxy*) mainScreen {
-    return [SDScreenProxy mainScreen];
-}
-
-+ (NSArray*) allScreens {
-    return [SDScreenProxy allScreens];
-}
-
-+ (NSString*) selectedText {
-    return [SDWindowProxy selectedText];
-}
-
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input {
     NSPipe* outPipe = [NSPipe pipe];
     NSPipe* errPipe = [NSPipe pipe];
@@ -137,36 +93,6 @@
     return @{@"status": @([task terminationStatus]),
              @"stdout": stdoutString,
              @"stderr": stderrString};
-}
-
-+ (NSString*) configFileToUse {
-    NSString* coffeeFile = @"~/.windowsapp.coffee";
-    NSString* jsFile = @"~/.windowsapp.js";
-    
-    NSArray* prettyChoices = @[coffeeFile, jsFile];
-    NSArray* choices = [prettyChoices valueForKeyPath:@"stringByStandardizingPath"];
-    
-    NSDictionary* results = [NSDictionary dictionaryWithObjects:prettyChoices forKeys:choices];
-    
-    NSMutableArray* finalContenders = [NSMutableArray array];
-    
-    for (NSString* candidate in choices) {
-        if ([[NSFileManager defaultManager] fileExistsAtPath:candidate] && [[NSFileManager defaultManager] isReadableFileAtPath:candidate]) {
-            NSURL* url = [[NSURL fileURLWithPath:candidate] URLByResolvingSymlinksInPath];
-            NSDictionary* attrs = [url resourceValuesForKeys:@[NSURLContentModificationDateKey] error:NULL];
-            [finalContenders addObject:@{@"file": candidate, @"timestamp": [attrs objectForKey:NSURLContentModificationDateKey]}];
-        }
-    }
-    
-    if ([finalContenders count] == 2) {
-        [finalContenders sortUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
-            NSDate* date1 = [obj1 objectForKey:@"timestamp"];
-            NSDate* date2 = [obj2 objectForKey:@"timestamp"];
-            return [date1 compare: date2];
-        }];
-    }
-    
-    return [results objectForKey:[[finalContenders lastObject] objectForKey:@"file"]];
 }
 
 @end

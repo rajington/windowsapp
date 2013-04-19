@@ -1,24 +1,41 @@
 // important! JSCocoa doesn't do ARC. so if we do alloc, we need to do autorelease, old school
 
+var api = {
+  settings: function() { return SDAPI.settings(); },
+  allWindows: function() { return SDWindowProxy.allWindows(); },
+  visibleWindows: function() { return SDWindowProxy.visibleWindows(); },
+  focusedWindow: function() { return SDWindowProxy.focusedWindow(); },
+  mainScreen: function() { return SDScreenProxy.mainScreen(); },
+  allScreens: function() { return SDScreenProxy.allScreens(); },
+  selectedText: function() { return SDWindowProxy.selectedText(); },
+  clipboardContents: function() {
+    var body  = NSPasteboard.generalPasteboard.stringForType(NSPasteboardTypeString)
+    if (body)
+      return body.toString()
+    else
+      return null;
+  }
+};
+
 var shell = function(path, args, input) {
-  return api.shell_args_input(path, args, input);
+  return SDAPI.shell_args_input(path, args, input);
 }
 
 var open = function(thing) {
-  api.shell_args_input("/usr/bin/open", [thing], null);
+  SDAPI.shell_args_input("/usr/bin/open", [thing], null);
 }
 
 var bind = function(key, modifiers, fn) {
-  api.bind_modifiers_fn_(key, modifiers, fn);
+  SDKeyBinder.sharedKeyBinder().bind_modifiers_fn_(key, modifiers, fn);
 };
 
 var alert = function(str) {
   if (arguments.length == 2)
-    api.alert_withDelay(str, arguments[1]);
+    SDAlertWindowController.sharedAlertWindowController().show_delay_(str, arguments[1]);
   else
-    api.alert(str);
+    SDAlertWindowController.sharedAlertWindowController().show_(str);
 };
-var print = function(str) { api.print(str); };
+var print = function(str) { SDLogWindowController.sharedLogWindowController().show_(str); };
 
 var expandPath = function(path) {
   return NSString.stringWithString_(path).stringByStandardizingPath();
@@ -27,22 +44,6 @@ var expandPath = function(path) {
 var readFile = function(file) {
   var path = expandPath(file);
   return NSString.stringWithContentsOfFile_encoding_error_(path, NSUTF8StringEncoding, null);
-};
-
-var selectedText = function() {
-  return api.selectedText();
-};
-
-var clipboardContents = function() {
-  var body  = NSPasteboard.generalPasteboard.stringForType(NSPasteboardTypeString)
-  if (body)
-    return body.toString()
-  else
-    return null;
-};
-
-var compile = function(coffee) {
-  return CoffeeScript.compile(coffee, { bare: true });
 };
 
 var require = (function(globalContext) {
@@ -57,13 +58,13 @@ var require = (function(globalContext) {
     if (file.hasSuffix('.js'))
       eval.call(globalContext, String(contents));
     else if (file.hasSuffix('.coffee'))
-      eval.call(globalContext, compile(contents));
+      eval.call(globalContext, CoffeeScript.compile(contents, { bare: true }));
 
     return true;
   };
 })(this);
 
-var reloadConfigExt = function(file) {
+var _reloadConfig = function(file) {
   SDKeyBinder.sharedKeyBinder().removeKeyBindings();
 
   if (!require(file))
@@ -83,11 +84,11 @@ var reloadConfigExt = function(file) {
 };
 
 var reloadConfig = function() {
-  api.doAsync(function() {
-    var configFile = api.configFileToUse();
+  SDAPI.doAsync(function() {
+    var configFile = SDConfigLoader.configFileToUse();
 
     if (configFile)
-      reloadConfigExt(configFile);
+      _reloadConfig(configFile);
     else
       alert("Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7);
   });

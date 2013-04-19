@@ -85,13 +85,14 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ```coffeescript
 property (API) api
 
-- (void) alert(String str)                 # shows in a fancy alert
-- (void) print(String str[, Float delay])  # shows in a plain old text box; optional delay is seconds
+- (void) log(String str)                   # shows up in the log window
+- (void) alert(String str[, Float delay])  # shows in a fancy alert; optional delay is seconds
 
 - (void) bind(String key,              # case-insensitive single-character string; see link below
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
 
+- (void) reloadConfig()
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 
 - (Hash) shell(String path, Array<String> args[, String stdin]) # returns {"stdout": string,
@@ -99,8 +100,6 @@ property (API) api
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
-
-- (String) clipboardContents()
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -108,8 +107,6 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 ### Type: `API`
 
 ```coffeescript
-- (void) reloadConfig()
-
 - (Settings) settings()
 
 - (Array<Window>) allWindows()
@@ -120,6 +117,7 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Array<Screen>) allScreens()
 
 - (String) selectedText()
+- (String) clipboardContents()
 ```
 
 ### Type: `Settings`
@@ -190,6 +188,10 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- HEAD
+  - Renamed `print()` to `log()`
+  - Converted all public-facing API to pure JS objects
+  - Moved `selectedText()` to `api` object
 - 2.1.2
   - All function calls now require parentheses, even if they take no args
 - 2.1.1
@@ -269,9 +271,6 @@ The rest you'll have to look up for yourself.
     * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
-    * Make the ObjC API private (called `_api`) and only used in `exports.js`, and make the public-facing `api` a pure-JS object
-        * Rearrange functions so we're not so inconsistent about what's in the Top-Level environment and what's in `api`
-        * Functions that return stuff should be in `api` and "statements" like `require` or `alert` should go at the top-level. The only reason `api` exists as a namespace is so you can have variables like `focusedWindow` or `allWindows` if you dig that kinda thing
     * Make some nice JS helper functions for NSColor
     * Maybe bring back Nu again?
         * It's a fine language, it's just not as easy to manipulate CGRects with it as with JS/CS

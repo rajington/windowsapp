@@ -24,28 +24,6 @@
 
 @interface SDAPI : NSObject
 
-+ (void) bind:(NSString*)key modifiers:(NSArray*)mods fn:(JSValueRefAndContextRef)fn;
-
-+ (void) doAsync:(JSValueRefAndContextRef)fn;
-
-+ (void) reloadConfig;
-+ (void) alert:(NSString*)str;
-+ (void) alert:(NSString*)str withDelay:(CGFloat)delay;
-+ (void) print:(NSString*)str;
-
 + (SDAPISettings*) settings;
-
-+ (NSArray*) allWindows;
-+ (NSArray*) visibleWindows;
-+ (SDWindowProxy*) focusedWindow;
-
-+ (SDScreenProxy*) mainScreen;
-+ (NSArray*) allScreens;
-
-+ (NSString*) selectedText;
-
-+ (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input;
-
-+ (NSString*) configFileToUse;
 
 @end

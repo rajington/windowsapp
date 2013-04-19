@@ -17,7 +17,7 @@
 
 @implementation SDLogWindowController
 
-+ (SDLogWindowController*) sharedMessageWindowController {
++ (SDLogWindowController*) sharedLogWindowController {
     static SDLogWindowController* sharedMessageWindowController;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
