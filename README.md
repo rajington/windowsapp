@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.2**
+* Current version: **2.1.2**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -88,7 +88,7 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ```coffeescript
 property (API) api
 
-- (void) log(String str)                   # shows up in the log window
+- (void) print(String str                  # shows up in the log window
 - (void) alert(String str[, Float delay])  # shows in a fancy alert; optional delay is seconds
 
 - (void) bind(String key,              # case-insensitive single-character string; see link below
@@ -103,6 +103,8 @@ property (API) api
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
+
+- (String) selectedText()
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -120,7 +122,6 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Array<Screen>) allScreens()
 
 - (String) clipboardContents()
-- (String) selectedText()
 ```
 
 ### Type: `Settings`
@@ -191,7 +192,7 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
-- 2.2
+- HEAD
   - Renamed `print()` to `log()`
   - Converted all public-facing API to pure JS objects
   - Moved `selectedText()` to `api` object
