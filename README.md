@@ -85,7 +85,7 @@ The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of 
 ```coffeescript
 property (API) api
 
-- (void) log(String str)                   # shows up in the log window
+- (void) print(String str                  # shows up in the log window
 - (void) alert(String str[, Float delay])  # shows in a fancy alert; optional delay is seconds
 
 - (void) bind(String key,              # case-insensitive single-character string; see link below
