@@ -210,12 +210,8 @@ The rest you'll have to look up for yourself.
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * UI
     * Make C-n/C-p (and up/down) navigate through history in Log Window/REPL
-    * Maybe listen on some port for messages, so you can use emacs as a repl instead
 * API
     * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
-    * Add `api.evalSelectedText()` for live/interactive REPL action
-        * Make note if it in the README, reminding people they can just highlight someone else's config and run `evalSelectedText` to try it out for themselves
-        * Also remind them that they can just run `reloadConfig` to undo the other person's key-bindings
     * Better error handling when passing wrong stuff into API functions
     * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
@@ -227,8 +223,6 @@ The rest you'll have to look up for yourself.
             * `define('.rb', '~/.windowsapp/langs/rubyjs.js', 'RubyJS.compile');` (filename ext, source location, compiler function name)
             * `require('~/.windowsapp/myfile.rb');`
             * Seems legit. Maybe.
-* Other
-    * Figure out how to get it working on 10.6 (weak references aren't allowed there)
 
 ## License
 
