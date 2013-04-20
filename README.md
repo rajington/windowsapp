@@ -20,7 +20,9 @@ Table of contents:
 
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
-Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). Plans are in the works to let you to add more languages yourself, so long as they compile down to JavaScript. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
+Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). Plans are in the works to let you to add more languages yourself, so long as they compile down to JavaScript.
+
+(For your convenience, [underscore.js](http://underscorejs.org/) 1.4.4 is loaded beforehand.)
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
