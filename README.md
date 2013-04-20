@@ -24,7 +24,7 @@ Currently, you can write your config file in either JavaScript (`~/.windowsapp.j
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
-Here are some things you can do with Windows.app's simple API ([see below](#api)):
+Here are some things you can do with Windows.app's simple API ([actual API docs are below](#api)):
 
 - find the focused window
 - determine window sizes and positions
