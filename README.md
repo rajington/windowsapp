@@ -20,7 +20,7 @@ Table of contents:
 
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
-You can either write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
+Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). Plans are in the works to let you to add more languages yourself, so long as they compile down to JavaScript. For your convenience, [underscore.js](http://underscorejs.org/) (1.4.4) is loaded beforehand.
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
@@ -219,10 +219,14 @@ The rest you'll have to look up for yourself.
     * Make some nice JS helper functions for NSColor
     * Add some more languages, especially from [altjs.org](http://altjs.org/) and [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)
         * Make them user-configurable somehow?
-        * Let users "define" a language:
-            * `define('.rb', '~/.windowsapp/langs/rubyjs.js', 'RubyJS.compile');` (filename ext, source location, compiler function name)
+        * Let users "register" a language:
+            * `register('.rb', '~/.windowsapp/langs/rubyjs.js');` (filename ext, source location, compiler function name)
+            * the app would be an executable whose stdin is [whatever lang] and stdout is JavaScript
             * `require('~/.windowsapp/myfile.rb');`
-            * Seems legit. Maybe.
+        * Problem with this is that your *main* config file can't be written in it, i.e. you can't have `~/.windowsapp.rb` and it just work
+            * How do we solve this? Register it more "natively" in the app? That sounds lame. How about `~/.windowsapp.langs` that returns a hash-map-type-thing of extensions-to-langs?
+            * Seems legit. *Way* legit.
+            * Kinda ugly though.
 
 ## License
 
