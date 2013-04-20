@@ -17,8 +17,8 @@ var api = {
   }
 };
 
-var shell = function(path, args, input) {
-  return SDAPI.shell_args_input(path, args, input);
+var shell = function(path, args, input, pwd) {
+  return SDAPI.shell_args_input_pwd_(path, args, input, pwd);
 }
 
 var open = function(thing) {

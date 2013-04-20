@@ -65,7 +65,7 @@
     });
 }
 
-+ (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input {
++ (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input pwd:(NSString*)pwd {
     NSPipe* outPipe = [NSPipe pipe];
     NSPipe* errPipe = [NSPipe pipe];
     NSPipe* inPipe = [NSPipe pipe];
@@ -76,8 +76,9 @@
     }
     
     NSTask* task = [[NSTask alloc] init];
-    [task setLaunchPath:cmd];
-    [task setArguments:args];
+    task.launchPath = cmd;
+    task.arguments = args;
+    task.currentDirectoryPath = pwd;
     task.standardInput = inPipe;
     task.standardOutput = outPipe;
     task.standardError = errPipe;
