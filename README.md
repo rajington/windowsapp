@@ -212,6 +212,13 @@ The rest you'll have to look up for yourself.
     * better CSS styling in [the Log Window](Windows/logwindow.html)
     * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
+* More languages
+    * Rationale: maybe users wanna use something in [altjs.org](http://altjs.org/) or [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)?
+    * Let users "register" a language:
+        * Create `~/.windowsapp/langs.json` which is a hash like `{ "/path/to/ruby-to-js/compiler": ".rb" }`
+        * the path would point to an executable whose stdin is [whatever lang] and stdout is JavaScript
+        * Now you can do `require('~/.windowsapp/myfile.rb');`
+        * Or you can write your primary config file as `~/.windowsapp.rb`
 * API
     * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
     * Better error handling when passing wrong stuff into API functions
@@ -219,12 +226,6 @@ The rest you'll have to look up for yourself.
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
     * Make some nice JS helper functions for NSColor
-    * Let users add more languages (maybe from [altjs.org](http://altjs.org/) or [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS))
-        * Let users "register" a language:
-            * Create `~/.windowsapp/langs.json` which is a hash like `{ "/path/to/ruby-to-js/compiler": ".rb" }`
-            * the path would point to an executable whose stdin is [whatever lang] and stdout is JavaScript
-            * Now you can do `require('~/.windowsapp/myfile.rb');`
-            * Or you can write your primary config file as `~/.windowsapp.rb`
 
 ## License
 
