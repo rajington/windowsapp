@@ -217,16 +217,12 @@ The rest you'll have to look up for yourself.
     * Add events to API (`kAXWindowCreatedNotification`, etc)
     * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
     * Make some nice JS helper functions for NSColor
-    * Add some more languages, especially from [altjs.org](http://altjs.org/) and [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)
-        * Make them user-configurable somehow?
+    * Let users add more languages (maybe from [altjs.org](http://altjs.org/) or [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS))
         * Let users "register" a language:
-            * `register('.rb', '~/.windowsapp/langs/rubyjs.js');` (filename ext, source location, compiler function name)
-            * the app would be an executable whose stdin is [whatever lang] and stdout is JavaScript
-            * `require('~/.windowsapp/myfile.rb');`
-        * Problem with this is that your *main* config file can't be written in it, i.e. you can't have `~/.windowsapp.rb` and it just work
-            * How do we solve this? Register it more "natively" in the app? That sounds lame. How about `~/.windowsapp.langs` that returns a hash-map-type-thing of extensions-to-langs?
-            * Seems legit. *Way* legit.
-            * Kinda ugly though.
+            * Create `~/.windowsapp/langs.json` which is a hash like `{ "/path/to/ruby-to-js/compiler": ".rb" }`
+            * the path would point to an executable whose stdin is [whatever lang] and stdout is JavaScript
+            * Now you can do `require('~/.windowsapp/myfile.rb');`
+            * Or you can write your primary config file as `~/.windowsapp.rb`
 
 ## License
 
