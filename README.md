@@ -197,6 +197,7 @@ The rest you'll have to look up for yourself.
 
 - HEAD
   - Navigate REPL history with C-n/C-p (or up/down)
+  - Added 'pwd' argument to `shell()`
 - 2.2.1
   - REPL can now take CoffeeScript or JS
   - Re-styled logs in Log Window
