@@ -191,6 +191,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- HEAD
+  - Added C-n/C-p (and up/down) to REPL input field
 - 2.2.1
   - REPL can now take CoffeeScript or JS
   - Re-styled logs in Log Window
@@ -208,8 +210,6 @@ The rest you'll have to look up for yourself.
     * better CSS styling in [the Log Window](Windows/logwindow.html)
     * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
-* UI
-    * Make C-n/C-p (and up/down) navigate through history in Log Window/REPL
 * API
     * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
     * Better error handling when passing wrong stuff into API functions
