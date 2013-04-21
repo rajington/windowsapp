@@ -40,7 +40,10 @@
     self.window.animationBehavior = NSWindowAnimationBehaviorAlertPanel;
 }
 
-- (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay {
+- (void) show:(NSString*)oneLineMsg delay:(NSNumber*)delay {
+    if (delay == nil)
+        delay = @([SDAPI settings].alertDisappearDelay);
+    
     NSDisableScreenUpdates();
     
     [[self class] cancelPreviousPerformRequestsWithTarget:self selector:@selector(fadeWindowOut) object:nil];
@@ -58,13 +61,9 @@
     [self.window center];
     [self showWindow:self];
     
-    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:delay];
+    [self performSelector:@selector(fadeWindowOut) withObject:nil afterDelay:[delay doubleValue]];
     
     NSEnableScreenUpdates();
-}
-
-- (void) show:(NSString*)oneLineMsg {
-    [self show:oneLineMsg delay:[SDAPI settings].alertDisappearDelay];
 }
 
 - (void) fadeWindowOut {

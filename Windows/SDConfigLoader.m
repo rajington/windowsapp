@@ -81,7 +81,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
         if (!file) {
             [[SDAlertWindowController sharedAlertWindowController]
              show:@"Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again."
-             delay:7.0];
+             delay:@7.0];
             return;
         }
         
@@ -100,7 +100,8 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
         else {
             static BOOL loaded;
             [[SDAlertWindowController sharedAlertWindowController]
-             show:[NSString stringWithFormat:@"%s %@", (loaded ? "Reloaded" : "Loaded"), file]];
+             show:[NSString stringWithFormat:@"%s %@", (loaded ? "Reloaded" : "Loaded"), file]
+             delay:nil];
             loaded = YES;
         }
         

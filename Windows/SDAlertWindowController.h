@@ -12,8 +12,7 @@
 
 + (SDAlertWindowController*) sharedAlertWindowController;
 
-- (void) show:(NSString*)oneLineMsg;
-- (void) show:(NSString*)oneLineMsg delay:(CGFloat)delay;
+- (void) show:(NSString*)oneLineMsg delay:(NSNumber*)delay;
 
 @property BOOL alertAnimates;
 

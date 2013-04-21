@@ -18,11 +18,5 @@ open = (thing) -> SDAPI.shell_args_input "/usr/bin/open", [thing], null
 bind = (key, modifiers, fn) -> SDKeyBinder.sharedKeyBinder().bind_modifiers_fn_ key, modifiers, fn
 log = (str) -> SDLogWindowController.sharedLogWindowController().show_type_ str, "SDLogMessageTypeUser"
 require = (file) -> SDConfigLoader.sharedConfigLoader().require(file)
-
-alert = (str) ->
-  if arguments.length is 2
-    SDAlertWindowController.sharedAlertWindowController().show_delay_ str, arguments[1]
-  else
-    SDAlertWindowController.sharedAlertWindowController().show_ str
-
+alert = (str, delay) -> SDAlertWindowController.sharedAlertWindowController().show_delay_ str, delay
 reloadConfig = -> SDConfigLoader.sharedConfigLoader().reloadConfig()
