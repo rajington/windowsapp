@@ -2,11 +2,11 @@
 
 var api = {
   settings: function() { return SDAPI.settings(); },
-  allWindows: function() { return SDWindowProxy.allWindows(); },
-  visibleWindows: function() { return SDWindowProxy.visibleWindows(); },
+  allWindows: function() { return __jsc__.toJS(SDWindowProxy.allWindows()); },
+  visibleWindows: function() { return __jsc__.toJS(SDWindowProxy.visibleWindows()); },
   focusedWindow: function() { return SDWindowProxy.focusedWindow(); },
   mainScreen: function() { return SDScreenProxy.mainScreen(); },
-  allScreens: function() { return SDScreenProxy.allScreens(); },
+  allScreens: function() { return __jsc__.toJS(SDScreenProxy.allScreens()); },
   selectedText: function() { return SDWindowProxy.selectedText(); },
   clipboardContents: function() {
     var body  = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
