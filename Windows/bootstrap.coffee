@@ -1,11 +1,38 @@
+class Screen
+  constructor: (@proxy) ->
+  frameIncludingDockAndMenu: -> @proxy.frameIncludingDockAndMenu()
+  frameWithoutDockOrMenu: -> @proxy.frameWithoutDockOrMenu()
+  nextScreen: -> @proxy.nextScreen()
+  previousScreen: -> @proxy.previousScreen()
+
+class Window
+  constructor: (@proxy) ->
+  topLeft: -> @proxy.topLeft()
+  size: -> @proxy.size()
+  frame: -> @proxy.frame()
+  setTopLeft: (x) -> @proxy.setTopLeft(x)
+  setSize: (x) -> @proxy.setSize(x)
+  setFrame: (x) -> @proxy.setFrame(x)
+  maximize: -> @proxy.maximize()
+  screen: -> new Screen @proxy.screen()
+  otherWindowsOnSameScreen: -> _.map __jsc__.toJS(@proxy.otherWindowsOnSameScreen()), (screen) -> new Screen screen
+  title: -> @proxy.title()
+  isWindowMinimized: -> @proxy.isWindowMinimized()
+  isAppHidden: -> @proxy.isAppHidden()
+  focusWindow: -> @proxy.focusWindow()
+  focusWindowLeft: -> @proxy.focusWindowLeft()
+  focusWindowRight: -> @proxy.focusWindowRight()
+  focusWindowUp: -> @proxy.focusWindowUp()
+  focusWindowDown: -> @proxy.focusWindowDown()
+
 api =
   settings: -> SDAPI.settings()
-  allWindows: -> __jsc__.toJS SDWindowProxy.allWindows()
-  visibleWindows: -> __jsc__.toJS SDWindowProxy.visibleWindows()
-  focusedWindow: -> SDWindowProxy.focusedWindow()
+  allWindows: -> _.map __jsc__.toJS(SDWindowProxy.allWindows()), (win) -> new Window win
+  visibleWindows: -> _.map __jsc__.toJS(SDWindowProxy.visibleWindows()), (win) -> new Window win
+  focusedWindow: -> new Window SDWindowProxy.focusedWindow()
   mainScreen: -> SDScreenProxy.mainScreen()
   allScreens: -> __jsc__.toJS SDScreenProxy.allScreens()
-  selectedText: -> SDWindowProxy.selectedText()
+  selectedText: -> __jsc__.toJS SDWindowProxy.selectedText()
   clipboardContents: ->
     body = NSPasteboard.generalPasteboard().stringForType(NSPasteboardTypeString)
     if body
