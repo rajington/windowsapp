@@ -50,7 +50,6 @@
 		94E0964B171ED905002D8668 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964C171ED9D6002D8668 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94E0964D171EDBA6002D8668 /* dsa_pub.pem */; };
-		D5FABCC3171D05710030530B /* bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D5FABCC0171D04C80030530B /* bootstrap.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,7 +132,6 @@
 		94DAFB521719B99A00526003 /* LogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogWindow.xib; sourceTree = "<group>"; };
 		94E0964A171ED905002D8668 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ThirdParty/Sparkle.framework; sourceTree = "<group>"; };
 		94E0964D171EDBA6002D8668 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = AutoUpdating/dsa_pub.pem; sourceTree = SOURCE_ROOT; };
-		D5FABCC0171D04C80030530B /* bootstrap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,7 +256,6 @@
 			children = (
 				946B3AAE1721C5C800FB05F3 /* logwindow.html */,
 				94E0964D171EDBA6002D8668 /* dsa_pub.pem */,
-				D5FABCC0171D04C80030530B /* bootstrap.js */,
 				94D07FB21723741000CF44E9 /* bootstrap.coffee */,
 				947E9953171CA99C006F30AC /* coffee-script.js */,
 				94867DAA1719E56600027457 /* underscore-min.js */,
@@ -384,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5FABCC3171D05710030530B /* bootstrap.js in Resources */,
 				94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */,
 				94873F4417191F40000AC0A6 /* MainMenu.xib in Resources */,
 				943921BA1719B1EE00F63073 /* statusitem.png in Resources */,

@@ -63,23 +63,19 @@ require = ((globalContext) ->
     true
 )(this)
 
-_reloadConfig = ->
-  file = SDConfigLoader.configFileToUse()
-  unless file
-    alert "Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7
-    return
-  SDKeyBinder.sharedKeyBinder().removeKeyBindings()
-  return  unless require(file)
-  failures = SDKeyBinder.sharedKeyBinder().finalizeNewKeyBindings()
-  if failures.count > 0
-    log "The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n")
-  else
-    alert ((if typeof @__loadedBefore is "undefined" then "Loaded " else "Reloaded ")) + file
-    @__loadedBefore = true
-
 reloadConfig = ->
-
-  # without doAsync, reloading your configs from an interactive
-  # action initiated by a function in your config breaks everything.
+  # without doAsync, reloading your configs from an interactive action
+  # initiated by a function in your config breaks everything.
   SDAPI.doAsync ->
-    _reloadConfig()
+    file = SDConfigLoader.configFileToUse()
+    unless file
+      alert "Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again.", 7
+      return
+    SDKeyBinder.sharedKeyBinder().removeKeyBindings()
+    return  unless require(file)
+    failures = SDKeyBinder.sharedKeyBinder().finalizeNewKeyBindings()
+    if failures.count > 0
+      log "The following hot keys could not be bound:\n\n" + failures.componentsJoinedByString("\n")
+    else
+      alert ((if typeof @__loadedBefore is "undefined" then "Loaded " else "Reloaded ")) + file
+      @__loadedBefore = true
