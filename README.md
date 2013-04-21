@@ -9,9 +9,11 @@
 Table of contents:
 
 * [Overview](#overview)
-* [Using Other Languages](#using-other-languages)
+    * [Modular Configs](#modular-configs)
+    * [Auto-Reload Configs](#auto-reload-configs)
+    * [Using Other Languages](#using-other-languages)
 * [Config Example](#config-example)
-* [More Configs](#more-configs)
+    * [More Config Tricks/Examples](#more-config-tricks-examples)
 * [API](#api)
 * [Change log](#change-log)
 * [Todo](#todo)
@@ -22,8 +24,6 @@ Table of contents:
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
 Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). You can add more languages yourself, so long as they compile down to JavaScript. (See [Using Other Languages](#using-other-languages) below.)
-
-For your convenience, [underscore.js](http://underscorejs.org/) 1.4.4 is loaded beforehand.
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
@@ -41,6 +41,8 @@ Here are some things you can do with Windows.app's simple API ([actual API docs 
 
 Is the API missing something you need? File an issue and let me know!
 
+For your convenience, [underscore.js](http://underscorejs.org/) 1.4.4 is loaded beforehand.
+
 #### Modular Configs
 
 Feel free to put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file.
@@ -49,12 +51,7 @@ Feel free to put some `.coffee` or `.js` files in `~/.windowsapp/` and `require(
 
 When you enable this feature via the menu, Windows.app will reload your config file any time `~/.windowsapp.coffee`, `~/.windowsapp.js`, or anything within `~/.windowsapp/` changes.
 
-#### Config Caveats
-
-- If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
-- If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
-
-## Using Other Languages
+#### Using Other Languages
 
 Besides JS and CoffeeScript, you can extend Windows.app to load other languages as well, so long as they compile down to JavaScript. There's a pretty big list you can choose from at [altjs.org](http://altjs.org/) and in [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS).
 
@@ -63,6 +60,11 @@ To use another language:
 * Create `~/.windowsapp/langs.json` which is a hash in the format `{ 'rb' : '/path/to/ruby-to-js/compiler' }`
 * Now you can `require('~/.windowsapp/myfile.rb');` from your main config.
 * And you can use `~/.windowsapp.rb` as your primary config.
+
+#### Config Caveats
+
+- If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
+- If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
 
 ## Config Example
 
@@ -93,7 +95,7 @@ bind "J", ["cmd", "alt", "ctrl"], ->
   win.setFrame frame
 ```
 
-## More Configs
+#### More Config Tricks/Examples
 
 The [wiki home page](https://github.com/sdegutis/windowsapp/wiki) has a list of configs from users, and configs that replicate other apps (like SizeUp and Divvy).
 
@@ -276,6 +278,7 @@ The rest you'll have to look up for yourself.
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * Better error handling when passing wrong stuff into API functions
 * Add Spaces support
+* Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
 
 ## License
 
