@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-#define SDWindowCreatedNotification @"SDWindowCreatedNotification"
-#define SDAppLaunchedNotification @"SDAppLaunchedNotification"
+#define SDListenEventAppOpened @"SD_EVENT_APP_LAUNCHED"
+#define SDListenEventAppClosed @"SD_EVENT_APP_DIED"
+#define SDListenEventWindowCreated @"SD_EVENT_WINDOW_CREATED"
+#define SDListenEventWindowMoved @"SD_EVENT_WINDOW_MOVED"
+#define SDListenEventWindowMinimized @"SD_EVENT_WINDOW_MINIMIZED"
+#define SDListenEventWindowUnminimized @"SD_EVENT_WINDOW_UNMINIMIZED"
+#define SDListenEventAppHidden @"SD_EVENT_APP_HIDDEN"
+#define SDListenEventAppShown @"SD_EVENT_APP_SHOWN"
+#define SDListenEventFocusChanged @"SD_EVENT_FOCUS_CHANGED"
 
 @interface SDAppStalker : NSObject
 

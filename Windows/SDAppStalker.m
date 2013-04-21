@@ -51,9 +51,9 @@
 - (void) stalkApp:(NSRunningApplication*)runningApp {
     SDAppProxy* app = [[SDAppProxy alloc] initWithRunningApp:runningApp];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:SDAppLaunchedNotification
+    [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppOpened
                                                         object:nil
-                                                      userInfo:@{@"app": app}];
+                                                      userInfo:@{@"thing": app}];
     
     [self.apps addObject:app];
     [app startObservingStuff];
@@ -75,6 +75,10 @@
     
     [app stopObservingStuff];
     [self.apps removeObject:app];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppClosed
+                                                        object:nil
+                                                      userInfo:@{@"thing": app}];
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "SDScreenProxy.h"
 #import "SDAPI.h"
 
+#import "SDEventListener.h"
 #import "SDKeyBinder.h"
 #import "SDAlertWindowController.h"
 #import "SDLogWindowController.h"
@@ -96,9 +97,12 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
         }
         
         [[SDKeyBinder sharedKeyBinder] removeKeyBindings];
+        [[SDEventListener sharedEventListener] removeListeners];
         
         if (![self require:file])
             return;
+        
+        [[SDEventListener sharedEventListener] finalizeNewListeners];
         
         NSArray* failures = [[SDKeyBinder sharedKeyBinder] finalizeNewKeyBindings];
         

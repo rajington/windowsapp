@@ -13,6 +13,6 @@
 @interface SDJSBlockWrapper : NSObject
 
 - (id) initWithJavaScriptFn:(JSValueRefAndContextRef)fn;
-- (void) call;
+- (void) call:(NSArray*)args;
 
 @end

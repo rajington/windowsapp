@@ -46,6 +46,7 @@
 		94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */ = {isa = PBXBuildFile; fileRef = 94D07FB21723741000CF44E9 /* bootstrap.coffee */; };
 		94D07FB61723B16900CF44E9 /* SDAppProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB51723B16900CF44E9 /* SDAppProxy.m */; };
 		94D07FBA1723BACB00CF44E9 /* SDAppStalker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB91723BACB00CF44E9 /* SDAppStalker.m */; };
+		94D07FBD1723C61C00CF44E9 /* SDEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FBC1723C61C00CF44E9 /* SDEventListener.m */; };
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDLogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDLogWindowController.m */; };
 		94DAFB531719B99A00526003 /* LogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* LogWindow.xib */; };
@@ -131,6 +132,8 @@
 		94D07FB51723B16900CF44E9 /* SDAppProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAppProxy.m; sourceTree = "<group>"; };
 		94D07FB81723BACB00CF44E9 /* SDAppStalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAppStalker.h; sourceTree = "<group>"; };
 		94D07FB91723BACB00CF44E9 /* SDAppStalker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAppStalker.m; sourceTree = "<group>"; };
+		94D07FBB1723C61C00CF44E9 /* SDEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDEventListener.h; sourceTree = "<group>"; };
+		94D07FBC1723C61C00CF44E9 /* SDEventListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDEventListener.m; sourceTree = "<group>"; };
 		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
 		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
 		94DAFB4F1719B98500526003 /* SDLogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLogWindowController.h; sourceTree = "<group>"; };
@@ -169,6 +172,8 @@
 				947E995A171CF9DE006F30AC /* SDConfigLoader.m */,
 				94873F65171929A0000AC0A6 /* SDKeyBinder.h */,
 				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
+				94D07FBB1723C61C00CF44E9 /* SDEventListener.h */,
+				94D07FBC1723C61C00CF44E9 /* SDEventListener.m */,
 				940BF5E7171FA49B0041089B /* SDJSBlockWrapper.h */,
 				940BF5E8171FA49B0041089B /* SDJSBlockWrapper.m */,
 				94D07FB71723BAAE00CF44E9 /* Proxies */,
@@ -461,6 +466,7 @@
 				940BF5E9171FA49B0041089B /* SDJSBlockWrapper.m in Sources */,
 				94D07FB61723B16900CF44E9 /* SDAppProxy.m in Sources */,
 				94D07FBA1723BACB00CF44E9 /* SDAppStalker.m in Sources */,
+				94D07FBD1723C61C00CF44E9 /* SDEventListener.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

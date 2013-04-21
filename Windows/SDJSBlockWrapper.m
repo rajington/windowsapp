@@ -27,9 +27,9 @@
     return self;
 }
 
-- (void) call {
+- (void) call:(NSArray*)args {
     [[JSCocoa controllerFromContext:self.mainContext] callJSFunction:(JSObjectRef)(self.actualFn)
-                                                       withArguments:nil];
+                                                       withArguments:args];
 }
 
 - (void) dealloc {

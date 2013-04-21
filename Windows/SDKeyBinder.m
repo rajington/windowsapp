@@ -37,7 +37,7 @@
 
 - (id) bindAndReturnHandler {
     return [MASShortcut addGlobalHotkeyMonitorWithShortcut:[self shortcutObject] handler:^{
-        [self.fn call];
+        [self.fn call:nil];
     }];
 }
 

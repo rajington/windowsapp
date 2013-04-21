@@ -21,16 +21,52 @@
 @property (readwrite) pid_t pid;
 @property AXObserverRef observer;
 
+- (id) initWithElement:(AXUIElementRef)element;
+
 @end
 
 void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFStringRef notification, void *refcon) {
-    NSString* noteName = (__bridge NSString*)notification;
-    
-    if ([noteName isEqualToString:@"AXWindowCreated"]) {
+    if (CFEqual(notification, kAXWindowCreatedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDWindowCreatedNotification
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowCreated
                                                             object:nil
-                                                          userInfo:@{@"window": window}];
+                                                          userInfo:@{@"thing": window}];
+    }
+    else if (CFEqual(notification, kAXWindowMovedNotification)) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowMoved
+                                                            object:nil
+                                                          userInfo:@{@"thing": window}];
+    }
+    else if (CFEqual(notification, kAXWindowMiniaturizedNotification)) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowMinimized
+                                                            object:nil
+                                                          userInfo:@{@"thing": window}];
+    }
+    else if (CFEqual(notification, kAXWindowDeminiaturizedNotification)) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowUnminimized
+                                                            object:nil
+                                                          userInfo:@{@"thing": window}];
+    }
+    else if (CFEqual(notification, kAXApplicationHiddenNotification)) {
+        SDAppProxy* app = [[SDAppProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppHidden
+                                                            object:nil
+                                                          userInfo:@{@"thing": app}];
+    }
+    else if (CFEqual(notification, kAXApplicationShownNotification)) {
+        SDAppProxy* app = [[SDAppProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppShown
+                                                            object:nil
+                                                          userInfo:@{@"thing": app}];
+    }
+    else if (CFEqual(notification, kAXFocusedWindowChangedNotification)) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventFocusChanged
+                                                            object:nil
+                                                          userInfo:@{@"thing": window}];
     }
 }
 
@@ -48,6 +84,12 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
     }
     
     return apps;
+}
+
+- (id) initWithElement:(AXUIElementRef)element {
+    pid_t pid;
+    AXUIElementGetPid(element, &pid);
+    return [self initWithPID:pid];
 }
 
 - (id) initWithRunningApp:(NSRunningApplication*)app {
@@ -119,19 +161,31 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
     }
     
     self.observer = observer;
-    err = AXObserverAddNotification(self.observer, self.app, kAXWindowCreatedNotification, nil);
-    if (err != kAXErrorSuccess) {
-//        NSLog(@"start observing stuff failed at point #2 with: %d", err);
-        return;
-    }
+    AXObserverAddNotification(self.observer, self.app, kAXWindowCreatedNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXWindowMovedNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXWindowMiniaturizedNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXWindowDeminiaturizedNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXApplicationHiddenNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXApplicationShownNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXFocusedWindowChangedNotification, NULL);
     
     CFRunLoopAddSource([[NSRunLoop currentRunLoop] getCFRunLoop],
-                       AXObserverGetRunLoopSource(observer),
+                       AXObserverGetRunLoopSource(self.observer),
                        kCFRunLoopDefaultMode);
 }
 
 - (void) stopObservingStuff {
+    CFRunLoopRemoveSource([[NSRunLoop currentRunLoop] getCFRunLoop],
+                          AXObserverGetRunLoopSource(self.observer),
+                          kCFRunLoopDefaultMode);
+    
     AXObserverRemoveNotification(self.observer, self.app, kAXWindowCreatedNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXWindowMovedNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXWindowMiniaturizedNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXWindowDeminiaturizedNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXApplicationHiddenNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXApplicationShownNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXFocusedWindowChangedNotification);
 }
 
 @end
