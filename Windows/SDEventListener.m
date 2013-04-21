@@ -57,7 +57,7 @@
 }
 
 - (void) removeListeners {
-    for (SDEventObserver* observer in self.upcomingListeners) {
+    for (SDEventObserver* observer in self.listeners) {
         [observer stopObserving];
     }
 }
