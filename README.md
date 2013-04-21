@@ -282,6 +282,7 @@ The rest you'll have to look up for yourself.
 * Better error handling when passing wrong stuff into API functions
 * Add Spaces support
 * Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
+* Auto-Reload should take into account other language-based primary config files `~/.windowsapp.*`
 
 ## License
 
