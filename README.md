@@ -171,6 +171,8 @@ property (Boolean) alertAnimates     # when opening.
 - (String) title()
 - (Boolean) isWindowMinimized()
 
+- (Boolean) isNormalWindow() # you probably wan to avoid resizing/moving ones that aren't
+
 - (App) app()
 
 - (Boolean) focusWindow()
@@ -193,7 +195,8 @@ property (Boolean) alertAnimates     # when opening.
 ### Type: `App`
 
 ```coffeescript
-- (Array<Window>) windows()
+- (Array<Window>) allWindows()
+- (Array<Window>) visibleWindows()
 
 - (String) title()
 - (Boolean) isHidden()
