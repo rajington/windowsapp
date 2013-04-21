@@ -69,10 +69,14 @@
     NSMutableArray* windows = [NSMutableArray array];
     
     for (SDAppProxy* app in [SDAppProxy runningApps]) {
-        [windows addObjectsFromArray:[app windows]];
+        [windows addObjectsFromArray:[app allWindows]];
     }
     
     return windows;
+}
+
+- (BOOL) isNormalWindow {
+    return [[self subrole] isEqualToString: (__bridge NSString*)kAXStandardWindowSubrole];
 }
 
 + (NSArray*) visibleWindows {
@@ -82,7 +86,7 @@
     return [[self allWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
         return ![[win app] isHidden]
         && ![win isWindowMinimized]
-        && [[win subrole] isEqualToString: (__bridge NSString*)kAXStandardWindowSubrole];
+        && [win isNormalWindow];
     }]];
 }
 

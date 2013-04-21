@@ -104,7 +104,18 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
         CFRelease(self.app);
 }
 
-- (NSArray*) windows {
+- (NSArray*) visibleWindows {
+    if ([SDUniversalAccessHelper complainIfNeeded])
+        return nil;
+    
+    return [[self allWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
+        return ![[win app] isHidden]
+        && ![win isWindowMinimized]
+        && [win isNormalWindow];
+    }]];
+}
+
+- (NSArray*) allWindows {
     NSMutableArray* windows = [NSMutableArray array];
     
     CFArrayRef _windows;

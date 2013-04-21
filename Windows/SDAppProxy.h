@@ -15,7 +15,9 @@
 
 + (NSArray*) runningApps;
 
-- (NSArray*) windows;
+- (NSArray*) allWindows;
+- (NSArray*) visibleWindows;
+
 - (NSString*) title;
 - (BOOL) isHidden;
 

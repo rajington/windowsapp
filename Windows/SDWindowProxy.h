@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "SDAppProxy.h"
 #import "SDScreenProxy.h"
 
 @interface SDWindowProxy : NSObject
@@ -36,10 +37,12 @@
 - (void) maximize;
 
 
-// screens
+// other
 
 - (SDScreenProxy*) screen;
+- (SDAppProxy*) app;
 
+- (BOOL) isNormalWindow;
 
 // focus
 
