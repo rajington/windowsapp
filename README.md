@@ -2,13 +2,14 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.2.2**
+* Current version: **2.3**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
 Table of contents:
 
 * [Overview](#overview)
+* [Using Other Languages](#using-other-languages)
 * [Config Example](#config-example)
 * [More Configs](#more-configs)
 * [API](#api)
@@ -20,7 +21,7 @@ Table of contents:
 
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
-Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). Plans are in the works to let you to add more languages yourself, so long as they compile down to JavaScript.
+Currently, you can write your config file in either JavaScript (`~/.windowsapp.js`) or [CoffeeScript 1.6.2](http://coffeescript.org/) (`~/.windowsapp.coffee`). You can add more languages yourself, so long as they compile down to JavaScript. (See [Using Other Languages](#using-other-languages) below.)
 
 (For your convenience, [underscore.js](http://underscorejs.org/) 1.4.4 is loaded beforehand.)
 
@@ -51,6 +52,16 @@ When you enable this feature via the menu, Windows.app will reload your config f
 
 - If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
 - If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
+
+## Using Other Languages
+
+Besides JS and CoffeeScript, you can extend Windows.app to load other languages as well, so long as they compile down to JavaScript. There's a pretty big list you can choose from at [altjs.org](http://altjs.org/) and in [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS).
+
+To use another language:
+
+* Create `~/.windowsapp/langs.json` which is a hash in the format `{ 'rb' : '/path/to/ruby-to-js/compiler' }`
+* Now you can `require('~/.windowsapp/myfile.rb');` from your main config.
+* And you can use `~/.windowsapp.rb` as your primary config.
 
 ## Config Example
 
@@ -195,6 +206,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- 2.3
+  - Added ability to load use [AltJS](http://altjs.org/) etc. languages
 - 2.2.2
   - Navigate REPL history with C-n/C-p (or up/down)
   - Added 'pwd' argument to `shell()`
@@ -218,13 +231,6 @@ The rest you'll have to look up for yourself.
     * better CSS styling in [the Log Window](Windows/logwindow.html)
     * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
-* More languages
-    * Rationale: maybe users wanna use something in [altjs.org](http://altjs.org/) or [this guy's list](https://github.com/jashkenas/coffee-script/wiki/List-of-languages-that-compile-to-JS)?
-    * Let users "register" a language:
-        * Create `~/.windowsapp/langs.json` which is a hash like `{ "/path/to/ruby-to-js/compiler": ".rb" }`
-        * the path would point to an executable whose stdin is [whatever lang] and stdout is JavaScript
-        * Now you can do `require('~/.windowsapp/myfile.rb');`
-        * Or you can write your primary config file as `~/.windowsapp.rb`
 * API
     * Finish wrapping every ObjC type in a pure-JS type
     * Better error handling when passing wrong stuff into API functions

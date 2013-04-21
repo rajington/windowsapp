@@ -26,4 +26,6 @@
 
 + (SDAPISettings*) settings;
 
++ (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input pwd:(NSString*)pwd;
+
 @end

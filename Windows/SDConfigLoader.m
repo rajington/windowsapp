@@ -24,6 +24,8 @@
 
 - (void) reloadConfigIfWatchEnabled;
 
+@property NSDictionary* langsMap;
+
 @end
 
 
@@ -56,7 +58,13 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     [self.jscocoa eval:@"function coffeeToJS(coffee) { return CoffeeScript.compile(coffee, { bare: true }); };"];
     [self evalCoffeeFile:[[NSBundle mainBundle] pathForResource:@"bootstrap" ofType:@"coffee"]];
     
+    [self updateAltLangsMap];
     [self watchConfigFiles];
+}
+
+- (void) updateAltLangsMap {
+    NSData* langsData = [NSData dataWithContentsOfFile:[@"~/.windowsapp/langs.json" stringByStandardizingPath]];
+    self.langsMap = [NSJSONSerialization JSONObjectWithData:langsData options:0 error:NULL];
 }
 
 - (void) reloadConfigIfWatchEnabled {
@@ -75,6 +83,8 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (void) reloadConfig {
+    [self updateAltLangsMap];
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString* file = [self configFileToUse];
         
@@ -109,21 +119,39 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (BOOL) require:(NSString*)filename {
-    filename = [filename stringByStandardizingPath];
-    NSString* contents = [NSString stringWithContentsOfFile:filename
+    NSString* contents = [NSString stringWithContentsOfFile:[filename stringByStandardizingPath]
                                                    encoding:NSUTF8StringEncoding
                                                       error:NULL];
+    
     if (!contents)
         return NO;
     
     if ([filename hasSuffix:@".js"]) {
         [self evalString:contents asCoffee:NO];
-    }
-    else if ([filename hasSuffix:@".coffee"]) {
-        [self evalString:contents asCoffee:YES];
+        return YES;
     }
     
-    return YES;
+    if ([filename hasSuffix:@".coffee"]) {
+        [self evalString:contents asCoffee:YES];
+        return YES;
+    }
+    
+    NSString* suffix = [filename pathExtension];
+    NSString* compiler = [[self.langsMap objectForKey:suffix] stringByStandardizingPath];
+    if (compiler) {
+        NSDictionary* result = [SDAPI shell:@"/bin/bash"
+                                       args:@[@"-lc", compiler]
+                                      input:contents
+                                        pwd:[compiler stringByDeletingLastPathComponent]];
+        NSString* output = [result objectForKey:@"stdout"];
+        [self.jscocoa eval:output];
+        return YES;
+    }
+    
+    [[SDAlertWindowController sharedAlertWindowController]
+     show:[NSString stringWithFormat:@"Don't know how to load %@", filename]
+     delay:@4.0];
+    return NO;
 }
 
 - (NSString*) evalString:(NSString*)str asCoffee:(BOOL)useCoffee {
@@ -161,10 +189,19 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (NSString*) configFileToUse {
-    NSString* coffeeFile = @"~/.windowsapp.coffee";
-    NSString* jsFile = @"~/.windowsapp.js";
+    NSArray* paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[@"~/" stringByStandardizingPath] error:NULL];
+    paths = [paths filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* path, NSDictionary *bindings) {
+        return [path hasPrefix:@".windowsapp."];
+    }]];
     
-    NSArray* prettyChoices = @[coffeeFile, jsFile];
+    // objc, you make it *really* hard to use functional programming techniques, you know that?
+    
+    paths = [paths valueForKeyPath:@"mutableCopy.autorelease"];
+    [paths enumerateObjectsUsingBlock:^(NSMutableString* obj, NSUInteger idx, BOOL *stop) {
+        [obj insertString:@"~/" atIndex:0];
+    }];
+    
+    NSArray* prettyChoices = paths;
     NSArray* choices = [prettyChoices valueForKeyPath:@"stringByStandardizingPath"];
     
     NSDictionary* results = [NSDictionary dictionaryWithObjects:prettyChoices forKeys:choices];
