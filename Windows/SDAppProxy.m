@@ -11,12 +11,28 @@
 #import "SDWindowProxy.h"
 #import "SDUniversalAccessHelper.h"
 
+#import "SDWindowProxy.h"
+
+#import "SDAppStalker.h"
+
 @interface SDAppProxy ()
 
 @property AXUIElementRef app;
-@property pid_t pid;
+@property (readwrite) pid_t pid;
+@property AXObserverRef observer;
 
 @end
+
+void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFStringRef notification, void *refcon) {
+    NSString* noteName = (__bridge NSString*)notification;
+    
+    if ([noteName isEqualToString:@"AXWindowCreated"]) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SDWindowCreatedNotification
+                                                            object:nil
+                                                          userInfo:@{@"window": window}];
+    }
+}
 
 @implementation SDAppProxy
 
@@ -34,6 +50,10 @@
     return apps;
 }
 
+- (id) initWithRunningApp:(NSRunningApplication*)app {
+    return [self initWithPID:[app processIdentifier]];
+}
+
 - (id) initWithPID:(pid_t)pid {
     if (self = [super init]) {
         self.pid = pid;
@@ -45,6 +65,9 @@
 - (void) dealloc {
     if (self.app)
         CFRelease(self.app);
+    
+    if (self.observer)
+        CFRelease(self.observer);
 }
 
 - (NSArray*) windows {
@@ -85,6 +108,30 @@
 
 - (void) kill9 {
     [[NSRunningApplication runningApplicationWithProcessIdentifier:self.pid] forceTerminate];
+}
+
+- (void) startObservingStuff {
+    AXObserverRef observer;
+    AXError err = AXObserverCreate(self.pid, obsessiveWindowCallback, &observer);
+    if (err != kAXErrorSuccess) {
+//        NSLog(@"start observing stuff failed at point #1 with: %d", err);
+        return;
+    }
+    
+    self.observer = observer;
+    err = AXObserverAddNotification(self.observer, self.app, kAXWindowCreatedNotification, nil);
+    if (err != kAXErrorSuccess) {
+//        NSLog(@"start observing stuff failed at point #2 with: %d", err);
+        return;
+    }
+    
+    CFRunLoopAddSource([[NSRunLoop currentRunLoop] getCFRunLoop],
+                       AXObserverGetRunLoopSource(observer),
+                       kCFRunLoopDefaultMode);
+}
+
+- (void) stopObservingStuff {
+    AXObserverRemoveNotification(self.observer, self.app, kAXWindowCreatedNotification);
 }
 
 @end

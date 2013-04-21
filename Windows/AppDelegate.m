@@ -10,6 +10,7 @@
 
 #import "SDOpenAtLogin.h"
 #import "SDConfigLoader.h"
+#import "SDAppStalker.h"
 
 #import "SDLogWindowController.h"
 
@@ -33,6 +34,7 @@
     [self prepareStatusItem];
     [[SDConfigLoader sharedConfigLoader] prepareScriptingBridge];
     [[SDConfigLoader sharedConfigLoader] reloadConfig];
+    [[SDAppStalker sharedAppStalker] beginStalking];
 }
 
 - (IBAction) reloadConfig:(id)sender {

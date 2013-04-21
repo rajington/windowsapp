@@ -10,14 +10,21 @@
 
 @interface SDAppProxy : NSObject
 
-+ (NSArray*) runningApps;
 - (id) initWithPID:(pid_t)pid;
+- (id) initWithRunningApp:(NSRunningApplication*)app;
+
++ (NSArray*) runningApps;
 
 - (NSArray*) windows;
 - (NSString*) title;
 - (BOOL) isHidden;
 
+@property (readonly) pid_t pid;
+
 - (void) kill;
 - (void) kill9;
+
+- (void) startObservingStuff;
+- (void) stopObservingStuff;
 
 @end

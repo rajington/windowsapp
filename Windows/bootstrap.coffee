@@ -52,6 +52,7 @@ api =
 shell = (path, args, input, pwd) -> SDAPI.shell_args_input_pwd_ path, args, input, pwd
 open = (thing) -> SDAPI.shell_args_input "/usr/bin/open", [thing], null
 bind = (key, modifiers, fn) -> SDKeyBinder.sharedKeyBinder().bind_modifiers_fn_ key, modifiers, fn
+listen = (event, fn) -> SDEventListener.sharedEventListener().listenToEvent_fn_(event, fn)
 log = (str) -> SDLogWindowController.sharedLogWindowController().show_type_ str, "SDLogMessageTypeUser"
 require = (file) -> SDConfigLoader.sharedConfigLoader().require(file)
 alert = (str, delay) -> SDAlertWindowController.sharedAlertWindowController().show_delay_ str, delay

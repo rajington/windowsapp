@@ -45,6 +45,7 @@
 		94C85826171C55C6007790F2 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
 		94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */ = {isa = PBXBuildFile; fileRef = 94D07FB21723741000CF44E9 /* bootstrap.coffee */; };
 		94D07FB61723B16900CF44E9 /* SDAppProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB51723B16900CF44E9 /* SDAppProxy.m */; };
+		94D07FBA1723BACB00CF44E9 /* SDAppStalker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB91723BACB00CF44E9 /* SDAppStalker.m */; };
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDLogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDLogWindowController.m */; };
 		94DAFB531719B99A00526003 /* LogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* LogWindow.xib */; };
@@ -128,6 +129,8 @@
 		94D07FB21723741000CF44E9 /* bootstrap.coffee */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bootstrap.coffee; sourceTree = "<group>"; };
 		94D07FB41723B16900CF44E9 /* SDAppProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAppProxy.h; sourceTree = "<group>"; };
 		94D07FB51723B16900CF44E9 /* SDAppProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAppProxy.m; sourceTree = "<group>"; };
+		94D07FB81723BACB00CF44E9 /* SDAppStalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAppStalker.h; sourceTree = "<group>"; };
+		94D07FB91723BACB00CF44E9 /* SDAppStalker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAppStalker.m; sourceTree = "<group>"; };
 		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
 		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
 		94DAFB4F1719B98500526003 /* SDLogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLogWindowController.h; sourceTree = "<group>"; };
@@ -160,18 +163,15 @@
 			children = (
 				947E9956171CEFB5006F30AC /* SDAPI.h */,
 				947E9957171CEFB5006F30AC /* SDAPI.m */,
+				94D07FB81723BACB00CF44E9 /* SDAppStalker.h */,
+				94D07FB91723BACB00CF44E9 /* SDAppStalker.m */,
 				947E9959171CF9DE006F30AC /* SDConfigLoader.h */,
 				947E995A171CF9DE006F30AC /* SDConfigLoader.m */,
 				94873F65171929A0000AC0A6 /* SDKeyBinder.h */,
 				94873F66171929A0000AC0A6 /* SDKeyBinder.m */,
 				940BF5E7171FA49B0041089B /* SDJSBlockWrapper.h */,
 				940BF5E8171FA49B0041089B /* SDJSBlockWrapper.m */,
-				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
-				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
-				94454B31171B31AC003EF64E /* SDScreenProxy.h */,
-				94454B32171B31AC003EF64E /* SDScreenProxy.m */,
-				94D07FB41723B16900CF44E9 /* SDAppProxy.h */,
-				94D07FB51723B16900CF44E9 /* SDAppProxy.m */,
+				94D07FB71723BAAE00CF44E9 /* Proxies */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -333,6 +333,19 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		94D07FB71723BAAE00CF44E9 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				94873F6B171937BC000AC0A6 /* SDWindowProxy.h */,
+				94873F6C171937BC000AC0A6 /* SDWindowProxy.m */,
+				94454B31171B31AC003EF64E /* SDScreenProxy.h */,
+				94454B32171B31AC003EF64E /* SDScreenProxy.m */,
+				94D07FB41723B16900CF44E9 /* SDAppProxy.h */,
+				94D07FB51723B16900CF44E9 /* SDAppProxy.m */,
+			);
+			name = Proxies;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -447,6 +460,7 @@
 				947E995B171CF9DE006F30AC /* SDConfigLoader.m in Sources */,
 				940BF5E9171FA49B0041089B /* SDJSBlockWrapper.m in Sources */,
 				94D07FB61723B16900CF44E9 /* SDAppProxy.m in Sources */,
+				94D07FBA1723BACB00CF44E9 /* SDAppStalker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
