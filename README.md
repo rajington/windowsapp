@@ -270,12 +270,11 @@ The rest you'll have to look up for yourself.
 
 ## Todo
 
+* Better error handling when passing wrong stuff into API functions
 * Want to help? We need these 3 things:
     * better CSS styling in [the Log Window](Windows/logwindow.html)
     * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
-* API
-    * Better error handling when passing wrong stuff into API functions
 
 ## License
 
