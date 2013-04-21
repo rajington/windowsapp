@@ -6,6 +6,12 @@
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
     <item>
+      <title>Version 2.3</title>
+      <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
+      <pubDate>Sun Apr 21 03:13:05 CDT 2013</pubDate>
+      <enclosure url="https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-2.3.app.tar.gz" sparkle:version="2.3" sparkle:dsaSignature="MCwCFB/LwaKHnVJ4+qQFAkBZgeJlOY4uAhQ4wfswE2tbSL6rhb4TBVqi9de7EQ==" length="1303539" type="application/octet-stream"/>
+    </item>
+    <item>
       <title>Version 2.2.2</title>
       <sparkle:releaseNotesLink>https://github.com/sdegutis/windowsapp#change-log</sparkle:releaseNotesLink>
       <pubDate>Sat Apr 20 22:45:56 CDT 2013</pubDate>
