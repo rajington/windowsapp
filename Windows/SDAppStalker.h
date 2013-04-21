@@ -12,6 +12,7 @@
 #define SDListenEventAppClosed @"SD_EVENT_APP_DIED"
 #define SDListenEventWindowCreated @"SD_EVENT_WINDOW_CREATED"
 #define SDListenEventWindowMoved @"SD_EVENT_WINDOW_MOVED"
+#define SDListenEventWindowResized @"SD_EVENT_WINDOW_RESIZED"
 #define SDListenEventWindowMinimized @"SD_EVENT_WINDOW_MINIMIZED"
 #define SDListenEventWindowUnminimized @"SD_EVENT_WINDOW_UNMINIMIZED"
 #define SDListenEventAppHidden @"SD_EVENT_APP_HIDDEN"

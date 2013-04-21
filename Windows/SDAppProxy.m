@@ -25,48 +25,43 @@
 
 @end
 
+void sendNotificationButNotTooOften(NSString* name, id thing) {
+    NSNotification* note = [NSNotification notificationWithName:name object:nil userInfo:@{@"thing": thing}];
+    [[NSNotificationQueue defaultQueue] enqueueNotification:note postingStyle:NSPostNow];
+}
+
 void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFStringRef notification, void *refcon) {
     if (CFEqual(notification, kAXWindowCreatedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowCreated
-                                                            object:nil
-                                                          userInfo:@{@"thing": window}];
+        sendNotificationButNotTooOften(SDListenEventWindowCreated, window);
     }
     else if (CFEqual(notification, kAXWindowMovedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowMoved
-                                                            object:nil
-                                                          userInfo:@{@"thing": window}];
+        sendNotificationButNotTooOften(SDListenEventWindowMoved, window);
+    }
+    else if (CFEqual(notification, kAXWindowResizedNotification)) {
+        SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
+        sendNotificationButNotTooOften(SDListenEventWindowResized, window);
     }
     else if (CFEqual(notification, kAXWindowMiniaturizedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowMinimized
-                                                            object:nil
-                                                          userInfo:@{@"thing": window}];
+        sendNotificationButNotTooOften(SDListenEventWindowMinimized, window);
     }
     else if (CFEqual(notification, kAXWindowDeminiaturizedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventWindowUnminimized
-                                                            object:nil
-                                                          userInfo:@{@"thing": window}];
+        sendNotificationButNotTooOften(SDListenEventWindowUnminimized, window);
     }
     else if (CFEqual(notification, kAXApplicationHiddenNotification)) {
         SDAppProxy* app = [[SDAppProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppHidden
-                                                            object:nil
-                                                          userInfo:@{@"thing": app}];
+        sendNotificationButNotTooOften(SDListenEventAppHidden, app);
     }
     else if (CFEqual(notification, kAXApplicationShownNotification)) {
         SDAppProxy* app = [[SDAppProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventAppShown
-                                                            object:nil
-                                                          userInfo:@{@"thing": app}];
+        sendNotificationButNotTooOften(SDListenEventAppShown, app);
     }
     else if (CFEqual(notification, kAXFocusedWindowChangedNotification)) {
         SDWindowProxy* window = [[SDWindowProxy alloc] initWithElement:element];
-        [[NSNotificationCenter defaultCenter] postNotificationName:SDListenEventFocusChanged
-                                                            object:nil
-                                                          userInfo:@{@"thing": window}];
+        sendNotificationButNotTooOften(SDListenEventFocusChanged, window);
     }
 }
 
@@ -107,9 +102,6 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
 - (void) dealloc {
     if (self.app)
         CFRelease(self.app);
-    
-    if (self.observer)
-        CFRelease(self.observer);
 }
 
 - (NSArray*) windows {
@@ -163,6 +155,7 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
     self.observer = observer;
     AXObserverAddNotification(self.observer, self.app, kAXWindowCreatedNotification, NULL);
     AXObserverAddNotification(self.observer, self.app, kAXWindowMovedNotification, NULL);
+    AXObserverAddNotification(self.observer, self.app, kAXWindowResizedNotification, NULL);
     AXObserverAddNotification(self.observer, self.app, kAXWindowMiniaturizedNotification, NULL);
     AXObserverAddNotification(self.observer, self.app, kAXWindowDeminiaturizedNotification, NULL);
     AXObserverAddNotification(self.observer, self.app, kAXApplicationHiddenNotification, NULL);
@@ -181,11 +174,15 @@ void obsessiveWindowCallback(AXObserverRef observer, AXUIElementRef element, CFS
     
     AXObserverRemoveNotification(self.observer, self.app, kAXWindowCreatedNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXWindowMovedNotification);
+    AXObserverRemoveNotification(self.observer, self.app, kAXWindowResizedNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXWindowMiniaturizedNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXWindowDeminiaturizedNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXApplicationHiddenNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXApplicationShownNotification);
     AXObserverRemoveNotification(self.observer, self.app, kAXFocusedWindowChangedNotification);
+    
+    CFRelease(self.observer);
+    self.observer = nil;
 }
 
 @end
