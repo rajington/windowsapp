@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.3.1**
+* Current version: **2.3.2**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -49,6 +49,8 @@ For your convenience, [underscore.js](http://underscorejs.org/) 1.4.4 is loaded 
 #### Modular Configs
 
 Feel free to put some `.coffee` or `.js` files in `~/.windowsapp/` and `require()` them from your main config file.
+
+If you want to put your config files all in one dir, you can use `~/.windowsapp/config.*` as your config file instead of `~/.windowsapp.*`. This has the advantage of your config files auto-reloading properly for new languages, plus you can then put the whole directory under version control more easily.
 
 #### Auto-Reload Configs
 
@@ -119,13 +121,17 @@ property (API) api
 - (void) listen(String eventName, Function callback) # see Events section below
 
 - (void) reloadConfig()
-- (void) require(String path) # may be JS or CS file; looks at extension to know which
+
+- (void) require(String path) # looks at extension to know which language to use
+                              # if relative path, looks in `~/.windowsapp/`
 
 - (Hash) shell(String path, Array<String> args[, String stdin]) # returns {"stdout": string,
                                                                 #          "stderr": string,
                                                                 #          "status": int}
 
 - (void) open(String thing) # can be path or URL
+
+- (void) doAfter(Float sec, Function fn)
 ```
 
 The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/blob/master/Windows/SDKeyBindingTranslator.m#L148) of key strings.
@@ -246,7 +252,7 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
-- HEAD
+- 2.3.2
   - Added `doAfter(sec, fn)`
   - Correctly handles choosing from more than 2 options of primary configs
   - Also looks for primary config files via `~/.windowsapp/config.*`
