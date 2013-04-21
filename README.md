@@ -116,6 +116,8 @@ property (API) api
               Array<String> modifiers, # may contain any number of: "cmd", "ctrl", "alt", "shift"
               Function fn)             # javascript fn that takes no args; return val is ignored
 
+- (void) listen(String eventName, Function callback) # see Events section below
+
 - (void) reloadConfig()
 - (void) require(String path) # may be JS or CS file; looks at extension to know which
 
@@ -141,8 +143,6 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Array<Screen>) allScreens()
 
 - (Array<App>) runningApps()
-
-- (void) listen(String eventName, Function callback) # see Events section below
 
 - (String) clipboardContents()
 - (String) selectedText() # doesn't work in webviews sadly (yet?)
@@ -233,15 +233,15 @@ The rest you'll have to look up for yourself.
 ### Events
 
 ```coffeescript
-'window_created', args: (win)
-'window_minimized', args: (win)
-'window_unminimized', args: (win)
-'window_moved', args: (win)
-'window_resized', args: (win)
-'app_launched', args: (app)
-'app_died', args: (app)
-'app_hidden', args: (app)
-'app_shown', args: (app)
+'window_created', callback args: (win)
+'window_minimized', callback args: (win)
+'window_unminimized', callback args: (win)
+'window_moved', callback args: (win)
+'window_resized', callback args: (win)
+'app_launched', callback args: (app)
+'app_died', callback args: (app)
+'app_hidden', callback args: (app)
+'app_shown', callback args: (app)
 ```
 
 ## Change log
@@ -250,7 +250,7 @@ The rest you'll have to look up for yourself.
   - Fixed lots of functions in API to return actual JS types
   - Fixed event callbacks to give you actual JS types
   - Renamed `app.windows()` to `app.allWindows()`
-  - Added `app.visiblWindows()`
+  - Added `app.visibleWindows()`
   - Added `win.isNormalWindow()`
 - 2.3
   - Added ability to use [AltJS](http://altjs.org/) etc. languages
