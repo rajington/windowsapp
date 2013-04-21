@@ -248,6 +248,7 @@ The rest you'll have to look up for yourself.
 
 - HEAD
   - Added `doAfter(sec, fn)`
+  - Correctly handles choosing from more than 2 options of primary configs
 - 2.3.1
   - Fixed lots of functions in API to return actual JS types
   - Fixed event callbacks to give you actual JS types

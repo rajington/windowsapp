@@ -220,7 +220,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
         }
     }
     
-    if ([finalContenders count] == 2) {
+    if ([finalContenders count] >= 2) {
         [finalContenders sortUsingComparator:^NSComparisonResult(NSDictionary* obj1, NSDictionary* obj2) {
             NSDate* date1 = [obj1 objectForKey:@"timestamp"];
             NSDate* date2 = [obj2 objectForKey:@"timestamp"];
