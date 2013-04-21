@@ -281,9 +281,9 @@ The rest you'll have to look up for yourself.
 ## Todo
 
 * Want to help? We need these 3 things:
-    * better CSS styling in [the Log Window](Windows/logwindow.html)
-    * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
-    * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
+    1. better CSS styling in [the Log Window](Windows/logwindow.html)
+    2. a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
+    3. a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * Better error handling when passing wrong stuff into API functions
 * Add Spaces support
 * Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
