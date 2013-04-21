@@ -190,7 +190,7 @@ property (Boolean) alertAnimates     # when opening.
 - (String) title()
 - (Boolean) isWindowMinimized()
 
-- (Boolean) isNormalWindow() # you probably wan to avoid resizing/moving ones that aren't
+- (Boolean) isNormalWindow() # you probably want to avoid resizing/moving ones that aren't
 
 - (App) app()
 
