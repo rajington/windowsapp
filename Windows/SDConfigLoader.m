@@ -53,7 +53,8 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
-    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"exports" ofType:@"js"]];
+    [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"bootstrap" ofType:@"js"]];
+    [self evalCoffeeFile:[[NSBundle mainBundle] pathForResource:@"bootstrap" ofType:@"coffee"]];
     
     [self watchConfigFiles];
 }
@@ -66,13 +67,20 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     }
 }
 
+- (void) evalCoffeeFile:(NSString*)path {
+    NSString* contents = [NSString stringWithContentsOfFile:[path stringByStandardizingPath]
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:NULL];
+    [self evalString:contents asCoffee:YES];
+}
+
 - (void) reloadConfig {
     [self.jscocoa callJSFunctionNamed:@"reloadConfig" withArguments:nil];
 }
 
 - (NSString*) evalString:(NSString*)str asCoffee:(BOOL)useCoffee {
     if (useCoffee)
-        return [self evalString:[self.jscocoa callFunction:@"compileCS" withArguments:@[str]]
+        return [self evalString:[self.jscocoa callFunction:@"coffeeToJS" withArguments:@[str]]
                        asCoffee:NO];
     else
         return [[self.jscocoa eval:str] description];

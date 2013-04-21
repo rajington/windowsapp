@@ -43,13 +43,14 @@
 		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
 		94C85825171C551B007790F2 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
 		94C85826171C55C6007790F2 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
+		94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */ = {isa = PBXBuildFile; fileRef = 94D07FB21723741000CF44E9 /* bootstrap.coffee */; };
 		94D307FD1719FF0F00D392B1 /* SDOpenAtLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */; };
 		94DAFB511719B98500526003 /* SDLogWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94DAFB501719B98500526003 /* SDLogWindowController.m */; };
 		94DAFB531719B99A00526003 /* LogWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94DAFB521719B99A00526003 /* LogWindow.xib */; };
 		94E0964B171ED905002D8668 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964C171ED9D6002D8668 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94E0964A171ED905002D8668 /* Sparkle.framework */; };
 		94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 94E0964D171EDBA6002D8668 /* dsa_pub.pem */; };
-		D5FABCC3171D05710030530B /* exports.js in Resources */ = {isa = PBXBuildFile; fileRef = D5FABCC0171D04C80030530B /* exports.js */; };
+		D5FABCC3171D05710030530B /* bootstrap.js in Resources */ = {isa = PBXBuildFile; fileRef = D5FABCC0171D04C80030530B /* bootstrap.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +125,7 @@
 		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
 		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
 		94C85824171C551B007790F2 /* JSCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSCocoa.framework; path = ThirdParty/JSCocoa.framework; sourceTree = "<group>"; };
+		94D07FB21723741000CF44E9 /* bootstrap.coffee */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bootstrap.coffee; sourceTree = "<group>"; };
 		94D307FB1719FF0F00D392B1 /* SDOpenAtLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDOpenAtLogin.h; sourceTree = "<group>"; };
 		94D307FC1719FF0F00D392B1 /* SDOpenAtLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDOpenAtLogin.m; sourceTree = "<group>"; };
 		94DAFB4F1719B98500526003 /* SDLogWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLogWindowController.h; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 		94DAFB521719B99A00526003 /* LogWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogWindow.xib; sourceTree = "<group>"; };
 		94E0964A171ED905002D8668 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = ThirdParty/Sparkle.framework; sourceTree = "<group>"; };
 		94E0964D171EDBA6002D8668 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = dsa_pub.pem; path = AutoUpdating/dsa_pub.pem; sourceTree = SOURCE_ROOT; };
-		D5FABCC0171D04C80030530B /* exports.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = exports.js; sourceTree = "<group>"; };
+		D5FABCC0171D04C80030530B /* bootstrap.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = bootstrap.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +258,8 @@
 			children = (
 				946B3AAE1721C5C800FB05F3 /* logwindow.html */,
 				94E0964D171EDBA6002D8668 /* dsa_pub.pem */,
-				D5FABCC0171D04C80030530B /* exports.js */,
+				D5FABCC0171D04C80030530B /* bootstrap.js */,
+				94D07FB21723741000CF44E9 /* bootstrap.coffee */,
 				947E9953171CA99C006F30AC /* coffee-script.js */,
 				94867DAA1719E56600027457 /* underscore-min.js */,
 				94873F3617191F40000AC0A6 /* InfoPlist.strings */,
@@ -381,7 +384,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5FABCC3171D05710030530B /* exports.js in Resources */,
+				D5FABCC3171D05710030530B /* bootstrap.js in Resources */,
 				94873F3817191F40000AC0A6 /* InfoPlist.strings in Resources */,
 				94873F4417191F40000AC0A6 /* MainMenu.xib in Resources */,
 				943921BA1719B1EE00F63073 /* statusitem.png in Resources */,
@@ -396,6 +399,7 @@
 				947E995F171D18B6006F30AC /* Credits.rtf in Resources */,
 				94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */,
 				946B3AAF1721C5C800FB05F3 /* logwindow.html in Resources */,
+				94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
