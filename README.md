@@ -14,7 +14,7 @@ Table of contents:
     * [Auto-Reload Configs](#auto-reload-configs)
     * [Using Other Languages](#using-other-languages)
 * [Config Example](#config-example)
-    * [More Config Tricks/Examples](#more-config-tricks-examples)
+    * [More Config Tricks/Examples](#more-config-tricksexamples)
 * [API](#api)
 * [Change log](#change-log)
 * [Todo](#todo)
