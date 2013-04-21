@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.2.1**
+* Current version: **2.2.2**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -195,10 +195,12 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
-- HEAD
+- 2.2.2
   - Navigate REPL history with C-n/C-p (or up/down)
   - Added 'pwd' argument to `shell()`
-  - Fixed some bugs in the API by making objects (almost) all pure JS objects
+  - Fixed some bugs in the API (notably `api.visibleWindows` et al. can be enumerated)
+  - Made the API almost entirely JS, so it'll work just as you expect
+      - Only non-JS types are `Settings`, `CGRect`, `CGSize`, `CGPoint`
 - 2.2.1
   - REPL can now take CoffeeScript or JS
   - Re-styled logs in Log Window
