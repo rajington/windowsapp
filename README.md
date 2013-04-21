@@ -249,6 +249,8 @@ The rest you'll have to look up for yourself.
 - HEAD
   - Added `doAfter(sec, fn)`
   - Correctly handles choosing from more than 2 options of primary configs
+  - Also looks for primary config files via `~/.windowsapp/config.*`
+      - This fixes the auto-reload non-cs/js config files bug
 - 2.3.1
   - Fixed lots of functions in API to return actual JS types
   - Fixed event callbacks to give you actual JS types
@@ -285,7 +287,6 @@ The rest you'll have to look up for yourself.
 * Better error handling when passing wrong stuff into API functions
 * Add Spaces support
 * Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
-* Auto-Reload should take into account other language-based primary config files `~/.windowsapp.*`
 * Add `api.windowUnderMouse()`
 * Add `api.screenUnderMouse()`
 * Maybe add `mouseMoved` event? If we do, we'll have to coalesce them to a reasonable amount (trigger every 0.5 sec? make it configurable?)

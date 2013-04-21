@@ -192,20 +192,26 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     FSEventStreamStart(stream);
 }
 
-- (NSString*) configFileToUse {
-    NSArray* paths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[@"~/" stringByStandardizingPath] error:NULL];
-    paths = [paths filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* path, NSDictionary *bindings) {
-        return [path hasPrefix:@".windowsapp."];
+- (NSArray*) contentsOfDir:(NSString*)dir withPrefix:(NSString*)prefix {
+    NSMutableArray* paths = [NSMutableArray array];
+    
+    NSArray* allPaths = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[dir stringByStandardizingPath] error:NULL];
+    NSArray* matchingPaths = [allPaths filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString* path, NSDictionary *bindings) {
+        return [path hasPrefix:prefix];
     }]];
     
-    // objc, you make it *really* hard to use functional programming techniques, you know that?
+    for (NSString* path in matchingPaths) {
+        [paths addObject:[NSString stringWithFormat:@"%@%@", dir, path]];
+    }
     
-    paths = [paths valueForKeyPath:@"mutableCopy.autorelease"];
-    [paths enumerateObjectsUsingBlock:^(NSMutableString* obj, NSUInteger idx, BOOL *stop) {
-        [obj insertString:@"~/" atIndex:0];
-    }];
+    return paths;
+}
+
+- (NSString*) configFileToUse {
+    NSArray* rootConfigPaths = [self contentsOfDir:@"~/" withPrefix:@".windowsapp."];
+    NSArray* subrootConfigPaths = [self contentsOfDir:@"~/.windowsapp/" withPrefix:@"config."];
     
-    NSArray* prettyChoices = paths;
+    NSArray* prettyChoices = [rootConfigPaths arrayByAddingObjectsFromArray:subrootConfigPaths];
     NSArray* choices = [prettyChoices valueForKeyPath:@"stringByStandardizingPath"];
     
     NSDictionary* results = [NSDictionary dictionaryWithObjects:prettyChoices forKeys:choices];
