@@ -289,6 +289,7 @@ The rest you'll have to look up for yourself.
 * Add `api.windowUnderMouse()`
 * Add `api.screenUnderMouse()`
 * Maybe add `mouseMoved` event? If we do, we'll have to coalesce them to a reasonable amount (trigger every 0.5 sec? make it configurable?)
+* Convert more stuff in `api.coffee` to JS types before giving them to people (ugh so tedious though)
 
 ## License
 
