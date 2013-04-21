@@ -57,7 +57,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"underscore-min" ofType:@"js"]];
     [self.jscocoa evalJSFile:[[NSBundle mainBundle] pathForResource:@"coffee-script" ofType:@"js"]];
     [self.jscocoa eval:@"function coffeeToJS(coffee) { return CoffeeScript.compile(coffee, { bare: true }); };"];
-    [self evalCoffeeFile:[[NSBundle mainBundle] pathForResource:@"bootstrap" ofType:@"coffee"]];
+    [self evalCoffeeFile:[[NSBundle mainBundle] pathForResource:@"api" ofType:@"coffee"]];
     
     [self updateAltLangsMap];
     [self watchConfigFiles];

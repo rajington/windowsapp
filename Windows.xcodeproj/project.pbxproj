@@ -43,7 +43,7 @@
 		9495B45A17197396002C9EF5 /* SDUniversalAccessHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */; };
 		94C85825171C551B007790F2 /* JSCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
 		94C85826171C55C6007790F2 /* JSCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 94C85824171C551B007790F2 /* JSCocoa.framework */; };
-		94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */ = {isa = PBXBuildFile; fileRef = 94D07FB21723741000CF44E9 /* bootstrap.coffee */; };
+		94D07FB31723741000CF44E9 /* api.coffee in Resources */ = {isa = PBXBuildFile; fileRef = 94D07FB21723741000CF44E9 /* api.coffee */; };
 		94D07FB61723B16900CF44E9 /* SDAppProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB51723B16900CF44E9 /* SDAppProxy.m */; };
 		94D07FBA1723BACB00CF44E9 /* SDAppStalker.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FB91723BACB00CF44E9 /* SDAppStalker.m */; };
 		94D07FBD1723C61C00CF44E9 /* SDEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D07FBC1723C61C00CF44E9 /* SDEventListener.m */; };
@@ -127,7 +127,7 @@
 		9495B45817197396002C9EF5 /* SDUniversalAccessHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDUniversalAccessHelper.h; sourceTree = "<group>"; };
 		9495B45917197396002C9EF5 /* SDUniversalAccessHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDUniversalAccessHelper.m; sourceTree = "<group>"; };
 		94C85824171C551B007790F2 /* JSCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JSCocoa.framework; path = ThirdParty/JSCocoa.framework; sourceTree = "<group>"; };
-		94D07FB21723741000CF44E9 /* bootstrap.coffee */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bootstrap.coffee; sourceTree = "<group>"; };
+		94D07FB21723741000CF44E9 /* api.coffee */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = api.coffee; sourceTree = "<group>"; };
 		94D07FB41723B16900CF44E9 /* SDAppProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAppProxy.h; sourceTree = "<group>"; };
 		94D07FB51723B16900CF44E9 /* SDAppProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDAppProxy.m; sourceTree = "<group>"; };
 		94D07FB81723BACB00CF44E9 /* SDAppStalker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDAppStalker.h; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			children = (
 				946B3AAE1721C5C800FB05F3 /* logwindow.html */,
 				94E0964D171EDBA6002D8668 /* dsa_pub.pem */,
-				94D07FB21723741000CF44E9 /* bootstrap.coffee */,
+				94D07FB21723741000CF44E9 /* api.coffee */,
 				947E9953171CA99C006F30AC /* coffee-script.js */,
 				94867DAA1719E56600027457 /* underscore-min.js */,
 				94873F3617191F40000AC0A6 /* InfoPlist.strings */,
@@ -418,7 +418,7 @@
 				947E995F171D18B6006F30AC /* Credits.rtf in Resources */,
 				94E0964E171EDBA6002D8668 /* dsa_pub.pem in Resources */,
 				946B3AAF1721C5C800FB05F3 /* logwindow.html in Resources */,
-				94D07FB31723741000CF44E9 /* bootstrap.coffee in Resources */,
+				94D07FB31723741000CF44E9 /* api.coffee in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

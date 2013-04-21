@@ -58,6 +58,15 @@
     return settings;
 }
 
++ (void) doFn:(JSValueRefAndContextRef)fn after:(double)delayInSeconds {
+    SDJSBlockWrapper* block = [[SDJSBlockWrapper alloc] initWithJavaScriptFn:fn];
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^{
+        [block call:nil];
+    });
+}
+
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input pwd:(NSString*)pwd {
     NSPipe* outPipe = [NSPipe pipe];
     NSPipe* errPipe = [NSPipe pipe];

@@ -246,6 +246,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- HEAD
+  - Added `doAfter(sec, fn)`
 - 2.3.1
   - Fixed lots of functions in API to return actual JS types
   - Fixed event callbacks to give you actual JS types
