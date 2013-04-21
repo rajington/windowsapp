@@ -36,7 +36,7 @@ Here are some things you can do with Windows.app's simple API ([actual API docs 
 - transfer focus to the closest window in a given direction
 - run shell scripts
 - open apps, links, or files
-- listen to global events like window creation or app launched/killed
+- listen to global events (window creatd, app launched/killed, etc)
 - and more!
 
 Is the API missing something you need? File an issue and let me know!
@@ -239,7 +239,7 @@ The rest you'll have to look up for yourself.
 ## Change log
 
 - 2.3
-  - Added ability to load use [AltJS](http://altjs.org/) etc. languages
+  - Added ability to use [AltJS](http://altjs.org/) etc. languages
   - Added `App` type, moved `isAppHidden` into it, gave it some fun methods
   - Added events
 - 2.2.2
