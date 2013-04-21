@@ -62,7 +62,7 @@ To use another language:
 
 * Create `~/.windowsapp/langs.json` which is a hash in the format `{ 'rb' : '/path/to/ruby-to-js/compiler' }`
 * Now you can `require('~/.windowsapp/myfile.rb');` from your main config.
-* And you can use `~/.windowsapp.rb` as your primary config.
+* Plus you can use `~/.windowsapp.rb` as your primary config.
 
 #### Config Caveats
 
