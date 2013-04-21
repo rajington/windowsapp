@@ -198,6 +198,7 @@ The rest you'll have to look up for yourself.
 - HEAD
   - Navigate REPL history with C-n/C-p (or up/down)
   - Added 'pwd' argument to `shell()`
+  - Fixed some bugs in the API by making objects (almost) all pure JS objects
 - 2.2.1
   - REPL can now take CoffeeScript or JS
   - Re-styled logs in Log Window
@@ -223,7 +224,7 @@ The rest you'll have to look up for yourself.
         * Now you can do `require('~/.windowsapp/myfile.rb');`
         * Or you can write your primary config file as `~/.windowsapp.rb`
 * API
-    * Consider wrapping every ObjC type in a pure-JS type, so that there's no unexpected behavior for JS-knowledgeable peoples (currently it's kinda weird)
+    * Finish wrapping every ObjC type in a pure-JS type
     * Better error handling when passing wrong stuff into API functions
     * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
