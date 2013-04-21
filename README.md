@@ -136,6 +136,8 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 
 - (Array<App>) runningApps()
 
+- (void) listen(String eventName, Function callback) # see Events section below
+
 - (String) clipboardContents()
 - (String) selectedText() # doesn't work in webviews sadly (yet?)
 ```
@@ -219,11 +221,26 @@ property (Float) y
 
 The rest you'll have to look up for yourself.
 
+### Events
+
+```coffeescript
+'window_created', args: (win)
+'window_minimized', args: (win)
+'window_unminimized', args: (win)
+'window_moved', args: (win)
+'window_resized', args: (win)
+'app_launched', args: (app)
+'app_died', args: (app)
+'app_hidden', args: (app)
+'app_shown', args: (app)
+```
+
 ## Change log
 
 - 2.3
   - Added ability to load use [AltJS](http://altjs.org/) etc. languages
   - Added `App` type, moved `isAppHidden` into it, gave it some fun methods
+  - Added events
 - 2.2.2
   - Navigate REPL history with C-n/C-p (or up/down)
   - Added 'pwd' argument to `shell()`
@@ -249,7 +266,6 @@ The rest you'll have to look up for yourself.
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * API
     * Better error handling when passing wrong stuff into API functions
-    * Add events to API (`kAXWindowCreatedNotification`, etc)
 
 ## License
 
