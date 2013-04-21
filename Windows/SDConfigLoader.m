@@ -123,6 +123,9 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (BOOL) require:(NSString*)filename {
+    if ([filename isAbsolutePath] == NO)
+        filename = [@"~/.windowsapp/" stringByAppendingPathComponent:filename];
+    
     NSString* contents = [NSString stringWithContentsOfFile:[filename stringByStandardizingPath]
                                                    encoding:NSUTF8StringEncoding
                                                       error:NULL];

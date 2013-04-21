@@ -251,6 +251,7 @@ The rest you'll have to look up for yourself.
   - Correctly handles choosing from more than 2 options of primary configs
   - Also looks for primary config files via `~/.windowsapp/config.*`
       - This fixes the auto-reload non-cs/js config files bug
+  - `require()` can now take a relative path (assumes `~/.windowsapp/` prefix)
 - 2.3.1
   - Fixed lots of functions in API to return actual JS types
   - Fixed event callbacks to give you actual JS types
