@@ -75,7 +75,54 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 }
 
 - (void) reloadConfig {
-    [self.jscocoa callJSFunctionNamed:@"reloadConfig" withArguments:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString* file = [self configFileToUse];
+        
+        if (!file) {
+            [[SDAlertWindowController sharedAlertWindowController]
+             show:@"Can't find either ~/.windowsapp.{coffee,js}\n\nMake one exist and try Reload Config again."
+             delay:7.0];
+            return;
+        }
+        
+        [[SDKeyBinder sharedKeyBinder] removeKeyBindings];
+        
+        if (![self require:file])
+            return;
+        
+        NSArray* failures = [[SDKeyBinder sharedKeyBinder] finalizeNewKeyBindings];
+        
+        if ([failures count] > 0) {
+            NSString* str = [@"The following hot keys could not be bound:\n\n" stringByAppendingString: [failures componentsJoinedByString:@"\n"]];
+            [[SDLogWindowController sharedLogWindowController] show:str
+                                                               type:SDLogMessageTypeError];
+        }
+        else {
+            static BOOL loaded;
+            [[SDAlertWindowController sharedAlertWindowController]
+             show:[NSString stringWithFormat:@"%s %@", (loaded ? "Reloaded" : "Loaded"), file]];
+            loaded = YES;
+        }
+        
+    });
+}
+
+- (BOOL) require:(NSString*)filename {
+    filename = [filename stringByStandardizingPath];
+    NSString* contents = [NSString stringWithContentsOfFile:filename
+                                                   encoding:NSUTF8StringEncoding
+                                                      error:NULL];
+    if (!contents)
+        return NO;
+    
+    if ([filename hasSuffix:@".js"]) {
+        [self evalString:contents asCoffee:NO];
+    }
+    else if ([filename hasSuffix:@".coffee"]) {
+        [self evalString:contents asCoffee:YES];
+    }
+    
+    return YES;
 }
 
 - (NSString*) evalString:(NSString*)str asCoffee:(BOOL)useCoffee {
@@ -112,7 +159,7 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
     FSEventStreamStart(stream);
 }
 
-+ (NSString*) configFileToUse {
+- (NSString*) configFileToUse {
     NSString* coffeeFile = @"~/.windowsapp.coffee";
     NSString* jsFile = @"~/.windowsapp.js";
     

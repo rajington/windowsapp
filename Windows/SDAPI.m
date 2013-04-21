@@ -58,13 +58,6 @@
     return settings;
 }
 
-+ (void) doAsync:(JSValueRefAndContextRef)fn {
-    SDJSBlockWrapper* block = [[SDJSBlockWrapper alloc] initWithJavaScriptFn:fn];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [block call];
-    });
-}
-
 + (NSDictionary*) shell:(NSString*)cmd args:(NSArray*)args input:(NSString*)input pwd:(NSString*)pwd {
     NSPipe* outPipe = [NSPipe pipe];
     NSPipe* errPipe = [NSPipe pipe];
