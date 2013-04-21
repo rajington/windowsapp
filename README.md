@@ -9,6 +9,7 @@
 Table of contents:
 
 * [Overview](#overview)
+    * [Basics](#basics)
     * [Modular Configs](#modular-configs)
     * [Auto-Reload Configs](#auto-reload-configs)
     * [Using Other Languages](#using-other-languages)
@@ -20,6 +21,8 @@ Table of contents:
 * [License](#license)
 
 ## Overview
+
+#### Basics
 
 At it's core, Windows.app is just a program that runs quietly in your menu bar, and loads a config file in your home directory.
 
