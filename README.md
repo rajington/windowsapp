@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.3**
+* Current version: **2.3.1**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -238,6 +238,12 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- 2.3.1
+  - Fixed lots of functions in API to return actual JS types
+  - Fixed event callbacks to give you actual JS types
+  - Renamed `app.windows()` to `app.allWindows()`
+  - Added `app.visiblWindows()`
+  - Added `win.isNormalWindow()`
 - 2.3
   - Added ability to use [AltJS](http://altjs.org/) etc. languages
   - Added `App` type, moved `isAppHidden` into it, gave it some fun methods
