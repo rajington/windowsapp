@@ -16,6 +16,8 @@ Table of contents:
 * [Config Example](#config-example)
     * [More Config Tricks/Examples](#more-config-tricksexamples)
 * [API](#api)
+    * [Top Level](#top-level)
+    * [`API` Type](#type-api)
 * [Change log](#change-log)
 * [Todo](#todo)
 * [License](#license)
