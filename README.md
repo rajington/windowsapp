@@ -305,7 +305,7 @@ The rest you'll have to look up for yourself.
 #### Internal notes
 
 * Better error handling when passing wrong stuff into API functions
-* Add Spaces support (maybe via [this](https://github.com/shabble/osx-space-id/pull/1/files))
+* Add Spaces support
 * Give a better error message if your config file *actually turns out to be a directory* (sigh)
 * Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
 * Add `api.windowUnderMouse()`
