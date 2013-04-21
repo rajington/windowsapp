@@ -134,6 +134,8 @@ The function `bind()` uses [this list](https://github.com/sdegutis/windowsapp/bl
 - (Screen) mainScreen()
 - (Array<Screen>) allScreens()
 
+- (Array<App>) runningApps()
+
 - (String) clipboardContents()
 - (String) selectedText() # doesn't work in webviews sadly (yet?)
 ```
@@ -165,7 +167,8 @@ property (Boolean) alertAnimates     # when opening.
 
 - (String) title()
 - (Boolean) isWindowMinimized()
-- (Boolean) isAppHidden()
+
+- (App) app()
 
 - (Boolean) focusWindow()
 - (void) focusWindowLeft()
@@ -182,6 +185,18 @@ property (Boolean) alertAnimates     # when opening.
 
 - (Screen) nextScreen()
 - (Screen) previousScreen()
+```
+
+### Type: `App`
+
+```coffeescript
+- (Array<Window>) windows()
+
+- (String) title()
+- (Boolean) isHidden()
+
+- (void) kill()
+- (void) kill9()
 ```
 
 ### Other Types
@@ -208,6 +223,7 @@ The rest you'll have to look up for yourself.
 
 - 2.3
   - Added ability to load use [AltJS](http://altjs.org/) etc. languages
+  - Added `App` type, moved `isAppHidden` into it, gave it some fun methods
 - 2.2.2
   - Navigate REPL history with C-n/C-p (or up/down)
   - Added 'pwd' argument to `shell()`
@@ -232,12 +248,8 @@ The rest you'll have to look up for yourself.
     * a better app icon (current one is literally a ripoff of [AppGrid's](https://dxezhqhj7t42i.cloudfront.net/image/1e0daca8-3855-4135-a2a1-8569d28e8648))
     * a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * API
-    * Finish wrapping every ObjC type in a pure-JS type
     * Better error handling when passing wrong stuff into API functions
-    * Figure out a way to not have to do nil-checks so often
     * Add events to API (`kAXWindowCreatedNotification`, etc)
-    * Add `App` type for NSRunningApplication, extract it out of `Window` (it's already there)
-    * Make some nice JS helper functions for NSColor
 
 ## License
 

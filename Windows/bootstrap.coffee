@@ -5,6 +5,14 @@ class Screen
   nextScreen: -> @proxy.nextScreen()
   previousScreen: -> @proxy.previousScreen()
 
+class App
+  constructor: (@proxy) ->
+  isHidden: -> @proxy.isHidden()
+  windows: -> @proxy.windows()
+  title: -> @proxy.title()
+  kill: -> @proxy.kill()
+  kill9: -> @proxy.kill9()
+
 class Window
   constructor: (@proxy) ->
   topLeft: -> @proxy.topLeft()
@@ -14,11 +22,11 @@ class Window
   setSize: (x) -> @proxy.setSize(x)
   setFrame: (x) -> @proxy.setFrame(x)
   maximize: -> @proxy.maximize()
+  app: -> new App @proxy.app()
   screen: -> new Screen @proxy.screen()
   otherWindowsOnSameScreen: -> _.map __jsc__.toJS(@proxy.otherWindowsOnSameScreen()), (screen) -> new Screen screen
   title: -> @proxy.title()
   isWindowMinimized: -> @proxy.isWindowMinimized()
-  isAppHidden: -> @proxy.isAppHidden()
   focusWindow: -> @proxy.focusWindow()
   focusWindowLeft: -> @proxy.focusWindowLeft()
   focusWindowRight: -> @proxy.focusWindowRight()
@@ -27,6 +35,7 @@ class Window
 
 api =
   settings: -> SDAPI.settings()
+  runningApps: -> _.map __jsc__.toJS(SDAppProxy.runningApps()), (app) -> new App app
   allWindows: -> _.map __jsc__.toJS(SDWindowProxy.allWindows()), (win) -> new Window win
   visibleWindows: -> _.map __jsc__.toJS(SDWindowProxy.visibleWindows()), (win) -> new Window win
   focusedWindow: -> new Window SDWindowProxy.focusedWindow()

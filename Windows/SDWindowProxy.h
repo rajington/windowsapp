@@ -12,6 +12,8 @@
 
 @interface SDWindowProxy : NSObject
 
+- (id) initWithElement:(AXUIElementRef)win;
+
 // getting windows
 
 + (NSArray*) allWindows;
@@ -53,7 +55,6 @@
 
 - (NSString *) title;
 - (BOOL) isWindowMinimized;
-- (BOOL) isAppHidden;
 
 
 // this doesn't really belong here, but...

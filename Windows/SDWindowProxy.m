@@ -8,6 +8,8 @@
 
 #import "SDWindowProxy.h"
 
+#import "SDAppProxy.h"
+
 #import "SDUniversalAccessHelper.h"
 
 @interface SDWindowProxy ()
@@ -17,6 +19,18 @@
 @end
 
 @implementation SDWindowProxy
+
+- (id) initWithElement:(AXUIElementRef)win {
+    if (self = [super init]) {
+        self.window = CFRetain(win);
+    }
+    return self;
+}
+
+- (void) dealloc {
+    if (self.window)
+        CFRelease(self.window);
+}
 
 + (NSString*) selectedText {
     if ([SDUniversalAccessHelper complainIfNeeded])
@@ -54,24 +68,8 @@
     
     NSMutableArray* windows = [NSMutableArray array];
     
-    for (NSRunningApplication* runningApp in [[NSWorkspace sharedWorkspace] runningApplications]) {
-//        if ([runningApp activationPolicy] == NSApplicationActivationPolicyRegular) {
-            AXUIElementRef app = AXUIElementCreateApplication([runningApp processIdentifier]);
-            
-            CFArrayRef _windows;
-            AXError result = AXUIElementCopyAttributeValues(app, kAXWindowsAttribute, 0, 100, &_windows);
-            if (result == kAXErrorSuccess) {
-                for (NSInteger i = 0; i < CFArrayGetCount(_windows); i++) {
-                    AXUIElementRef win = CFArrayGetValueAtIndex(_windows, i);
-                    SDWindowProxy* window = [[SDWindowProxy alloc] init];
-                    window.window = CFRetain(win);
-                    [windows addObject:window];
-                }
-                CFRelease(_windows);
-            }
-            
-            CFRelease(app);
-//        }
+    for (SDAppProxy* app in [SDAppProxy runningApps]) {
+        [windows addObjectsFromArray:[app windows]];
     }
     
     return windows;
@@ -82,7 +80,7 @@
         return nil;
     
     return [[self allWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
-        return ![win isAppHidden]
+        return ![[win app] isHidden]
         && ![win isWindowMinimized]
         && [[win subrole] isEqualToString: (__bridge NSString*)kAXStandardWindowSubrole];
     }]];
@@ -92,11 +90,6 @@
     return [[SDWindowProxy visibleWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
         return !CFEqual(self.window, win.window) && [[self screen] isEqual: [win screen]];
     }]];
-}
-
-- (void) dealloc {
-    if (self.window)
-        CFRelease(self.window);
 }
 
 + (AXUIElementRef) systemWideElement {
@@ -246,21 +239,8 @@
         return 0;
 }
 
-- (BOOL) isAppHidden {
-    AXUIElementRef app = AXUIElementCreateApplication([self processIdentifier]);
-    if (app == NULL)
-        return YES;
-    
-    CFTypeRef _isHidden;
-    BOOL isHidden = NO;
-    if (AXUIElementCopyAttributeValue(app, (CFStringRef)NSAccessibilityHiddenAttribute, (CFTypeRef *)&_isHidden) == kAXErrorSuccess) {
-        NSNumber *isHiddenNum = CFBridgingRelease(_isHidden);
-        isHidden = [isHiddenNum boolValue];
-    }
-    
-    CFRelease(app);
-    
-    return isHidden;
+- (SDAppProxy*) app {
+    return [[SDAppProxy alloc] initWithPID:[self processIdentifier]];
 }
 
 - (id) getWindowProperty:(NSString*)propType withDefaultValue:(id)defaultValue {
