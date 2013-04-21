@@ -67,7 +67,7 @@ To use another language:
 #### Config Caveats
 
 - If both config files exist, the most recently modified one will be chosen. You can override this by using `touch`.
-- If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded.
+- If reloading your config file fails, your key bindings will be un-bound as a precaution, presuming that your config file is in an unpredictable state. They will be re-bound again next time your config file is successfully loaded. Same with events you're registered to.
 
 ## Config Example
 
@@ -286,6 +286,7 @@ The rest you'll have to look up for yourself.
     3. a better menu bar icon (current one is literally a ripoff of [AppGrid's](http://giantrobotsoftware.com/appgrid/screenshot1-thumb.png))
 * Better error handling when passing wrong stuff into API functions
 * Add Spaces support
+* Give a better error message if your config file *actually turns out to be a directory* (sigh)
 * Make `focusWindow[Direction]()` take into account other screens (and maybe Spaces)?
 * Add `api.windowUnderMouse()`
 * Add `api.screenUnderMouse()`
