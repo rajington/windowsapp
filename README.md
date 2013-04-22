@@ -262,7 +262,7 @@ The rest you'll have to look up for yourself.
 ## Change log
 
 - 2.3.3
-  - Fix critical bug whereby the app wouldn't work unless you had the langs.json file (thanks [Rajarshi Nigam](https://github.com/rajington)!)
+  - Fix critical bug whereby configs wouldn't load at all if you didn't have the langs.json file (thanks [Rajarshi Nigam](https://github.com/rajington)!)
   - Added `win.otherWindowsOnAllScreens()`
   - The functions `win.focusWindow[Direction]()` now take into account all screens
 - 2.3.2
