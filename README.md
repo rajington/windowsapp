@@ -2,7 +2,7 @@
 
 *The OS X window manager for hackers*
 
-* Current version: **2.3.2**
+* Current version: **2.3.3**
 * Requires: OS X 10.7 and up
 * Download: [latest .zip file](https://raw.github.com/sdegutis/windowsapp/master/Builds/Windows-LATEST.app.tar.gz), unzip, right-click app, choose "Open"
 
@@ -261,7 +261,8 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
-- HEAD
+- 2.3.3
+  - Fix critical bug whereby the app wouldn't work unless you had the langs.json file (thanks [Rajarshi Nigam](https://github.com/rajington)!)
   - Added `win.otherWindowsOnAllScreens()`
   - The functions `win.focusWindow[Direction]()` now take into account all screens
 - 2.3.2
