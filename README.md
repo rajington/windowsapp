@@ -185,7 +185,8 @@ property (Boolean) alertAnimates     # when opening.
 - (void) maximize()
 
 - (Screen) screen()
-- (Array<Window>) otherWindowsOnSameScreen
+- (Array<Window>) otherWindowsOnSameScreen()
+- (Array<Window>) otherWindowsOnAllScreens()
 
 - (String) title()
 - (Boolean) isWindowMinimized()
@@ -260,6 +261,9 @@ The rest you'll have to look up for yourself.
 
 ## Change log
 
+- HEAD
+  - Added `win.otherWindowsOnAllScreens()`
+  - The functions `win.focusWindow[Direction]()` now take into account all screens
 - 2.3.2
   - Added `doAfter(sec, fn)`
   - Correctly handles choosing from more than 2 options of primary configs

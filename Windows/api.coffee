@@ -33,6 +33,7 @@ class Window
   isNormalWindow: -> @proxy.isNormalWindow()
   screen: -> Screen.fromNS @proxy.screen()
   otherWindowsOnSameScreen: -> mapToJS @proxy.otherWindowsOnSameScreen(), Screen.fromNS
+  otherWindowsOnAllScreens: -> mapToJS @proxy.otherWindowsOnAllScreens(), Screen.fromNS
   title: -> @proxy.title()
   isWindowMinimized: -> @proxy.isWindowMinimized()
   focusWindow: -> @proxy.focusWindow()

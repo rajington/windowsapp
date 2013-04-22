@@ -96,6 +96,12 @@
     }]];
 }
 
+- (NSArray*) otherWindowsOnAllScreens {
+    return [[SDWindowProxy visibleWindows] filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(SDWindowProxy* win, NSDictionary *bindings) {
+        return !CFEqual(self.window, win.window);
+    }]];
+}
+
 + (AXUIElementRef) systemWideElement {
     static AXUIElementRef systemWideElement;
     static dispatch_once_t onceToken;
@@ -284,7 +290,7 @@ NSPoint SDMidpoint(NSRect r) {
     SDWindowProxy* thisWindow = [SDWindowProxy focusedWindow];
     NSPoint startingPoint = SDMidpoint([thisWindow frame]);
     
-    NSArray* otherWindows = [thisWindow otherWindowsOnSameScreen];
+    NSArray* otherWindows = [thisWindow otherWindowsOnAllScreens];
     NSMutableArray* closestOtherWindows = [NSMutableArray arrayWithCapacity:[otherWindows count]];
     
     for (SDWindowProxy* win in otherWindows) {
