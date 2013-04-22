@@ -24,6 +24,7 @@ Table of contents:
     * [Type "App"](#type-app)
     * [Other Type](#other-types)
     * [Events](#events)
+* [Mailing List](#mailing-list)
 * [Change log](#change-log)
 * [Todo](#todo)
 * [License](#license)
@@ -258,6 +259,11 @@ The rest you'll have to look up for yourself.
 'app_hidden', callback args: (app)
 'app_shown', callback args: (app)
 ```
+
+## Mailing List
+
+There's a Google Groups [mailing list](https://groups.google.com/forum/?fromgroups=#!forum/windows-app) for discussion about config ideas, techniques, or anything related to Windows.app
+
 
 ## Change log
 
