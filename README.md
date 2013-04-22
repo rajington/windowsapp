@@ -49,10 +49,11 @@ Here are some things you can do with Windows.app's simple API ([actual API docs 
 - determine window sizes and positions
 - move and resize windows
 - change focus to a given window
+- listen to global events (window created, app launched/killed, etc)
 - transfer focus to the closest window in a given direction
 - run shell scripts
 - open apps, links, or files
-- listen to global events (window created, app launched/killed, etc)
+- get free pizza (okay not really)
 - and more!
 
 Is the API missing something you need? File an issue and let me know!
