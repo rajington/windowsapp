@@ -272,8 +272,10 @@ There's a Google Groups [mailing list](https://groups.google.com/forum/?fromgrou
 
 ## Change log
 
+- HEAD
+  - Fixed `open()`
 - 2.3.3
-  - Fix critical bug whereby configs wouldn't load at all if you didn't have the langs.json file (thanks [Rajarshi Nigam](https://github.com/rajington)!)
+  - Fixed critical bug whereby configs wouldn't load at all if you didn't have the langs.json file (thanks [Rajarshi Nigam](https://github.com/rajington)!)
   - Added `win.otherWindowsOnAllScreens()`
   - The functions `win.focusWindow[Direction]()` now take into account all screens
 - 2.3.2

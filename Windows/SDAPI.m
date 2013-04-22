@@ -80,7 +80,8 @@
     NSTask* task = [[NSTask alloc] init];
     task.launchPath = cmd;
     task.arguments = args;
-    task.currentDirectoryPath = pwd;
+    if (pwd)
+        task.currentDirectoryPath = pwd;
     task.standardInput = inPipe;
     task.standardOutput = outPipe;
     task.standardError = errPipe;

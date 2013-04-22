@@ -59,7 +59,7 @@ api =
       null
 
 shell = (path, args, input, pwd) -> SDAPI.shell_args_input_pwd_ path, args, input, pwd
-open = (thing) -> SDAPI.shell_args_input "/usr/bin/open", [thing], null
+open = (thing) -> SDAPI.shell_args_input_pwd_ "/usr/bin/open", [thing], null, null
 bind = (key, modifiers, fn) -> SDKeyBinder.sharedKeyBinder().bind_modifiers_fn_ key, modifiers, fn
 log = (str) -> SDLogWindowController.sharedLogWindowController().show_type_ str, "SDLogMessageTypeUser"
 require = (file) -> SDConfigLoader.sharedConfigLoader().require(file)
