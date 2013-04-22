@@ -65,7 +65,9 @@ void fsEventsCallback(ConstFSEventStreamRef streamRef, void *clientCallBackInfo,
 
 - (void) updateAltLangsMap {
     NSData* langsData = [NSData dataWithContentsOfFile:[@"~/.windowsapp/langs.json" stringByStandardizingPath]];
-    self.langsMap = [NSJSONSerialization JSONObjectWithData:langsData options:0 error:NULL];
+    if (langsData != nil) {
+        self.langsMap = [NSJSONSerialization JSONObjectWithData:langsData options:0 error:NULL];
+    }
 }
 
 - (void) reloadConfigIfWatchEnabled {
