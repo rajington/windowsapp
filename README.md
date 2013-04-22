@@ -39,7 +39,7 @@ You can write your config file using either:
 
 - JavaScript as `~/.windowsapp.js`
 - [CoffeeScript 1.6.2](http://coffeescript.org/) as `~/.windowsapp.coffee`
-- any language which compiles down to JavaScript (see [Using Other Languages](#using-other-languages) below).
+- any language which compiles down to JavaScript (see [Using Other Languages](#using-other-languages) below)
 
 Then, in your config file, `bind()` some global hot keys to your own JavaScript functions which do window-managery type things.
 
